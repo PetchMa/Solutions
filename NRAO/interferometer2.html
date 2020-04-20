@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interferometery 1 </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Interferometery 2
+        </h1>
+    </div>
+    <p>What if we have interferometers that are not on the same altitude? What happens when we have an observation that is very long? For this we need to preform a 3-D 
+        fourier transform.
+    </p>
+    <p>Imagine this coordinate system where the base line vector and the source unit vector is defined as the following: </p>
+    <div style="text-align: center">
+        <img src="source.png">
+    </div>
+    \[\vec{b} = \langle u, v, w \rangle\]
+    \[\hat{s} = \langle l, m, \sqrt{1-l^2-m^2} \rangle\]
+    <p>We know from before between two radio telescopes, the lagin time \(\tau_g\) is equal to \(\vec{b} \cdot \hat{s} \over c\). If we want to know the phase of our lag
+        we can simply do the following,  \(\vec{b} \cdot \hat{s} \over \lambda\). Therefor we can write the ocilation as the following=> since we only working with real time values.</p>
+        \[e^{-2\pi i {\vec{b} \cdot \hat{s} \over \lambda} }\]
+    <p>So, the visibility function as a position in the sky by the spectrum, is the product of the source spectrum times the phase it comes in at. </p>
+    \[V_{ij}(\nu) = S_\nu \exp(-2\pi i {\vec{b} \cdot \hat{s} \over \lambda})\]
+    <p>The entire visibility function in response to the baseline, is the integral over the product of the two primary beams, and the source flux density of the sky
+        times the phase term of the position on the sky. We integrate over the entire sky. 
+    </p>
+    \[V_{\nu}(u,v,w) = \int \int A(l,m)I_\nu(l,m)\exp(-2\pi i {\vec{b} \cdot \hat{s} \over \lambda}) dl dm\]
+    \[V_{\nu}(u,v,w) = \int \int A(l,m)I_\nu(l,m)\exp(-2\pi i {(ul+vm+w\sqrt{1-l^2-m^2}) \over \lambda}) dl dm\]
+    <p>If we have the telescopes at the same level then the w term gets to 0. Then we get back our 2d fourier transform of sky.</p>
+    \[V_{\nu}(u,v,w) = \int \int A(l,m)I_\nu(l,m)\exp(-2\pi i {(ul+vm) \over \lambda})\exp(-2\pi i {(w\sqrt{1-l^2-m^2}) \over \lambda}) dl dm\]
+    \[V_{\nu}(u,v,w) = \int \int A(l,m)I_\nu(l,m)\exp(-2\pi i {(ul+vm) \over \lambda}) dl dm\]
+    <p>Now how does this preform a sampling of the sky? If we have 3 radio telescopes we have effectively have 3 groups of pairs and thus 3 samples, however, we also
+         have opposite sampling, which samples a different part of the sky, example A=>B != B=>A and thus we have six. Note that this opposite sampling reflects the complex conjugate of
+         the fourier transfomr. But however, our values from the sky are always real, so the negative will always be the complex conjugate. 
+    </p>
+    <p>What happens is we take the percieved sky which is what we're trying to get, we take the sampling of the UV plane and apply the fourier transform to get back the sky we're trying to look
+        at. Why? because originally our sampling is the fourier transform of the convolution between the sky and each telescope's point source of that sky. The image below shows the process.
+    Note that the true UV-plane is what we're trying to create, but obviously we don't have infinite raio telescopes and thus we have a sampled UV plane.</p>
+        <div style="text-align: center">
+            <img src="side.png" width="600px">
+        </div>
+    </body>
+</html>
