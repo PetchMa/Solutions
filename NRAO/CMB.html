@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Microwave Background Radiation </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Cosmic Microwave Background Radiation - CMB
+        </h1>
+    </div>
+   <p>The universe is filled with blackbody radiation, this background and persisten radiation is the relict
+       of the big bang. The peak brightness is around \(v_{rm max} = 160 GHz\)
+   </p>
+    <div style="text-align: center">
+        <img src="cmb.png" width="600px">
+
+    </div>
+  <p>The problem is that this entire background radiation is near isotropic and thus very hard to detect if isotropic 
+      if it is coming from everywhere. It was accidentally discovered by Arno Penzias and Robert Wilson 
+       at Bell Labs.  They reported careful measurements indicating an isotropic "excess antenna temperature" produced by their horn antenna at 4080 MHz.  
+       Subsequent measurements, especially by the COBE 
+       (COsmic Background Explorer) satellite, have demonstrated that this "excess noise" 
+      matches a blackbody spectrum within 50 parts per million well into the far infared. 
+  </p>
+  <p>The universe is spatially homogenous and isotropic, so the properties of the CMB can be calculated 
+      by considering what happens to blackbody radiation in a small cube whose side length a(t) slowly grows 
+      with time t since the big bang. The first law of thermodynamics requires energy conservation as the total heat Q, 
+      internal energy U, and work W done by the radiation in the cube change as the volume V=a3 of the cube grows by a small amount dV</p>
+      \[dQ = dU + dW = dU + p dV\]
+      <p>Radiation exerts pressure because photons of frequency  have momentum hc as well as energy h.he radiation pressure equals the rate of momentum transfer per unit area.  
+          Blackbody radiation is isotropic so the radiation pressure p produced by photons of frequency  is</p>
+          \[p_\nu = {2 \over c} \int B_\nu \cos^2 \theta d \Omega\]
+          \[p = \int_0^\infty p_\nu d \nu = {2 \over c}
+          \int_0^\infty
+          B_\nu d\nu \int_0^{2 \pi} d \phi \int_0^{\pi/2} \cos^2 \theta \sin
+          \theta d\theta = {4 \pi B \over c} \int_0^1 x^2 dx\]
+        <p>Substituting the radiation energy density u=4Bc and integrating relates the radiation pressure and energy density of 
+            isotropic radiation:</p>
+            \[p = {u
+                \over
+                3}\]
+        <p>The second law of thermodynamics relates the change in entropy S to the change in heat Q and the temperature T:</p>
+        \[dS
+        =
+        {dQ
+        \over
+        T}\]
+        \[dS = {dU \over T} + p {dV \over T} = {d (uV) \over T} + {u
+            \over 3} {dV \over T} = {u dV \over T} + {V du \over T} + {u
+            dV \over 3 T}\]
+        \[dS = {4 u \over 3 T}dV + {V \over T} {du \over dT}
+        dT\]
+        <p>Setting dS=0 for an adiabatic expansion and substituting \(u=4\sigma T^4c\) yields</p>
+\[{dV \over V} = - 3{d T
+    \over
+    T}~.\]<p>Therefore, the temprature of the universe is inversely proportional to the size of the universe. The total number of photons 
+        in the expanding cube is unchanged, but the wavelength  of each photon grows linearly with the scale size a(t).  
+        Astronomers frequently use the term redshift defined by</p>
+        \[z \equiv {\lambda_{\rm o}
+        - \lambda_{\rm e} \over \lambda_{\rm e}}= {\lambda_{\rm o} \over
+        \lambda_{\rm e}} -1\]
+        <p>Thus the temperature of the CMB at any redshift z is</p>
+        \[T = T_0 (1 + z)~, T\approx 2.725\]
+</body>
+</html>

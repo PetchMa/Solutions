@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations - First Order Seperable </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Differential Equations - First Order Seperable 
+        </h1>
+        <img style="align-content: center" src="dif.gif" width="300px" height="auto">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b>Differential equations are a set of problems that trys to reverse the information loss due to differentiation. 
+    When we take derivatives of functions we loose out on constants and thus naturally given a derivative it is difficult to get back the original equations. 
+    </p>
+    <p>In one such technique is the seperable differential equations. These are easy in terms of computing. Here is an example</p>
+    <p style="font-size: 18px"><b>Problem: </b> Solve the following differential equation. 
+    </p> 
+    \[\frac{du}{dv} = \frac{2v\sqrt{1+u^2}}{u}\]
+    \[\frac{u}{\sqrt{1+u^2}}du = 3vdv\]
+    <p>We can take the integral from both sides. </p>
+    \[\int\frac{u}{\sqrt{1+u^2}}du = \int 3vdv\]
+    <p>We preform the u sub technique to solve the integral.</p>
+    \[\int\frac{1}{\sqrt{k}}dk = \int 3vdv\]
+    \[2(u^2+1)^{\frac{1}{2}} = \frac{3}{2}v^2+C\]
+    \[u = \sqrt{(\frac{3}{2}v^2+C)^2-1}\]
+    <p>The ways to identify when the problems are seperable differential equations are when the parts of dy and dx can be seperated by itself. Sometimes
+        however this may not be possible and requires additional methods to solve. For example a change in variables.
+    </p>
+    <p style="font-size: 18px"><b>Problem: </b> Solve the following differential equation. 
+    </p> 
+    \[3x+y = y'\]
+    <p>First we want to solve for the y' but we can change the variables to make this solvable using seperable methods. We let\(u =3x+y\)</p>
+    \[u= 3x+y\]
+    \[u= y'\]
+    \[u-3x = y \]
+    <p>We can treat u as a function and then take the derivative in respect to x</p>
+    \[u'-3 = y'\]
+    <p>Replace with u from what we set it as from before.</p>
+    \[u'-3 = u\]
+    \[u'-3 = u\]
+    \[u'=u+3\]
+    \[\frac{du}{dx}=u+3 \]
+    <p>Notice how we seperated the variables to just this form.</p>
+    \[\frac{1}{u+3}du=dx \]
+    \[\int \frac{1}{u+3}du=\int dx \]
+    \[\ln(u+3)+C=x+C \]
+    \[u+3-3=Ce^x-3 \]
+    \[u=Ce^x-3 \]
+
+
+</body>
+</html>

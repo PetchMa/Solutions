@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiative Transfer</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+       Radiative Transfer
+        </h1>
+    </div>
+    <p>Radiative transfer is looking at radiation traveling through objects, rather than through free space. Radiation traveling through free space can be defined as, \(dI_v \over dS\)
+         this is where S the in the direction through the medium to detector. \(\tau\) is the opposite direction of this transfer. 
+    </p>
+    <div style="text-align: center">
+        <img src="radiative.png" width="600px">
+
+    </div>
+    <h3>Absorbtion</h3>
+    <div style="text-align: center">
+        <img src="absorb.jpg" width="600px">
+
+    </div>
+    <p>Radiation can be absorbed by an element. The small change in probability of a photon being absorbed is \(dp_v\) agaisnt the \(dS\) and so the probability of an absorbtion on that
+        frequency per slice of the volume, is a constant value.
+    </p>
+    \[k_v= {dp_v \over dS}\]
+    <p>Why only take a thin slice of the absorber \(S\)? Because, the probability will no longer scale linearly with a thick volume. This simple macroscopic model doesn't depend on the microscopic physical processes by which photons are absorbed.  
+        It is like the ideal gas model, which describes the macroscopic properties of a gas without going into the microscopic details about how individual gas molecules behave.</p>
+    <p>What is the percent of intensity lost? That can be described here in the following. This is because the percent loss is the probability of absorbtion.</p>
+    \[{dI_v \over I_v} = -dp_v\]
+    \[{dI_v \over I_v} = -k_vdS\]
+    <p>We can then integrate bothsides to get the following bounded by the entire solid. </p>
+    \[\int_{s_{\rm in}}^{s_{\rm out}} {1 \over I_\nu} d I_\nu= -\int_{s_{\rm
+        in}}^{s_{\rm out}} \kappa_\nu(s')ds' = \ln I_\nu \big|_{s_{\rm
+        in}}^{s_{\rm out}}\]
+    \[\ln[I_\nu(s_{\rm out})] - \ln[I_\nu(s_{\rm in})] = - \int_{s_{\rm
+        in}}^{s_{\rm out}} \kappa_\nu (s') ds'\]
+        <p>We can simplify the following </p>
+            \[e^{\ln[I_\nu(s_{\rm out})] -\ln[I_\nu(s_{\rm in})]} = e^{- \int_{s_{\rm
+            in}}^{s_{\rm out}} \kappa_\nu (s') ds'}\]
+            \[{e^{\ln[I_\nu(s_{\rm out})]} \over e^{\ln[I_\nu(s_{\rm in})]}} = e^{- \int_{s_{\rm
+            in}}^{s_{\rm out}} \kappa_\nu (s') ds'}\]
+            \[I_\nu(s_{\rm out}) = I_\nu(s_{\rm in}) \cdot exp(- \int_{s_{\rm
+            in}}^{s_{\rm out}} \kappa_\nu (s') ds')\]
+            \[\bbox[border:3px blue solid,7pt]{\tau_\nu \equiv \int_{s_{\rm
+            out}}^{s_{\rm in}} -\kappa_\nu(s') ds'}\]
+        <p>We can say that \(\tau_\nu \) is the opacity of the solid because it represents the entire since we sum the infinitely small slices of the probability of photons that 
+            will be absorbed. Thus we can represent the following by plugging in the value we set from before. We described this as the negative path of S because we want the optical depth. How much the 
+            observer can see THROUGH the substance. 
+        </p>
+        \[I_\nu(s_{\rm out}) = I_\nu( s_{\rm in}) e^{-\tau_\nu} \]
+        <h3>Emission </h3>
+        <div style="text-align: center">
+            <img src="emission.png" width="600px">
+        </div>
+        <p>Emission happens when this radiate out light and photons based on its energy. Like a metal rod glowing from the heat. We can describe the emission process as the opposite of how described
+             absorbtion, as the amount the intensity emitted per slice.
+        </p>
+        \[\bbox[border:3px blue solid,7pt]{\epsilon_\nu \equiv {dI_\nu \over
+            ds}}\]
+            <p>That is ignoring absorbtion however taking into acount both absorbtion and emission we get the following.</p>
+            \[{d I_\nu \over ds} = 0\]
+            \[{d I_\nu \over ds} = -{d I_\nu \over ds}
+            +{d I_\nu \over ds}\]
+            \[{-dI_v \over dS } = k_vI_v\]
+            \[{\epsilon_\nu = {dI_\nu \over
+                ds}}\]
+            \[\bbox[border:3px blue solid,7pt]{{d I_\nu \over ds} = -\kappa_\nu
+            I_\nu + \epsilon_\nu}\]
+        <h3>Thermodynamical Equilibrium</h3>
+        <p>The law of thermodynamical equilibrium is the balance between the two isolated pools of energy. You cannot heat one and cool the other at the same time. Instead
+        you bring the system to an equal amount of energy. If one part is heated and the other is cooled and the process continues indefintely, this creates energy from nothing. 
+        </p>
+        <p>Thus in thermodynamical equilibrium this must be true. </p>
+        \[{d I_\nu \over ds} = 0 {\rm ~and~} I_\nu = B_\nu(T)\]
+        <p>We sub it in </p>
+        \[{d I_\nu \over ds} = 0 = -\kappa_\nu B_\nu (T) + \epsilon_\nu\]
+        \[{{\epsilon_\nu (T) \over \kappa_\nu
+            (T
+            )} = B_\nu(T)}\]
+            <p>We know the following equation from previous we can sub in values for it.</p>
+        \[B_\nu \approx {2 k T \nu^2 \over
+            c^2}~,\]
+            \[I_\nu = {2 k T_{\rm b}(\nu) \nu^2 \over c^2}\]
+            <p>Move the values around and we get the following</p>
+            \[{T_{\rm b}(\nu) \equiv
+            {I_\nu c^2 \over 2 k \nu^2}}\]
+            <p>Lets take a real world example of light passing through the atmosphere. So we start off with the original equation. </p>
+            \[{d I_\nu \over ds} = 0 = -\kappa_\nu B_\nu (T) + \epsilon_\nu\]
+            \[{dI_\nu \over \kappa_\nu dS} = {-dI_\nu \over d_\tau}\]
+            \[\epsilon_\nu =
+            \kappa_\nu B_\nu(T_{\rm A})\]
+            \[ {dI_\nu \over  dS}= -\kappa_\nu B_\nu (T) + \kappa_\nu B_\nu(T_{\rm A})\]
+            \[{dI_\nu \over dS} {1 \over \kappa_\nu}= - B_\nu (T) + B_\nu(T_{\rm A})\]
+            \[{-dI_\nu \over d_\tau}= - B_\nu (T) + B_\nu(T_{\rm A})\]
+            <p>We then multiply both sides by \(e^{-\tau}\) and integrate by parts</p>
+            \[\frac{dI_\nu}{\kappa_\nu dS} = I_v\]
+            \[V= I_v\]
+            \[dV= {dI_v \over d\tau}\]
+            \[U =e^{-\tau}\]
+            \[dU =-e^{-\tau}\]
+            \[\int e^{-\tau}{-dI_\nu \over d_\tau}= \int e^{-\tau}(- B_\nu (T) + B_\nu(T_{\rm A}))\]
+            \[e^{-\tau} I_\nu
+            \vert_0^{\tau_{\rm A}} - \int_0^{\tau_{\rm A}} -e^{-\tau} I_\nu\ d \tau
+            =
+            \int_0^{\tau_{\rm A}} I_\nu\ e^{-\tau} d\tau - B_\nu(T_{\rm A})
+            \int_0^{\tau_{\rm A}} e^{-\tau} d \tau\]
+            \[I_\nu(\tau = 0) = ( 1 - e^{-\tau_{\rm A}}) B_\nu(T_{\rm
+                A})\]
+            <p>However, we need a function for \(\tau_A\) but it is a function of the zenth which is normal to the ground. Thus we have the following.</p>
+            \[\tau_{\rm A} = \tau_{\rm Z}\, {\rm
+                sec}\, z\]
+            \[I_\nu =
+            [1 - \exp(-\tau_{\rm Z}\, {\rm sec} \, z)]{2 k T_{\rm A} \nu^2 \over
+            c^2}\]
+            \[T_{\rm b} = {I_\nu c^2 \over 2 k \nu^2} = T_{\rm A} \biggl[1 -
+            \exp (-\tau_{\rm Z}\,{\rm sec}\,z)\biggr]\]
+            <h3>Emission, Absorption, and Reflection From an Opaque Body</h3>
+            <P>Assuming a completely opaque body. The absorption coefficient a is the probability that an incident photon of frequency  
+                will be absorbed. The reflection coefficient r is the probability that an incident photon of frequency  will be reflected.</P>
+             <p>In equilibrium, the spectral power absorbed per unit area, Pa, must equal the power emitted per unit area. </p>   
+             \[P_{\rm a} = a_\nu \int B_\nu \cos \theta d \Omega
+             \]
+             \[P_{\rm a} = a_\nu \int_{\phi = 0}^{2\pi} \int_{\theta=0}^{\pi/2}
+             B_\nu \cos\theta \sin\theta d \theta d \phi\]
+             \[P_{\rm a} = a_\nu  \int_{\theta=0}^{\pi/2}\int_{\phi = 0}^{2\pi}
+             B_\nu \cos\theta \sin\theta d \phi d \theta \]
+             \[P_{\rm a} = a_\nu 2 \pi B_\nu \int_0^{\pi/2} \cos \theta \sin \theta
+             d \theta\]
+             \[P_{\rm a} = a_\nu \times \pi B_\nu\]
+             <p>We also have the spectral emissivity. Which is given by the following property.</p>
+             \[\bbox[border:3px blue solid,7pt]{e_\nu = a_\nu = 1 -
+                r_\nu}\]
+                \[T_{\rm b}(\nu) = a_\nu T = (1 - r_\nu)
+                T\]
+                <p>Thus if something reflects all the light </p>
+                \[T_{\rm b}(\nu) = 0\]
+
+</body>
+</html>

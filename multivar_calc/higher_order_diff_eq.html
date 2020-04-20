@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Order Differential Equations - Crammers Rule</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Higher Order Differential Equations - Crammers Rule
+        </h1>
+        <img style="align-content: center" src="diff_eq.png" height="300">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> With higher order differential equations we are often given an equation with multiple
+    order derivatives that make it very difficult to solve traditionally with our first and second order techniques. Here we will explore crammer's rule 
+with a problem. Here are things you need to know before hand.</p>
+<p>\(n\) Denotes the order of the differential equation.</p>
+\[y(x) = y_c(x) + y_p(x)\]
+\[y_p(x)=\sum_{i=0}^{n} u_iy_i = u_1y_1+u_2y_2+u_3y_3 + ...\]
+
+\[u_1=\int \frac{g(x)W_1(x)}{W(x)}dx\]
+\[y_c(x)=\sum_{i=0}^{n} c_ie^{r_ix}= c_1e^{r_1x}+c_2e^{r_2x}+c_3e^{r_3x} + ...\]
+\[S = \{y_1, y_2, y_3 ...\}\]
+
+\[W(x) = det\begin{bmatrix}
+ y_1& 
+y_2 & 
+ y_3 \\[1ex] 
+\frac{d y_1}{d x } & 
+\frac{d y_2}{d x } & 
+\frac{d y_3}{d x }\\[1ex]
+\frac{d^2 y_1}{d x^2 } & 
+\frac{d^2 y_2}{d x^2 } & 
+\frac{d^2 y_3}{d x^2 }
+\end{bmatrix} \]
+
+
+\[
+           W(x) = y_1
+        det\begin{bmatrix}
+        \frac{d y_2}{d x } & 
+        \frac{d y_3}{d x }\\[1ex] 
+        \frac{d^2 y_2}{d x^2 } & 
+        \frac{d^2 y_3}{d x^2 }
+            \end{bmatrix}
+        - y_2
+        det\begin{bmatrix}
+        \frac{d y_3}{d x } & 
+        \frac{d y_1}{d x }\\[1ex] 
+        \frac{d^2 y_3}{d x^2 } & 
+        \frac{d^2 y_1}{d x^2 }
+            \end{bmatrix}
+       +  y_3
+       det\begin{bmatrix}
+       \frac{d y_1}{d x } & 
+       \frac{d y_2}{d x }\\[1ex] 
+       \frac{d^2 y_1}{d x^2 } & 
+       \frac{d^2 y_2}{d x^2 }
+           \end{bmatrix}
+            \]
+
+            \[W_1(x) = det\begin{bmatrix}
+           0& 
+           y_2 & 
+            y_3 \\[1ex] 
+           0 & 
+           \frac{d y_2}{d x } & 
+           \frac{d y_3}{d x }\\[1ex]
+           1& 
+           \frac{d^2 y_2}{d x^2 } & 
+           \frac{d^2 y_3}{d x^2 }
+           \end{bmatrix} \]
+\[W_2(x) = det\begin{bmatrix}
+ y_1& 
+0 & 
+ y_3 \\[1ex] 
+\frac{d y_1}{d x } & 
+0 & 
+\frac{d y_3}{d x }\\[1ex]
+\frac{d^2 y_1}{d x^2 } & 
+1 & 
+\frac{d^2 y_3}{d x^2 }
+\end{bmatrix} \]
+\[W_3(x) = det\begin{bmatrix}
+ y_1& 
+y_2 & 
+ 0 \\[1ex] 
+\frac{d y_1}{d x } & 
+\frac{d y_2}{d x } & 
+0\\[1ex]
+\frac{d^2 y_1}{d x^2 } & 
+\frac{d^2 y_2}{d x^2 } & 
+1
+\end{bmatrix} \]
+            <!-- \[
+            W_1(x) = 
+         - y_2
+         det\begin{bmatrix}
+         \frac{d y_3}{d x } & 
+         0\\[1ex] 
+         \frac{d^2 y_3}{d x^2 } & 
+         1
+             \end{bmatrix}
+        +  y_3
+        det\begin{bmatrix}
+        0 & 
+        \frac{d y_2}{d x }\\[1ex] 
+        1 & 
+        \frac{d^2 y_2}{d x^2 }
+            \end{bmatrix}
+             \] -->
+<p>Yes, I know, holy frick this is a lot to do. Well ye ... theres a lot more.. </p>
+<p><b>Problem: </b>Solve the following differential equation.</p>
+\[y'''-2y''-21y'-18y = 3+4e^{-x}\]
+\[g(x) =  3+4e^{-x}\]
+\[y(x) = y_c(x) + y_p(x)\]
+<p>We need to solve for the compliment solution first.</p>
+\[y_c(x)=\sum_{i=0}^{n} c_ie^{r_ix}= c_1e^{r_1x}+c_2e^{r_2x}+c_3e^{r_3x} + ...\]
+\[r^3-2r^2-21r-18 = 0\]
+\[(r+3)(r-6)(r+1) = 0\]
+\[y_c(x)=c_1e^{-3x}+c_2e^{-1x}+c_3e^{6x}\]
+<p>Now we solve for the particular solution. We need our fundemental set of solutions given from our compliment solution.</p>
+\[S = \{y_1, y_2, y_3 ...\}\]
+\[S = \{e^{-3x}, e^{-1x}, e^{6x}\}\]
+<p>Now we can find the particular solution</p>
+\[y_p(x)=\sum_{i=0}^{n} u_iy_i = u_1y_1+u_2y_2+u_3y_3 + ...\]
+\[y_p(x)= u_1y_1+u_2y_2+u_3y_3\]
+<p>The values for each of the u can be found by the following.</p>
+\[u_1=\int \frac{g(x)W_1(x)}{W(x)}dx\]
+<p>To find u we need to find the parts of the function within the integral. </p>
+\[g(x) =  3+4e^{-x}\]
+\[W(x) = det\begin{bmatrix}
+ e^{-3x}& 
+ e^{-x} & 
+ e^{6x} \\[1ex] 
+
+ -3e^{-3x}& 
+-e^{-x} & 
+6e^{6x} \\[1ex]
+
+9e^{-3x} & 
+e^{-x} & 
+36e^{6x} 
+\end{bmatrix} \]
+\[
+           W(x) =e^{-3x}
+        det\begin{bmatrix}
+        -e^{-x}& 
+        6e^{6x}\\[1ex] 
+        e^{-x} & 
+        36e^{6x}
+            \end{bmatrix}
+        - e^{-x}
+        det\begin{bmatrix}
+        -3e^{-3x} & 
+        6e^{6x}\\[1ex] 
+        9e^{-3x} & 
+        36e^{6x}
+            \end{bmatrix}
+       +  e^{6x}
+       det\begin{bmatrix}
+       -3e^{-3x} & 
+       \frac{d y_2}{d x }\\[1ex] 
+       9e^{-3x} & 
+      e^{-x}
+           \end{bmatrix}
+            \]
+    \[W(x) = e^{-3x}[-36e^{-x}e^{6x}+6e^{-x}e^{6x}] - e^{-x}[-3 (36)e^{-3x}e^{-x}+9e^{-3x}(6)e^{6x}] + e^{-x}[-3e^{-3x}e^{-x}+9e^{-3x}e^{-x}] \]
+     \[W(x) = 126e^{2x}\]           
+
+<p>Now we find the index values of \(W_1(x)\)</p>
+
+
+    \[W_1(x) = det\begin{bmatrix}
+    0& 
+    y_2 & 
+    y_3 \\[1ex] 
+    0 & 
+    \frac{d y_2}{d x } & 
+    \frac{d y_3}{d x }\\[1ex]
+    1& 
+    \frac{d^2 y_2}{d x^2 } & 
+    \frac{d^2 y_3}{d x^2 }
+    \end{bmatrix} \]
+            \[
+            W_1(x) = 
+         - e^{-x}
+         det\begin{bmatrix}
+         6e^{6x} & 
+         0\\[1ex] 
+         36e^{6x} & 
+         1
+             \end{bmatrix}
+        +  e^{6x}
+        det\begin{bmatrix}
+        0 & 
+        -e^{-x}\\[1ex] 
+        1 & 
+        e^{-x}
+            \end{bmatrix}
+             \] 
+        \[
+            W_1(x) = 
+            - e^{-x}
+            [
+            6e^{6x}]
+            +  e^{6x}[
+            -e^{-x}] =7e^{5x}
+            
+        \]
+<p>Next we do \(W_2(x)\) ...</p>
+\[W_2(x) = det\begin{bmatrix}
+ y_1& 
+0 & 
+ y_3 \\[1ex] 
+\frac{d y_1}{d x } & 
+0 & 
+\frac{d y_3}{d x }\\[1ex]
+\frac{d^2 y_1}{d x^2 } & 
+1 & 
+\frac{d^2 y_3}{d x^2 }
+\end{bmatrix} \]
+
+\[
+    W_2(x) = y_1
+    det\begin{bmatrix}
+    0 & 
+    \frac{d y_3}{d x }\\[1ex] 
+    1 & 
+    \frac{d^2 y_3}{d x^2 }
+        \end{bmatrix}
+    +  y_3
+    det\begin{bmatrix}
+    \frac{d y_1}{d x } & 
+    0\\[1ex] 
+    \frac{d^2 y_1}{d x^2 } & 
+    1
+        \end{bmatrix}
+ \]
+ \[
+ W_2(x) = e^{-3x} [6e^{6x}]
++  e^{6x}[-3e^{-3x}] = -9e^{3x}
+\]
+<p>Then we do the samething again... \(W_3(x)\)</p>
+\[W_3(x) = det\begin{bmatrix}
+ y_1& 
+y_2 & 
+ 0 \\[1ex] 
+\frac{d y_1}{d x } & 
+\frac{d y_2}{d x } & 
+0\\[1ex]
+\frac{d^2 y_1}{d x^2 } & 
+\frac{d^2 y_2}{d x^2 } & 
+1
+\end{bmatrix} \]\
+\[
+    W_3(x) = y_1
+    det\begin{bmatrix}
+    \frac{d y_2}{d x } & 
+    0\\[1ex] 
+    \frac{d^2 y_2}{d x^2 } & 
+    1
+    \end{bmatrix}
+    - y_2
+    det\begin{bmatrix}
+    0& 
+    \frac{d y_1}{d x }\\[1ex] 
+    1& 
+    \frac{d^2 y_1}{d x^2 }
+    \end{bmatrix}
+    \]
+
+    \[
+    W_3(x) = y_1
+    \frac{d y_2}{d x } 
+    - y_2
+    \frac{d y_1}{d x }\\[1ex] 
+    \]
+
+    \[
+    W_3(x) = e^{-3x}
+    (-e^{-x}) 
+    - e^{-x}
+    (-3e^{-3x}) =2e^{-4x}
+    \]
+    <p>After all this work we need to compute the following integrals for each of the u values. </p>
+    \[u_1=\int \frac{g(x)W_1(x)}{W(x)}dx\]
+    \[u_1=\int \frac{[3+4e^{-x}](7e^{5x})}{126e^{2x}}dx\]
+    \[u_1=\frac{1}{18}\int [3e^{3x}+4e^{3}]dx\]
+    \[u_1=\frac{1}{18}\int 3e^{3x}dx+\int 4e^{3}dx\]
+    \[u_1=\frac{1}{18}[e^x+2e^{2x}]\]
+
+  <p>Then we solve the the \(u_2\)</p>     
+  \[u_2=\int \frac{g(x)W_1(x)}{W(x)}dx\]
+    \[u_2=\int \frac{[3+4e^{-x}](-9e^{3x})}{126e^{2x}}dx\]
+
+    \[u_2=\frac{-1}{14}\int [3e^{x}+4dx\]
+    \[u_2=\frac{-1}{14}[e^x+24x]\] 
+
+    <p>Then we solve the the \(u_3\)</p>     
+  \[u_3=\int \frac{g(x)W_1(x)}{W(x)}dx\]
+    \[u_3=\int \frac{[3+4e^{-x}](2e^{-4x})}{126e^{2x}}dx\]
+
+    \[u_3=\frac{1}{63}\int 3e^{-6x}+4e^{-7x}\]
+    \[u_3=\frac{1}{63}[-\frac{1}{2}e^{-6}-\frac{4}{7}e^{-7x}]\] 
+    <p>Now we put everything together... </p>
+    \[y(x) = y_c(x) + y_p(x)\]
+    \[y(x)=c_1e^{-3x}+c_2e^{-1x}+c_3e^{6x} + \frac{1}{18}[e^x+2e^{2x}]e^{-3x} + \frac{-1}{14}[e^x+24x]e^{-x}+ \frac{1}{63}[-\frac{1}{2}e^{-6}-\frac{4}{7}e^{-7x}]e^{6x}\]
+</body>
+</html>

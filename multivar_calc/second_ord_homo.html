@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations - Second Order Differential Equations => Homogenous</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Differential Equations - Second Order Homogenous
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> With second order differential equations you have functions with second order derivatives which makes it 
+        difficult to solve with first order techniques. Thus we need to solve these differential equations in other ways. Given a homogenous equation
+        , an equation that equals 0, we can solve these with this given formula. 
+    </p>
+    <p>Let \(r\) be the roots of a second order homogenous equation. We replace y with \(r\) raised the to same power as the order of differentiation.</p>
+    \[ay'' + by'+cy = 0\]
+    <p>We would replace y with the following</p>
+    \[ar^2+ br+c = 0\]
+    \[r = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
+    <p>With the given r values you can sub it into this equation:...</p>
+    \[y(x) = c_1y^{r_1x}+c_2e^{r_2x}\]
+    <p>This is only if the equation gives us real and distinct roots. If you get equal roots, we take the following equation => </p>
+    \[y(x) = c_1y^{rx}+c_2xe^{rx}\]
+    <p>If we have a complex conjugate root, then we use the following: </p>
+    \[r = \alpha \pm \beta i\]
+    \[y(x) = e^{\alpha x}[c_1\cos(\beta x)+ c_2 \sin(\beta x)]\]
+    <p><b>Mini proof for distinct roots: </b>This technique works because => if we set that \(r_{1}\) and \(r_{2}\) are the roots to the equation \(ar^2+br+c=0\).</p>
+    \[ ay''+by'+cy =0\]
+    \[y = e^{r_1x+c_1} + e^{r_2x+c_2}\]
+    \[y' = r_1e^{r_1x} + r_2e^{r_2x}\]
+    \[y'' = r_1^2e^{r_1x} + r_2^2e^{r_2x}\]
+    <p>Now if we sub into the orignal equation</p>
+    
+    \[ LS=a( r_1^2e^{r_1x} + r_2^2e^{r_2x})+ b(r_1e^{r_1x} + r_2e^{r_2x})+c(e^{r_1x+c_1} + e^{r_2x+c_2})\]
+    \[ =ar_1^2e^{r_1x} + ar_2^2e^{r_2x}+ br_1e^{r_1x} + br_2e^{r_2x}+ce^{r_1x+c_1} + ce^{r_2x+c_2} \]
+    <p>We can rearrange the equation to the following.</p>
+    \[ =[ar_1^2e^{r_1x} +br_1e^{r_1x} +ce^{r_1x+c_1} ]+ [ar_2^2e^{r_2x}+ br_2e^{r_2x}+ ce^{r_2x+c_2} ]\]
+    <p>Since from each trinomial group we can take out common factors.</p>
+    \[= e^{r_1x}[ar_1^2 +br_1 +ce^{c_1} ]+ e^{r_2x}[ar_2^2+ br_2+ ce^{c_2} ]\]
+    <p>Since we don't know what the values of the constants are we can set them to zero, but they will be taken into account when we solve the differential equation.</p>
+    \[=e^{r_1x}[ar_1^2 +br_1 +c]+ e^{r_2x}[ar_2^2+ br_2+ c ]\]
+    \[=e^{r_1x}[0]+ e^{r_2x}[0 ]\]
+    <p>We zero out the entire equation.</p>
+    \[=0\]
+    \[LS=RS\]
+    <p><b>Problem: </b>Solve the following seconded order differential equation.</p>
+    \[y''-4y'+13y=0\]
+    \[r^2-4r+13=0\]
+    \[r=  \frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
+    \[r=  \frac{4\pm\sqrt{(-4)^2-4*1*13}}{2}\]
+    \[r=  2\pm 3i\]
+    \[r = \alpha \pm \beta i\]
+    \[y(x) = e^{2 x}[c_1\cos(3 x)+ c_2 \sin(3 x)]\]
+</body>
+</html>

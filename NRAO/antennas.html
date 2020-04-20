@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antennas Fundamentals</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Antennas Fundamentals
+        </h1>
+    </div>
+   <p>The antenna is a device for converting electromagnetic radiation into electrical currents. These antennas 
+       can also convert electrical currents to electromagnetic radiation as well. The simple dipole antenna
+        can be modeled with the following.
+   </p>
+   \[I=I_0 \cos(\omega t\]
+   <p>We can then model the function with the following: </p>
+   \[e^{-i\omega t} = \cos(\omega t) - i\sin(\omega t)\]
+   \[I_0 e^{-i\omega t} = I\]
+    <div style="text-align: center">
+        <img src="dipoles.PNG" width="300px">
+    </div>
+    <p>We also know that the change in charge over time gives you the current </p>
+    \[I = {dq \over dt}\]
+    <p>If we let \(z\) be the position along the dipole then the following is true.</p>
+    \[I = {dq \over dz}{dz \over dt}\]
+    \[I = {dq \over dz}v\]
+    <p>Given the original function derived in the previous notes, on larmor's radiation </p>
+    \[{E_\bot = {q \dot{v} \sin\theta \over
+    r c^2}}\]
+    <p>We can describe the movement of this charge by subing in the following. </p>
+    \[\int {dq \over dz} dz\]
+    \[\int dq\]
+    \[q = \int {dq \over dz} dz\]
+    \[{E_\bot = \int {dq \over dz} dz{\dot{v} \sin\theta \over
+    r c^2}}\]
+    <p>We also know this is true.</p>
+    \[\dot{v} = -i \omega v\]
+    \[{E_\bot = \int {dq \over dz} dz{ -i \omega v \sin\theta \over
+    r c^2}}\]
+    <p>Since we know the following </p>
+    \[I = {dq \over dz}v\]
+    <p>We can sub it in for the integral as </p>
+    \[{E_\bot = { -i \omega \sin\theta \over
+        r c^2}}\int {dq \over dz} v dz\]
+        \[{E_\bot = { -i \omega \sin\theta \over
+            r c^2}}\int_{-l/2}^{l/2} I dz\]
+    <p>We also know that the current depends on the position you measure
+        on the rod. We also know that the current should reduce linearly and thus 
+        we have the current scaled by a factor of the ratio of position to the length of that dipole. 
+        That is why we have the \(1 - {\vert z \vert
+            \over (l / 2)}\) scaling. 
+    </p>
+    \[I(z) = I_0 e^{- i \omega t} \biggl[1 - {\vert z \vert
+        \over (l / 2)} \biggr]\]
+        <p>Now we take the integral of the following: </p>
+        \[\int_{-l/2}^{+l/2} I dz = \int I_0 e^{- i \omega t} \biggl[1 - {\vert z \vert
+            \over (l / 2)} \biggr] \]
+            \[=  I_0 e^{- i \omega t}  \int_{-l/2}^{l/2} 1 dz  - \int_{-l/2}^{l/2} {\vert z \vert
+                \over (l / 2)}  \]
+        \[=  I_0 e^{- i \omega t}  [[z]\Big|_{-l/2}^{l/2}  - [\int_{0}^{l/2} { z 
+            \over (l / 2)} + \int_{-l/2}^{0} {z 
+                \over (l / 2)} ] ]\]
+        \[=  I_0 e^{- i \omega t} [ l  - [2/l { z^2 
+            \over 2}\Big|_{0}^{l/2} + 2/l{z 
+                \over (2)}\Big|_{-l/2}^{0}]] \]
+        \[=  I_0 e^{- i \omega t} { l\over 2} \]
+        <p>Thus if we subed in our original equation we get the following.</p>
+        \[E_\bot = {-i \omega \sin\theta \over r c^2} {I_0 l \over 2}
+        e^{-i \omega t}\]
+        <p>We also know the following \(\omega = 2 \pi c / \lambda\)</p>
+        \[E_\bot = {-i 2 \pi c \sin\theta  \over \lambda r c^2 }
+        {I_0 l \over 2} e^{-i
+        \omega t}\]
+        <p>We also derived flux previously with the following equation </p>
+        \[\langle{S}\rangle = {c \over 4 \pi} \langle E_\bot^2 \rangle\]
+        <p>We also know that the power output is the sum of all the flux over the entire surface and thus we have the 
+            following.
+        </p>
+        \[\langle P \rangle =
+        \int\langle S \rangle dA = {c \over 4 \pi} \biggl({I_0 l \over
+        \lambda}
+        \, {\pi \over c} \biggr)^2 \biggl({1 \over 2}\biggr) \int_{\phi =
+        0}^{2\pi} \int_{\theta = 0}^\pi {\sin^2\theta \over r^2} r
+        \sin\theta d
+        \phi r d\theta\]
+        \[{\langle P \rangle = {\pi^2
+        \over 3
+        c} \biggl({I_0 l \over
+        \lambda}\biggr)^2 }\]
+        <p>Therefore we get the following  time-averaged power radiated by a short dipole </p>
+        <p>We also have Radiation Resistance with OMHS law we have the following </p>
+        \[\langle P \rangle = \langle I^2 \rangle R\]
+        \[\langle P \rangle  = {I_0^2 R \over 2}\]
+        <p>We also know the power </p>
+        \[R = {2 \pi^2 \over 3 c} \biggl( {l \over \lambda} \biggr)^2\]
+        <h3>The Power Gain of a Transmitting Antenna</h3>
+        <p>Power gain is defined by this function \(G(\theta,\,\phi)\)  as the power 
+            transmitted per unit solid angle in direction \(\theta, \phi\) divided by the power 
+            transmitted per unit solid angle from an isotropic antenna driven by a 
+            transmitter supplying the same total power.</p>
+        <p>Since energy is conserved in a perfect scenario of a lossless antenna the gain averaged over 
+            all the area we get 1
+        </p>
+        \[\langle G \rangle
+        \equiv {\int_{\rm sphere} G d \Omega \over \int_{\rm sphere
+        } d \Omega} = {4 \pi \over 4 \pi}=1\]
+        \[\int_{\rm
+            sphere} G d \Omega = \int_{\rm sphere} 1 d \Omega = 4 \pi~\]
+        <p>Different lossless antennas may radiate with different directional patterns, but they cannot alter the total amount of power radiated.</p>
+        \[\Delta \Omega \approx {4
+            \pi \over G
+            _{\rm max}}\]
+        <p>The last part is finding the effective area of a receiving antenna. We know it as the following</p>    
+            \[A_e = {Power \over {power \over area }}\]
+            \[A_e = {Power \over {flux}}\]
+            \[A_e = {P_v \over S_{matched}}\]
+            \[S_{\rm (matched)} = {S \over 2}\]
+        <p>We need to try and find the power output of this antenna</p>
+        \[P_\nu = A_{\rm e} S_{\rm
+            (matched)} = A_{\rm e} {S \over 2} = \int_{4\pi} A_{\rm
+            e}(\theta,\phi)
+            {B_\nu
+            \over 2} d\Omega\]
+            <p>Using the Rayleigh-Jeans approximation
+            </p>
+            \[P_\nu = {2 k T \over 2 \lambda^2}
+            \int_{4
+            \pi} A_{\rm e} d \Omega = k T\]
+            \[\int_{4 \pi} A_{\rm e} d \Omega
+            =
+            \lambda^2\]
+            <p>The average collecting area is defined by</p>
+            \[\langle A_{\rm e}
+            \rangle
+            \equiv {\int_{4
+            \pi} A_{
+            \rm e} d \Omega \over \int_{4 \pi} d \Omega }\]
+            \[{A_{\rm e}(\theta, \phi) =
+            {\lambda^2
+            G(\theta, \phi) \over 4 \pi}}\]
+            <p>We can also describe the antenna temprature as the following</p>
+            \[{T_{\rm A} = {P_\nu \over k} =
+            {A_{\rm e} S \over 2 k}
+            }\rlap{\quad \rm {(3A10)}}\]
+            <h3>Beam Solid Angle </h3>
+            <p>Beam angle is defined as the following </p>
+            \[{\Omega_{\rm A} \equiv \int_{4
+                \pi}
+                P_{\rm n} (\theta, \phi) d
+                \Omega}\]
+                <p>Where \(P_n\) is the normalized power by the maximum. </p>
+                \[P_{\rm n} = {G(\theta, \phi) \over G_{\rm max}}\]
+                \[\Omega_{\rm A}
+                = {1 \over G_{\rm max}} \int_{4 \pi} G d \Omega
+                 = {4 \pi \over G_{\rm max}}\]
+                 <p>On the other hand we have the main beam solid angle which is the same thing
+                     except summed over the main beam region. 
+                 </p>
+                 \[{\Omega_{\rm MB} \equiv
+                 \int_{\rm
+                 MB} P_{\rm n} (\theta, \phi) d
+                 \Omega}\]
+    </body>
+</html>

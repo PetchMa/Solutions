@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacobian For 3 Variables</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Jacobian Transforms For Change of 3 Variables 
+        </h1>
+    </div>
+    <p>What is a Jacobian transform? In multivariate calculus, we often define cartesian coordinates in terms of polar coordinates, clyndrical coordinates, spherical, etc. Similarly given a region defined by a \( uvw\) we can use the jacobian transformation to redefine it into \(xyz\) space and vice versa. 
+    </p>
+    <p>
+    The proof for the Jacobian transform is for a problem for future self... Soon to come. None the less this is what the general form for change of 3 variables. 
+    </p>
+    <p>
+    Given the following equations \(x=f(u,v,w)\), \(y=g(u,v,w)\), \(z=h(u,v,w)\) the jacobian is the following. 
+        
+        \[
+            \frac{\partial{(X,Y,Z)}}{\partial{(U,V,W)}} =
+            det\begin{bmatrix}
+              \frac{\partial x}{\partial u} & 
+                \frac{\partial x}{\partial v} & 
+                \frac{\partial x}{\partial w} \\[1ex] 
+              \frac{\partial y}{\partial u} & 
+                \frac{\partial y}{\partial v} & 
+                \frac{\partial y}{\partial w} \\[1ex]
+              \frac{\partial z}{\partial u} & 
+                \frac{\partial z}{\partial v} & 
+                \frac{\partial z}{\partial w}
+            \end{bmatrix}
+            \]
+                                                            
+    </p>
+    <p>
+    \[
+            = \frac{\partial x}{\partial u}
+        det\begin{bmatrix}
+              \frac{\partial y}{\partial v} & 
+                \frac{\partial y}{\partial w}\\[1ex] 
+              \frac{\partial z}{\partial v} & 
+                \frac{\partial z}{\partial w}
+            \end{bmatrix}
+        - \frac{\partial x}{\partial v}
+        det\begin{bmatrix}
+              \frac{\partial y}{\partial u} & 
+                \frac{\partial y}{\partial w}\\[1ex] 
+              \frac{\partial z}{\partial u} & 
+                \frac{\partial z}{\partial w}
+            \end{bmatrix}
+       +  \frac{\partial x}{\partial w}
+        det\begin{bmatrix}
+              \frac{\partial y}{\partial u} & 
+                \frac{\partial y}{\partial v}\\[1ex] 
+              \frac{\partial z}{\partial u} & 
+                \frac{\partial z}{\partial v}
+            \end{bmatrix}
+            \]
+    </p>
+    <p style="font-size: 18px"><b>Problem: </b> Find the Jacobian of the transformation.</p>
+    <br>
+    <p>
+        \[ x=uw^2\]
+        \[ y = v^3 − 3w\]
+        \[ z=\frac{2uv}{w}\]
+    </p>
+    <p> We first find the partial derrivatives for each of the 3 variables in respect to the the desired transformed variables.
+    </p>
+    <div style="text-align: center">
+    <p> \(\frac{\partial x}{\partial u}= w^2\)    \(\frac{\partial x}{\partial v}= 0\)   \(\frac{\partial x}{\partial w}= 2uw\)</p>
+    <p> \(\frac{\partial y}{\partial u}= 0\)    \(\frac{\partial y}{\partial v}= 3v^2\)   \(\frac{\partial y}{\partial w}= -3\)</p>
+    <p> \(\frac{\partial z}{\partial u}= \frac{2v}{w}\)    \(\frac{\partial z}{\partial v}=\frac{2u}{w}\)   \(\frac{\partial z}{\partial w}= \frac{-2uv}{w^2}\)</p>
+    </div>
+    <p>
+     We can then assemble the matrix and compute the 3x3 matrix determinate for the Jacobian transform. 
+    </p>
+    <p>
+    \[
+            \frac{\partial{(X,Y,Z)}}{\partial{(U,V,W)}} =w^2
+        det\begin{bmatrix}
+              3v^2 & 
+                -3\\[1ex] 
+              \frac{2u}{w} & 
+                \frac{-2uv}{w^2}
+            \end{bmatrix}
+        - 0
+        det\begin{bmatrix}
+              \frac{\partial y}{\partial u} & 
+                \frac{\partial y}{\partial w}\\[1ex] 
+              \frac{\partial z}{\partial u} & 
+                \frac{\partial z}{\partial w}
+            \end{bmatrix}
+       +  2uw
+        det\begin{bmatrix}
+              0 & 
+                3v^2\\[1ex] 
+              \frac{\partial z}{\partial u} & 
+                \frac{2v}{w}
+            \end{bmatrix}
+            \]
+    </p>
+    <p> I have purposely left the middle matrix blank as it will zero-out.</p>
+    <p>
+    \[
+            = w^2[3v^2(-\frac{2uv}{w^2})+3(\frac{2u}{w})]+2uw[0(\frac{2u}{w})-3v^2(\frac{2v}{w})] \]
+    </p>
+    <p>I will save the simplification and everything reduces to the following: 
+    </p>
+    <p>
+     \[
+            \frac{\partial{(X,Y,Z)}}{\partial{(U,V,W)}}= 6u(w-3v^3)\]
+    </p>
+    <p>Therefore this the Jacobian of the transformation.</p>
+</body>
+</html>

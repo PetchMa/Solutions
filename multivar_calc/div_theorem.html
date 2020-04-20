@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divergence Theorem </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Divergence Theorem   
+        </h1>
+        <img style="align-content: center" src="div_the.png" width="300px" height="auto">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> The divergence theorem is a way of computing the flux over a given boundary of a vector field. In 2d 
+    We have the line integral and we seek to measure the amount of flux across a boundary of curve c is 
+equal to the divergence inside a 2D region.  </p>
+    \[\int_{c} \vec{F} \cdot \widehat{n} ds = \int \int_{D}  div F dA\]
+    <p>For 3D the divergence theorem calculates the flux across the boundary surface S by taking the sum of divergence inside a solide E.</p>
+    \[\int_{S} \vec{F} \cdot \widehat{n} ds = \int \int \int_{E}  div F dA\]
+
+    <p style="font-size: 18px"><b>Mini Proof: </b> For divergence theorem in 2-D</p>
+    \[\int_{c} F \cdot \widehat{n} ds\]
+    <p>We want to find the sum of how much the vector field is diverging from the contour of c. We do so by suming up each individual vector coming from
+        the contour and dot it with the normal of the contour. This will show how much flux is experienced on a given boundary. 
+        This is useful as it can help determine, the velocity of a particle moving directly out of a boundary. Thus we need to dot the normal (directly outwards vector)
+        with the actual vector to see how much that particle is moving directly outwards. Here is what we know...
+    </p>
+    \[\widehat{n} = dyi-dxj\]
+    \[\vec{F} = \langle P,Q\rangle \]
+    \[int_{c} F \cdot \widehat{n} ds\]
+    \[int_{c} \langle P,Q\rangle \cdot \langle dy,-dx \rangle  ds\]
+    \[int_{c} \langle P,Q\rangle \cdot \langle dy,-dx \rangle  ds\]
+    \[int_{c} \langle Pdy  - Qdx ds\]
+    <p>We can use the Green's theorem to help solve the rest of the equation.</p>
+    \[int_{c} \langle  (- Q)dx + Pdy  ds = \int \int{D} \frac{\partial P}{\partial x} - \frac{\partial -Q}{\partial y} dA\]
+    \[ = \int \int_{D} \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} dA\]
+    \[ = \int \int_{D}  \nabla \cdot \langle P, Q \rangle dA\]
+    \[ = \int \int_{D} \nabla \cdot F dA\]
+    <p style="font-size: 18px"><b>Problem: </b> What is the flux of the vector field where S is the surface of the
+        solid bounded by the paraboloid \(z = 1 − x^2 − y^2\) and the xy-plane?
+    </p> 
+    \[F(x,y,z) = x^3i+2xz^2j+3y^2zk\]
+    \[F(x,y,z) = \langle  x^3, 2xz^2,3y^2z \rangle \]
+    \[\nabla \cdot F(x,y,z) = 3x^2+0+3y^2 \]
+    \[\nabla \cdot F(x,y,z) = 3x^2+0+3y^2 \]
+    \[int_{c} F \cdot \widehat{n} ds = \int \int \int_{D}  \nabla \cdot F dA\]
+    \[int_{c} F \cdot \widehat{n} ds = \int \int \int_{D}  3x^2+3y^2 dA\]
+    <p>Notice if we switch to cylindrical coordinates this would be super easy to solve the integral.</p>
+    \[ = \int_{0}^{2\pi} \int_{0}^{1} \int_{0}^{1-r^2}  3r^2 dzdrd\theta\]
+    \[ = \int_{0}^{2\pi} \int_{0}^{1} 3r^3-3r^5 drd\theta\]
+    \[ = \int_{0}^{2\pi} \frac{3}{4}r^4-\frac{1}{2}r^6 \Big|_{0}^{1} d\theta\]
+    \[ = \frac{1}{4}\theta\Big|_{2\pi}{0}\]
+    \[\int_{c} F \cdot \widehat{n} ds = \frac{\pi}{2}\]
+</body>
+</html>

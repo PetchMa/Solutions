@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Integrals</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Conservative Vector Fields - Line Integrals  
+        </h1>
+        <img style="align-content: center" src="vec_field.gif" width="300px" height="auto">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> Finding the line integral over a conservative vector field is an important skill to learn as this defines the work done by a vector field \(F\) where \(F = \nabla f\). To prove that something is a conservative vector field it must do the following. </p>
+    \[Curl \space  \nabla f = 0\]
+    <p>To show that you need to preform the matrix determinate of a \(NxN\) where \(R^N\) or simply the cross product of partial derivatives of \(\nabla f \)</p>
+      <p style="font-size: 18px"><b>Problem: </b>find \(f\) such that \(F = \nabla f\) and use it to evaluate \(\int_{c} F \cdot dr\) where \(C\) is the line segment from  \((1,0,-2)\) and \((4,6,3)\) [note assume this is a conservative vector field]</p>
+    \[F(x,y,z) = \langle yz, xz, xy+2z \rangle \]
+    <p>We should remember that the \(\nabla f\) is simply a vector with the partial derivatives in respect to each component.</p>
+    \[\langle yz, xz, xy+2z \rangle = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle \]
+    <p>Thus if we take the integral of any component of \(\nabla f\) we should get back \(f\).</p>
+    \[f = \int \frac{\partial f}{\partial x} \cdot dx\]
+    \[f = \int yz \cdot dx\]
+    \[f = xyz + g(y,z)\]
+    <p>However, we're left with an unknown value, since we took the partial derivative in respect to x, we zero-out constants in terms of y and z. Thus we need to solve for \(g(y,z)\). This can be done because we know the following is true: </p>
+    \[\frac{\partial f}{\partial y} = \frac{\partial \int \frac{\partial f}{\partial x} \cdot dx}{\partial y} \]
+    \[xz = \frac{\partial (xyz + g(y,z))}{\partial y}\]
+    \[xz =xz + g_y(y,z)\]
+    \[g_y(y,z) = 0\]
+    <p>We also know this is true.</p>
+    \[\frac{\partial f}{\partial z} = \frac{\partial \int \frac{\partial f}{\partial x} \cdot dx}{\partial z} \]
+    \[xy+2z = \frac{\partial (xyz + g(y,z))}{\partial z}\]
+    \[xy+2z = xy + g_z(y,z)\]
+    \[g_z(y,z) = 2z\]
+    <p>With the two values of \(g_z(y,z)\)  and \(g_y(y,z)\) we can solve for \(g(y,z)\)</p>
+    \[g(y,z) = \int g_z(y,z) dz\]
+    \[g(y,z) = \int 2z dz\]
+    \[g(y,z) = z^2+ h(y)\]
+    <p>We need to solve for the constant term that was zeroed out when we took the derivative in respect to z. This can be solved since we know the following: </p>
+    \[g_y(y,z) = \frac{\partial g(y,z)}{y}\]
+    \[g_y(y,z) = \frac{\partial (z^2+ h(y))}{y}\]
+    \[g_y(y,z) = h_y(y)\]
+    \[h_y(y) = 0\]
+    \[h(y) = k\]
+    <p>The result is a constant value. This is okay because as long as it doesn't contain a variable, this will cancel out when we take the integral. </p>
+    \[g(y,z) = z^2+ k\]
+    \[f =xyz + z^2+ k\]
+    \[\int_{c} F \cdot dr = \int_{c} \nabla f  \cdot dr\]
+    \[ = \int_{(1,0,-2)}^{(4,6,3)} \nabla (xyz + z^2+ k)  \cdot dr\]
+    <p>The integral will undo the gradient operation. Leaving us just with \(f\). We also know that this is a conservative vector field, meaning its path independent. Thus we can just resort to the fund. theorem and compute the values. </p>
+    \[\int_{c} F \cdot dr = f(4,6,3) - f(1,0,-2) \]
+    \[\int_{c} F \cdot dr = 77 \]
+   
+    
+    
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Telescopes</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Radio Telescope Info 
+        </h1>
+    </div>
+    <p> The radio band is too wide to have one telescope design that fits everything.
+        Things like the surface brightness and angular sizes are so broad and diverse 
+        that a combination of radio telescopes are needed to observe them.
+    </p>
+    <p>The idea radio telescope should have a collecting area to detect as faint of a source based on 
+        \[\langle A_e \rangle = {\lambda^2 \over 4 \pi}\] and since \(\lambda\)
+        is squared, the desired observational wavelength needs an effective area that grows significantly.
+    </p>
+    <p>The first radio telescope was built by Karl Jansky where \(\lambda = 15m\) 
+        The wire antenna is an array of phased dipoles. It had a large collecting area as \(\lambda \) was
+         so large. Directive aperture antennas are needed for adequate sensitivity at higher frequencies.
+    </p>
+    <div style="text-align: center">
+        <img src="JanskyatAntenna.jpg" width ="300px">
+    </div>
+    <p>Example of directive apertures are waveguide horns. 
+        At the end of the horn is a waveguide with parallel walls, 
+        and inside this waveguide is a quarter-wave ground-plane vertical antenna 
+        that converts the electromagnetic wave into an electrical current that is 
+        sent to the receiver via a cable.
+    </p>
+    <p>These don't pick up ground radiation because they dont have a feed structure that scatters ground radiation 
+        into the reciever.
+    </p>
+    <div style="text-align: center">
+        <img src="horn.jpg" width ="300px">
+    </div>
+    <p>Thus small horn antennas have been used by radio astronomers to 
+        measure the absolute flux densities of very strong sources such as Cas A</p>
+   <p>Typically with dishes measure relative flux densities by comparing results relative to 
+       known "candles" or to known densities with horn guides. 
+   </p>
+   <p>Most telescopes are paraboloidal reflectors to get larger collecting areas. 
+    However, because the feed is on the reflector axis, the feed and legs
+     supporting it blocks some of the path of radiation falling onto the reflector. 
+     This causes 
+   </p>
+   <ul>
+       <li>The effective collecting area is reduced due to blocked radiation.
+        </li>
+        <li>The beam pattern is bad since it has more sidelobe levels.
+        </li>
+        <li>
+            Radiation from the ground that is scattered off the feed and its 
+            support structure increases the system noise.
+        </li>
+    </ul>
+    <p>Thus this forced people to build larger telescopes to avoid these problems like a blocked
+        aperature. However telescopes that are \(f/D
+        \approx 0.4\) become physically inpractical. 
+    </p>
+    <p>Basically all radio telescopes have an alt-az mounts turning on tacks horizontal and vertical. 
+        Some have polar mounts like the green bank telescope. 
+    </p>
+    <h3>Sub Reflectors</h3>
+    <p>Basically a reflector that reflects the primary beam again to double the path 
+        allowing a higher \(f/D\) ratio without the engineering problems. 
+    </p>
+    <ul>
+        <li>
+            optimize the tradeoff between high aperture efficiency and low sidelobes
+        </li>
+        <li>
+            Recievers are  easier to access
+        </li>
+        <li>
+            spillover radiation is directed toward the cold sky instead of 
+            the warm ground, lowering overall system temperatures
+        </li>
+        <li>
+            The subreflector can by moved rapidly to switch 
+            the beam between two adjacent positions on the sky
+        </li>
+        <li>
+            subreflector can be tilted to select one of several feeds at the secondary focus 
+        </li>
+    </ul>
+    <p> Draw backs are </p>
+    <ul>
+        <li>
+            Standing waves in the leaky cavity formed by the reflector and subreflector
+             cause sinusoidal ripples in the observed spectra of strong radio sources
+        </li>
+        <li>
+            larger feeds are required to produce the narrow beams needed for the subreflector
+        </li>
+       
+    </ul>
+    <p>We have three types of secondary reflectors, Cassegrain, Gregorian and OffAxis feed.</p>
+    <p>Cassegrain telescopes have a convex secondary reflector which follows a hyperboloid. 
+        For a subreflector located below the prime focus, the required shape is a hyperboloid whose
+         major axis coincides with the major axis of the paraboloid. 
+    </p>
+    <p>This design makes the small subreflector light, 
+        easy to tilt, and reduces standing waves, but it subtends a small angle</p>
+        <div style="text-align: center">
+            <img src="cassegrain.PNG" width ="500px">
+        </div>  
+    <p>Gregorian telescopes have concave secondary reflector. 
+        As with the Cassegrain subreflector, the Gregorian reflector shape is determined 
+        by the requirement that all parallel axial rays travel the same distance to reach the secondary focus at f2.  
+        For a subreflector located above the prime focus, the required shape is an 
+        ellipsoid whose major axis coincides with the major axis of the paraboloid.
+    </p>
+    <div style="text-align: center">
+        <img src="gregorian.PNG" width ="500px">
+    </div> 
+    <p>Off axis telescope like the Green Bank Telescope. Projected onto a
+         plane normal to the beam, it is a 100 m diameter circle. Because the projected 
+         edge of the actual reflector is 4 m away from the axis of the 208 m paraboloid, the focal point does not block the aperture.  The GBT enjoys the same clear-aperture benefits of waveguide horns—a very clean beam and low spillover
+         noise—but is much larger than any practical horn antenna. </p>
+    <div style="text-align: center">
+        <img src="off.PNG" width ="500px">
+    </div> 
+
+    <h3>Arecibo Telescope.</h3>
+    <p>
+        The arecibo telescope is completely circular and thus they can move the reflector around with 20 degrees
+        of freedom. Thus the focus is a line. 
+        A spherical reflector focuses a distant point source onto a line segment, so a line feed is needed to illuminate the entire aperture efficiently from the prime focus.  Slotted-waveguide line feeds are inherently narrow band, and ohmic losses increase the system temperature significantly at short wavelengths.
+    </p>
+    <div style="text-align: center">
+        <img src="AreciboLineFeed.jpg" width ="500px">
+    </div> 
+</body>
+</html>

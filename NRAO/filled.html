@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackbody Radiation </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Two-Dimensional Aperture Antennas
+        </h1>
+    </div>
+    <p>Same radio telescope stuff but now its two dimensional. Thus we have the following 
+        iterated integral which is the 2-d fourier transform.
+    </p>
+    \[{f(l,m)
+        \propto
+        \int_{-\infty}^{\infty}
+        \int_{-\infty}^{\infty}
+        g(u,v) e^{-i 2 \pi(l u + mv)} d u d v }\]
+    
+        <h3>The Uniformly Illuminated Rectangular Aperture</h3>
+    
+        <div style="text-align: center">
+            <img src="plane.PNG">
+        </div>
+        <p>It was derived previously that the fourier transform gave the following for a 1-d 
+            pattern. based on the similarity theorem.</p>
+        \[f(l) \propto {\sin(\pi l D / \lambda) \over (\pi l D /
+            \lambda)} \propto {\rm sinc}(l D / \lambda)\]
+        <p>The two D counter part is </p>
+        \[f(l,m) \propto {\rm sinc}\biggl( { l
+            D_{\rm x} \over \lambda}
+            \biggr) {\rm sinc} \biggl({m D_{\rm y} \over \lambda} \biggr)\]
+        <p>Since the radiated power per unit area is proportional to
+        the square of the electric field strength, the power pattern P(l) is</p>
+        \[P(l) \propto {\rm sinc}^2 \biggl( {l D \over \lambda} \biggr)\]
+        <p>2-d counter part is </p>
+        \[P_{\rm n}(l,m) = {\rm sinc}^2\biggl({ l D_{\rm x} \over \lambda}
+        \biggr) {\rm sinc}^2 \biggl({m D_{\rm y} \over \lambda} \biggr)\]
+        <p>If we wanted to figure out the gain in any given direction we have the following. Based
+             on energy conservation.
+        </p>
+        \[\langle G \rangle
+        \equiv {\int_{\rm sphere} G d \Omega \over \int_{\rm sphere
+        } d \Omega} = {4 \pi \over 4 \pi}\]
+        \[\int G d \Omega = 4 \pi = G_0 \int_{-1}^{+1} \int_{-1}^{+1} P_{\rm
+            n}(l,m) d l\, d m\]
+        \[4 \pi = G_0 \int_{-1}^{+1} \Biggl[ {\sin ( \pi l
+            D_{\rm x} /
+            \lambda ) \over  \pi l D_{\rm x} / \lambda } \Biggr]^ 2 dl \,
+            \int_{-1}^{+1} \Biggl[ {\sin (\pi m D_{\rm y} / \lambda) \over 
+            \pi m D_{\rm y} / \lambda} \Biggr]^ 2 dm\]
+        <p>If we let the variables equal =>  for Subsitution to solve the integral.</p>
+        \[a \equiv {\pi l D_{\rm x}
+        \over \lambda} {\rm ,~~so~~} da = { \pi D_{\rm x} \over \lambda} dl\]
+        <p>Given that \(D_x >> \lambda \)</p>
+        \[\int_{-1}^{+1} \Biggl[ {\sin ( \pi l D_{\rm x} / \lambda )
+        \over  \pi l D_{\rm x} /
+        \lambda } \Biggr]^ 2 dl \approx \biggl[ \int_{-\infty}^\infty {\sin^2
+        a \over a^2} da \biggl] \,{\lambda \over \pi D_{\rm x}} = {\lambda
+        \over D_{\rm x}}\]
+        <p>We use a table for the integral.</p>
+        \[G_0 = {4 \pi D_{\rm x} D_{\rm y} \over
+        \lambda^2}\]
+        <P>Therefore the gain we calculated is </P>
+        \[{G = {4 \pi D_{\rm x} D_{\rm y} \over
+        \lambda^2}
+        {\rm sinc}^2\biggl({ l D_{\rm x} \over \lambda}
+        \biggr) {\rm sinc}^2 \biggl({m D_{\rm y} \over \lambda} \biggr)} \]
+        <p>We can approximate with \(\theta < 15deg\)</p>
+        \[{\approx
+        {4 \pi D_{\rm x} D_{\rm y} \over \lambda^2}
+        {\rm sinc}^2\biggl({ \theta_{\rm x} D_{\rm x} \over \lambda}
+        \biggr) {\rm sinc}^2 \biggl({\theta_{\rm y} D_{\rm y} \over \lambda}
+        \biggr)}\]
+        <p>We find that the on-axis effective collecting area is</p>
+        \[{\rm max}(A_{\rm e}) =
+        {\lambda^2 G_0 \over 4 \pi} = {4 \pi \lambda^2 D_{\rm x} D_{\rm y}
+        \over
+        4 \pi \lambda^2} = D_{\rm x} D_{\rm y} = A_{\rm geom}\]
+        <h3>The Uniformly Illuminated Circular Aperture</h3>
+        <p>Most apertures are circular ande the power pattern of a uniformly 
+            illuminated circular aperture is an AIRY PATTERN. 
+        </p>
+        <h3>The Circular Gaussian Illumination Pattern</h3>
+        <p>A good approximation for "real" radio telescopes with practical feeds and circular 
+            apertures is a circular Gaussian illumination pattern. We have the guassian function</p>
+            \[g(u) \equiv {1 \over  \sqrt{2 \pi} \sigma} \exp \biggl( - {u^2
+        \over 2 \sigma^2} \biggr)\]
+        \int_{-\infty}^{\infty} g(u) d u = 1
+        <p>For circular illumination problem we have the following</p>
+        \[f(l,m) \propto \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
+        \exp \biggl( - { u^2 \over 2 \sigma^2} \biggr) \exp \biggl( - { v^2
+        \over 2 \sigma^2} \biggr) \exp [ -i 2 \pi (l u + m v)] d u d v~\]
+    
+        <p>Notice we can split them up into the components of each direction </p>
+        \[f(l) \equiv\int_{-\infty}^\infty \exp \biggl( - {u^2 \over 2
+            \sigma^2}\biggr) \exp ( - i 2 \pi l u ) du\]
+        \[f(m) \equiv \int_{-\infty}^\inftyw
+        \exp \biggl( - {v^2 \over 2 \sigma^2}\biggr) \exp ( - i 2 \pi m v ) dv\]
+        <p>Notice that each of these are just one dimensional fourier transforms of the guassian!! In each 
+            directions woahhhh! We know the fourier transform of a guassian as this \(F(s) = \exp (- \pi s^2)\)
+        </p>
+        \[f(l)
+        \propto \exp( - \pi l^2 \times 2 \pi \sigma^2)\]
+        \[f(m) \propto \exp( -
+        \pi m^2 \times 2 \pi \sigma^2)\]
+        <p>In the end we get </p>
+        \[f(l,m) \propto \exp[- 2 \pi^2
+        \sigma^2 (l^2 + m^2)]\]
+
+        <h3>Refelctor Efficency</h3>
+        <p></p>
+</body>
+</html>

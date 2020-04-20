@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackbody Radiation </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+       Blackbody Radiation 
+        </h1>
+    </div>
+    <p>Blackbody radiation is computing the amount of emitted light based on the total absorbtion of electromagnetic radiation. There exists two major approaches to
+        calculating this radiation. The Rayleigh-Jeans Law - which was wrong and The Planck Radiation Law that fixed what was wrong. Here is the derivation for both. 
+    </p>
+    <div style="text-align: center">
+        <img src="blackbox.png" width="600px">
+
+    </div>
+    <h3>The Rayleigh-Jeans Law</h3>
+   Imagine a black box, with a wave that is resonating within it. The resonance wave length can be calculated in each x, y and z direction as the following. Where n is a whole number and represents
+   the modes.
+   \[{n_{\rm x} \lambda_{\rm x} \over 2} = {n_{\rm y} \lambda_{\rm y} \over 2}
+    = {n_{\rm z} \lambda_{\rm z} \over 2} = a\]
+   
+    \[\lambda_{\rm y} = {\lambda \over \cos\,\beta}
+   {\rm ~~~and~~~}
+   \lambda_{\rm z} = {\lambda \over \cos\,\gamma} {\rm ~~~and~~~}\lambda_{\rm x} = {\lambda \over \cos\,\alpha}\]
+   <p>If we were to rearrange the first equation for the wave lengths </p>
+   \[n_{\rm x} = {2 a \over \lambda_{\rm x}},    n_{\rm y} = {2
+    a \over \lambda_{\rm
+    y}},    n_{\rm z} = {2 a \over \lambda_{\rm z}}\]
+    <p>If we substitude the original in for \(\lambda_x\)... etc</p>
+    \[n_{\rm x} = {2 a \cos\,\alpha \over \lambda},    n_{\rm y}
+    = {2 a \cos\,\beta \over \lambda},    n
+    _{\rm z} = {2 a \cos\,\gamma \over \lambda}\]
+    <p>If we square and sum each of the modes, which represents the magnitude of the N in three space</p>
+    \[n_{\rm x}^2 + n_{\rm y}^2 + n_{\rm z}^2 = \biggl({2 a \over
+        \lambda}\biggr)^2 (\cos^2\,\alpha + \cos^2\,\beta + \cos^2\,\gamma)~.\]
+    <p>The indentity gives us the following</p>
+    \[n_{\rm x}^2 + n_{\rm y}^2 + n_{\rm z}^2 = \biggl({2 a \over
+    \lambda}\biggr)^2 \]
+    <p>We know this as the fundemental wave equation... we sub in for \(\lambda\) and solve for the frequency /p>
+    \[v = {c \over \lambda}\]
+    \[\nu = {c \over 2 a}\sqrt{n_{\rm x}^2 + n_{\rm y}^2 + n_{\rm z}^2}\]
+    <p>Now given this xyz space containing the possible values of \((n_x,n_y,n_z)\). Each of these points represent a mode of equilibrium cavity radiation. 
+        The space density of points in this lattice is unity, so the number of points in any volume is equal to that volume
+    </p>
+    <div style="text-align: center">
+        <img src="shel.png" width="600px">
+
+    </div>
+    <p>Since this is a sphere we can calculate it as such: </p>
+    \[\rho^2 = n_x^2+n_y^2+n_z^2\]
+    <p>We can simplify the frequency as the following. </p>
+    \[\nu = {c \over \lambda} = {c \rho \over 2 a}\]
+    <p>The inner surface area is the following. Its divided by 8 as its only an octant withinthe entire sphere. It is 1\8th of the entire sphere. But keep in mind, Thereexists two
+        polarizations and thus we have double the amount. 
+    </p>
+    \[N(\nu) d\nu = {4 \pi \rho^2 d \rho \over 8} \times 2\]
+    <p>We can sub in the value of \(\rho\)</p>
+    \[\rho = {2 a \nu \over c}\]
+    \[d\rho = {2 a d\nu \over c}\]
+    \[N(\nu) d\nu = \pi \biggl({2 a \nu \over c}\biggr)^2 {2a \over c}
+    d\nu\]
+    <p>Now we define the spectral energy density with that equation. This is based off of equipartition of energy. Where \(\langle E \rangle = kT\) is the 
+        average energy per mode. The total energy
+    </p>
+    \[u_t = {N(\nu) d\nu } kT\]
+    <p>The density of the spectral energy is then ... </p>
+    \[u_\nu(T) = {N(\nu) d\nu \over a^3 } kT\]
+    <p>If we simplify with the subsitution </p>
+    \[u_\nu(T) = {8 \pi a^3 \over a^3} {\nu^2 \over c^3} kT = 8 \pi k T
+    {\nu^2 \over c^3}\]
+    <p>The total energy density of the entire spectral is thus the following </p>
+    \[\bbox[border:3px blue solid,7pt]{u_\nu = {1 \over c} \int I_\nu d
+    \Omega}\]
+    <p>If we were to assume a perfect black body then the following integral will be true since it is isotropic and also spherical. Note the integral works because anything inside contains 
+        no terms in respect to \(\Omega\) </p>
+    \[u_\nu = {1 \over c}\int_{4\pi} B_\nu d \Omega =  {4 \pi \over c}
+    B_\nu\]
+    <p>Thus we have ... </p>
+    \[{4 \pi \over c} B_\nu = {8 \pi k T \nu^2 \over c^3}\]
+    
+    <h3>Max Planck fixed the problem. lol </h3>
+    <p>Okay so if u realized, this doesn't work. The equation is quadratic in nature and thus approx fucking infinity when it approaches smaller wave lengths 
+        or higher frequency. However, that makes it impossible to conserve energy at that point giving it infinity energy which wasn't the result of experimental 
+        tests. 
+    </p>
+    <div style="text-align: center">
+        <img src="law.jpg" width="600px">
+
+    </div>
+    <p>The solution was to quantize the energy into discrete partitions. Energy existed as a individual packet of energy and not infact continous. We are given the Planck Constant.</p>
+    \[E
+    = n h \nu, \qquad n = 1,~2,~3,~...\]
+    <p>We were given this probability distribution by boltzmann saying that </p>
+    \[P(E) \propto
+    \exp\biggl({-E \over k T}\biggr)\]
+    <p>Subbing in our new found form of energy we get </p>
+    \[P(E) = P(n h \nu) \propto
+    \exp\biggl({ - n h \nu \over k T}\biggr)\]
+    <p>the average energy per mode is calculated by summing over only the discrete energies permitted instead of integrating over all energies</p>
+    \[\langle E \rangle =
+    {\sum_{n = 0}^\infty n h \nu P(n h \nu) \over \sum_{n = 0}^\infty P(n h
+    \nu)} =
+    {\sum_{n = 0}^\infty n h \nu \exp\bigl({ - n h \nu \over k T}\bigr)
+    \over
+    \sum_{n = 0}^\infty \exp\bigl({ - n h \nu \over k T}\bigr)}\]
+    <p>To solve the following we can do this. let \({1 \over k T} = a\)</p>
+    \[\langle E \rangle =
+    {\sum_{n = 0}^\infty n h \nu \exp\bigl({ -a n h \nu}\bigr)
+    \over
+    \sum_{n = 0}^\infty \exp\bigl({ -a n h \nu}\bigr)}\]
+    <p>Now to help simplify, take the ln and the derivative in respect to a of the following.</p>
+   
+    \[- {d \over d\alpha}\biggl[\ln \sum_{n = 0}^\infty
+    \exp(- \alpha n h \nu)\biggr]\]
+    <p>Eval the derivative with chain rule</p>
+    \[- {d \over d\alpha}\biggl[\ln \sum_{n = 0}^\infty
+    \exp(- \alpha n h \nu)\biggr] = {1 \over \sum_{n = 0}^\infty \exp(-
+    \alpha n h \nu)}
+    {-d \over d \alpha} \biggl[\sum_{n = 0}^\infty  \exp(-\alpha n h
+    \nu)\biggr]\]
+    
+    \[- {d \over d\alpha}\biggl[\ln \sum_{n = 0}^\infty
+    \exp(- \alpha n h \nu)\biggr] = {1 \over \sum_{n = 0}^\infty \exp(-
+    \alpha n h \nu)}
+     \biggl[\sum_{n = 0}^\infty  {-d \over d \alpha}\exp(-\alpha n h
+    \nu)\biggr]\]
+    \[- {d \over d\alpha}\biggl[\ln \sum_{n = 0}^\infty
+    \exp(- \alpha n h \nu)\biggr] = {1 \over \sum_{n = 0}^\infty \exp(-
+    \alpha n h \nu)}
+     \biggl[\sum_{n = 0}^\infty \alpha n h \exp(-\alpha n h
+    \nu)\biggr]\]
+
+    \[- {d \over d\alpha}\biggl[\ln \sum_{n = 0}^\infty
+    \exp(- \alpha n h \nu)\biggr] = {\sum_{n = 0}^\infty n h \nu \exp (-
+    \alpha n h \nu) \over \sum_{n = 0}^\infty \exp(- \alpha n h
+    \nu)}\]
+    <p>Now all we need to evaluate is the following: </p>
+    \[\sum_{n = 0}^\infty
+    \exp(- \alpha n h \nu) = 1 + [\exp( - \alpha h \nu)]^1 +
+    [\exp( - \alpha h \nu)]^2 + \dots ~.\]
+    <p>We notice its like a geometric series. </p>
+    \[\sum^{\infty} ax^n = \frac{a}{1-x}\]
+    <p>Therefore the following is true.</p>
+    \[\sum_{n = 0}^\infty
+    \exp(- \alpha n h \nu) = \frac{1}{1- \exp(- \alpha n h \nu)}\]
+    <p>Now we can evaluate </p>
+    \[- {d \over d\alpha}\biggl[\ln \frac{1}{1- \exp(- \alpha n h \nu)}] = {\sum_{n = 0}^\infty n h \nu \exp (-
+    \alpha n h \nu) \over \sum_{n = 0}^\infty \exp(- \alpha n h
+    \nu)}\]
+    <p>If we evalulate the derivative we get the following: </p>
+    \[\langle E \rangle = -[1 - \exp( - \alpha h \nu)] (-1)
+    [1 - \exp( - \alpha h \nu)]^{-2} h \nu\exp (- \alpha h \nu)\]
+    \[\langle E \rangle = {h \nu \over \exp\bigl({h \nu \over k T}\bigr)
+    -1}\]
+    <p>Thus if we were to place this as the distribution instead of the classical \(kT\) we get </p>
+    \[\bbox[border:3px blue
+    solid,7pt]{B_\nu = {2 h \nu^3 \over c^2}
+    {1 \over \exp\bigl({h \nu \over k T}\bigr)
+    -1}}\]
+    <p>This solves all the problems because the integral over everything is not infinite anymore! </p>
+    \[{B(T) \equiv \int_0^\infty B_\nu(T) d\nu = {\sigma
+        T^4 \over \pi}}\]
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations - First Order Exact </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Differential Equations - First Order Exact 
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> What happens when the differential equation is multivariate? If a function that is described in the following
+        form we could solve them.  
+    </p>
+    \[M(x,y) + N(x,y)y' =0\]
+    <p>We can solve this differential equation if...</p>
+    \[M_x(x,y) = N_y(x,y)\]
+    \[\Psi_x(x,y) = M(x,y)\]
+    \[\Psi_y(x,y) = N(x,y)\]
+    <p>Since we can write the M, N as the partial derivative of the function \(\Psi\) we can simply integrate either side to get back the origianl
+        function of \(\Psi\)
+    </p>
+    \[\Psi(x,y) = \int M(x,y)dx\]
+    \[\Psi(x,y) = \int N(x,y)dy\]
+    <p>Notice that exact differential equations are basical working with conservative vector fiels.\(\Psi(x,y) = f\) and \(\nabla f =
+        \langle M(x,y), N(x,y)\rangle\)  since we know that \(\frac{\partial M}{\partial y} -\frac{\partial N}{\partial x} = 0 \) which is the scalar
+    curl of the vector field \(\nabla f \) </p>
+    <p style="font-size: 18px"><b>Problem: </b> Solve the following differential equation. 
+    </p> 
+    \[2xy^{-1}+2ye^{2x}-1 + (e^{2x}+y^2-x^2y^{-2})\frac{dy}{dx}=0\]
+    <p>First we need to check if the differential equation is exact.</p>
+
+    \[ M(x,y) =2xy^{-1}+2ye^{2x}-1 \]
+    \[N(x,y) = e^{2x}+y^2-x^2y^{-2}\]
+    
+    \(LS= \frac{\partial M}{\partial y} -\frac{\partial N}{\partial x} \) 
+    \(LS = -2xy^{-2} + 2e^{2x} -(2e^{2x-2xy^{-2}}) \) 
+    \(LS = 0\) 
+    <p>Therefore this is an exact differential equation. It is also a conservative vector field. Go forward and solve the differential
+        equation.
+    </p>
+    \[\Psi(x,y) = \int M(x,y)dx\]
+    \[= \int 2xy^{-1}+2ye^{2x}-1 dx\]
+    \[\Psi(x,y)= x^2y^{-1}+ye^{2x}-x +h(y)\]
+    <p>We need to solve for the constant in terms of another function of y. Take the derivative of this function in respect to y.</p>
+    \[\Psi_y(x,y)= -x^2y^{-2}+e^{2x} +h'(y)\]
+    \[\Psi_y(x,y)= N(x,y)\]
+    \[N(x,y) = -x^2y^{-2}+e^{2x}+h'(y)\]
+    \[e^{2x}+y^2-x^2y^{-2} = -x^2y^{-2}+e^{2x} +h'(y)\]
+    \[h'(y) = y^2\]
+    \[h(y) = \frac{1}{3}y^3\]
+    \[\Psi(x,y)= x^2y^{-1}+ye^{2x}-x + \frac{1}{3}y^3+K\]
+    <p>Then we make the entire left hand side \(\Psi = C\) equal a constant. </p>
+    \[C= x^2y^{-1}+ye^{2x}-x + \frac{1}{3}y^3+K\]
+    \[C= x^2y^{-1}+ye^{2x}-x + \frac{1}{3}y^3\]
+    <p>The reason we can do this is because: </p>
+    \[\Psi_x +\Psi_y \frac{dy}{dx} = 0\]
+    \[\frac{d}{dx}\Psi(x,y) = 0\]
+    <p>Since the derivative is zero, in respect to x, the function must be a constant and thus we can set C to the entire 
+        multivariate function. 
+    </p>
+</body>
+</html>

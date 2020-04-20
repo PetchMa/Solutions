@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations - First Order Linear Equations </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Differential Equations - First Order Linear Equations 
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> This is a technique for solving first order differential equations when they appear in the product rule form!!
+        This is perhaps one of my favourite ways to solve a first order diff eq as it relies on being tricky with some techniques. This works given the form...
+    </p>
+    \[\frac{dy}{dx}+P(x)y= Q(x)\]
+    <p>We can reconize this as the product rule!!! When we try to solve for y. Reminder that this is the product rule.</p>
+    \[\frac{d}{dx}(f(x)g(x)) = f'(x)g(x) + f(x)g'(x))\]
+    <p>To get the function above into the form of the product rule all we need to do is multiply by \(e^{\int p(x) dx}\)</p>
+    \[e^{\int p(x) dx}\frac{dy}{dx}+e^{\int p(x) dx}P(x)y= e^{\int p(x) dx}Q(x)\]
+    <p>This is when we realize these two functions of product rule matches with the manipulated function.</p>
+    \[f'(x)g(x) = e^{\int p(x) dx}p(x)y \]
+    \[f(x)g'(x) = e^{\int p(x) dx}\frac{dy}{dx}\]
+    \[ g(x) = y\]
+    \[ g'(x) = \frac{dy}{dx}\]
+    \[f(x) =e^{\int p(x) dx} \]
+    \[f '(x) =e^{\int p(x) dx} \frac{d (\int p(x) dx)}{dx} = e^{\int p(x) dx}p(x) \]
+    \[\frac{d}{dx}(f(x)g(x)) = e^{\int p(x) dx}Q(x)\]
+    <p>We also know this is true. We can sub in the values of f and g</p>
+    \[\frac{d}{dx}(e^{\int p(x) dx}y)) = e^{\int p(x) dx}Q(x)\]
+    \[\int \frac{d}{dx}(e^{\int p(x) dx}y)) dx = \int e^{\int p(x) dx}Q(x) dx\]
+    \[e^{\int p(x) dx}y = \int e^{\int p(x) dx}Q(x) dx\]
+    \[y = \frac{\int e^{\int p(x) dx}Q(x) dx}{e^{\int p(x) dx}}\]
+    <p style="font-size: 18px"><b>Problem: </b> Solve the following differential equation. 
+    </p> 
+    \[\frac{dy}{dx} + 3y = 2xe^{-3x}\]
+    <p>The p value we can identify as the function multiplying y.</p>
+    \[e^{\int 3 dx}\frac{dy}{dx}+3e^{\int 3 dx}y= e^{\int 3 dx}Q(x)\]
+    \[e^{3x}\frac{dy}{dx}+3e^{3x}y= e^{3x}2xe^{-3x}\]
+    \[ g(x) = y\]
+    \[ g'(x) = \frac{dy}{dx}\]
+    \[f(x) =e^{3x} \]
+    \[f '(x) =  3e^{3x} \]
+    \[\frac{d}{dx}(e^{3x}y) = e^{3x}2xe^{-3x}\]
+    \[\frac{d}{dx}(e^{3x}y) = 2x\]
+    \[\int \frac{d}{dx}(e^{3x}y) dx= \int 2x dx\]
+    \[e^{3x}y= x^2\]
+    \[y= \frac{x^2+c}{e^{3x}}\]
+    <p>This is the general solution for this differential equation.</p>
+
+</body>
+</html>

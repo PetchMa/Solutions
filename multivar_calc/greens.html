@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green's Theorem</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Green's Theorem  
+        </h1>
+        <img style="align-content: center" src="green.png" width="300px" height="auto">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> Green's theorem is a theorem that helps relate a line integral to a iterated integral. Green's theorem is stated here in the following: </p>
+    \[\vec{F} = \langle P, Q \rangle\]
+    \[\oint_{c} P dx + Q dy = \int \int_{R} \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}dA\]
+    <p>This can be generalized to this as well.</p>
+    \[\vec{F} = \langle P, Q, R \rangle\]
+    \[\oint_{c} \vec{F} dr = \int \int_{R} curl F \cdot \wedge{n} dA\]
+    \[\oint_{c} P dx + Q dy + R dz dr = \int \int_{R} (\frac{\partial R}{\partial y} -\frac{\partial Q}{\partial z})dydz +(\frac{\partial P}{\partial z} -\frac{\partial R}{\partial x})dxdz +
+    (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdY\]
+    <p>Also note that Greens theorem only works if the orientation of the path is counter clockwise and the vector orthogonal to the plane is in the positve orientation. If it is clockwise path 
+        we need to take the negative path. 
+    </p>
+    <div style="text-align: center">
+        <img style="align-content: center" src="orientation.png" width="300px" height="auto">
+    </div>
+    <p></p>
+    <p><b>Probelm: </b>However certain problems require multiple regions if one of the dependent variables cannot be represented as a continous function. For example
+        the triangle formed by the points \((0,0)\), \((1,1)\), \((2,0)\) running counter clockwise.
+    </p>
+    <p>Find the line integral following that path.</p>
+    \[\oint_{c}(y+e^x)dx +(2x^2+\cos(y))dy\]
+    <p>We can find the region bounded by looking at how to represent that inner area using bounds.</p>
+    \[x \in [0,1] \cup [1,2]\]
+    \[y \in [0,x] \cup [1,2-x]\]
+    \[\oint_{c_1} P dx + Q dy + \oint_{c_2} P dx + Q dy= \int \int_{R_1} \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}dA + \int \int_{R_2} \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}dA\]
+    \[= \int \int_{R_1} 4x-1 dA + \int \int_{R_2} 4x-1 dA\]
+    \[= \int_0^2 \int_{0}^x 4x-1 dydx + \int_{1}^2 \int_{1}^{2-x} 4x-1 dydx\]
+    \[= \int_0^2 \int_{0}^x 4x-1 dydx + \int_{1}^2 \int_{1}^{2-x} 4x-1 dydx\]
+    \[= \int_0^2 [4yx-1]\Big|_{0}^x dx + \int_{1}^2 [4yx-1]\Big|_{1}^{2-x} dx\]
+    \[= \int_0^2 4x^2-x dx + \int_{1}^2 9x-4x^2-2dx\]
+    \[= \int_0^2 4x^2-x dx + \int_{1}^2 9x-4x^2-2dx\]
+    \[= [\frac{4}{3}x^3-\frac{1}{2}x^2]\Big|_{0}^1 +  [\frac{9}{2}x^2-\frac{4}{3}x^3-2x]\Big|_1^2\]
+    \[= 3\]
+</body>
+</html>

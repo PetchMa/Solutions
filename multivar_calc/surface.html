@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surface Integrals</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Surface Integrals  
+        </h1>
+        <img style="align-content: center" src="surface.png" width="300px" height="auto">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> The surface integral is finding the area given a surface defined by 
+        \(\vec{r}(s,t)=\langle p_x,p_y,p_z\rangle + t\vec{m}+ s\vec{v}\). However each value of that surface is defined by \(f(x,y,z)\).
+    Given the region defined by the surface \(\vec{r}(s,t)\) we can find the area of a very small parallelogram by taking the magnitude of the cross product of
+a very small change in the s and t values. This allows us to represent the surface integral as the following. </p>
+\[S= \int \int_{\Sigma} d \delta\]
+\[S= \int \int_{\Sigma} |\frac{\partial \vec{r}}{\partial s}ds \times \frac{\partial \vec{r}}{\partial t}dt|\]
+\[S= \int \int_{\Sigma} |\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t}|dsdt\]
+\[S= \int \int_{\Sigma} f(x,y,z)|\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t}|dsdt\]
+\[S= \int \int_{\Sigma} f(x(s,t),y(s,t),z(s,t))|\frac{\partial \vec{r}}{\partial s} \times \frac{\partial \vec{r}}{\partial t}|dsdt\]
+<p>Sometimes to simplify this notation we can choose to rewrite it as the following if we are given the plane in scalar form. We don't 
+    need to preform the cross product because the scalar form is the cross product of the s and t values!
+</p>
+\[S= \int \int_{\Sigma} f(x,y,g(x,y))\sqrt{1+(\frac{dz}{dx})^2+(\frac{dz}{dy})^2}dA\]
+
+
+<p style="font-size: 18px"><b>Problem: </b>Evaluate the surface integral of: \(\int \int_{s}(x^2z+y^2z) ds\) where s is the hemisphere \(x^2+y^2+z^2=4\) 
+    and \(z \geq 0\)</p>
+    \[S = \int \int_{s}(x^2z+y^2z) ds\]
+    \[S= \int \int_{\Sigma} f(x,y,g(x,y))\sqrt{1+(\frac{dz}{dx})^2+(\frac{dz}{dy})^2}dA\]
+    <p>We can find the values of \(\frac{dz}{dx}\) and \(\frac{dz}{dy}\) through implicit differentiation</p>
+    \[x^2+y^2+z^2=4\]
+    \[z^2=4-x^2-y^2\]
+    \[2z\frac{dz}{dx}=-2x\]
+    \[\frac{dz}{dx}=\frac{-x}{z}\]
+    \[2z\frac{dz}{dy}=-2y\]
+    \[\frac{dz}{dy}=\frac{-y}{z}\]
+    \[S= \int \int_{\Sigma} f(x,y,g(x,y))\sqrt{1+(\frac{-x}{z})^2+(\frac{-y}{z})^2}dA\]
+    \[S= \int \int_{\Sigma} (x^2z+y^2z)\sqrt{\frac{z^2+x^2+y^2}{z^2}}dA\]
+    \[S= \int \int_{\Sigma} (x^2+y^2)\sqrt{z^2+x^2+y^2}dA\]
+    <p>We can then sub in the value of \(z^2+x^2+y^2=4\)</p>
+    \[S= 2\int \int_{\Sigma} (x^2+y^2)dA\]
+    <p>We can make this easier to solve if we made this into polar coordinates. Like so.</p>
+    \[S= 2\int \int_{\Sigma} (r^2)rdrd\theta\]
+    \[S= 2\int \int_{} (r^2)rdrd\theta\]
+    <p>Since there is no bounds for the quadrants of x and y we can simply say \(\theta \in [0, 2\pi]\) we also know the radius is 2/p>
+        \[S= 2\int_{0}^{2\pi} \int_{0}^2 (r^3)drd\theta\]
+    <p>Then we can take this and evaluate it </p>
+    \[S= 2\int_{0}^{2\pi} \frac{1}{4}r^4\Big|_{0}^{2}d\theta\]
+    \[S= 16\pi\]
+    
+    
+</body>
+</html>

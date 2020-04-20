@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divergence</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Divergence  
+        </h1>
+        <img style="align-content: center" src="diver.png" width="300px" height="auto">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> Divergence is similar to curl, except it calculates how much something is diverging from a given point.
+    If a point has positive divergence it would appear as fluid moving away. Negative divergence means fluid is coming together like a hole! Divergence is simply finding the gradient 
+via dot product. This is the flux density of a given region.</p>
+    \[\vec{F} = \langle F_1, F_2, F_3 \rangle\]
+    \[div \vec{F} = \nabla  \cdot \vec{F} \]
+    \[div \vec{F} =  \frac{\partial F_1}{\partial x}i + \frac{\partial F_2}{\partial y}j + \frac{\partial F_2}{\partial z}k\]
+    
+    <p><b>Probelm: </b> Find the divergence of the following vector field.
+    </p>
+    \[\vec{F(x,y,z)} = \langle e^x\sin (y), e^y\sin (z), e^z\sin (x) \rangle\]
+    \[div \vec{F} = \nabla  \cdot \vec{F} \]
+    \[div \vec{F} = \frac{\partial F_1}{\partial x}i + \frac{\partial F_2}{\partial y}j + \frac{\partial F_2}{\partial z}k\]
+    \[div \vec{F} = (e^x\sin (y))i + (e^y\sin (z))j + (e^z\sin (x))k\]
+   
+</body>
+</html>

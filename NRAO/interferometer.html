@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interferometery 1 </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Interferometery 1 
+        </h1>
+    </div>
+    <p>Interferometers are using multiple telescopes linked together to observe a single source. The reason why this is great is because it greatly increases the angular 
+        resolution of our instruments by simply increasing the base line of these telescopes. 
+    </p>
+    <div style="text-align: center">
+      <img src="inter.png">
+    </div>
+    <p>The problem is different signals come to the telescopes at different times. How can we locate when the signal we wish to look at is what we're trying to look at??
+        We do so with a number of techniques namely a correlator which takes the product of the voltage changes and integrates them. 
+    </p>
+    <p>From the above we know the following is true.</p>
+    \[c\tau_g = D\]
+    \[|\vec{b}| \cos(\theta) = D\]
+    \[\vec{b} \cdot \hat{s}  = D\]
+    \[c\tau_g = \vec{b} \cdot \hat{s}\]
+    \[\tau_g = {\vec{b} \cdot \hat{s} \over c}\]
+    <p>We also know the voltage change is defined by  the following: </p>
+    \[V_1 = V \cos [\omega (t - \tau_{\rm g})] \quad {\rm and} \quad V_2 =
+    V \cos (\omega t)\]
+    <p>The correlator takes the product of the pair of interferometers and we get the following. </p>
+    \[V_1 V_2 = V^2 \cos(\omega t) \cos[\omega (t - \tau_{\rm g})] =
+    \biggl({V^2 \over 2}\biggr) [\cos (2 \omega t - \omega \tau_{\rm g}) +
+    \cos (\omega \tau_{\rm g})]\]
+    <p>The following identity is goes like this.</p>
+    \[LS = V^2 \cos(\omega t) \cos[\omega (t - \tau_{\rm g})]\]
+    \[LS = V^2 \cos(\omega t) (\cos[\omega t - \omega\tau_{\rm g}])\]
+    \[LS = V^2 \cos(\omega t) (\cos[\omega t] \cos[ \omega\tau_{\rm g}] +\sin[\omega t] \sin[\omega\tau_{\rm g}] )\]
+    \[LS = V^2  (\cos^2[\omega t] \cos[ \omega\tau_{\rm g}] +\cos(\omega t)\sin[\omega t] \sin[\omega\tau_{\rm g}] )\]
+    <p>Multiply both sides by 2</p>
+    \[2LS = V^2  (2\cos^2[\omega t] \cos[ \omega\tau_{\rm g}] +2\cos(\omega t)\sin[\omega t] \sin[\omega\tau_{\rm g}] )\]
+    <p>Add in a value but also subtracting it so we dont change the info</p>
+    \[2LS = V^2  (2\cos^2[\omega t] \cos[ \omega\tau_{\rm g}] - \cos[ \omega\tau_{\rm g}]+\cos[ \omega\tau_{\rm g}]   +\sin[2\omega t] \sin[\omega\tau_{\rm g}] )\]
+    \[2LS = V^2  (\cos[ \omega\tau_{\rm g}][2\cos^2[\omega t]  - 1 ]+\cos[ \omega\tau_{\rm g}]  +\sin[2\omega t] \sin[\omega\tau_{\rm g}] )\]
+    \[2LS = V^2  (\cos[ \omega\tau_{\rm g}][2\cos[2\omega t] +\cos[ \omega\tau_{\rm g}]  +\sin[2\omega t] \sin[\omega\tau_{\rm g}] )\]
+    \[2LS = V^2  (\cos[ \omega\tau_{\rm g}][2\cos[2\omega t] +\sin[2\omega t] \sin[\omega\tau_{\rm g}] +\cos[ \omega\tau_{\rm g}]  )\]
+    \[2LS = V^2  ([\cos[2\omega t -\omega\tau_{\rm g}]  +\cos[ \omega\tau_{\rm g}]  )\]
+    \[LS = {V^2 \over 2}  ([\cos[2\omega t -\omega\tau_{\rm g}]  +\cos[ \omega\tau_{\rm g}]  )\]
+    <p>However, and then takes a time average long enough \(t(2)−1\) to remove the high-frequency term \(cos(2t−g)\) from the final output R:</p>
+    \[R = \langle V_1 V_2 \rangle = \biggl({V^2 \over 2}\biggr) \cos(\omega
+    \tau_{\rm g})\]
+    <p>The correlator output voltage \(R=({V^2 \over 2})\cos(\omega \tau)\) varies sinusoidally with the change of source direction in the interferometer frame.  These sinusoids are called fringes, and the fringe phase</p>
+    \[\phi = \omega \tau_{\rm g} = {\omega \over c} b \cos\theta\]
+    \[v=\lambda\nu\]
+    \[v/\nu=\lambda\]
+    \[vt=\lambda\]
+    \[ct=\lambda\]
+    \[{d \phi \over d \theta} = {\omega \over c} b \sin \theta = {2\pi \over ct} b \sin \theta
+    = 2 \pi \biggl( {b \sin \theta \over \lambda}\biggr)\]
+    <p>If the individual antennas comprising an interferometer were isotropic, the interferometer 
+        point-source response would be a sinusoid spanning the sky.  Such an interferometer is sensitive to only one Fourier component of the sky brightness distribution.
+        Improving the instantaneous point-source response of an interferometer requires more Fourier components; that is, more baselines. </p>
+        <p>The trick is the more, components within these fourier transforms, the quickly point sources become guassian. 
+            An interferometer with N antennas contains N(N−1)2 pairs of antennas, each of which can be connected as an interferometer, so the instantaneous synthesized beam
+             (the point-source response obtained by averaging the outputs of all pairs) rapidly approaches a Gaussian as N increases.
+        </p>
+        <p>Notice as you get 2 - 4 telescopes, the point source approaches an airy pattern or Gaussian. </p>
+        <div style="text-align: center">
+            <img src="combowaves.PNG">
+          </div>
+</body>
+</html>

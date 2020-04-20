@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagrange Multipliers 2D</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Lagrange Multipliers - Two Dimensions, One Constraint
+        </h1>
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> What are Lagrange multipliers and what's its use?</p>
+    
+    <p>The lagrange multiplier is a technique of optimization in multivariate calculus given a constraint equation. In regular calculus, we were often given bounds where we'd have to check end points to determine local or global extrema values. However with multivariate functions, we'd often have to check for extrema values of the bounding lines, instead of simply checking end points, requiring more computation. To make it easier we have Lagrange multipliers!  
+    </p>
+    <p>
+    </p>
+    <p>
+    Given the multivariable function \(z = f(x,y)\) and the constraint equation of \(g(x,y)=c\). Take the partial derivatives of each function and set the partial derivatives of \(f\) to the partial derivatives of \(g\) multiplied by \(\lambda\)                                                            
+    </p>
+    <div style="text-align: center">
+        <p> \(\frac{\partial f}{\partial x}= \lambda\frac{\partial g}{\partial x}\)  </p>
+        <p>\(\frac{\partial f}{\partial y}= \lambda\frac{\partial g}{\partial y}\)
+        </p>
+    </div>
+    <p>
+    Given this system of equations we can solve for \(\lambda\) in both equations and set the two equations equal to one another.  
+    </p>
+    <p> Isolate for \(x\) or for \(y\) and subsitue back into the constraint equation and solve for the two variables. 
+    </p>
+    <p>Given the solution, we then check for the type of extrema value using the second partials test
+    </p>
+    <p>
+    \[D(x,y,\lambda) = \frac{\partial^2 f}{\partial x^2} \frac{\partial^2 f}{\partial y^2} - (\frac{\partial^2 f}{\partial x \partial y})^2 \]
+    </p>
+    <p> <b>Reminder: </b> The results of the test indicates the following if conditions are met:
+    </p>
+    <ul>
+        <li>\(D(x,y) &lt; 0 \) Saddle point, as the concavity of x and y component is complimentry which forms neither a min or a max.
+        </li>
+        <li>\(D(x,y) = 0 \) inconclusive. 
+        </li>
+        <li>\(D(x,y) &gt; 0 \) Possible extrema
+            <ul>
+                <li>if \(\frac{\partial^2 f}{\partial x^2}\) &gt; 0 we have a min
+                </li>
+                <li>if \(\frac{\partial^2 f}{\partial x^2}\) &lt; 0 we have a max
+                </li>
+            </ul>
+        </li>
+    
+    </ul>
+    <p style="font-size: 18px"><b>Problem: </b> Use Lagrange multipliers to find the extrema of the function, subject to the given constraint.</p>
+    <br>
+    <p>
+        \[ f(x,y)=x+y-5\]
+        \[ xy=1\]
+    </p>
+    <p> We first need to find the constraint function. Given the constraint \(xy=1\) we can arrive at: 
+        \[g(x,y)=xy-1\]
+    </p>
+    <p>The respective partial derivatives of \(f\) and \(g\) are: 
+    </p>
+    <div style="text-align: center">
+        <p  style="font-size: 20px"> \(\frac{\partial f}{\partial x}= 1\)  </p>
+        <p style="font-size: 20px">\(\frac{\partial f}{\partial y}= 1\)
+        </p>
+        <p style="font-size: 20px"> \(\frac{\partial g}{\partial x}=y\)  </p>
+        <p style="font-size: 20px">\(\frac{\partial g}{\partial y}=x\)
+        </p>
+    </div>
+    <p>Then we set up the system of equations like so</p>
+     <div style="text-align: center">
+        <p> \(\frac{\partial f}{\partial x}= \lambda\frac{\partial g}{\partial x}\)  </p>
+        <p>\(\frac{\partial f}{\partial y}= \lambda\frac{\partial g}{\partial y}\)
+        </p>
+    </div>
+    <p>We sub in the values for the partial derivatives. </p>
+    <div style="text-align: center">
+        <p> \(1= \lambda y\)  </p>
+        <p>\(1= \lambda x\)
+        </p>
+    </div>
+    <p> Solving this system we get \(x=y\). Then we sub this new value of y into the original constraint function</p>
+    \[x(y) = 1\]
+    \[x^2 = 1\]
+     \[x= \pm 1\]
+    <p>Therefore our critical values are the following points \((1,1,f(x,y))\) and \((-1,-1,f(x,y))\)</p>
+    <p> Then we check the type of critical values of each point with the second partials test.</p>
+    <p><b>Note: the values return inconclusive when we take the second derivative.</b> Therefore we need to use a different test by forming a bordered Hessian matrix.</p>
+    <p>\[
+           H(g,L) =
+            det\begin{bmatrix}
+              0 & 
+                -g_x & 
+               -g_y\\[1ex] 
+              -g_x & 
+                L_{xx} & 
+                L_{xy}  \\[1ex]
+               -g_y& 
+                 L_{yx} & 
+                L_{yy}
+            \end{bmatrix}
+            \]
+    </p>
+    <p>Where \(L(x,y,\lambda)\) is defined in terms of when \(\lambda = 1 \) from the first solution
+    \[L(x,y,\lambda) = f(x,y)-\lambda(x,y)\]
+    \[L(x,y,\lambda) = x+y-5-(1)(xy-1)\]
+    \[L(x,y,\lambda) = x+y-xy-4\]
+    </p>
+    
+    
+    <p>We get the following partial derivatives: \(L_{xx}=0\), \(L_{yy}=0\), \(L_{xy}=L_{yx}=-1\)</p>
+    <p>\[
+           H(g,L) =
+            det\begin{bmatrix}
+              0 & 
+                -1 & 
+               -1\\[1ex] 
+              -1 & 
+                0 & 
+                -1  \\[1ex]
+               -1& 
+                 -1 & 
+               0
+            \end{bmatrix} = -2
+            \]
+    </p>
+    <p>Since \(H(g,L)&lt;0\) (1,1) is a local minimum</p>
+    <p>Then we find \(L(x,y,\lambda)\) when\(\lambda = -1 \) from the second solution
+    \[L(x,y,\lambda) = f(x,y)-\lambda(x,y)\]
+    \[L(x,y,\lambda) = x+y-5+(1)(xy+1)\]
+    \[L(x,y,\lambda) = x+y+xy-6\]
+    </p>
+    <p>We get the following partial derivatives: \(L_{xx}=0\), \(L_{yy}=0\), \(L_{xy}=L_{yx}=1\)</p>
+    <p>\[
+           H(g,L) =
+            det\begin{bmatrix}
+              0 & 
+                1 & 
+               1\\[1ex] 
+              1 & 
+                0 & 
+                1  \\[1ex]
+               1& 
+               1 & 
+               0
+            \end{bmatrix} = 2
+            \]
+    </p>
+    <p>Since \(H(g,L)&gt;0\) (-1,-1) is a local maximum</p>
+</body>
+</html>

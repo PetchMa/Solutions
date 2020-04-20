@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laplace Transformations</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Laplace Transforms 
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b>The laplace transform is a method of transforming a function defined in terms of x into a function defined 
+        in terms of S. We do these transformations because it is easier to solve certain differential equations in this form. Here is the definition of a transformation of the transformation. 
+    </p>
+    \[\mathcal{L} \{f(t)\} = \int_{0^-}^{\infty} e^{-st}f(t)dt\]
+    <p><b>Problem: </b> Transform the following function into its laplacian equivelent.</p>
+    \[f(t) = \sin(3t)\]
+    \[\mathcal{L} \{f(t)\} = \int_{0^-}^{\infty} e^{-st}f(t)dt\]
+    \[F(t)= \int_{0^-}^{\infty} e^{-st}\sin(3t)dt\]
+    <p>We preform integrals by parts.\(u=\sin(3t)\) and \(du=3\cos(3t)dt\) also \(dv=e^{-st}\) and thus \(v=\frac{-1}{s}e^{-st}\)</p>
+
+    \[=\frac{-1}{s}\cdot \sin(3t) - \int_{0^-}^{\infty} 3\cdot\frac{-1}{s}\cos(3t)e^{-st} dt\] 
+    \[=\frac{-1}{s}\cdot \sin(3t) + \frac{3}{s}\int_{0^-}^{\infty} e^{-st}\cos(3t) dt\]
+    <p>We preform integrals by parts again.\(u=\cos(3t)\) and \(du=-3\sin(3t)dt\) also \(dv=e^{-st}\) and thus \(v=\frac{-1}{s}e^{-st}\)</p>
+    \[=\frac{-1}{s}\cdot \sin(3t) - \frac{3}{s}[\frac{-1}{s}e^{-st}\cos(3t)-\int_{0^-}^{\infty}-3\sin(3t)\frac{-1}{s}e^{-st}dt ]\]
+    \[=\frac{-1}{s}\cdot \sin(3t) - \frac{3}{s}[\frac{-1}{s}e^{-st}\cos(3t)+\frac{3}{s}\int_{0^-}^{\infty}\sin(3t)e^{-st}dt ]\]
+    \[=\frac{-1}{s}\cdot \sin(3t) + \frac{3}{s^2}e^{-st}\cos(3t)+\frac{9}{s^2}\int_{0^-}^{\infty}\sin(3t)e^{-st}dt ]\]
+    <p>Notice we can subsitute the values F for the integral at the end.</p>
+    \[F=\frac{-1}{s}\cdot \sin(3t) + \frac{3}{s^2}e^{-st}\cos(3t)+\frac{9}{s^2}F\]
+    \[(1-\frac{9}{s^2})F=\frac{-1}{s}\cdot \sin(3t) + \frac{3}{s^2}e^{-st}\cos(3t)\]
+    \[F=\frac{\frac{-1}{s}\cdot \sin(3t) + \frac{3}{s^2}e^{-st}\cos(3t)}{(1-\frac{9}{s^2})}\]
+    \[F=\frac{\frac{-1}{s}\cdot \sin(3t) + \frac{3}{s^2}e^{-st}\cos(3t)\Big|_0^{\infty}s^2}{s^2-9}\]
+    <p>Evaluating the values inside as it approaches 0, we realize that everything zeros out in the cosine term. For the values approaching \(\infty\)
+         we realize that the values all approach zero.
+    </p>
+    \[F=\frac{ [\frac{3}{s^2}e^{-s(0)}\cos(0)]s^2}{s^2-9}\]
+    \[F=\frac{3}{s^2-9}\]
+</body>
+</html>

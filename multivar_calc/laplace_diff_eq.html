@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laplace Transformations Differential Equations</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Laplace Transforms - Differential Equations
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> The laplace transforms can help make second order nonhomogenous equations easier to solve. However, to solve
+         a laplace transform differential equation we need to relate the following: 
+    </p>
+    \[\mathcal{L} \{f(t)\} = \int_{0^-}^{\infty} e^{-st}f(t)dt = F(s)\]
+    \[f'(t) = sF(s) -f(0)\]
+    \[f''(t) = s^2F(s) -sf(0)-f'(0)\]
+    <p><b>Proof for \(f''(t) = s^2F(s) -sf(0)-f'(0)\) ,  \(f'(t) = sF(s) -f(0)\)</b> Finding the laplace transform of the derivatives.</p>
+    \[\mathcal{L} \{f'(t)\} = \int_{0^-}^{\infty} e^{-st}f'(t)dt = F(s)\]
+    <p>We preform a integration by parts \(dv = f'(t)\), thus \(v = f(t)\) and \(du= -se^{-st}\) \(u= e^{-st}\)</p>
+    \[\mathcal{L} \{f'(t)\} = e^{-st}f(t)\Big|_{0}^{\infty} -  \int_{0^-}^{\infty}-s e^{-st}f(t)dt\]
+    \[\mathcal{L} \{f'(t)\} = e^{-st}f(t)\Big|_{0}^{\infty} +s  \int_{0^-}^{\infty} e^{-st}f(t)dt\]
+    <p>We realize we can replace the integral with the laplace transform of its original function.</p>
+    \[\mathcal{L} \{f'(t)\} = e^{-st}f(t)\Big|_{0}^{\infty} +s F(s)\]
+    <p>We know that if we take the limit we get the following: </p>
+    \[\lim_{t \to \infty}e^{-st}f(t) = (0)f(\infty) = 0\]
+    \[\lim_{t\to 0}e^{-st}f(t) = (1)f(0)\]
+    \[\mathcal{L} \{f'(t)\} = [0-f(0)]+s F(s)\]
+    \[\mathcal{L} \{f'(t)\} = sF(s)-f(0)\]
+    <p>For the second derivative, we can find it pretty simple having the first derivative transformation.</p>
+    \[\mathcal{L} \{f''(t)\} = \int_{0^-}^{\infty} e^{-st}f''(t)dt \]
+    <p>We can use integration by parts once again.\(dv = f''(t)\), thus \(v = f'(t)\) and \(du= -se^{-st}\) \(u= e^{-st}\) </p>
+    \[\mathcal{L} \{f''(t)\} = e^{-st}f'(t)\Big|_{0}^{\infty} - \int_{0^-}^{\infty} -se^{-st}f'(t)dt \]
+    \[\mathcal{L} \{f''(t)\} = e^{-st}f'(t)\Big|_{0}^{\infty} +s \int_{0^-}^{\infty} e^{-st}f'(t)dt \]
+    <p>Notice we can replace the integral with the laplace transform of the first derivative. </p>
+    \[\mathcal{L} \{f''(t)\} = e^{-st}f'(t)\Big|_{0}^{\infty} +s [sF(s)-f(0)]\]
+    <p>Once again we can evaluate the first term with the following limits </p>
+    \[\lim_{t \to \infty}e^{-st}f'(t) = (0)f'(\infty) = 0\]
+    \[\lim_{t\to 0}e^{-st}f'(t) = (1)f'(0)\]
+    \[\therefore \mathcal{L} \{f''(t)\}  = -f'(0) +s [sF(s)-f(0)] = s^2F(s)-sf(0)-'f(0) \]
+    <p>With this new definition we can solve second order differential equations!!</p>
+    <p><b>Problems: </b>Solve the following differential equation.</p>
+    \[2y''+3y'-2y = te^{-2t}\]
+    \[f(0) = 0, \space f'(0)=2\]
+    <p>We need to solve for the following transformations. [using a table]</p>
+    \[\mathcal{L} \{te^{-2t}\} = \frac{1}{(s+2)^2}\]
+    \[\mathcal{L} \{y'(t)\} = sF(s)-y(0)\]
+    \[\mathcal{L} \{y'(t)\} = sF(s)\]
+    \[\mathcal{L} \{y''(t)\} = s^2F(s)-sy(0)-y'(0)\]
+    \[\mathcal{L} \{y''(t)\} = s^2F(s)+2\]
+    <p>Now we plug them back into the original differential equation.</p>
+    \[2y''+3y'-2y = te^{-2t}\]
+    \[2(s^2F(s)+2)+3(sF(s))-2F(s) = \frac{1}{(s+2)^2}\]
+    \[2s^2F(s)+4+3sF(s)-2F(s) = \frac{1}{(s+2)^2}\]
+    \[F(s)(2s^2+3s-6) = \frac{1-4(s+2)^2}{(s+2)^2}\]
+    \[F(s)= \frac{1-4(s+2)^2}{(s+2)^2(2s^2+3s-2) }\]
+    \[F(s)= \frac{1-4(s+2)^2}{(s+2)^2(2s-1)(s+2) }\]
+    \[F(s)= \frac{1-4(s+2)^2}{(s+2)^3(2s-1)}\]
+    <p>Then we need to preform fraction decomposition, and turn this fraction into 'smaller' parts.</p>
+    \[\frac{A}{(2s-1)}+ \frac{B}{(s+2)} +  \frac{C}{(s+2)^2} + \frac{D}{(s+2)^3}\]
+   \[ \frac{A(s+2)^2+B(2s-1)(s+2)^2+C(s+2)(2s-1)+D(2s-1)}{(s+2)^3(2s-1)}\]
+   <p>This will get messy and thus I wrote them seperately here. </p>
+   \[ As^3+A6s^2+12As+8A\]
+   \[ 2Bs^3+7Bs^2+4Bs-4B\]
+   \[2Cs^2+3Cs-2C\]
+   \[2Ds-D\]
+   \[ \frac{ As^3+A6s^2+12As+8A +  2Bs^3+7Bs^2+4Bs-4B + 2Cs^2+3Cs-2C + 2Ds-D }{(s+2)^3(2s-1)} = \frac{-4s^2-16s-15}{(s+2)^3(2s-1)}\]
+   \[ As^3+A6s^2+12As+8A +  2Bs^3+7Bs^2+4Bs-4B + 2Cs^2+3Cs-2C + 2Ds-D = -4s^2-16s-15\]
+   <p>We can form this sysetm of equations, which we can solve using row reduced echelon form. Treat s as a constant and solve the system of equations.</p>
+   \[As^3 +  2Bs^3 = 0 \]
+   \[A6s^2 +  7Bs^2 + 2Cs^2= 4s^2\]
+   \[12As +4Bs+3Cs+ 2Ds = -16s\]
+   \[8A -4B-2C-D = -15\]
+   \[ref \left[\begin{array}{ccccc}
+   1 & 2 & 0 & 0 & 0	\\
+   6 & 7 & 2 & 0 & 4	\\
+   12 & 4 & 3 & 2 & -16	\\
+   8 & -4 & -2 & -1 & -15
+   \end{array}\right]\]
+   <p>The result of this gives us these values: \(A = \frac{-192}{125}\)  \(B = \frac{96}{125}\) \(C = \frac{-10}{125}\) 
+    \(D = \frac{-25}{125}\)
+   </p>
+   \[\frac{\frac{-192}{125}}{(2s-1)}+ \frac{\frac{96}{125}}{(s+2)} +  \frac{\frac{-10}{125}}{(s+2)^2} + \frac{\frac{-25}{125}}{(s+2)^3}\]
+   <P>Now we need to preform an inverse laplace transform.</P>
+   \[\mathcal{L} \{t^ne^{at}\} = \frac{n!}{(s-a)^{n+1}}\]
+   <p>We need to manipulate it into the following form above ^ </p>
+   \[\frac{-192}{125 }\frac{0!}{2(s-\frac{1}{2})^{0+1}}+\frac{96}{125}\frac{0!}{(s+2)^{0+1}} +  \frac{-10}{125}\frac{1!}{(s+2)^{1+1}} + \frac{-25}{125*2}\frac{2!}{(s+2)^{2+1}}\]
+    \[\therefore y = \frac{-192}{250}e^{\frac{1}{2}t}+\frac{96}{125}e^{-2t} +  \frac{-10}{125}te^{-2t} + \frac{-25}{250}t^2e^{-3t}\]
+</body>
+</html>

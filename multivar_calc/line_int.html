@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Integrals</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Line Integrals  
+        </h1>
+        <img style="align-content: center" src="line_integral.jpg" width="300px" height="auto">
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> Line integrals are integrals of a vector line over a certain path. Imagine a line integral as draping a curtain over a line and finding the area under that line. </p>
+    
+    <p>The standard form of a line integral is the taking infinitesimally small lengths along a line and calculating the area under it. This is why for the line integral follows the this form. </p>
+    \[\int_{c} f(x,y,z)ds = \int_{a}^{b} f(x(t),y(t),z(t)) \sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2+(\frac{dz}{dt})^2} dt \]
+    <p>For example this is the approximation for the line integral.</p>
+    \[ \lim_{n \to \inf} \sum_{i=1}^n f(x_i, y_i,z_i)\Delta S = \int_{c} f(x,y,z)ds \]
+    
+    
+    <p>Line integrals might be hard to compute because finding the parametric equations for the path components might be possible all the time. However, there're a few techniques around this.</p>
+    <p style="font-size: 18px"><b>Problem: </b>If C is the line segment from(0,0,0) to (1,2,3) find the line integral of </p>
+    \[\int_{c} xe^{yz}ds\]
+    <br>
+    <p>This is simple because over the "surface" we draw a straight path. \(p =(0,0,0)\) and \(q=(1,2,3)\)</p>
+    \[\vec{r}(t) = \langle p_x.p_y, p_z\rangle + t\langle q_x - p_x,  q_y - p_y, q_z - p_z\rangle\]
+    \[\vec{r}(t) = \langle 0,0,0\rangle + t\langle 1,  2, 3\rangle\]
+    \[x(t)=t\]
+    \[y(t)=2t\]
+    \[z(t)=3t\]
+    <p> We can then subsitute the following into the integral. We also know that the bounds of the inegral is determined by the end paths. Thus we can solve for values of t that give the two points. </p>
+    \[t \in [0,1]\]
+    \[\int_{0}^{1} te^{2t*3t}ds\]
+    \[\int_{0}^{1} te^{2t*3t}\sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2+(\frac{dz}{dt})^2} dt\]
+    \[\int_{0}^{1} te^{2t*3t}\sqrt{(1)^2+(2)^2+(3)^2} dt\]
+    \[\int_{0}^{1} te^{6t^2}\sqrt{14} dt\]
+    <p>The we can U substitute for the values of \(6t^2\)</p>
+    \[\frac{\sqrt{14}}{12}\int_{0}^{1} e^{u} du\]
+    \[\frac{\sqrt{14}}{12}[e^{6t^2}]\Big|_{0}^{1}\]
+    \[\frac{\sqrt{14}}{12}(e^{6}-1)\]
+    
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagrange Multipliers 3D</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Lagrange Multipliers - Three Dimensions, One Constraint
+        </h1>
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> What are Lagrange multipliers and what's its use?</p>
+    <p>Check this <a href="/multivar_calc/lagrange_2d_1con.html">link</a> for introduction to lagrange multipliers</p>
+    
+    <p>The lagrange multiplier for \(\mathbb{R}^3\) where \(f(x,y,z)\) given one constraint equation follows the same calculation method as for 2D lagrange multipliers. 
+    </p>
+    
+    <div style="text-align: center">
+        <p> \(\frac{\partial f}{\partial x}= \lambda\frac{\partial g}{\partial x}\)  </p>
+        <p>\(\frac{\partial f}{\partial y}= \lambda\frac{\partial g}{\partial y}\)
+        </p>
+        <p>\(\frac{\partial f}{\partial z}= \lambda\frac{\partial g}{\partial z}\)
+        </p>
+    </div>
+    
+    <p style="font-size: 18px"><b>Problem: </b> Use Lagrange multipliers to find the extrema of the function, subject to the given constraint.</p>
+    <br>
+    <p>
+        \[ f(x,y,z)=xyz\]
+        \[ x^2+y^2+z^2=3\]
+    </p>
+    <p> We first need to find the constraint function. Given the constraint \(x^2+y^2+z^2=3\) we can arrive at: 
+        \[g(x,y,z)= x^2+y^2+z^2-3\]
+    </p>
+    <p>The respective partial derivatives of \(f\) and \(g\) are: 
+    </p>
+    <div style="text-align: center">
+        <p  style="font-size: 20px"> \(\frac{\partial f}{\partial x}= yz\)</p>
+        <p style="font-size: 20px">\(\frac{\partial f}{\partial y}= xz\)</p>
+        <p style="font-size: 20px">\(\frac{\partial f}{\partial z}= xy\)</p>
+        
+        <p style="font-size: 20px"> \(\frac{\partial g}{\partial x}=2x\)</p>
+        <p style="font-size: 20px">\(\frac{\partial g}{\partial y}=2y\)</p>
+        <p style="font-size: 20px">\(\frac{\partial g}{\partial z}=2z\)</p>
+    </div>
+    <p>Then we set up the system of equations like so</p>
+     <div style="text-align: center">
+        <p> \(\frac{\partial f}{\partial x}= \lambda\frac{\partial g}{\partial x}\)  </p>
+        <p>\(\frac{\partial f}{\partial y}= \lambda\frac{\partial g}{\partial y}\)
+        </p>
+         <p>\(\frac{\partial f}{\partial z}= \lambda\frac{\partial g}{\partial z}\)
+        </p>
+    </div>
+    <p>We sub in the values for the partial derivatives. </p>
+    <div style="text-align: center">
+        <p> \(yz= 2\lambda x \)</p>
+        <p>\(xz= 2\lambda y\)</p>
+        <p>\(xy= 2\lambda z\)</p>
+    </div>
+    <p> Solving this system we get \(\frac{yz}{2x}=\frac{xz}{2y}=\frac{yx}{2z}\). Which gives us \(x=y=z\) Then we sub this new value of x into the original constraint function</p>
+    \[x^2+y^2+z^2=3\]
+    \[3x^2 = 3\]
+     \[x= \pm 1\]
+    <p>Therefore our critical values are the following points \((1,1,1)\) and \((-1,-1,-1)\)</p>
+    <p> Then we check the type of critical values of each point by simply subing in the points into the original function.</p>
+    \[f(1,1,1) =1 \]
+    \[f(-1,-1,-1) =-1 \]
+    <p>Therefore, local min at (-1,-1,-1) and local max (1,1,1)</p>
+</body>
+</html>

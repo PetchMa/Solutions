@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightness and Flux </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Brightness and Flux
+        </h1>
+    </div>
+    <p>Lots of properties can be explained by looking at the light coming off of an object. We can look at the brightness of the object and the flux of the object. However
+        these two aren't really the same. Brightness is a description of the object even if you're really far away. Flux is the percieved brightness. 
+    </p>
+    <h3>Flux</h3>
+    <P>Think of flux as the amount of arrows passing through a given area. Like the amount of photons hitting a given area. Imagine the diagram below. </P>
+    <div style="text-align: center">
+       <img src="flux.png" width="500px">
+    </div>
+    <p>Lets imagine there are 2 astronomers observing the same star from 2 planets. They are seperated by \(r_1\) and \(r_2\) respectively at \(r_1>r_2\). And lets say the star
+        is emitting energy \(E\) => in joules or ergs. We can loosely define the flux of observed by each astronomers as the following equation where L is the luminosity of the star
+        that is intrisict to the star itself. Note that luminosity is the energy output persecond.  
+    </p>
+    \[F_1 = \frac{L}{4\pi r_1^2}\]
+    \[F_2 = \frac{L}{4\pi r_2^2}\]
+    <div style="text-align: center">
+        <img src="flux_illustration.png" width="500px">
+     </div>
+    <h3>Brightness / Intensity</h3>
+    <p>What can astronomers agree on if flux always changes? Brightness or the luminosity of the object stays constant. The total energy output by the star is independent of distance. Here is 
+        another example.
+    </p>
+    <p>Lets say you observe two stars that have the same flux but one is a lot brighter than the other. How can this happen? Well the answer is, the star is just bigger! The size matters.
+        So brightness is really the flux per angular area! 
+    </p>
+    <div style="text-align: center">
+        <img src="brightness_diagram.gif" width="500px">
+     </div>
+     <p>Here is a formal proof.</p>
+     <p>Given the scenario above where two observers look at the same star but at different distance, their flux would be defined as the following. \(F_1 = \frac{L}{4\pi r_1^2}\)
+        and \(F_2 = \frac{L}{4\pi r_2^2}\)</p>
+    <p>We can say that the angle at which they observe the star is given by this raito, where \(r_x\) is the star radius</p>
+    \[\theta_1 = \arctan(\frac{r_x}{r_1})\]
+    \[\theta_2 = \arctan(\frac{r_x}{r_2})\]
+    <p>However we can approximate this as the angle is really small in astrophysical context. </p>
+    \[\theta_1\approx \frac{r_x}{r_1}\]
+    \[\theta_2\approx= \frac{r_x}{r_2}\]
+    <p>However the star takes up a 2d spot in the sky and thus we need to calculate the angular area of the star. Assuming the star is a circle we can have the simple equation.</p>
+    \[\pi\theta^2 \approx \pi\frac{r_x^2}{r_1^2}\]
+    <p>Given such we can subsitute it back into or original formula of brightness = flux over angular area.</p>
+    \[B = \frac{F}{\pi\frac{r_x^2}{r_1^2}}\]
+    \[B = frac{\frac{L}{4\pi r_1^2}}{\pi\frac{r_x^2}{r_1^2}}\]
+    \[B = \frac{L}{4\pi r_1^2}\frac{r_1^2}{\pi r_x^2}\]
+    \[B = \frac{L}{4\pi^2 r_x^2}\]
+ 
+    <p>However. Whats the brightness at each individual frequency? Like how bright is the blue wavelength or how bright is it for the radio frequency? We measure the spectral brigthness or
+        spectral intensity with the given formula. The new formula. 
+    </p>
+    \[I_v = \frac{d(P)}{\cos(\theta)d\sigma dv d\Omega}\]
+    <p>This is effectively the same thing. It is the small change in power / luminosity d(P) divided by a small change in solid angle \(d\Omega\), divded by a small surface area \(d\sigma\) that is hitting 
+        the normal of the surface \(\cos(\theta)\). We also divide by a small change in frequency \(dv\)
+    </p>
+    <p>Here is a more rigorous proof. Assume the following example where there is one source with the following set up.</p>
+    <div style="text-align: center">
+        <img src="steradian.png" width="500px">
+     </div>
+    \[ I_v= \frac{d(P)}{\cos(\theta)d\sigma dv d\Omega}\]
+    <p>We know that the power output of a given star is the following.</p>
+    \[d(P) =I_v\cos(\theta)d\sigma dv d\Omega \]
+    <p>Now lets say there are two observers of the same star. We can write the following</p>
+    \[d(P_1) =(I_v)_1\cos(\theta_1)d\sigma_1 dv d\Omega_1 \]
+    \[d(P_2) =(I_v)_2\cos(\theta_2)d\sigma_2 dv d\Omega_2 \]
+    <p>We know that the value of  \(d\Omega\) follows the ratio of surface area to radius square. </p>
+    \[d\Omega_1 = \frac{dS}{r^2}\]
+    <p>Notice we defined the small change in surface area as the following \(d\sigma\). We multiply the surface area by \(\cos(\theta)\) because the incdent raw isnt directly normal to the surface.
+        Thus we take the cos of the angle. 
+    </p>
+    <p>We can say that the \(d\Omega_1\) is subtended by \(d\sigma_2\) then the following is true.</p>
+    \[d\Omega_1 = \frac{\cos(\theta_2)d\sigma_2}{r^2}\]
+    [d\Omega_2 = \frac{\cos(\theta_1)d\sigma_1}{r^2}\]
+    <p>Now if we plug it back into our original equation. </p>
+    \[d(P_1) =(I_v)_1\cos(\theta_1)d\sigma_1 dv \frac{\cos(\theta_2)d\sigma_2}{r^2} \]
+    \[d(P_2) =(I_v)_2\cos(\theta_2)d\sigma_2 dv \frac{\cos(\theta_1)d\sigma_1}{r^2} \]
+    <p>Now we notice that infact </p>
+    \[d(P_1) = d(P_2)\]
+    <p>Thus the distance doesn't matter to the intensity of the source.</p>
+    <h3>Spectral Intensity \(\to\) Total Flux \(\to\) Flux Density</h3>
+    <p>Given that that is true, if we were to sum up all the small changes in each of the spectral intensities between \(0\) and \(\infty\) we should get our entire intensity.</p>
+    \[I = \int_0^\infty I_v dv\]
+    <p>If a source subtends a well-defined solid angle, 
+        the spectral power received by a detector of unit projected area is called the source flux density S. This is because We are looking for power per area per frequency.</p>
+        \[\frac{dP} { d\sigma d\nu} = I_\nu \cos\theta d\Omega\]
+        \[S_v = \int _{source} I_\nu(\theta,\phi)  \cos\theta d\Omega\]
+        <p>We can approximate to the following since astronomers usually work with small angles: </p>
+        \[S_v = \int _{source} I_\nu(\theta,\phi)  d\Omega\]
+    <h3>Spectral Luminosity</h3>
+    <p>Since we have the flux density we can also find the spectral lumionosity with our original formula! </p>
+    \[L_v = 4\pi r^2 S_v\]
+    \[L_v = 4\pi r^2 \int _{source} I_\nu(\theta,\phi) d\Omega\]
+    <p>Example problem: What is the specific intensity of the Sun at =10 GHz if the Sun is a nearly ideal blackbody with temperature T5800 K?</p>
+    \[I_\nu = B_\nu(T) = {2 h
+        \nu^3 \over c^2} { 1 \over
+        e^({h\nu \over kT}) - 1}\]
+    <p>We can approximate the value of \( e^{h\nu \over kT} -1 \) \(\approx \)\(h\nu \over kT\) with the taylor series expansion. And then simplify with the \(\lambda = \frac{c}{\nu}\)</p>
+    \[B_\nu (T) \approx {2 h \nu^3 \over c^2} {k T \over h \nu} = {2 k T
+        \nu^2 \over c^2} = {2 k T \over \lambda^2}\]
+    <p>We can just plug in the equations: </p>
+    \[I_\nu \approx {2 \times 1.38 \times 10^{-16}{\rm ~erg~K}^{-1}~
+    5800{\rm ~K~} (10^{10}{\rm ~s}^{-
+    1})^2 \over (3 \times 10^{10}{\rm ~cm~s}^{-1})^2}\]
+    \[I_\nu \approx 1.78 \times
+    10^{-16} {
+    {\rm W} \over {\rm m}^2{\rm ~sr~Hz}}\]
+    <p>What is the flux density of the Sun at =10 GHz, measured at the Earth? The Sun has a radius R=701010 cm, and its distance from the Earth  1 astronomical unit (AU)  is r1495981013 cm.</p>
+        \[\theta_\odot = \sin^{-1}\biggl({R_\odot \over{r_{\odot}}}\biggr)
+        \approx
+        4.7 \times 10^{-3} {\rm ~rad}\]
+        <p>Plug into our equation we derived</p>
+        \[S_\nu = \int_{\rm Sun} I
+        _\nu \cos\theta d\Omega\]
+        <p>Replace with sperical coordinates</p>
+        \[S_\nu =I_\nu \int_{\phi = 0}^{2\pi} \int_{\theta = 0}^{\theta_\odot}\cos\theta \sin\theta d\theta d\phi\]
+        <p>Defining x = sin so dx=cosd we get</p>
+        \[S_\nu = I
+        _\nu\int_{0} ^{\sin\theta_\odot}  u du\]
+        \[S_\nu = \pi I_\nu \sin^2 \theta_\odot\]
+        \[S_\nu \approx 1.24 \times 10^{-20} {{\rm ~W} \over {\rm m}^2{\rm
+            ~Hz}}
+            = 1.24 \times 10^6{\rm ~Jy}\]
+</body>
+</html>

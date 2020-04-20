@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflector Antennas</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Reflector Antennas
+        </h1>
+    </div>
+   <p>For normal radio dipoles or short dipoles radio recivers or transmiters,
+       they are often too weak, this is because the effective collecting areas
+       are much smaller than a traditional dish. A reflector antenna works by 
+       focusing a beam onto a feed meaning a larger collecting area.
+   </p>
+   <p>With all the types of radio telescopes, the beam of light must travel the same 
+       length of path to a single point in order for it to be focused. If different light arrives
+       at different times then the light is out of foucs. Same idea for radio waves! 
+   </p>
+   <div style="text-align: center">
+        <img src="reflector.png" width="600px">
+    </div>
+    <p>From the diagram above, the geometry proved that the following must be true
+        if the path length must equal.
+    </p>
+    \[(f +
+    h) = \sqrt{r^2 + (f - z)^2} +(h - z)\]
+    <p>We need to extract the reflector height z as a function of radius r</p>
+    \[\sqrt{r^2 + (f
+        -z)^2} +h - z = f + h\]
+    \[r^2 + f^2 + z^2 - 2fz = f^2 + z^2 + 2fz\]
+    \[{z = {r^2 \over 4 f}}\]
+    <p>For radio telescopes, when determining the focal length we are constrained to
+        an \(f/D \approx 0.4\) because with higher ratios, the feeder becomes structurally 
+        challenging to build and dangerous. However, with these low focal ranges, we 
+        get a small field of view. To combat this we make the mirror flatter, or
+        increase the distance the light travels by having subreflectors within the main 
+        reflector. 
+    </p>
+    <h3>Far-field Distance </h3>
+    <p>With astronomical objects, we assume the EM waves are planar and flat. However, how far do 
+        they need to be for that approximation to be true?
+    </p>
+    <div style="text-align: center">
+        <img src="farfield.png" width="600px">
+    </div>
+    <p>\(\Delta\) represents how far a planar wave is from the surface of the mirror
+        when the first beam hits the curvature of the mirror. It is the maximum departure  
+        from a plane wave occurs at the edge of the reflector. To find the distance we have 
+    </p>
+    \[R^2 = (R - \Delta)^2 + \biggl({D
+        \over 2}\biggr)^2\]
+        \[R = {\Delta \over 2} + {D^2 \over 8
+            \Delta}\]
+    <p>We can approximate it to the following as \(\Delta\) becomes really small 
+        in comparison to \(D\). 
+    </p>
+    \[R \approx {D^2 \over 8 \Delta}\]
+    <p>For radio astronomy we empircally define that \(\Delta < \lambda /16\) thus
+    the maximum bound is the following </p>
+    \[{R_{\rm ff} \approx {2D^2 \over 
+        \lambda}}\]
+    <h3>Patterns of Aperture Antennas</h3>
+    <p>What if a beam came to the radio telescope at an off angle from main axis?
+        What are the patterns that appear on the aperature? How can we calculate the beam pattern, or power gain as a function of direction, of an aperture antenna?
+        To calculate such a scenario 
+        consider the following example.
+    </p>
+    <div style="text-align: center">
+        <img src="planarwaves.png" width="600px">
+    </div>
+    <p>We first need to define that the current density will vary on position on the telescope 
+        and the time. We know it travels at a fixed frequency. Thus we can say the following. that
+         the electric field strenght varies across the aperature \(g(x)\) 
+         The illumination induces currents in the reflector. The feed is illuminated by a sine wave. 
+    </p>
+    \[\nu =
+    \omega /
+    (2 \pi)\]
+    \[J \propto g(x)
+    \exp(-i\omega t)\]
+    <p>We know the following: </p>
+    \[v = \nu \lambda\]
+    \[v = \omega/2 \pi \lambda\]
+    \[v = {distance \over time}\]
+    \[v = {r \over t}\]
+    \[\omega  = {2\pi r \over t\lambda}\]
+    \[J \propto g(x)
+    \exp(-i {2\pi r \over \lambda})\]
+    <p>The Huygen's principle states that the aperture can be 
+        treated as a collection of small elements which act 
+        individually as small antennas. The electric field 
+        produced by the whole aperture at large distances is 
+        just the vector sum of the elemental 
+        electric fields from these small antennas. 
+    Thus we can say the following: </p>
+    \[df \propto g(x)
+    {\exp(-i2\pi r / \lambda) \over r} dx\]
+    <p>At large distances we see that </p>
+    \[{1 \over r} \approx {1 \over R}\]
+    <p>We can take out \(\frac{1}{r}\) is nearly constant across 
+        the aperture and can be absorbed in the constant of proportionality.</p>
+    <p>Since we are using small r we have the following equation from geometry</p>
+    \[r \approx R
+    + x \sin\theta\]
+    \[df \propto g(x)
+    {\exp(-i2\pi (R
+        + x \sin\theta) / \lambda)} dx\]
+    \[df \propto g(x)
+    {\exp(-i2\pi R / \lambda) \exp(-i2\pi x \sin(\theta) / \lambda) } dx\]  
+    <p>To clean up the equation let the following equal </p> 
+    \[{l
+        \equiv \sin\theta}\]
+    \[{u \equiv {x \over
+        \lambda}}\]   
+        \[df \propto g(u)
+    e^{-i 2 \pi l u} du\] 
+    \[{f(l) =
+        \int_{\rm aperture} g(u)
+        e^{-i 2 \pi l u} du}\]
+    <p>In words, this equation says:
+        In the far field, the electric-field pattern 
+        an aperture antenna is the Fourier transform of the electric field 
+        illuminating the aperture!!!</p>
+    <h3>Problem </h3>
+    What is the electric-field pattern of a uniformly illuminated 
+    one-dimensional aperture of width D at wavelength ? Uniform illumination means
+     that the strength of the illumination is independent of position across the aperture.
+     \[g(u) = {\rm ~constant}, \qquad {-D \over 2
+        \lambda} < u < {+D \over 2 \lambda}\]
+    <p>We will solve this problem in two steps, first finding 
+        the far-field pattern of a unit aperture (D=) and then using the similarity theorem (below) for 
+        Fourier transforms to scale the first result to our particular aperture.</p>
+    <p>First we calculate the Fourier transform of the unit rectangle function</p>
+        \[\Pi (u) \equiv 1\,, \qquad -1/2 < u < +1/2\]
+        \[\Pi (u) \equiv 0\]
+        <div style="text-align: center">
+            <img src="square.PNG" width="500px">
+        </div>
+    <p>We preform the fourier transform</p>
+    \[F(l) =
+    \int_{-\infty}^{\infty} \Pi(u) e^{-i 2 \pi l u} du\]
+    \[F(l) =
+    \int_{-1/2}^{+1/2} e^{-i 2 \pi l u} du\]
+    \[F(l) = {e^{-i 2 \pi l u}
+    \over -i 2 \pi l}\vert_{-1/2}^{+1/2} =
+    {e^{-i \pi l} - e^{i \pi l} \over -i 2 \pi l}\]
+    <p>We know the following by manipulating idenities </p>
+    \[e^{i
+        \pi l} - e^{-i \pi l} = 2 i \sin(\pi l)\]
+        \[F(l) = {-2 i \sin(\pi l) \over -2 i \pi l}
+        = {\sin(\pi l) \over (\pi l)}\]
+        <div style="text-align: center">
+            <img src="sinc.PNG" width="500px">
+        </div>
+        <p>With fouier transforms we have the similarity theorem stating the following </p>
+        \[f(l) \to g(u)\]
+        \[ g(au) \to { 1 \over
+            \vert a \vert} f\biggl({l \over a}\biggr)\]
+    <p>The similarity theorem states that making a function g wider 
+        or narrower makes its Fourier transform f narrower and taller or wider and shorter, 
+        respectively, always conserving the area under the transform. For our application, 
+        it implies that the beamwidth of an aperture antenna is inversely proportional to the
+         aperture size in wavelengths 
+        and the voltage gain is directly proportional to the aperture size in wavelengths.</p>
+</body>
+</html>

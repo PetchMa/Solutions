@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Integrals + Polar Coordinates</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Double Integrals + Polar Coordinates
+        </h1>
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b> Double integrals is simply the area under the curve \(f(x,y)\) or the anti-derivative for the that multivariate function. Regularly we are given an integral over f such that its bounded by R </p>
+    <p></p>
+    \[\int \int_{R}f(x,y) dA \]
+    \[R = \{(x,y)| 0\leq x\leq 1, -3 \leq y\leq 3\} \]
+    
+    <p style="font-size: 18px"><b>Problem: </b>Evaluate the double integral. </p>
+    <br>
+    <p>
+        \[\int \int_{R} \frac{xy^2}{x^2+1} dA \]
+        \[R = \{(x,y)| 0\leq x\leq 1, -3 \leq y\leq 3\} \]
+    </p>
+    <p>We need to rewrite the original integral in terms of the bounds as an iterated integral.
+    </p>
+     \[\int_{0}^{1} \int_{-3}^{3} \frac{xy^2}{x^2+1} dydx \]
+        \[R = \{(x,y)| 0\leq x\leq 1, -3 \leq y\leq 3\} \]
+    <p>After rewriting the integral as an iterated integral we can integral in respect to y and x. 
+    </p>
+     \[=\int_{0}^{1} \int_{-3}^{3} \frac{xy^2}{x^2+1} dydx \]
+     \[=\int_{0}^{1} [\frac{xy^3}{3(x^2+1)}]\Big|_{-3}^{3} dx \]
+    \[=\int_{0}^{1} [\frac{x(3)^3}{3(x^2+1)}-\frac{x(-3)^3}{3(x^2+1)} ] dx \]
+    \[=\int_{0}^{1} [\frac{27x}{3(x^2+1)}+\frac{+27x)^3}{3(x^2+1)} ] dx \]
+    \[=\int_{0}^{1} [\frac{18x}{(x^2+1)} ] dx \]
+    <p>U subsitution technique for \(u = x^2+1\)</p>
+    \[=\frac{1}{2}\int_{0}^{1} \frac{1}{u} du \]
+    \[=\frac{1}{2}[18\ln|x^2+1|]\Big|_{0}^{1} \]
+    \[=9\ln|2| \]
+    <br/>
+    <div style="text-align: center">
+        <h2>
+        Polar Coordinates
+        </h2>
+    </div>
+    
+    <p style="font-size: 18px"><b>Intro: </b> Polar cooredinates are another system to represent functions that make certain types of problems easier to solve. Polar coordinates are written in the form \(r, \theta\) where r represents the radius and \(\theta\) represents the angle between the positve x axis and the line formed from point to the center.  </p>
+    
+    <p>Conversion formulas between cartesian coordinates to polar are the following: </p>
+\[x= r \cos (\theta)\]    
+\[y= r \sin (\theta)\]  
+    \[x^2+y^2=r^2\]  
+    <p> Some problems are just easier to solve with polar coordinates. For example: </p>
+    \[\int \int_{D} e^{x^2+y^2} dA \]
+    \[D \in \{ y= \pm \sqrt{25-x^2}\} \]
+    <p>The bounds are quite difficult for us to figure out in normally in cartesian however it is very easy in polar coordinates </p>
+        \[x^2+y^2=r^2\]  
+    \[\int \int_{D} e^{r^2} drd\theta \]
+    <p>Since \(x= r \cos (\theta)\)  and \(y= r \sin (\theta)\) we can sub into the bounds </p>
+    \[y=\pm \sqrt{25-x^2}\]
+    \[r\sin(\theta)=\pm \sqrt{25-r^2\cos^2(\theta)}\]
+    \[r^2\sin^2(\theta)=25-r^2\cos^2(\theta)\]
+    \[r^2\sin^2(\theta)+r^2\cos^2(\theta)=25\]
+    \[r^2(\sin^2(\theta)+\cos^2(\theta))=25\]
+    \[r=\pm5\]
+    <p>Since r represents the magnitude, r=5. <b>Remember: </b>to multiply the result by \(r dr\) as it accounts for the width of the area of the wedge. </p>
+    \[\int_{0}^{2\pi} \int_{0}^{5} re^{r^2} drd\theta \]
+</body>
+</html>

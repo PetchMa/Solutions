@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations - Second Order Differential Equations => Nonhomogenous </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Differential Equations - Second Order Nonhomogenous
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <p style="font-size: 18px"><b>Intro: </b>With second order nonhomogenous equations things get trickier. The right hand side does not equal to zero. The problem is we can't solve for a simple 
+        r value like we did with homogenous differential equations. Here we need to burrow a few tricks which involves a bit of guess work. 
+        This is the general form for this differential equation.  
+    </p>
+    \[ay''+by'=k(x)\]
+    <p>However, what is important to notice is that this solution needs to also include the homogenous solution. This includes multiple parts.</p>
+    <p>Notice the following statements.</p>
+    \[ay''+by'+cy=0\]
+    \[ay''+by'=k(x)\]
+    \[ay''+by'=k(x) + ay''+by'+cy\]
+    <p>The final statement is true and thus has a "mix" of solutions. This final solution is the general solution which is a mix of solutions.</p>
+    <p>First we need part of solution. Set the left hand side for zero to solve the homogenous solution.</p>
+    \[ay''+by'=0\]
+    \[ar^2+br=0\]
+    \[r(ar+b)=0\]
+    \[r= 0\]
+    \[r= \frac{-b}{a}\]
+    <p>Since we get real roots we can get the following.</p>
+    \[y_1(x) = e^{r_1x+c_1} + e^{r_2x+c_2}\]
+    \[y_1(x) = c + e^{\frac{-b}{a}x+c_2}\]
+    <p>Now we need to find the complementary solution to get the general solution. Then we can get the complement solution by taking guesses of the 
+        possible higher order functions that would give the derivative of \(k(x)\)
+    </p>
+    <p>For example... if \(k(x) = 48x^2+24x+e^{-2x}\) we would guess the following: </p>
+    \[Ax^2+Bx+C+De^{-2x}\]
+    <p>For the polynomial partion we need to guess with polynomial to the same degree but contains the entire all the terms until the zeroth power. 
+        Exponetials we need the same function but with a constant ahead of it to account for the disappearing constants when taking derivatives. 
+    </p>
+    <p>However, we also cannot have constants overlapping each other. This "mixes" the solution together making it hard solve. To 
+        solve the problem we multiply part of the function by x. This takes out the overlapping. Notice in this case we do have an overlap
+        thus we multiply the entire equation by x, as \(De^{-2x}\) and  \(Ax^2+Bx+C\).
+    </p>
+    \[y_c(x)= Ax^3+Bx^2+C+Dxe^{-2x}\]
+    <p>Then we find the first and second derivative of the following equation. </p>
+    \[y_c'(x)= 3Ax^2+2Bx+De^{-2x}-2Dxe^{-2x}\]
+    \[y_c''(x)= 6Ax+2B-2De^{-2x}-2De^{-2x}-2xDe^{-2x}\]
+    <p>Now we sub back this equation into the original equation we are given we can solve for the missing variables. After finding the values for these hidden
+        variables we can simply state the following: 
+    </p>
+    \[y_p(x)=y(x)+y_c(x)\]
+    <p><b>Probelm: </b> Solve the following differential equation. </p>
+    \[y''+2y' =24x+e^{-2x}\]
+    \[r^2+2r =0\]
+    \[r=0, \space r=-2\]
+    <p>Guess hidden variables for the compliment</p>
+    \[k(x)= 24x+e^{-2x}\]
+    \[y_c(x)= Ax+B+Ce^{-2x}\]
+    <p>We need to take into account the overlap of variables.</p>
+    \[y_c(x)= Ax^2+Bx+Cxe^{-2x}\]
+    \[y_c'(x)= 2Ax+B+Ce^{-2x}-2Cxe^{-2x}\]
+    \[y_c''(x)= 2A-2Ce^{-2x}-2Ce^{-2x}+4Cxe^{-2x}\]
+    <p>Sub everything back in.</p>
+    \[[2A-2Ce^{-2x}-2Ce^{-2x}+4Cxe^{-2x}]+2[2Ax+B+Ce^{-2x}-2Cxe^{-2x}]=24x+e^{-2x}\]
+    \[2A-2Ce^{-2x}-2Ce^{-2x}+4Cxe^{-2x}+4Ax+2B+2Ce^{-2x}-4Cxe^{-2x}=24x+e^{-2x}\]
+
+    <p>We can solve for the following and match the other side of the equation with the constants on the left side.</p>
+    \[A=6\]
+    \[C=\frac{-1}{2}\]
+    \[b=-6\]
+    \[y_p(x) = c_1+c_2e^{-2x}+ 6x^2-6x-\frac{1}{2}xe^{-2x}\]
+</body>
+</html>
