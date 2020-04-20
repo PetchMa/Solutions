@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Bremsstrahlung  </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Free Free Emissions Thermal Bremsstrahlung 
+        </h1>
+    </div>
+    <p>Okay so we know that when we accelerate a charge it emits radiation. Cool, but in space, charged particles in the clouds such as ions and electrons 
+        may interact with one another and accelerate a charge emitting radiation! So how can we account for this? This happens only with the Free free emissions as the electrons 
+        do not travel fast enough to escape the pull of its gravity. Remember back to our original equation from Larmor's
+    </p>
+    \[E_\bot = {q \dot{v} \sin \theta \over r c^2} \]
+    \[P = {2 \over 3} {e^2 \dot{v}_\perp^2 \over c^3}\]
+    <p>Now consider that the electron flys over the ion at distance \(b\). Geometrically we can state the following, </p>
+    <div style="text-align: center">
+        <img src="electric_force.png" width="400px">
+    </div>
+    <p>Since it is close to it we have the electric force determined by such. Which we can determine the acceleration</p>
+    \[F = {q_1 q_2 \over r^2}\]
+    \[F = {Ze \cdot e \over b^2}\]
+    \[a = {Ze^2  \over m_e b^2}\]
+    <p>Plug it into the power equation</p>
+    \[P = {2 \over 3} {e^2 \dot{v}_\perp^2 \over c^3}\]
+    \[P = {2 \over 3} {e^2 \over c^3} ({Ze^2  \over m_e b^2})^2\]
+    \[P = {2 \over 3} {Z^2e^6 \over b^4 m^2_e c^3} \]
+    <p>We know that we can find the energy output by multiplying the power by change in time. Which can be calculated by the velocity 
+        and the distance traveled.
+    </p>
+    \[E = P \Delta t\]
+    \[\Delta t = D/v\]
+    \[\Delta t = 2b/v\]
+    \[E = {4 \over 3} {Z^2e^6 \over b^4 m^2_e c^3} {b \over v}\]
+    <p>We also want to find the frequency of the the emission. We can see that the force parrellel to the path varies almost sinusoidally and thus we can approx the period by saying
+        that the time taking to travel half the wave length as
+    </p>
+    \[1/2 T \approx {2b\over v}\]
+    \[\nu \approx {v\over 4b}\]
+    \[d\nu \approx {-v\over 4b^2} db\]
+    <div style="text-align: center">
+        <img src="force.png" width="400px">
+    </div>
+    <p>But now lets say theres a shit ton of electrons passing around the atom. We can say use the density of the number of electrons, multiplied with the area of a ring around the atom
+        this way we can calculate the total amount of energy created from the interaction over all the atoms. The reason we use a ring and not a shell is because, the velocity comes out in one direction
+        and when the electron comes and interacts it interacts just in that slice of the ring and not the shell. 
+    </p>
+    <div style="text-align: center">
+        <img src="ring.png" width="400px">
+    </div>
+    <p>Thus we can rewrite the equation for a small part of power we get the following equation where \(n_e\) is the electron density. We have the velocity in the equation because it 
+        accounts for the interaction with the electrons as faster it is the more interactions. This is given by the maxwellian distribution. 
+    </p>
+    \[dP = E \cdot 2\pi b \cdot db\cdot n_e\cdot v\]
+    \[d\nu \approx {-v\over 4b^2} db\]
+    \[db  \approx {4b^2\over -v} d\nu\]
+    \[dP = {-4 \over 3} {Z^2e^6 \over b^4 m^2_e c^3} {b \over v} \cdot 2\pi b \cdot {4b^2\over v} d\nu \cdot n_e\cdot v\]
+    \[{dP \over d\nu} = {-4 \over 3} {Z^2e^6 \over b^4 m^2_e c^3} {b \over v} \cdot 2\pi b \cdot {4b^2\over v} \cdot n_e\cdot v\]
+    \[{dP \over d\nu} = {-32 \pi z^2 e^6n_e \over 3m_e^2c^3 v}\]
+    <p>We also have the velocity which is given by the maxwell distribution </p>
+    \[{f(v) =
+        {4 v^2 \over \sqrt{\pi}} \biggl( { m \over 2 k T} \biggr)^{3/2} \exp
+        \biggl( - {m v^2 \over 2 k T} \biggr)}\]
+    <p>We also have the lower limit of the slowest the electron can go out else it wont escape the orbit</p>
+    \[\frac{1}{2}M_e^2v = hv_{ion}\]
+    <p>Thus we have </p>
+    \[\langle {dP \over d\nu} \rangle= \int _{v_min} ^\infty \frac{dP}{d \nu} \cdot f(v)dv\]
+    \[\langle {dP \over d\nu} \rangle= \frac{64 \sqrt{\pi} Z^2 e^6 n_e e^{\frac{-hv}{kT}}} {3\sqrt{2} M_e^{3/2}c^3\sqrt{kT}}\]
+<p>To calculate the emissivity we take the original and divde it over \(4\pi steradians \). We also add the density of protons as well for the opposite . This is the thermal Bremsstrahlung</p>
+\[\epsilon_{ff}= \frac{16 Z^2 e^6 n_e  n_p e^{\frac{-hv}{kT}}} {3\sqrt{2\pi} M_e^{3/2}c^3\sqrt{kT}}\]
+    </body>
+</html>
