@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrotron Power</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Synchrotron Power
+        </h1>
+    </div>
+    <p>So the problem with our previous methods is disregarding relativistic effects of high velocity electrons. Electrons that accelerate at closer to the speeds of light. 
+        For this we need to burrow concepts of Lorentz Transformations. 
+    </p>
+    <h3>Lortenze Transformations</h3>
+    <p>The problem with super fast stuff is that the speed of light is the same no matter what frame of reference. In classical newtonian physics, if you were to walk 2m/s on a train 
+        that is going 4m/s then you are going 6m/s relative to the stationary ground. However, lets say you are walking with a flash light. The light travels at a speed of light and
+        you're walking with some positive velocity then to the inertial reference the photons are traveling faster than the speed of light?!?! What we need to do is to transform the frames of 
+        reference so that in each frames, the speed of light can remain constant. This is called the Lorentz transformations.
+    </p>
+    <div style="text-align: center">
+        <img src="transform.png">
+    </div>
+    <p>Imagine you are travling close to the speed of light and you shine a line that bounces off the back of another rocket ship traveling in the same velocity.
+        The path of the light traveling can be seen in the first graph. But now, if we were to map this path to the stationary frame, we have the line \(t'\) shifted because it is traveling 
+        at relativistic speed and thus time is dilated by a factor. But since the beam of light is travling at the speed of light for both frames of reference, we would see the beam travel up 
+        at a 45 degree angle. Then at some point it will be reflected back. The question is how do we draw the \(x'\) axis? We draw it in terms of (0,0) and the point it changed 
+        directions. These dialations can be represented by the factor \(\gamma\)
+    </p>
+    \[\gamma \equiv {q \over \sqrt{1 -
+        \beta^2}}\]
+    \[\beta = {v \over c}\]
+    <p>Thus we have the time dialation as the following: </p>
+    \[{x'
+    = \gamma (x - vt) \qquad y' = y
+    \qquad z' = z \qquad t' = \gamma (t - \beta x / c)}\]
+    <p>Not we typical represent time in m! In spacetime we have another dimension and thus we represent such as the following </p>
+    \[{x'
+    = \gamma (x - vct) \qquad ct' = \gamma (ct - \beta x)}\]
+        <p>The reason why y and z don't change is because the object is only moving in the x direction!</p>
+    <h3>Power! </h3>
+    <p>Remember from Larmor's radiation derivation we concluded that the following is true. </p>
+    \[P' = {2 e^2 (a_\bot')^2 \over 3 c^3}\]
+    <p>We need to find the value of \(a_\bot'\). We can figure it out by using the the derivative of the axis that have no change. </p>
+    \[v_y = {d y \over d t}\]
+    <p>We can expand the notation</p>
+    \[v_y = {d y \over d t'} {d t' \over d t}\]
+    <p>We know that y doesnt change based on reference frames. </p>
+    \[v_y = {d y' \over d t'} {d t' \over d t}\]
+    <p>We also know that the differential form of the transformation is the following. </p>
+    \[{ d t' \over d t} = {1 \over \gamma}\]
+    <p>We sub back in we get that </p>
+    \[v_y = {d y' \over d t'}{1 \over \gamma}\]
+    \[v_y = v_y'{1 \over \gamma}\]
+    <p>To get the acceleration we'd need to take the derivative once again. We can follow the same process once again. </p>
+    \[a_{\rm y} \equiv {d v_{\rm y} \over d t} = {d v_{\rm y} \over d t'}
+    {d t' \over d t} = {1 \over
+    \gamma} {d v'_{
+    \rm y} \over d t'} {d t' \over d t} ={a'_{\rm y} \over \gamma^2}\]
+    <p>Thus we can deduce the following. </p>
+    \[a_\bot = {a'_\bot \over \gamma^2}\]
+    <p>We can rewrite the dilated power output as the acceleration of our original frame of reference. </p>
+    \[P'  = {2 e^2 a_\bot^2 \gamma^4 \over
+        3 c^3}\]
+        <p>Problem is how can we measure the power output of the galaxy when we are stationary? Okay so we need to transform it back somehow.
+
+        </p>
+        \[P = {dE \over dt}\]
+        \[P = {dE \over dt'}{dt' \over dt}\]
+        <p>We have neat little trick which is we know the energy kinetic energy is scaled in terms of velocity, which we can say that the following </p>
+        \[{dE \over dE'} = \gamma\]
+        \[P = {2 e^2 a_\bot^2 \gamma^
+            4 \over 3 c^3}\]
+        <p>Now we need to solve for \(a_\bot\). Recall the dilated mass scaled by a factor of gamma shows the following for the gyro radiation, we get the following </p>
+        \[\omega_{\rm B} = { e B
+            \over \gamma m c}\]
+        \[a = \omega^2 r\]
+        \[a = \omega \omega r\]
+        \[a = \omega v\]
+        \[{a \over v} = \omega\]
+        \[{a_\bot \over v_\bot }= { e B
+            \over \gamma m c}\]
+        \[{a_\bot}= { ev_\bot B
+        \over \gamma m c}\]
+        \[{a_\bot}= { ev\sin\alpha B
+            \over \gamma m c}\]
+        <p>Thus if we plug this into the power</p>
+        \[P = {2 e^2 \over
+            3 c^3} \gamma^2 {e^2 B^2 \over m^2 c^2} v^2 \sin^2\alpha\]
+        <p>Whats neat is that you can numerically replace \(B^2\) with the equation for magnetic density. </p>
+        \[{U_{\rm B} = {B^2 \over 8
+            \pi}}\]
+        <p>We can also replace a few variables with the thompson cross section. Why are we replacing it? Because when we do inverse comptom scattering this will be motivated 
+            further in subsequent material. 
+        </p>
+        \[{\sigma_{\rm T} \equiv {8 \pi \over
+            3} \biggl(
+            { e^2 \over m_{\rm e} c^2 } \biggr)^2}\]
+            \[{P = 2 \sigma_{\rm T} \beta^2
+            \gamma^2 c\, U_{\rm B} \sin^2\alpha}\]
+            <p>So if we want the average power output over all the angles we get the following.</p>
+            \[\langle \sin^2 \alpha \rangle \equiv {\int \sin^2 \alpha d \Omega
+            \over \int d \Omega }= {1
+            \over 4 \pi} \int \sin^2 \alpha d \Omega\]
+        \[\langle \sin^2 \alpha
+        \rangle =  {1 \over 4 \pi} \int_{\phi =
+        0}^{2\pi} \int_{\alpha = 0}^\pi \sin^2 \alpha \sin\alpha \, d\alpha \,
+        d\phi\]
+        \[\langle \sin^2 \alpha \rangle = {1
+            \over 4 \pi
+            } {2 \pi} {4 \over 3} = {2 \over 3}\]
+        \[\langle P \rangle = {4 \over 3}
+        \sigma_{\rm T} \beta^2 \gamma^2 c U_{\rm B}\]
+    </body>
+</html>
