@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrotron Spectra</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Synchrotron Spectra
+        </h1>
+    </div>
+    <p>So now that we have these lorentz transforms. We first calculate the angular distribution of the radiation in the observer's frame.
+        We need to consider relativistic aberration which causes the Larmor dipole pattern to be squished and beamed sharply in the direction of motion as v approaches c. 
+        This beaming follows directly from the relativistic velocity equations implied by the differential form of the Lorentz transform. For an electron moving in the x direction,
+    </p>
+    \[v_x = {d x\over dt}\]
+    \[v_x = {d x\over dt'}{dt'\over dt}\]
+    <p>We know the following: </p>
+    \[x = \gamma (x' + vt')\]
+    \[{d x\over dt'} = \gamma ({d x'\over dt'} + v{d t'\over dt'})\]
+    <p>We replace with velocity prime.</p>
+    \[{d x\over dt'} = \gamma (v_x' + v)\]
+    \[v_x  = \gamma (v_x' + v){dt'\over dt}\]
+    \[v_x  = \gamma (v_x' + v)({dt\over dt'})^{-1}\]
+    <p>We know that this following is also true.</p>
+    \[t = \gamma(t'+\beta x'/c)\]
+    \[{dt \over dt'} = \gamma({dt' \over dt'}+\beta {dx' \over dt'}/c)\]
+    \[{dt \over dt'} = \gamma(1+\beta v/c)\]
+    \[v_x  = \gamma (v_x' + v)(\gamma(1+\beta v/c))^{-1}\]
+    \[v_x  = (v_x' + v)((1+\beta v/c))^{-1}\]
+    <p>We also have the veloctiy y component which we can describe as the following.</p>
+    \[v_y = {d y\over dt}\]
+    \[v_y = {d y\over dt'}{d t'\over dt}\]
+    <p>We know that</p>
+    \[y=y'\]
+    \[v_y = {d y'\over dt'}({d t\over dt'})^{-1}\]
+    \[v_y  = (v_y')(\gamma (1+\beta v/c))^{-1}\]
+    \[v_{\rm y} = {
+        v_{\rm y}' \over \gamma} \biggl( 1 + {\beta v_{\rm x}' \over c}
+        \biggr)^{-1}\]
+    <p>To get the angle we can simply take the velocity and the emission speed and the angle formed between the two paths gives the speration.</p>
+    \[\cos\theta' = {v_{\rm
+        x}' \over c} \qquad \sin\theta' = {v_{\rm y}' \over c}\]
+    \[\cos\theta = {v_{\rm x} \over c} \qquad
+    \sin\theta = {v_{\rm y} \over c}\]    
+    <p>Using our equations for velocities, we get</p>
+    \[\cos \theta
+    = { \cos \theta' + \beta
+    \over 1 + \beta \cos \theta'}\]
+    \[\sin\theta = { \sin \theta'
+    \over
+    \gamma( 1 + \beta \cos \theta')}\]
+    <p>However, we can then approximate the following</p>
+    \[\sin\theta = {\sin \theta' \over \gamma (1 + \beta \cos
+    \theta')} \approx { 1 \over \gamma} \approx \theta\]
+    <p>Now if we were to track the movement of the light based on the movement of the electron and then we get the following. Where \(t_p\) is the pulse 
+        of light 
+    </p>
+    \[\Delta t_{\rm p} = t{\rm
+        (end~of~observed~pulse)} -
+        t{\rm (start~of~observed~pulse)}\]
+    <p>We know the start of the pulse hitting the eyes is this since it is the distance travel divided by the speed of light. </p>
+    \[ {x \over c}\]
+    <p>We also know that the end is the time taken to traverse the part of the spin, which is \(x \over v\) and then we need to calculate the time it takes
+        the light to travel to our eyes, now that it is slightly closer to us. \({(
+            x -
+            \Delta x) \over c}\)
+    </p>
+    \[\Delta t_{\rm p} = {\Delta x \over
+        v} + {(
+        x -
+        \Delta x) \over c} - {x \over c}\]
+        <p>If we simplify we get the following </p>
+    \[\Delta t_{\rm p} = {\Delta x \over v} - {\Delta x \over c} = {\Delta x \over v} \biggl(1 - {v \over c} \biggr)
+    \]
+    <p>We want to rewrite these velocity terms in terms of gamma which is the dilation. </p>
+    \[\biggl( 1
+    - {v \over c}
+    \biggr) = \biggl( 1 - {v \over c} \biggr) { 1 + v/c \over 1 + v/c} = {1
+    - v^2/c^2
+    \over 1 + v/
+    c} \approx { \gamma^{-2} \over 2} = { 1 \over 2 \gamma^2 }\]
+    \[\Delta t_{\rm p} = { \Delta x \over v} { 1 \over 2 \gamma^2}\]
+    <p>But we can simplify this even further. We know the following is true</p>
+    \[\omega = v/r\]
+    \[v = \omega r\]
+    \[\Delta t_{\rm p} = { \Delta x \over \omega r} { 1 \over 2 \gamma^2}\]
+    <p>We also know the following</p>
+    \[\Delta x/r = \Delta \theta\]
+    <p>Based on the fact that the length of path around the circumference divded by the radius gives the angle is lets us rewrite the following.</p>
+    \[\Delta t_{\rm p} = { \Delta  \theta \over \omega} { 1 \over 2 \gamma^2}\]
+    <p>Remember that </p>
+    \[\Delta
+    \theta \approx 2/\gamma\]
+    \[\Delta t_{\rm p} = { 2 \over \gamma \omega_{\rm B} 2
+    \gamma^2} = {1 \over \gamma^3 \omega_{\rm B} } = {1 \over \gamma^2
+    \omega_{\rm G}}\]
+    <p>We also want to replace B with the total magnetic field which we know is perpendicular thus we get this equation </p>
+    \[\Delta t_{\rm p} = {1 \over \gamma^2 \omega_{\rm G} \sin \alpha}~\]
+    <p>Okay but now we observe a very spiky function. The particle is moving so fast that we can approximate this into a Dirac Delta function. Or actually a series of shifted 
+        Dirac delta functions known as a SHAH function. 
+    </p>
+    \[I I I (t / \Delta t) \equiv \sum_{n = -\infty}^\infty \delta [(t /
+    \Delta t)] - n)\]
+    <p>Instead of calculating the Fourier transform directly, we note first that the pulse train is the convolution 
+        of the profile p(t) of an individual pulse with the Shah function</p>
+    <p>hen we use the convolution theorem to show that the Fourier transform of the pulses is 
+        the product of the Fourier transform of one pulse times the Fourier transform of the shah function. </p>
+    \[III \biggl( {t \nu_{\rm G} \over \gamma} \biggr) \prop III \biggl( { \nu \gamma \over \nu_{\rm G} }
+    \biggr)~\]
+    <p>It isn't really necessary to calculate the Fourier transform of the pulse shape precisely because astrophysical 
+        sources don't contain electrons with just one energy and one pitch angle in a uniform magnetic field. The actual 
+        energy distribution of cosmic rays in our Galaxy is a very
+            broad power law, and this smears out the details of the spectrum from each energy range. Just for the record, the 
+            synchrotron power spectrum of a single electron is</p>
+    \[{P(\nu) = {\sqrt{3} e^3 B \sin \alpha
+    \over m c^2} \biggl( { \nu \over \nu_{
+    \rm c}} \biggr) \int_{\nu/\nu_{\rm c}}^\infty K_{5/3} (\eta) d
+    \eta}\]
+    <!-- <div style="text-align: center">
+        <img src="transform.png">
+    </div> -->
+    
+    
+</html>
