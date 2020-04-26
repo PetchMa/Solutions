@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrotron Sources</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Synchrotron Sources
+        </h1>
+    </div>
+    <p>We want to find the total energy density of a source of scyhlotron emission
+        And so in order to find \(U_e\) energy density and \(U_{\rm B} = B^2 / (8 \pi)\)
+        We Need to take the integral of the energy disribution of the electrons.    
+    </p>
+    \[N(E) \approx K E^{-\delta}\]
+    <p>where \(N(E)dE\) is the number of 
+        electrons per unit volume with energies \(E\) to \(E+dE\)</p>
+    \[\N(E) \approx K E^{-\delta}]
+    <p>Where \(N(E)\) was the electron energy distribution that said how much electrons given
+        said energy. Then the entire energy density is given
+    </p>
+    \[U_{\rm e} = \int_{E_{\rm
+        min}}^{E_{\rm max}} E N(E)\, d E\]
+    <p>We know that the luminosity is the following: </p>
+    \[L = \int_{\nu_{\rm min}}^{\nu_{\rm max}} L_\nu d \nu\]
+    <P>We can rewrite luminosity as a multiplication of power and distribution of enery for number of electrons</P>
+    \[L = \int_{E_{\rm min}}^{E_{\rm max}} P N(E)\, dE\]
+    \[L = \int_{E_{\rm min}}^{E_{\rm max}} {dE \over dt} N(E)\, dE\]
+    <p>Thus the energy density per luminosity we get that </p>
+    \[{U_{\rm e} \over L} \propto { \int_{E_{\rm min}}^{E_{\rm max}} E N(E)\,
+    dE \over -\int_{E_{\rm min}}^{E_{\rm max}} (dE/dt) N(E)\, dE}\]
+    <p>Substituting \(N(E)=KE^{-\sigma}\)  and the synchrotron power emitted per electron \({−dE\over dt} \propto B^2E^2\) gives</p>
+    \[{U_{\rm e} \over L} \propto { K
+        \int_{E_{\rm min}}^{E_{\rm max}} E^{1 - \delta} \, dE \over K B^2
+        \int_{E_{\rm min}}^{E_{\rm max}} E^{2-\delta} \, dE}\]
+    \[{U_{\rm e}
+    \over L} \propto {E^{2 - \delta} \vert_{E_{\min}}^{E_{\rm max}} \over
+    B^2 E^{3 - \delta} \vert_{E_{\rm min}}^{E_{\rm max}} }\]
+    <p>Since electrons with energy E emit most of the radiation seen at frequency 
+    \(\nu \propto E^2 B\), the electron energy needed to produce radiation at frequency  scales as</p>
+    \[E \propto B^{-1/2}\]
+    \[{U_{\rm e}
+    \over L } \propto { (B^{-1/2})^{2 - \delta} \over B^2 (B^{-1/2})^{3 -
+    \delta} } = {B^{-1 + \delta/2} \over B^2 B^{-3/2 + \delta/2}} =
+    B^{-3/2}\]
+    <p>The "invisible" cosmic-ray protons and heavier ions emit negligible synchrotron power but they still contribute to 
+    the total cosmic-ray particle energy. If we call the ion/electron energy ratio , then the total energy density in cosmic rays is</p>
+    \[(1 + \eta)
+    U_{\rm e}\]
+    \[{U = (1 + \eta) U_{\rm e} + U_{\rm
+    B}}\]
+    <p>We can also now find the min of the energy. </p>
+    \[{d U \over d B} = {d
+        [(1 + \eta) U_{\rm e} + U_{\rm B}] \over d B} = 0\]
+    <p>We need to find the derivative of each of the energy density by doing the following trick. </p>
+    \[{d U_{\rm e} \over d B} \cdot U_{\rm
+    e}^{-1} = -\biggl( {3 \over 2} \biggr) B^{-5/2} B^{3 / 2} = -{3 \over 2
+    B}\]
+    <p>Multiply it over and we get the following </p>
+    \[{dU_{\rm e} \over d B} = - {3 U_{\rm e} \over 2 B}\]
+    <p>Same thing as what we have done before with the energy density of the electric field.</p>
+        \[{d U_{\rm B} \over d B}
+        \cdot U_{\rm B}^{-1} = { 2 B \over B^2 } = {2 \over B}\]
+    \[{dU_{\rm
+        B} \over d B} = { 2 U_{\rm B} \over B}\]
+    <p>Thus if we put everything together and tried to solve for the minimum we get the following </p>
+    \[{d [(1 + \eta) U_{\rm e}] \over d
+    B} + {d U_{\rm B} \over d B} = 0 = -{ 3 (1 + \eta) U_{\rm e} \over 2 B}
+    + {2 U_{\rm B} \over B}\]
+    <p>We also know that at the min the ratio of cosmic ray energy to its magnetic field energy is </p>
+    \[{{{\rm particle~energy} \over {\rm
+        field~energy}} = {(1 + \eta)
+        U_{\rm e} \over U_{\rm B}} = {4 \over 3}}\]
+            <p>This is significant because its close to 1 which implies equipartition We make this assumption because </p>
+    <p>It is possible that system tends towards this equipartition </p>
+    <p>It eliminates an unknown parameter and permits estimates of the relativistic particle energies </p>
+    <p>If we want to calculate the energy of the magnetic field, we simply take the density of energy of magnetic field times its volume \(V\)</p>
+    \[E_{\rm B} = U_{\rm B} V =
+    {B^2 \over 8 \pi} {4 \pi R^3 \over 3} = {B^2 R^3 \over 6}\]
+    <p>The following are simply constants of min-energy of magnetic field from calculations are </p>
+    \[{B_{\min} = [4.5 (1 +\eta) c_{12}
+    L]^{2/7} R^{-6/7} {\rm ~Gauss}}\]
+    <p>and the corresponding energy in relativistic particles is</p>
+    \[{E_{\rm min}{\rm (total)} = c_{13}
+    [(1+
+    \eta) L]^{4/7} R^{9/7} {\rm
+    ~ergs}}\]
+    <p>Where the Luminosity is defined as </p>
+    \[L = \int_{\nu_{\rm min}}^{\nu_{\rm max}} L_\nu
+    d \nu~, \qquad L_\nu = 4 \pi D^2 S_\nu~\]
+    <p>The synchrotron lifetime of a source is defined as the ratio of electron energy to the energy loss rate L from 
+        synchrotron radiation. The loss rate is also the luminosity becuase it describe the power output rate. </p>
+        \[\tau \equiv {E_{\rm e} \over L}\]
+
+    <h3>The Eddington Limit</h3>
+    <p>The Eddington Limit is the limit between the radiation pressure and the gravitational pressures. 
+        The outward radiation pressure cannot exceed gravity.</p>
+        \[{L_{\rm E} \over 4
+        \pi r^2 c} \sigma_{\rm T} = {GM (m_{\rm p} + m_{\rm e}) \over r^2}
+        \approx {GM m_{\rm p} \over r^2}\]
+        <p>Where the \(m_p, m_e\) are all the proton and electron masses which can be simply approximated. </p>
+        \[L_{\rm E} \approx { 4 \pi G M m_{\rm p} c \over \sigma_{\rm T}}\]
+    <!-- <div style="text-align: center">
+        <img src="transform.png">
+    </div> -->
+    
+    </body>
+</html>
