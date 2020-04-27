@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Inverse Compton Scattering</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Inverse Compton Scattering
+        </h1>
+    </div>
+    <h3>What is Compton Scattering? </h3>
+    <p>Compton scattering is the idea that photons exist as particles and when striking free electrons, momentum must be 
+        conserved even if they are "massless". This is because of relativistic effects caused by the massless photon 
+        traveling at relativistic speeds to which in our frame the photon contains no mass. However, it can still collide 
+        because in its frame it "has" mass. 
+    </p>
+    <p>Compton scattering is simply elastic collision of photons at relativistic speeds. Consider the drawing: </p>
+    <div style="text-align: center">
+        <img src="momentum.png">
+    </div>
+    <p>With some basic understanding of momentum conservation and geometry we get the following in the x direction: </p>
+    \[p_i= p_f \cos\theta + p \cos \phi\]
+    <p>For the y direction we get</p>
+    \[p_f \sin\theta =  p\sin \phi\]
+    <p>If we square both expressions and add them together we get the following </p>
+    \[(p_i-p_f\cos\theta)^2 = p^2\cos^2\phi  \]
+    \[ p_f^2\sin^2 \theta = p^2 \sin^2\phi\]
+    <p>We add the square expressions together</p>
+    \[(p_i-p_f\cos\theta)^2 + p_f^2\sin^2 \theta  = p^2\cos^2\phi  +p^2 \sin^2\phi\]
+    <p>We can simplify identity </p>
+    \[p_i^2+p_f^2 -2p_ip_f\cos \theta = p^2\]
+    <p>Then we can apply energy conservation. We know the energy of the incoming photon and the out going photon and the rest 
+        eneryg of the electron as \(m_ec^2\)
+    </p>
+    \[E_i +m_ec^2 = E_f +m_ec^2+E_k\]
+    <p>We know that the kinentic energy of the photon electron is simply the energy change of the initial photon and the 
+        rebounded photon since the PHOTON is the one giving energy. 
+    </p>
+    \[E_k = E_i-E_f\]
+    <p>We can write the energy of the photon as the momentum </p>
+    \[p={E \over c}\]
+    \[E_k = c(p_i-p_f)\]
+    \[E_i +m_ec^2 = E_f +m_ec^2+c(p_i-p_f)\]
+    <p>Knowing this we can rewrite the relativistic equation in the following way. </p>
+    \[E = m_ec^2 +E_k\]
+    <p>Relativistic electron is all of it square is </p>
+    \[E^2 = (m_ec^2)^2 +(c(p_i-0))^2\]
+    \[E^2 = (m_ec^2)^2 +c^2 p^2\]
+    \[(m_ec^2 +E_k)^2 =(m_ec^2)^2 +c^2 p^2\]
+    <p>This simplifies to </p>
+    \[{K^2 \over c^2} + 2E_Km_e = p^2\]
+    <p>Now we can combine everything together. </p>
+    \[p_i^2+p_f^2 -2p_ip_f\cos \theta ={K^2 \over c^2} + 2E_Km_e\]
+    <p>Then we replace \(E_k =  c(p_i-p_f)\) and we simplify we get the following </p>
+    \[m_ec(p_i-p_f) = (1-\cos \theta) p_ip_f\]
+    <p>We can then rewrite it all into this form </p>
+    \[{1\over p_f} - {1 \over p_i} = {1\over m_e c}(1-\cos\theta)\]
+    <p>If we multiplied everything by Plancks constant we arrive at the compton scattering </p>
+    \[\lambda_f - \lambda_i {h\over m_e c}(1-\cos\theta)\]
+    <h3>What is INVERSE Compton scattering?</h3>
+    <p>Inverse compton scattering is when an electron hits a ray and accelerates the ray of photons by some amount. The 
+        electron gives off energy to the photon, instead of photon giving energy to the electron!
+    </p>
+    <p>Now with original compton scattering we can get the energy of the electron with this equation</p>
+    \[E_1' = {E_0 \over 1+{E_0 \over m_ec^2}(1-\cos\phi)}\]
+    <p>In order for there to be a substantial loss in energy as in describing the electron \(1+{E_0 \over m_ec^2}(1-\cos\phi)\)
+        needs to be greater than 1 and thus \(E_0 >> m_ec^2\). This is for REGULAR compton scattering. 
+    </p>
+    <p>For inverse compton scattering needs to be relativistic frame since the electron is also moving, close to the speed of 
+        light. Thus we need to preform a lorentz transform on the Energy as follows 
+    </p>
+    \[E_0' = \gamma E_0 (1-\frac{v}{c} \cos\theta_0)\]
+    <p>Where \(1-\frac{v}{c} \cos\theta_0\) accounts for the doppler shifting of the energy.</p>
+    <p>Now we are in the relativistic frame we can say the following </p>
+    \[E_1' = {E_0' \over 1+{E_0' \over m_ec^2}(1-\cos\phi')}\]
+    <p>Now we can get back the non-relativistic frame. </p>
+    \[E_1 = \gamma E_1'(1+\frac{v}{c} \cos\theta_1)\]
+    <p>Now we can plug in values in terms of the different frames! Problem is, the algebra is horrendous. Thus we 
+        are gonna do a few limits so we have equations to solve for things when its useful.  </p>
+        <p>The first limit is when \(E_0 << m_ec^2\) basically when it isnt very relativistic. Thus the bottom part is gonna disappear into just 1 and we get an 
+        approximate solution. </p>
+        \[E_1' = {E_0 \over 1+(0)(1-\cos\phi)}\]
+        \[E_1' = {E_0}\]
+        <p>Plug things back we get => </p>
+        \[E_1 = \gamma^2 E_0 (1-\frac{v}{c} \cos\theta_0)(1+\frac{v}{c} \cos\theta_1)\]
+        <p>The thing is the doppler shifts tend to equal to one, as you shift back and forth between red and blue shift of doppler effects </p>
+        \[E_1 \approx \gamma^2 E_0 \]
+        <p>Now if we were to consider if \(E_0 >> m_ec^2\) where it dominates the entire fraction then we would get an approximate </p>
+            \[E_1 \approx m_ec^2\]
+            \[E_1 ~ \gamma m_ec^2\]
+        <p>Now what if the electron is spinning in a soup. We take the thompson scattering cross section, times the 
+            speed of light times the number density of photons times the energy per photon. This should give us the 
+            power!! 
+        </p>
+        \[P ~ \sigma_T \cdot c \cdot N \cdot \Delta E\]
+        <p>Now if we want to find everything we integrate it over the number density of all photons times the number of photons 
+            occupied per energy times the energy exchange at each energy times gamma square E0 because we are taking the energy exchnage at
+            the LIMIT THAT WE CALCULATED FROM ABOVE ^^^
+        </p>
+        \[P ~ \sigma_T \cdot c \cdot \int N \cdot f(E) \gamma^2 E_0 dE\]
+        <p>EVERYTHING is the energy density of the photons in that field!! </p>
+        \[P ~ \sigma_T \cdot c \cdot \gamma^2 U_{ph}\]
+        <p>We can make this more percices. By taking the change energy where we subtract off the inital energy</p>
+        \[\gamma^-1 = {v^2c^2 \over 1- v^2/c^2}\]
+        \[\gamma^-1 = \gamma^2 \beta^2\]
+        <p>If we are even more careful we get a 4/3 factor https://www.cv.nrao.edu/course/astr534/InverseCompton.html</p>
+        \[P = {4\over 3} \gamma^2 \beta^2 \sigma_T \cdot c \gamma^2 U_{ph}\]
+    </body>
+</html>
