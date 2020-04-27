@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Inverse Compton Scattering</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Extragalactic Radio Sources
+        </h1>
+    </div>
+    <h3>Superluminal velocities</h3>
+    <p>
+      Basically we can observe things that can appear to travel faster than the speed of light. For example, if you 
+      had a powerful lazer pointer and you moved it across a surface very far away. The point could travel faster than the speed of light
+      only because, the point of light does not actually represent a physical thing and thus, the appearance of it traveling faster than light 
+      is just an illusion. Take the following example:   
+    </p>
+    <div style="text-align: center">
+        <img src="bounce.png">
+    </div>
+    <p>
+        Given this geometry setup we can calculate the time required for it to reac out eyes. So at the inital emission we get 
+
+    </p>
+    \[T_1 = {r \over c} \]
+    <p>The delayed time would be the following</p>
+    \[T_2 = {r - vt\cos\theta \over c}+ T1\]
+    <p>We can find the APPEARANCE velocity with the simple formula </p>
+    \[v_\bot = {\Delta d \over \Delta T}\]
+    \[v_\bot = {\Delta d \over T_2 -T_1}\]
+    \[T_2 -T_1 = {r - vt\cos\theta \over c}+ T1 - T_1\]
+    \[T_2 -T_1 = {r - vt\cos\theta \over c}\]
+    \[v_\bot = { vt\sin\theta \over {r - vt\cos\theta \over c}}\]
+    \[v_\bot = { vt\sin\theta \over {r - vt\cos\theta \over c}}\]
+    \[v_\bot = { vct\sin\theta \over r - vt\cos\theta }\]
+    <p>We know that \(r = ct\)</p>
+    \[v_\bot = { vct\sin\theta \over ct - vt\cos\theta }\]
+    \[v_\bot = { v\sin\theta \over 1 - v\cos\theta/c }\]
+    <p>Before we defined the velocity as a facto of the speed of light </p>
+    \[\beta = v/c\]
+    \[ v= \beta c\]
+    \[v_\bot{\rm (apparent)} = { v t \sin \theta
+        \over t (1 - v \cos \theta / c) }\]
+    <p>With our previous equation we can replace all the velocities with \(\beta\)</p>
+    \[{\beta_\bot{\rm (apparent)} = {\beta
+        \sin \theta \over 1 - \beta
+        \cos\theta}}\]
+    <p>Now we want to find the derivative and find the MAXIMUM value of the function to show how light can appear to travel
+        faster than the speed of light. 
+    </p>
+    \[{\partial \beta_\bot{\rm
+        (apparent)} \over \partial \theta}
+        = 0 = { (1 - \beta\cos\theta_{\rm m}) \beta \cos \theta_{\rm m} - 
+        (\beta
+        \sin\theta_{\rm m})
+        ^2 \over (1 - \beta \cos \theta_{\rm m})^2 }\]
+    <p>We then solve for zero, we should get </p>
+    \[\cos \theta_{\rm m} = \beta\]
+    <p>The problem is we need to find a value for \(\sin \theta_{\rm m}\) to find the maximum of the function 
+        thus we use a little trick. We know that
+    </p>
+    \[\sin^2 \theta = 1- \cos^2\theta\]
+    \[\sin \theta = \sqrt{1- \cos^2\theta}\]
+    <p>In terms of cosine we can THEN replace </p>
+    \[\sin \theta = \sqrt{1- \beta^2}\]
+    <p>We know that this is in the form of the lortenz factor </p>
+    \[\sin \theta = \gamma^{-1}\]
+    <p>Plug back in.</p>
+    \[{{\rm
+        max}[\beta_\bot{\rm (apparent)}] = {\beta (1 - \beta^2)^{1/2} \over 1 -
+        \beta^2} = \beta \gamma}\]
+    <p>However if we were to consider the relativistic doppler effects we can doppler boost into the frame we
+         know the following is true from standard relativistic doppler shift</p>
+ \[\nu = {\nu' \over \gamma(1 - \beta \cos\theta)}\]
+ <p>Lets set values for \(\delta \) as the following to find the DOPPLER FACTOR. How much it is doppler shifted by</p>
+    \[\delta \equiv [\gamma(1 - \beta \cos
+    \theta)]^{-1} = {\nu \over \nu'}\]
+    <p>If everything is coming head on towards you you get the following as \(\theta = \pi/2\)</p>
+    \[{ \delta = {\nu \over \nu'} =
+    \gamma^{-1}}\]
+    <p>For  directly receding \(\theta= \pi\) sources to</p>
+    \[\delta \geq (2 \gamma)^{-1}\]
+    <p>for directly approaching \(\theta=0\) sources.</p>
+    \[\delta \leq 2 \gamma\]
+    </body>
+</html>
