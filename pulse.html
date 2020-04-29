@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrotron Power</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 5%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Synchrotron Power
+        </h1>
+    </div>
+    <p>Pulsars are very dense stars that circulate and spin around with periods of 1.4 ms and 8.5 seconds. 
+        Despite their name being "pusles", their radio emission is actually continuous but beamed, so any one observer sees a pulse of 
+        radiation each time the beam sweeps across his line-of-sight.
+    </p>
+    <p>The existence of these neutron stars are due to the end of their stellar evolution. Pulsars are a type of neutron stars
+        that is greater than 1.4 solar masses. These stars are important to our understanding of physics as they are: 
+    </p>
+    <ul>
+        <li>They are a physics playground for the extreme conditions in the universe. </li>
+        <li>They are really stable and also act as very accurate clocks. Their periods can have an accuracy of \(10^{-16}\) percision. </li>
+    </ul>
+    <p>The basic approach for the existence of pulsars are that their spin needs to generate a centrafugal force thats is less 
+        than the graviational field or else it will blow apart! Let \(\Omega = 2\pi /P\) where P is the PERIOD and the gravational field describes the acceleration of the object 
+
+    </p>
+    \[\Omega^2 R = a\]
+    \[\Omega^2 R < {G M \over R^2}\]
+    \[Omega = {2\pi f  }\]
+    \[Omega = {2\pi \over P }\]
+    \[{4 \pi^2 R^3 \over P^2} < GM\]
+    <p>Now we are going to preform a TRICK to rearrange the equation to fit the VOLUME of the equation</p>
+    \[P^2 > \biggl( { 4 \pi R^3 \over
+        3} \biggr) {3 \pi \over G M}\]
+    <p>Note everything is still equal to the original equation. We just switched it around and now it contains the inverse volume of a sphere!</p>
+        <p>If we define \(\rho\) as the average DENSITY </p>
+        \[\rho = m/V\]
+        \[\rho =
+        M \biggl( { 4 \pi R^3 \over
+        3} \biggr)^{-1}\]
+        <p>We notice we can replace part of the equation with INVERSE Density!!!</p>
+        \[P > \biggl( { 3 \pi \over G \rho}
+        \biggr)^{1/2}\]
+        \[{\rho
+            > { 3 \pi \over G P^2}}\]
+    <p>This is actually a very conservative lower limit to  because a rapidly spinning star becomes oblate, 
+        increasing the centrifugal acceleration and decreasing the gravitational acceleration at its equator.</p>
+    <p>Now if we were to discuss the energy and the magnetic dipole interactions. We can use larmor's radiation
+        formula once again.
+    </p>
+    \[P_{\rm rad} = { 2 q^2 \dot{v}^2
+    \over 3 c^3} = {2 \over 3} { (q
+    \ddot{r} \sin \alpha)^2 \over c^3} = {2 \over 3} { ( \ddot{p}_\bot )^2
+    \over c^3}\]
+    <p>The reason we use \(\ddot{r} \sin \alpha\) because the acceleration we're looking for is perpendicular 
+        to the radius change between the dipoles. Thus we take the \(\sin \alpha \). And double dots over the radius 
+        gives us the acceleration. 
+    </p>
+    <p>Also \( \ddot{p}\) represents the magnetic moment. Which is \(m = qr\)</p>
+    <p>For a uniformly magnetized sphere with radius R and surface magnetic field strength B, the magnetic dipole moment is</p>
+    \[m = B R^3\]
+    <p>Now if we want to represent this ocilating magnetic moment as we spin we have this </p>
+    \[m =
+    m_0 \exp ( - i \Omega t)\]
+    <p>Then we try and calculate the second derivative of the moment in respect to time we get </p>
+    \[\dot{m} = - i \Omega m_0 \exp ( - i
+    \Omega t)\]
+    \[\ddot{m} = \Omega^2 m_0 \exp ( -i \Omega t)\]
+    <p>NOTICE THAT THE THING ON THE INSIDE IS THE ORIGINAL magnetic moment. </p>
+    \[\ddot{m} =  \Omega^2
+    m\]
+    <p>Plug it back in we get </p>
+    \[P_{\rm rad} = {2 \over 3} { m_\bot^2 \Omega^4 \over c^3} = {2
+        m_\bot^2 \over 3 c^3} \biggl( {2 \pi \over P} \biggr)^4 = {2 \over 3
+        c^3} ( B R^3 \sin \alpha)^2 \biggl( {2 \pi \over P} \biggr)^4\]
+    <p>If we want to find the rotational kinetic energy we have the following: </p>
+    \[E_{\rm rot} = \frac{1}{2}I \Omega^2 = {2 \pi^2 I
+        \over P^2}\]
+    <p>We know that pulsars slow down gradually. P is the value for period.  </p>
+    \[\dot{P} \equiv {d P
+        \over d t} > 0\]
+    \[{d E_{\rm rot} \over d t} = {d \over d t} \left( \frac{1}{2} I
+    \Omega^2 \right) = I \Omega \dot{\Omega}\]
+    \[\Omega = {2 \pi \over P} \qquad {\rm so} \qquad \dot{\Omega} = 2 \pi
+    (-P^{-2} \dot{P})\]
+    \[{d E_{\rm rot} \over d t} = I \Omega
+    \dot{\Omega} = I {2 \pi \over P} { 2 \pi ( - \dot{P}) \over P^2 }\]
+    \[{{d E_{\rm rot} \over d t}  =
+    {-4
+    \pi^2 I \dot{P} \over P^3}}\]
+    <p>We know that </p>
+    \[P_{\rm rad} = - {d E_{\rm rot} \over
+    d t}\]
+    \[{2 \over 3 c^3} (B R^3 \sin
+    \alpha)^2 \biggl( { 4 \pi^2 \over P^2}
+    \biggr)^2 = {4 \pi^2 I \dot{P} \over P^3}\]
+    \[B^2 = { 3 c^3 I P \dot{P} \over 2
+    \cdot 4 \pi^2 R^6 \sin^2\alpha
+    }\]
+    \[B > \biggl( { 3 c^3 I \over 8
+        \pi^2 R^6} \biggr)^{1/2} (P
+        \dot{P})^{1/2}\]
+    <p>Therefore we can solve for the minimum magnetic field strength at the pulsar surface.</p>
+    <p>One last trick is we can calculat the life time of the pulsar by looking at the decay. </p>
+    \[\B^2 = { 3 c^3 I P \dot{P} \over 8 \pi^2 R^6 \sin^2
+    \alpha}]
+    <p>we can find that</p>
+    \[P \dot{P} = {8 \pi^2 R^6 (B \sin \alpha)^2
+        \over 3 c^3 I }\]
+    <p>We also know that </p>
+    \[
+     dP = \dot{P} d t\]
+     <p>Multiply both sides </p>
+     \[P dP = P \dot{P} d t\]
+     <p>We can integrate through the entire life time </p>
+     \[\int_{P_0}^P P d P = \int_0^\tau
+     (P \dot{P})\, d t \]
+     \[\int_{P_0}^P P d P = P \dot{P} \int_0^\tau d t \]
+     <p>We can then solve </p>
+     \[{P^2 - P_0^2 \over 2} = P \dot{P}
+     \tau\]
+     <p>If the pulse period is alot bigger than the inital pulse period than we can approx with the following</p>
+     \[{\tau \equiv { P \over 2
+        \dot{P}}}\]
+
+</body>
+</html>
