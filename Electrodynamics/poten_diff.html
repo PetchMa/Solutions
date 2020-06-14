@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laplace Transformations Differential Equations</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Electrodynamics Solving For Potential
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+   <p>The key to understand is, solving for electric field is hard. The easy part is if you have the potential. However even the potential can be hard to solve. 
+       What we know is the following is true about the potential.
+   </p>
+   \[\nabla ^2 V = - \frac{\rho}{ \epsilon_0}\]
+   <p>We also know that since \(\rho=0\) everywhere where there is no charge density.</p>
+   \[\nabla ^2 V = 0\]
+   <p>This requires us to solve a second order partial differential equation. Which is hard. So what we do is that we can think of it in another way.</p>
+   <h3>Laplace's Equation in One Dimension</h3>
+   <p>If we let V depend on just x we get </p>
+   \[\frac{d^2 V}{dx^2} = 0\]
+   <p>The general solution would just be </p>
+   \[V(x) = mx+b\]
+   <p>We can also reqrite it as the average between \(+a\) and \(-a\)</p>
+   \[V(x) = \frac{1}{2}(V(x+a)+v(x-a))\]
+   <h3>Laplace's Equation in Two Dimension</h3>
+   <p>We can do the same in 2 dimensions. Except what we do is we average the radius around the the surface. </p>
+   \[\frac{\partial^2 V}{\partial x^2} +\frac{\partial^2 V}{\partial y^2} = 0\]
+   <p>We can pretend to wrap around the area a thin sheet of film and average around the circle to get the value of the center. </p>
+   \[V(x,y) = \frac{1}{2\pi R} \oint V dl\]
+   <h3>Laplace's Equation in Three Dimension</h3>
+   <p>We can then find value at the center of a solid by taking the average of the surface area of the sphere around it given the following... </p>
+   \[V(r) = \frac{1}{4 \pi R^2} \oint V da\]
+   <h3>Uniqueness Theorem</h3>
+   <p>All that was important in this section about the uniqueness theorem is that as long as you can find one solution to the laplace equation, it IS the solution to the laplace equation. </p>
+   <h3>Classic Image Problem</h3>
+   <p>Suppose a point charge of q is held a distance d above a conducting plane with a potential of V=0. How can we find the potential?</p>
+   <p>The problem here is that the conducting plane will have an induced charge creating a surface charge density that we don't know thus making the problem hard to solve. What we 
+       do instead is we take the problem and flip the geometry by positioning another opposite charge to the original creating a potential of 0. 
+   </p>
+   <p>Imagine the same problem, but remove the plane and place an equal but negative charge opposite to the first charge. This is the same problem but the potential is easier to solve for.
+   Simply add the to charges together. Obviously this configuration can get a lot harder all we need to know is to configure it in a way to balance out a total potential of 0 given the boundary conditions. </p>
+   \[V(x,y,z) = \frac{1}{4\pi \epsilon_0} [\frac{q}{\sqrt{x^2+y^2+(z-d)^2}}-\frac{q}{\sqrt{x^2+y^2+(z+d)^2}}]\]
+   <p>We just arranged it so that the point in the middle will experience a potential of 0. Now we can solve for it.</p>
+   <p>How would we find the charge distribution on the plane? The charge induced will follow a charge distribution of the following</p>
+   \[\sigma  = -\epsilon_0 \frac{\partial V}{\partial n}\]
+   <p>Where \(n\) is the normal to the surface of the conductor.</p>
+   <h1>Solving the Partial Second Order Differential Equation - Seperation of Variables technique</h1>
+   <p>We want to reduce Laplace's equation into something manageable. We know the following. </p>
+   \[\nabla ^2 V = 0\]
+   \[\frac{\partial^2 V}{\partial x^2} +\frac{\partial^2 V}{\partial y^2} = 0\]
+   <p>But lets say we can seperate this into independent functions such as </p>
+   \[V(x,y) = W(x)U(y)\]
+   <p>Then by differenting the values we get the following</p>
+   \[U\frac{d^2 W}{dx^2} + W\frac{d^2 U}{dy^2} = 0\]
+   <p>We divide by \(U\)  and \(W\). </p>
+   \[\frac{1}{W}\frac{d^2 W}{dx^2} + \frac{1}{U}\frac{d^2 U}{dy^2} = 0\]
+   <p>Now since both components don't depend on each other we can set a seperation variable </p>
+   \[\frac{1}{W}\frac{d^2 W}{dx^2}  = C_1\]
+   \[\frac{1}{U}\frac{d^2 U}{dy^2} = C_2\]
+   \[C_1 + C_2= 0\]
+    <p>RECALL: That we typically solve second order differential equations by solving for the roots of the second order differential. </p>
+    \[ay'' + by'+cy = 0\]
+    \[ak^2+ bk+c = 0\]
+    <p>Depending on if \(k\) is complex we'd use different solution formulas.</p>
+    <p>In this case we have a complex solution since </p>
+    \[C_1 =-C_2\]
+    <p>Where the following is true </p>
+    \[\frac{d^2 W}{dx^2}  = k^2 W\]
+    \[\frac{d^2 U}{dy^2} = -k^2 U\]
+    <p>For complex solutions of \(k\) we get the following equations to solve</p>
+    \[W(x) =Ae^{kx}+Be^{-kx}\]
+    \[U(y) =C\sin(ky)+ D \cos(ky) \]
+    \[V(X,Y) =(Ae^{kx}+Be^{-kx})(C\sin(ky)+ D \cos(ky)) \]
+    <p>Now we need to consider the boundary conditions to solve a particular potential problem. Given the seperation of variables, this becomes easy to solve. </p>
+    <p>We know that \(D =0 \) because V=0 when y=0. \(D \cos(K(0))!=0\)</p>
+    <p>We know that \(A =0 \) because V=0 when \(x \to \infty\). \(Ae^{kx}!\to 0\)</p>
+    \[V(X,Y) =(Be^{-kx})(C\sin(ky)) \]
+    <p>We also know that when the potential approaches a surface \(y \to a\) we also get a boundary condition of 0.</p>
+    \[0 =C\sin(ky) \]
+    \[0 =C\sin(ka) \]
+    \[k= \frac{n\pi}{a}\]
+    <p>Where n is integer number</p>
+    \[V(X,Y) =C_ne^{-\frac{n\pi}{a}x}\sin(\frac{n\pi}{a}y) \]
+    <p>Because of this we get an infinite number of solutions as long as this is satisfied with an integer value for n.</p>
+    \[V(X,Y) =\sum_{n=0}^{\infty}C_ne^{-\frac{n\pi}{a}x}\sin(\frac{n\pi}{a}y) \]
+    <p>Now we need to solve for the value of \(C_n\). We use something called a fourier trick! Its really neat. Basically we reduce the problem down by canceling out some terms..... So we know this is true.</p>
+    \[V(0,Y) =\sum_{n=0}^{\infty}C_n\sin(\frac{n\pi}{a}y) \]
+    \[V(0,Y) =V_0 \]
+    <p>The fourier trick is where we integrate both sides which contains a value \(n`\)</p>
+    \[V(0,Y) =\int \sum_{n=0}^{\infty}C_n\sin(\frac{n\pi}{a}y)sin(\frac{n`\pi}{a}y) dy \]
+    \[\sum_{n=0}^{\infty} C_n\int_0^a \sin(\frac{n\pi}{a}y)sin(\frac{n`\pi}{a}y) dy = \int_0^a V_0 \sin(\frac{n`\pi}{a}y) dy \]
+    <p>Nothing has changed just yet... if we integrated the left hand side we get the following</p>
+    \[\int_0 ^a \sin(\frac{n\pi}{a}y)sin(\frac{n`\pi}{a}y) dy =0\]
+    <p>All except when \(n=n`\) where </p>
+    \[\int_0 ^a \sin(\frac{n\pi}{a}y)sin(\frac{n`\pi}{a}y) dy =\frac{a}{2}\]
+    <p>THUS the entire sumation gets killed off because every value of \(n\) will equal to 0 except when it equals the \(n`\). So \(n=n`\)</p>
+    \[\frac{a}{2}C_n = \int_0^a V_0 \sin(\frac{n\pi}{a}y) dy \]
+    <p>This we can solve...</p>
+    \[C_n = \frac{2}{a}int_0^a V_0 sin(\frac{n\pi}{a}y) dy \]
+    \[C_n = \frac{2V_0}{n\pi}  (1- \cos(n\pi)) \]
+    <p>The \(1- \cos(n\pi)\) value will be determined if its even or odd. if \(n=even\) then it gets zeroed out, else it will return 1. Therefore with the final conclusion </p>
+    \[C_n = \frac{2V_0}{n\pi} \]
+    \[V(X,Y) =\sum_{n=1,3,5...}^{\infty}\frac{2V_0}{n\pi}e^{-\frac{n\pi}{a}x}\sin(\frac{n\pi}{a}y) \]
+</body>
+</html>
