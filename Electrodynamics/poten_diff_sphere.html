@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laplace Transformations Differential Equations</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Electrodynamics Solving For Potential Spherical Coordinates
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+   <p>The tripy thing about spherical coordinates is that the gradient calculations are a bit different. For example laplace's equation in spherical coordinates looks like this.
+   </p>
+   \[\frac{1}{r^2}\frac{\partial}{\partial r} (r^2 \frac{\partial V}{\partial r})+\frac{1}{r^2\sin \theta} \frac{\partial}{\partial\theta}(\sin\theta \frac{\partial V}{\partial \theta}) + \frac{1}{r^2\sin \theta}  \frac{\partial^2 V}{\partial \phi} =0 \]
+   <p>
+       However since there is azimuthal symmetry, the \(\phi\) component is independent of V and we can just disregard it. 
+   </p>
+   \[\frac{1}{r^2}\frac{\partial}{\partial r} (r^2 \frac{\partial V}{\partial r})+\frac{1}{r^2\sin \theta} \frac{\partial}{\partial\theta}(\sin\theta \frac{\partial V}{\partial \theta}) =0 \]
+
+   <p>In order to preform speration of variables we do this thing where we assume the variables are seperate and try to get back the original potential. </p>
+   \[V(r,\theta) = R(r)\Theta(\theta)\]
+   <p>We divide the entire thing by V</p>
+   \[\frac{1}{R}\frac{\partial}{\partial r} (r^2 \frac{\partial R}{\partial r})+\frac{1}{\Theta\sin \theta} \frac{\partial}{\partial\theta}(\sin\theta \frac{\partial \Theta}{\partial \theta}) =0 \]
+   <p>We see that the roots to the differential equation are linear thus our seperation must be constant.</p>
+   \[\frac{1}{R}\frac{\partial}{\partial r} (r^2 \frac{\partial R}{\partial r}) = l(l+1) \]
+   \[\frac{1}{\Theta\sin \theta} \frac{\partial}{\partial\theta}(\sin\theta \frac{\partial \Theta}{\partial \theta})  = -l(l+1) \]
+   <p>The way we wrote the seperation constant is just some fancy trick. </p>
+   \[\frac{\partial}{\partial r} (r^2 \frac{\partial R}{\partial r}) = Rl(l+1) \]
+   <p>This has a general solution in this form....</p>
+   \[R(r) = Ar^l + \frac{B}{r^{l+1}}\]
+   <p>However with the angular equation things a different....</p>
+   \[ \frac{\partial}{\partial\theta}(\sin\theta \frac{\partial \Theta}{\partial \theta})  = -l(l+1)\sin (\theta)  \Theta \]
+   <p>We have to use something called Legendre Polynomials in the variable \(\cos\theta\) where its determined by Rodrigues formula</p>
+   \[\Theta(\theta) = P_1(\cos\theta)\]
+   \[P_1(x) = \frac{1}{2^ll!}(\frac{d}{dx})^l(x^2-1)^l\]
+   <p>If we were to combined the seperated variables we get the following: </p>
+   \[V(r,\theta) = (Ar^l + \frac{B}{r^{l+1}})P_1(\cos\theta)\]
+   \[V(r,\theta) = \sum_{l=0} ^{\infty}( Ar^l + \frac{B}{r^{l+1}})P_1(\cos\theta)\]
+   <h3>Problem: The intial potential is specified for surface of a hollow sphere of radius R. Find the potential inside the sphere.</h3>
+   \[V(r,\theta) = \sum_{l=0} ^{\infty}( Ar^l + \frac{B}{r^{l+1}})P_1(\cos\theta)\]
+   <p>We know that at R the potential must be the inital \(V_0(\theta)\) stated in the question.</p>
+   \[V(r,\theta) = \sum_{l=0} ^{\infty}( AR^l + \frac{B}{R^{l+1}})P_1(\cos\theta)\]
+   <p>B must be zero because at the origin the B term will exploded to \(\infty\). If the problem were about a sphere on the outside the A term would have to equal to zero since the potential approaches 0 at \(\infty\) instead</p>
+   \[V(r,\theta) = \sum_{l=0} ^{\infty}( AR^l)P_1(\cos\theta)\]
+   <p>Since these legendre Polynomials are orthogonal functions we can do the fourier trick like with the sines. </p>
+   \[V(0,\theta) =\sum_{l=0} ^{\infty}P_1(\cos\theta) \]
+   \[\int_{-1}^{1}P_l(x)P_{l`}(x) = \int_0^\pi P_l(\cos\theta)P_{l`}(\cos\theta)\sin\theta d\theta\]
+   <P>If you were to compute the integral you would get 0's for every value except where \(l = l`\)</P>
+   \[A_{l`}R^{l`}\frac{2}{2l`+1} = \int_0^\pi V_0(\theta)P_{l`}(\cos\theta)\sin\theta d\theta\]
+   \[A_{l`} = \frac{2l`+1}{2R^{l`}}\int_0^\pi V_0(\theta)P_{l`}(\cos\theta)\sin\theta d\theta\]
+   <p>This gives us the general solution to the differential equation since the coefficents are calculated by this integral. </p>
+   
+</body>
+</html>
