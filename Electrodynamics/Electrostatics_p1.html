@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrostatics Introduction</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 20%; padding-right: 20%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Electrostatics Introduction
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+   <p>
+       The common problem we're trying to solve in Electrodynamics is, given some set of electric charges, what force do they exert on another test charge? 
+       The problem gets more difficult when we consider when these charges are moving and or if theres a certain distribution of charges. In electrostatics we're 
+       only going to concern ourselves with STATIC charges, charges that aren't flowing or moving for exmaple. 
+   </p>
+   <p>
+       The basic principle is the idea of superposition. You can add up the forces given by each individual charge to get the total net force exerted on a test charge. 
+   </p>
+   <p>
+       We start off with the most basic of principles Coulomb's law. Coulomb's law determines force exerted on a single test charge \(Q\) by a sinle source charge \(q\).
+   </p>
+   \[\vec{F} = \frac{1}{4 \pi \epsilon_0}\frac{qQ}{\eta ^2}\hat{\eta}\]
+   <p>
+       With the principle of superposition, if we had \(n\) different charges we can just add the forces together and factor out the test charge.
+   </p>
+   \[\vec{F_{net}} = \frac{Q}{4 \pi \epsilon_0}\sum^{n}_{i=1} \frac{q_i}{\eta ^2}\hat{\eta}\]
+   <p>Okay but what if we don't know the test charge? Lets just say we had an arrangement of charges and asked whats this field created by this arrangement? The field would just be defined as lacking
+       the test charge! 
+   </p>
+   \[\vec{E} = \frac{1}{4 \pi \epsilon_0}\sum^{n}_{i=1} \frac{q_i}{\eta ^2}\hat{\eta}\]
+   \[\vec{F_{net}} = q\vec{E}\]
+   <h1>
+       Continous Distribution
+   </h1>
+   <p>Okay so what if we can't count the number of charges individually, how do we determine the forces and electric field of a continous distributions? We 
+       do the same thing... except we add infinitesimally small bits of it together. In general we can write the following
+   </p>
+   \[E(r) = \frac{1}{4 \pi \epsilon_0} \int\frac{1}{\eta ^2}\hat{\eta}dq\]
+   <p>Where's the charge you may ask? Well the experienced charge would be represented by some function depending on the type of charge distribution.</p>
+   <h4>
+       Line Charge
+   </h4>
+   <p>If the charge distribution is in a line in 3 space then we can define the following</p>
+   \[E(r) = \frac{1}{4 \pi \epsilon_0} \int\frac{\lambda(r)}{\eta ^2}\hat{\eta}dl\]
+   <p>Wher \(\lambda(r)\) is the distribution of the charge on the line. And \(dl\) was some small part of the line.</p>
+    <h4>
+    Surface Charge
+    </h4>
+    <p>If the charge distribution is in a surface in 3 space then we can define the following</p>
+    \[E(r) = \frac{1}{4 \pi \epsilon_0} \int\frac{\sigma(r)}{\eta ^2}\hat{\eta}da\]
+    <p>Wher \(\sigma(r)\) is the distribution of the charge on the surface. And \(da\) was some small area of the surface.</p>
+    <h4>
+    Volume Charge
+    </h4>
+    <p>If the charge distribution is in a volume in 3 space then we can define the following</p>
+    \[E(r) = \frac{1}{4 \pi \epsilon_0} \int\frac{\rho(r)}{\eta ^2}\hat{\eta}d\tau\]
+    <p>Wher \(\rho(r)\) is the distribution of the charge on the surface. And \(d\tau\) was some small area of the surface.</p>
+
+    <h2>Problems</h2>
+    <p>Find the electric field z above one end of a straight line segmat \(L\) that carries a uniform charge distribution of \(\lambda\).</p>
+    <p>Heres the equation that we have for line charge </p>
+    <div style="text-align: center;">
+        <img src="line_charge.PNG" >
+    </div>
+    
+
+    \[E(r) = \frac{1}{4 \pi \epsilon_0} \int\frac{\lambda(r)}{\eta ^2}\hat{\eta}dl\]
+    <p>We know that \(\lambda\) is constant since its a uniform charge.</p>
+    \[E(r) = \frac{\lambda}{4 \pi \epsilon_0} \int\frac{1}{\eta ^2}\hat{\eta}dl\]
+    <p>The problem is with the unit vector. We can write the unit vector as the following components</p>
+    \[\vec{\eta} = [-\hat{x}+\hat{z}]\]
+    \[\hat{\eta} = \frac{[-\hat{x}+\hat{z}]}{\sqrt{x^2+z^2}}\]
+    <p>We also then know that </p>
+    \[\eta^2 =x^2+z^2\]
+    <p>We can then rewrite the integral into the components of x and z!</p>
+    \[E(r) = \frac{\lambda}{4 \pi \epsilon_0} \int\frac{1}{x^2+z^2}\frac{[\hat{x}+\hat{z}]}{\sqrt{x^2+z^2}}dl\]
+    <p>We can split up the components </p>
+    \[E(r) = \frac{\lambda}{4 \pi \epsilon_0}[ \int\frac{z}{(x^2+z^2)^{\frac{3}{2}}}dxdz +\int\frac{x}{(x^2+z^2)^{\frac{3}{2}}}dxdz ]\]
+    <p>But you need to realize that we ONLY MOVING ALONG THE X AXIS AND THUS THE Z AXIS IS CONSTANT!!! Thats why we can move it out like this.</p>
+    \[E(r) = \frac{\lambda}{4 \pi \epsilon_0}[Z \int\frac{1}{(x^2+z^2)^{\frac{3}{2}}}dxdz -\int\frac{x}{(x^2+z^2)^{\frac{3}{2}}}dxdz ]\]
+    <p>Lets solve each one by one....</p>
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int\frac{1}{(x^2+z^2)^{\frac{3}{2}}}dxdz\]
+    <p>We are going to preform trig substitution for this problem</p>
+    \[x = z\tan{\theta}\]
+    \[dx = z\sec^2{\theta} d\theta\]
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int\frac{1}{(x^2+z^2)^{\frac{3}{2}}}dx\]
+    <p>Note that we can drop the \(dz\) as there is no change in the z direction. We then factor the terms out.</p>
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int\frac{z\sec^2{\theta} }{(z^2+z^2\tan^2{\theta})^{\frac{3}{2}}} d\theta\]
+    
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int\frac{z\sec^2{\theta} }{z^3(1+\tan^2{\theta})^{\frac{3}{2}}} d\theta\]
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int\frac{z\sec^2{\theta} }{z^3(\sec^2{\theta})^{\frac{3}{2}}} d\theta\]
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int\frac{z\sec^2{\theta} }{z^3\sec^3{\theta}} d\theta\]
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int\frac{1}{z^2\sec{\theta}} d\theta\]
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} \int_{0}^L\frac{ \cos\theta }{z^2} d\theta\]
+    <p>We are integrating the length of the line which is from 0-L</p>
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} [\frac{ \sin\theta}{z^2}]\Big|_{x=0}^{x = L}\]
+    <p>We know the following</p>
+    \[x = z\tan{\theta}\]
+    \[\arctan{x/z} = \theta\]
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} [\frac{ \sin([\arctan{x/z}))}{z^2}]\Big|_{x=0}^{x = L}\]
+    <p>We can draw a simple triangle give that \(\arctan{x/z} = \theta\)</p>
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} [\frac{x}{z^2\sqrt{x^2+z^2}}]\Big|_{x=0}^{x = L}\]
+    \[E_{z}(r) =  \frac{Z\lambda}{4 \pi \epsilon_0} [\frac{L}{z^2\sqrt{L^2+z^2}} - 0 ]\]
+    \[E_{z}(r) =  \frac{\lambda}{4 \pi \epsilon_0} [\frac{L}{z\sqrt{L^2+z^2}}]\]
+    <P>Okay we then solve for the X component which is a lot easier.</P>
+    \[E_{x}(r) =- \frac{\lambda}{4 \pi \epsilon_0} \int\frac{x}{(x^2+z^2)^{\frac{3}{2}}}dxdz \]
+    <p>We can drop the dz term since it doesnt change in the z direction </p>
+    \[E_{x}(r) =-\frac{\lambda}{4 \pi \epsilon_0} \int\frac{x}{(x^2+z^2)^{\frac{3}{2}}}dx \]
+    <p>We can do U sub</p>
+    \[u = x^2+z^2\]
+    \[du = 2x\]
+    \[E_{x}(r) =-\frac{\lambda}{4 \pi \epsilon_0} \int \frac{1}{2}\frac{1}{(u)^{\frac{3}{2}}}du \]
+    \[E_{x}(r) =-\frac{\lambda}{4 \pi \epsilon_0} \frac{1}{2} [-\frac{2}{1}\frac{1}{(u)^{\frac{1}{2}}}]\Big|_{x=0}^{x = L}\]
+    \[E_{x}(r) =\frac{\lambda}{4 \pi \epsilon_0} [\frac{1}{( x^2+z^2)^{\frac{1}{2}}}]\Big|_{x=0}^{x = L}\]
+    \[E_{x}(r) =\frac{\lambda}{4 \pi \epsilon_0} [\frac{1}{( L^2+z^2)^{\frac{1}{2}}} - \frac{1}{z}]\]
+    <p>So if we were to combine the entire term together we get the following. </p>
+    \[E(r) = \frac{1}{4 \pi \epsilon_0} [ [\frac{1}{( L^2+z^2)^{\frac{1}{2}}} - \frac{1}{z}] \hat{x} + [\frac{L}{z\sqrt{L^2+z^2}}] \hat{z}]\]
+    <h2>Problems Spherical Charge Outside</h2>
+    <p>Assume a sphere of radius R and you wish to find the electric field on the INSIDE of the charged surface. Assume uniform charge.</p>
+    <p>To make the problem easier we're going to be using spherical coordinates and we're going to place the arrangement where the point of interest is at the center. 
+        We have the following integrals from before. Assume uniform charge thus \(\sigma\) is constant. 
+    </p>
+    \[E(r) = \frac{\sigma}{4 \pi \epsilon_0} \int\frac{1}{\eta ^2}\hat{\eta}da\]
+    <p>We can replace with spherical coordinates which must add the extra \(r^2\sin\theta\) term that represents the "width of the wedge".</p>
+    <p>We would also need to rearrange the geometry to make it easy for us and using cosine law. </p>
+    <div style="text-align: center;">
+        <img src="sphere_charge.PNG" >
+    </div>
+    <p>Now our integral looks like the following ... </p>
+    \[\eta^2 = R^2+z^2-2Rz\cos\theta\]
+    \[|\eta| \cos\psi = z-R\cos\theta\]
+    \[ \cos\psi = \frac{z-R\cos\theta}{|\eta|}\]
+    \[ \cos\psi = \frac{z-R\cos\theta}{\sqrt{R^2+z^2-2Rz\cos\theta}}\]
+    <div style="text-align: center;">
+        <img src="sphere_diagram.PNG" >
+    </div>
+    <p>Now we KNOW that everything balances out. Meaning the x direction has NO electric field and we know that the y direction has no electric field.
+        The only part with an electric field is z direction since its poking straight out. Thus to represent that component looking out at Z we can draw the following diagram 
+        where we flip it. 
+    </p>
+    <div style="text-align: center;">
+        <img src="flipped.PNG" >
+    </div>
+    \[ \hat{z} = \frac{z-R\cos\theta}{\sqrt{R^2+z^2-2Rz\cos\theta}}\]
+    \[E(r) = \frac{\sigma}{4 \pi \epsilon_0} \int\frac{1}{\eta ^2}\hat{\eta}da\]
+    \[E_{z}(r) = \frac{\sigma}{4 \pi \epsilon_0} \int\frac{R^2\sin\theta}{R^2+z^2-2Rz\cos\theta} \frac{z-R\cos\theta}{\sqrt{R^2+z^2-2Rz\cos\theta}} d\theta d\phi\]
+    <p>Lets combine em together!</p>
+    \[E_{z}(r) = \frac{\sigma}{4 \pi \epsilon_0} \int\frac{R^2\sin\theta (z-R\cos\theta)}{(R^2+z^2-2Rz\cos\theta)^{\frac{3}{2}}}  d\theta d\phi\]
+    <p>There is no \(\phi\) term so we can just integrate it out. We just need to integrate the part that points out of the sphere.</p>
+    \[E_{z}(r) = \frac{\sigma}{4 \pi \epsilon_0} 2\pi \int_{0}^{\pi}\frac{R^2\sin\theta (z-R\cos\theta)}{(R^2+z^2-2Rz\cos\theta)^{\frac{3}{2}}}  d\theta \]
+    <p>This is a nasty nasty integral to solve. You can try substitution and get an integral where you'd need to do partial fractions but I'll save the trouble
+        because we'll use a much better technique soon. 
+    </p>
+    \[u = \cos\theta\]
+    \[du = -\sin\theta\]
+    \[E_{z}(r) = \frac{\sigma 2\pi R^2 }{4 \pi \epsilon_0} \int_{-1}^{1}  \frac{(z-Ru)}{(R^2+z^2-2Rzu)^{\frac{3}{2}}} du \]
+    \[E_{z}(r) = \frac{\sigma 2\pi R^2 }{4 \pi \epsilon_0}  [\frac{zu-R}{z^2\sqrt{R^2+z^2-2Rzu}}] \Big|_{u=-1}^{u=1}\]
+    <p>If you plug in the numbers you actually get a perfect square but you'd need to take the absolute value of the perfect square. </p>
+    
+    \[E_{z}(r) = \frac{4\sigma \pi R^2 }{4 \pi z \epsilon_0} \]
+    \[E_{z}(r) = \frac{\sigma  R^2 }{ z \epsilon_0} \]
+    <p>We can see that as we move further away from the sphere charge it approximates to a point charge! </p>
+</body>
+</html>
