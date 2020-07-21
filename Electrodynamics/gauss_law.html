@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss Law and More Electrostatics</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Gauss Law and More of Electrostatics
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+   <p>
+       Okay so we have a problem. Traditional Coulombs law makes the integral really really hard to solve in comparision to the complexity of the problem... So whats the issue?
+       The issue is with the unit vector within the integral that makes the solution often times really messy. Okay so how do we make things easier? We use Gauss's law. First we need 
+       some basic concepts.
+   </p>
+   <h4>
+       Field Lines and Flux
+   </h4>
+   <p>Like in high school when we looked at field lines, they can never cross each other and must travel from "North" to "South" sort to speak. Field lines can represent 
+       the strength as well. Instead of indicating the strength based on the length of the vectors, we can just represent them based on how many field lines pass through 
+       a unit area. This is called flux
+   </p>
+   <p>
+       Flux is the electric field passing through a surface. The flux density is the amount of lines passing through per unit of surface. Simple stuff.  
+   </p>
+   <h2>
+       Gauss's Law
+   </h2>
+   <p>
+       Gauss's law is simple. The idea here is that if you wrap something within a surface, the flux is the same as the flux created by any surface that encloses the charge. 
+       That makes sense right? If lets say you placed a charge in the center of a box and asked to find the flux of ONE side of the box, you know that all 6 sides must enclose the entire charge
+       and since one side is 1/6 of the entire area it encloses 1/6 of the total flux.
+   </p>
+   <p>We know how to calculate the flux of a charge and it contains the electric field. So can't we just use that to compute the electric field instead of messing with all the fancy integrals?
+       Yes we can!
+   </p>
+   <h4>
+    Gauss's Law Derivation 
+   </h4>
+   <p>Lets say we have a sphere enclosing a single point charge. We know that the elctric field is defined by the following from Cuolombs law.</p>
+   \[E(r)=  \frac{q}{4 \pi \epsilon_{0}r^2}\]
+   <p>We know that the flux is the sum of all the electric field over the surface.</p>
+   \[\Phi_E = \oint E  \cdot da\]
+   <p>Lets plug in Cuolombs law</p>
+   \[\Phi_E = \oint \frac{q}{4 \pi \epsilon_{0}r^2} \cdot da\]
+   <p>We know that none of the terms are actually changing within Cuolomb's law since the radius of the sphere is the same, the only thing thats changing are the angles! 
+       Remember when replacing the parts to replace with spherical coordinates 
+   </p>
+   \[\Phi_E = \int_0^\pi \int_0^{2\pi} \int_0^r  \frac{q}{4 \pi \epsilon_{0}r^2} r^2 \sin\theta d\theta d\phi\]
+   <p>We can move the inner terms out AND CANCEL the radius. </p>
+   \[\Phi_E = \frac{q}{4 \pi \epsilon_{0}}\int_0^\pi \int_0^{2\pi} \sin\theta  d\theta d\phi\]
+   <p>The integral is just the surface area of the sphere. </p>
+   \[\Phi_E = \frac{q}{4 \pi \epsilon_{0}} 4\pi\]
+   \[\Phi_E = \frac{q}{ \epsilon_{0}} \]
+   <p>In general though, the inner integral will always be the surface area. </p>
+   <h4>
+    Gauss's Law Extended  
+   </h4>
+   <p>You might be wondering, okay so whats the point? The point is... if we have any charge configuration, each individual charge can be treated with gauss's law,
+       which then can be extended to enclose ALL charges within some configuration! We can just wrap all the charges under the same surface calculate the flux and it will have the same 
+       flux as adding each individual electric field coming off of a single charge. 
+   </p>
+   <p>Let \(q_i\) and \(E_i\) represent the individual point charges. We know the following is true from the derivation prior. </p>
+   \[\Phi_{E_i} = \frac{q_i}{ \epsilon_{0}} \]
+   \[\oint E_i \cdot da = \frac{q_i}{ \epsilon_{0}} \]
+   <p>We know by superposition that we can just add up all the individual point charges to get the TOTAL Flux.  </p>
+   \[\Phi_{E} = \sum_{i=1}^n \frac{q_i}{ \epsilon_{0}} \]
+   \[\sum_{i=1}^n  \oint E_i\cdot  da= \sum_{i=1}^n \frac{q_i}{ \epsilon_{0}} \]
+   <p>We can move the sumation into the integral. </p>
+   \[ \oint \sum_{i=1}^n E_i \cdot da= \frac{1}{ \epsilon_{0}} \sum_{i=1}^n q_i\]
+   <p>We know that when you add up all the individual electric field you get the total electric field... We know that when you add up all the individual charges you get the TOTAL CHARGE. </p>
+   \[ \oint E \cdot da= \frac{1}{ \epsilon_{0}}  Q_{enc}\]
+   <P>There. You derived Gauss's law!</P>
+   <h4>
+    Gauss's Law Extra Extended.  
+   </h4>
+   <p>Now lets say you have some kind of charge continous charge distribution? Well here's how you deal with that. You just add up all the charges infintely small. </p>
+   \[Q_{enc} = \int \rho d\tau\]
+   <p>We can write this in differential form. </p>
+   \[\nabla \cdot E = \frac{\rho}{\epsilon}\]
+   <h2>
+       Problem 1 - Sphere!
+   </h2>
+   <p>Given a uniform charge on a sphere, calculate the electric field experienced on the outside given that the charge of the entire sphere is \(q\)?</p>
+   <p>To solve this problem we know the following...</p>
+   \[ \oint E \cdot da= \frac{1}{ \epsilon_{0}}  Q_{enc}\]
+   <p>We know that since we're working with a sphere, that the magnitude of \(\vec{E}\) is constant over the gaussian surface. Why? Because we exploited the fact that the sphere has symmetry which allows
+   </p>
+   <p>Also the vector \(\vec{E}\) points in the same direction as \(da\) and thus we can drop the dot product and drop the vector of \(E\)</p>
+   \[ \oint |E| da= \frac{1}{ \epsilon_{0}}  Q_{enc}\]
+   \[  |E|\oint da= \frac{1}{ \epsilon_{0}}  Q_{enc}\]
+   <p>This is just the surface area of the sphere</p>
+   \[  |E|4\pi r^2= \frac{1}{ \epsilon_{0}}  Q_{enc}\]
+   \[  |E|= \frac{1}{4\pi \epsilon_{0} r^2}  Q_{enc}\]
+   <h2>
+    Problem 2 - Cylinder
+</h2>
+<p>Lets say we have a cylinder that charies a charge density \(\rho =ks\) where \(s\) is the radius of the of the cylinder. Find the electric field inside the cylinder. Assume the sides do not contribute to the electric field as its an nearly infinitly long cylinder.</p>
+<p>First we need to draw a gaussian surface WITHIN the cylinder. </p>
+<p>
+    Now we find the charge enclosed...
+</p>
+\[Q_{enc} = \int \rho d\tau\]
+\[Q_{enc} = \int ks d\tau\]
+\[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_0^{s} ks d\tau\]
+<p>We replace with Cylindrical coordinates </p>
+\[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_0^{s} (ks)s ds dl d\theta\]
+\[Q_{enc} = k\int_0^{2\pi} \int_{0}^{l} \int_0^{s} s^2 ds dl d\theta\]
+\[Q_{enc} = \frac{ks^3}{3}\int_0^{2\pi} \int_{0}^{l} \int_0^{s}  dl d\theta\]
+\[Q_{enc} = \frac{ks^3 }{3} 2\pi l\]
+<p>Now we have the charge enclosed we can look at the entire integral from before. </p>
+\[ \oint E \cdot da= \frac{1}{ \epsilon_{0}}  Q_{enc}\]
+\[ \oint E \cdot da= \frac{1}{ \epsilon_{0}} \frac{ks^3 2\pi l }{3} \]
+<p>We can once again exploit the symmetry of the problem since the sides do not contribute to the overall electric field (its a really long cylinder)</p>
+\[ |E|\oint  da= \frac{1}{ \epsilon_{0}} \frac{ks^3 2\pi l }{3} \]
+<p>The surface of the clinder ONLY ON THE SIDE THAT CONTRIBUTES to the electric field and this case its around it.  </p>
+\[ |E| 2\pi l s= \frac{1}{ \epsilon_{0}} \frac{ks^3 2\pi l }{3} \]
+\[ |E| = \frac{1}{ \epsilon_{0}} \frac{ks^2  }{3 } \]
+<p>The vector would just be pointing in the direction of the surface \(\hat{s}\)</p>
+\[ \vec{E} = \frac{1}{ \epsilon_{0}} \frac{ks^2  }{3 } \hat{s}\]
+
+<h2>
+    Problem 3 - Funky Sphere Problem
+</h2>
+<p>
+    Lets say we have a hollow sphere that has three regions, \(r< a \), \(a < r < b\) and \( r > b\)
+    But in the region \(a < r < b\) we have a charge density of \(\rho =\frac{k}{r^2}\). Find the electric field in all three regions. 
+</p>
+<h3>
+   1. Region  \(r< a \)
+</h3>
+<p>This is easy. There is no charge enclosed and thus the electric field is zero. </p>
+\[ \oint E \cdot da= \frac{1}{ \epsilon_{0}}  Q_{enc}\]
+\[ Q_{enc} = 0\]
+\[ \oint E \cdot da= 0\]
+\[ E =0\]
+<h3>
+    2. Region \(a < r < b\)
+ </h3>
+ <p>Okay now we need to find the entire enclosed charge which changes depending on the radius we're looking at.</p>
+ <p>We know that region that is actually has a charge is between \([a,r]\) since r can change. We also know that the entire guassian surface is defined by r</p>
+ \[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_a^{r} \frac{k}{r^2} d\tau\]
+ \[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_a^{r} \frac{k}{r^2} r^2 \sin\theta drd\theta d\phi\]
+ \[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_a^{r}  \sin\theta drd\theta d\phi\]
+ <p>We can preform the outer integrals first since there are no terms that depend on the inner variables.</p>
+ \[Q_{enc} = 4\pi \int_a^{r} dr\]
+ \[Q_{enc} = 4\pi (r-a)\]
+ <p>We can then look at the other side of the equation from guass's law</p>
+ \[ \oint E \cdot da= \frac{1}{ \epsilon_{0}}  4\pi (r-a)\]
+ <p>We know our surface is over the entire sphere of radius r</p>
+ \[ |E| 4\pi r^2= \frac{1}{ \epsilon_{0}}  4\pi (r-a)\]
+ \[ |E|= \frac{1}{  4\pi r^2 \epsilon_{0} }  4\pi (r-a)\]
+ \[ \vec{E}= \frac{1}{ r^2 \epsilon_{0} }  (r-a) \hat{r}\]
+ <h3>
+    3. Region \( r > b\)
+ </h3>
+ <p>Now since r will enclose EVERYTHING. We can calculate the entire enclosed charge based on the distribution. </p>
+ \[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_a^{b} \frac{k}{r^2} d\tau\]
+ \[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_a^{b} \frac{k}{r^2} r^2 \sin\theta drd\theta d\phi\]
+ \[Q_{enc} = \int_0^{2\pi} \int_{0}^{l} \int_a^{b}  \sin\theta drd\theta d\phi\]
+ \[Q_{enc} = 4\pi \int_a^{b} dr\]
+ \[Q_{enc} = 4\pi (b-a)\]
+ <p>Do what we did above but this time with a radius of r of the sphere  </p>
+ \[ \oint E \cdot da= \frac{1}{ \epsilon_{0}}  4\pi (b-a)\]
+ \[|E| 4\pi r^2= \frac{1}{ \epsilon_{0}}  4\pi (b-a)\]
+ \[|E| 4\pi r^2= \frac{1}{ \epsilon_{0}}  4\pi (b-a)\]
+ \[|E| = \frac{1}{ r^2 \epsilon_{0}} (b-a) \hat{r}\]
+</body>
+</html>
