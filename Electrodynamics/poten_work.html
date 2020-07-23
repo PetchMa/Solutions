@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Potentials, Potential Difference, and Work</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Electric Potentials, Potential Difference, and Work
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+   <p>
+       Okay so the electric field is a VERY special type of field. It is a conservative vector field. This means that the curl of the electric field is zero. 
+       What does this imply? It means that the work done on the field, is the same no matter what path it took to displace some charge. 
+   </p>
+   \[\nabla \times \vec{E} =0\]
+   <h2>Making Life Easier</h2>
+   <p>
+    We also know that the electric field can be represented as the potential. This way we can reduce a complicated vector problem in electric field with coulumbs or gauss's law
+    into a scalar problem with the potential. This make things easier to deal with!
+   </p>
+   <h2>Potentials</h2>
+   <p>You can think of the potential as the energy required to bring in a charge from a point infinitly far away. In this case the Electric field is equal to the change in potential. Thus
+       the potential is the integral of the electric field along the path it has traveled.
+   </p>
+   \[\vec{E} = - \nabla V\]
+   <p>However, since the vector field of \(\vec{E}\) is a conservative vector field meaning the curl = 0, we can compute the potential as the integral and disregarding the path 
+       it took. 
+   </p>
+   \[V(r) = -\int_{\omicron}^r \vec{E} \cdot dl\]
+   <p>Where \(\omicron\) represents a reference point at which you might set. </p>
+   <h2>Potential Difference</h2>
+   <p>When we say the potential difference we mean the change in the potential between two points \(a\) and \(b\). If we were to use our original definition above we get the following.</p>
+
+   \[V(b) - V(a) = -\int_{\omicron}^b \vec{E} \cdot dl + \int_{\omicron}^a \vec{E} \cdot dl\]
+   <p>Now we can flip the signs of the integral with this by flipping the order of the integral bounds. </p>
+   \[V(b) - V(a) = -\int_{\omicron}^b \vec{E} \cdot dl - \int_{a}^\omicron \vec{E} \cdot dl\]
+   <p>Now with this order we can combine the integrals </p>
+   \[V(b) - V(a) = -\int_{a}^b \vec{E} \cdot dl\]
+   <p>This is the potential difference between two points \(a\) and \(b\). </p>
+   <h2>
+       Comments On Potentials
+   </h2>
+   <p>The key here is that the definition of the potential is based on the reference point. 
+       If the reference point is stretched to infinity then its the potential. If it is between two points then its potential difference. 
+   </p>
+   <p>Potentials also satisfy the concept of superposition meaning the total potential is the sum of individual potentials. </p>
+   <h2>
+    Laplace's Equation. 
+    </h2>
+    <p>Okay so we related the electric field of \(\vec{E}\) with the potential \(V\) we can also equate the divergence of the electric field as the following... </p>
+    \[\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_{0}}\]
+    <p>We know that the divergence is equal to the charge density over \(\epsilon_{0}\) because of the differential form of Gauss's law. </p>
+    <p>So given just the charge density how might we calculate the potential??</p>
+    \[\nabla \cdot \vec{E} =\nabla \cdot ( - \nabla V) =  - \nabla^2 V \]
+    \[ - \nabla^2 V = \frac{\rho}{\epsilon_{0}}\]
+    <p>This will be a problem to solve for the potential in the next chapter. That will be a whole different kind of beast. Since it'll be a second order partial differential equation. 
+        We'll use a technique of seperable variables. 
+    </p>
+    <h2>
+        Continous and Discrete Charge Distributions 
+    </h2>
+    <p>
+        Like the previous section when we have continous and discrete charge distributions we can add them up in infinitly small chunks. 
+
+    </p>
+    <H4>Discrete Charge Distribution</H4>
+    <p>Superposition works here and so we just use it. Where \(n\) is the number of charges</p>
+    \[V(r) = \frac{1}{4 \pi \epsilon_0} \sum_{i =1}^n \frac{q_i}{\eta_i}\]
+    <H4>Continous Charge Distribution</H4>
+    <p>We can add up infinitly small chunks of the charge distribution and sum them all together. This is the volume charge and surface + line charge can be written the same 
+        except the function of charge distribution \(\rho(r)\)
+    </p>
+    \[V(r) = \frac{1}{4 \pi \epsilon_0} \int \frac{\rho(r)}{\eta} d\tau\]
+    <p>NOTICE THAT THE VECTOR IS GONE!! Wow maybe this will be easier to compute! We can try and solve this shit... </p>
+    <h2>
+        Problem 1 - Sphere
+    </h2>
+    <p>Find the potential of the sphere with a uniform charge \(\sigma\) with radius \(R\)</p>
+    <p>We can do the same thing as we did back in the last section <a href="gauss_law.html"> here</a>. We will use the same trick! Notice that the radius is kept constant and will not be represented in the 
+    integral.</p>
+    \[V(r) = \frac{1}{4 \pi \epsilon_0} \int \frac{\sigma}{\eta} da\]
+    \[\eta^2 = R^2+z^2-2Rz\cos\theta\]
+    \[V(r) = \frac{\sigma}{4 \pi \epsilon_0} \int \frac{1}{\sqrt{R^2+z^2-2Rz\cos\theta}} da\]
+    <p>We need to replace with spherical coordinates </p>
+    \[V(r) = \frac{\sigma}{4 \pi \epsilon_0} \int \frac{R^2 \sin\theta d\theta d\phi}{\sqrt{R^2+z^2-2Rz\cos\theta}} \]
+    <p>
+        We can integrate out the \(\phi\)
+    </p>
+    \[V(r) = \frac{\sigma R^2 2 \pi}{4 \pi \epsilon_0} \int \frac{ \sin\theta d\theta }{\sqrt{R^2+z^2-2Rz\cos\theta}} \]
+    <p>We can do a simple U subsitution...</p>
+    \[u = R^2+z^2-2Rz\cos\theta\]
+    \[du = 2Rz\sin\theta\]
+    \[V(r) = \frac{\sigma R^2 2 \pi}{4 \pi \epsilon_0} \frac{1}{2Rz}\int \frac{1 }{\sqrt{u}} du \]
+    <p>We know that only the upper hemisphere contributes to the potential so we want \(\theta \in [0,\pi]\)</p>
+    \[V(r) = \frac{\sigma R^2 2 \pi}{4 \pi \epsilon_0} \frac{1}{2Rz}\int_0^\pi \frac{1 }{\sqrt{u}} du \]
+    \[V(r) = \frac{\sigma R^2 2 \pi}{4 \pi \epsilon_0} \frac{1}{2Rz}(2) [\sqrt{u}]\Big|_{\theta=0}^{\theta=\pi} \]
+    \[V(r) = \frac{\sigma R^2 2 \pi}{4 \pi \epsilon_0} \frac{1}{Rz} [\sqrt{R^2+z^2-2Rz\cos\theta}]\Big|_{\theta=0}^{\theta=\pi} \]
+    \[V(r) = \frac{\sigma R 2 \pi}{4 \pi z \epsilon_0}[\sqrt{R^2+z^2+2Rz} - \sqrt{R^2+z^2-2Rz}] \]
+    <p>We can factor it into a perfect square</p>
+    \[V(r) = \frac{\sigma R }{2 z \epsilon_0}[\sqrt{(R+z)^2} - \sqrt{(R-z)^2}] \]
+    \[V(r) = \frac{\sigma R }{2 z \epsilon_0}[|R+z| - |R-z|] \]
+    <p>Now depending if \(z < R\) where you are inside the sphere or if \(R< z\) where you are outside the sphere...</p>
+    <h4>\(z > R\)</h4>
+    <p>We can swap the terms around and take out the absolute value bars. </p>
+    \[V(r) = \frac{\sigma R }{2 z \epsilon_0}[(R+z) - (z-R)] \]
+    \[V(r) = \frac{\sigma R }{2 z \epsilon_0}[2R] \]
+    \[V(r) = \frac{\sigma R^2 }{ z \epsilon_0}\]
+    <p>We also know that the total charge enclosed under the sphere is \(Q_{enc} = 4 \pi R^2 \sigma\) We can replace it with the charge enclosed. We also know that z would be equal to the raidus from the <center class=""></center></p>
+    \[V(r) = \frac{ Q_{enc} }{  4 \pi \epsilon_0 r}\]
+    <h4>\(z < R\)</h4>
+    <p>We can swap the terms around and take out the absolute value bars. </p>
+    \[V(r) = \frac{\sigma R }{2 z \epsilon_0}[(R+z) - (R-z)] \]
+    \[V(r) = \frac{\sigma R }{2 z \epsilon_0}[2z] \]
+    \[V(r) = \frac{\sigma R }{  \epsilon_0}\]
+    <p>We also know that the total charge enclosed under the sphere is \(Q_{enc} = 4 \pi R^2 \sigma\) We can replace it with the charge enclosed. We also know that z would be equal to the raidus from the <center class=""></center></p>
+    \[V(r) = \frac{ Q_{enc} }{  4 \pi \epsilon_0 R}\]
+    <h2>
+        Work, Work, Work, Work ... Work! 
+    </h2>
+    <p>What is the work done on a vector field?? We defined work as the dot product of the force and displacement vector in classical mechanics. 
+        But how would you find the work done in a vector field? We take the dot product between the force vector along an infinitely small part of the path 
+        and we add it all up together. 
+    </p>
+    \[W = \int_a^b \vec{F} \cdot dl\]
+    <p>Okay but now lets say we have this in the electric field? What happens then?</p>
+    \[\vec{F} = Q \vec{E}\]
+    \[W = Q\int_a^b  \vec{E}\cdot dl\]
+    <p>This is the same thing as potential difference right?
+
+    </p>
+    \[W = Q[V(b)- V(a)]\]
+    <p>Thats the work done!</p>
+    <h2>
+        Discrete Charges
+    </h2>
+    <p>We can put charges in a specific charge configuration. The work to bring TWO discrete charges together is </p>
+    \[W = \frac{1}{4 \pi \epsilon_0} q_2\frac{q_1}{\eta_{1/2}}\]
+    <p>Where \(\eta_{1/2}\) is the distance between charge 1 and charge 2.</p>
+    <p>If you wanted to add a fourth charge to a configuration of 3 charges then you would do...</p>
+    \[W = \frac{1}{4 \pi \epsilon_0} q_4[\frac{q_1}{\eta_{1/4}} + \frac{q_2}{\eta_{2/4}} + \frac{q_3}{\eta_{3/4}}]\]
+    <p>You continue until based on the work relative to each other charge in the system of charges. </p>
+    <p>Now lets say we want to start from SCRATCH and bring in 4 total charges then we'd need something like this... </p>
+    \[W = \frac{1}{4 \pi \epsilon_0} [\frac{q_1 q_2}{\eta_{1/4}} + \frac{q_1 q_3}{\eta_{2/4}} + \frac{q_1 q_4}{\eta_{3/4}} + \frac{q_2 q_3}{\eta_{1/4}} + \frac{q_2 q_4}{\eta_{2/4}} + \frac{q_3 q_4}{\eta_{3/4}}]\]
+    <p>We add together all the previous work done in one big equation. Notice how we permutate through through 3 of the cases each with a pair of charges. So 3 choose 2. </p>
+    <p>Ingeneral this is the equation. </p>
+    \[W =  \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^n \sum_{j\neq i}^n \frac{q_i q_j}{\eta_{ij}}\]
+    <p>THIS IS WRONG ^ WE NEED TO DIVIDE BY 2!! We're double counting pairs 1,4 as distinct from 4,1</p>
+    \[W =  \frac{1}{8 \pi \epsilon_0} \sum_{i=1}^n \sum_{j\neq i}^n \frac{q_i q_j}{\eta_{ij}}\]
+    <p>We can do some factoring.... and rearrange it to the following </p>
+    \[W =   \frac{1}{2}\sum_{i=1}^n q_i  [\frac{1}{4 \pi \epsilon_0}\sum_{j\neq i}^n \frac{q_j}{\eta_{ij}}]\]
+    <p>What does the inside remind you of? The POTENTIAL!!! </p>
+    \[W =   \frac{1}{2}\sum_{i=1}^n q_i  [V(r_i)]\]
+    <h2>
+        Continous Charges
+    </h2>
+    <p>We can then saw the following when we had the final generalized equation. We can make it continous by slapping some integrals on it. </p>
+    \[W =   \frac{1 }{2} \int \rho V d\tau\]
+    <p>Where the charge density is now under the integral and will come out as the charge that we were missing. </p>
+    <p>We know what the value of \(\rho\) will be </p>
+    \[\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_{0}}\]
+    \[\rho = \epsilon_{0}\nabla \cdot \vec{E} \]
+    <p>We plug em in</p>
+    \[W =   \frac{\epsilon_{0} }{2} \int (\nabla \cdot \vec{E}) V d\tau\]
+    <p>Alright this looks like a mess so we gonna do some integration by parts here. </p>
+    \[\int UK dK = KU - \int K dU\]
+    \[dK = \nabla \cdot \vec{E}\]
+    \[K = \vec{E}\]
+    \[U = V\]
+    \[dU = \nabla V \]
+    \[dU = - \vec{E} \]
+    \[\int (\nabla \cdot \vec{E}) V d\tau = \oint V \vec{E} \cdot da - \int \vec{E} \cdot  - \vec{E} d\tau\]
+    \[\int (\nabla \cdot \vec{E}) V d\tau = \oint V \vec{E} \cdot da + \int E^2 d\tau\]
+    <p>But the question is what surface do we need to actually consider for this problem? We we don't need the entire surface we just need the 
+        bit that \(\rho\) contains charges. So naturally it will go to zero when the surface doesn't enclose any charge. Thus we can actually 
+        simplify the equation even more, and instead of integrating only in the volume of the charged object we can integrate over all space and naturally the surface area will be 
+        compensated leaving the sum intact. 
+    </p>
+    \[W =  \frac{\epsilon_{0} }{2}\int E^2 d\tau\]
+    <h2>
+        Problem 2 - Work on Spheressss
+    </h2>
+<p>
+    Find the energy of a uniformly charged spherical shell of total charge q and radius R. 
+</p>
+<p>Surface charge integral from before, since we want to work with SCALARs we have previously worked out.</p>
+\[W =   \frac{1 }{2} \int \rho V da\]
+<p>We know the potential from previous problem. </p>
+\[V(r) = \frac{ Q_{enc} }{  4 \pi \epsilon_0 R}\]
+\[W =   \frac{1 }{2} \int \rho \frac{ Q_{enc} }{  4 \pi \epsilon_0 R} da\]
+<p>All the variables in the potential are constants so we can move them out of the integral.</p>
+\[W =   \frac{ Q_{enc} }{  8\pi \epsilon_0 R}\int \rho  da\]
+<p>We know if you add up the charge density across the surface you get the total charge enclosed. </p>
+\[W =   \frac{ Q_{enc}^2 }{  8\pi \epsilon_0 R}\]
+<p>Boom. We done bois. </p>
+</body>
+</html>
