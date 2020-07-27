@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Multipole Expansion </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Multipole Expansion 
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+   <p>
+       The name of the game here is to find the potential of an arrangement of charges. The thing to note is that, at LARGE distances, any charge distribution
+       will have a potential that appears as if they were a single point charge. Okay so how do we find the potential of say, 2 opposite charges? Also called a dipole.
+   </p>
+   <div style="text-align: center;">
+    <img src="dipole.png" >
+</div>
+<h2>Dipole Example</h2>
+   <p>
+      A physical dipole of two equal but opposite charges are seperated by a distance d approximate the potential at a far distance.  
+   </p>
+   \[ V(r) = \frac{1}{4 \pi \epsilon_{0}} (\frac{q}{\eta_+} - \frac{q}{\eta_-})\]
+   <p>
+       Since \(\eta_\pm\) is the distance from each charge to the a test point (replacing the \(r_p\) and the \(r_m\) in the diagram), and we know that \(r\) would be the distance between the center of the two charges 
+       to the test charge we can write the following using COSINE law. \(d\) is the distance between the charges. 
+      
+   </p>
+   \[\eta_\pm^2 = r^2+(\frac{d}{2})^2 \mp rd\cos\theta\]
+   <p>We can simplify ye?</p>
+   \[\eta_\pm^2 = r^2[1+(\frac{d^2}{4r^2}) \mp \frac{d}{r}\cos\theta]\]
+   <p>Note here: as we are approaching \(r >> d\) the term \(\frac{d^2}{4r^2}\) approaches 0 and so we can forget about it in the equation.</p>
+   \[\eta_\pm^2 \approx r^2[1 \mp \frac{d}{r}\cos\theta]\]
+   \[\eta_\pm \approx r[1 \mp \frac{d}{r}\cos\theta]^{\frac{1}{2}}\]
+   \[\frac{1}{\eta_\pm } \approx \frac{1}{r}[1 \mp \frac{d}{r}\cos\theta]^{\frac{-1}{2}}\]
+   <p>Okay now we try and factor the term \(1 \mp \frac{d}{r}\cos\theta\) as a perfect square.  </p>
+   \[(1 \mp \frac{d}{2r}\cos\theta)^2 =1 \mp \frac{d}{r}\cos\theta + \frac{d^2}{4r^2}\cos^2 \theta  \]
+   <p>Like before we know the \(r^2\) term will approach 0 at large distances. And so that matches then with our original binomial and thus we factored it! Kinda.. </p>
+   \[\frac{1}{\eta_\pm } \approx \frac{1}{r}(1 \mp \frac{d}{2r}\cos\theta)^{-1}\]
+   \[\frac{1}{1 \mp \frac{d}{2r}\cos\theta} =\frac{1}{1 \mp \frac{d}{2r}\cos\theta} \cdot \frac{1 \pm \frac{d}{2r}\cos\theta}{1 \pm \frac{d}{2r}\cos\theta}\]
+   <p>We get a difference of squares</p>
+   \[\frac{1}{1 \mp \frac{d}{2r}\cos\theta} =\frac{1 \pm \frac{d}{2r}\cos\theta}{1 \pm \frac{d^2}{4r^2}\cos^2\theta} \]
+   <p>We know that as \(r>>d\) we can see that the term \(\frac{d^2}{4r^2}\cos^2\theta\) approaches 0</p>
+   \[\frac{1}{1 \mp \frac{d}{2r}\cos\theta} =\frac{1 \pm \frac{d}{2r}\cos\theta}{1 \pm 0} \]
+   \[\frac{1}{1 \mp \frac{d}{2r}\cos\theta} =1 \pm \frac{d}{2r}\cos\theta \]
+   \[\frac{1}{\eta_\pm } \approx \frac{1}{r}[1 \pm \frac{d}{2r}\cos\theta]\]
+   <p>And so if we were to plug this in from our original potential function. </p>
+   \[ V(r) = \frac{1}{4 \pi \epsilon_{0}} (\frac{q}{\eta_+} - \frac{q}{\eta_-})\]
+   \[  \frac{1}{\eta_+} - \frac{1}{\eta_-} \approx \frac{1}{r}[1 + \frac{d}{2r}\cos\theta] -  \frac{1}{r}[1 - \frac{d}{2r}\cos\theta] \]
+   \[  \frac{1}{\eta_+} - \frac{1}{\eta_-} \approx \frac{d}{r^2}\cos\theta\]
+   <p>Thus finally our potential looks like this! </p>
+   \[ V(r) = \frac{1}{4 \pi \epsilon_{0}} (\frac{dq}{r^2}\cos\theta)\]
+   <p>Notice this is exactly how we'd expect the potential to fall off by the sqaure. </p>
+   <p>Also notice if we took a dipole and made it into a <b>Quadropole</b> then we'd have the potential falling off at \(\frac{1}{r^3}\). 
+    Now if it were an octopole we'd see the potential fall off at \(\frac{1}{r^4}\) and so one might try and generalize this to multipoles.
+</p>
+   <h2>
+       Extending to Multipoles 
+   </h2>
+   <p>What if we want to build a general case for multiple poles in such that we have a distribution of charges? How might we find the potential of such 
+       multipole system?
+   </p>
+   <div style="text-align: center;">
+    <img src="multipole.jpg" >
+</div>
+   <p>
+       Okay so we have this as the potential right? With a charge distribution of \(\rho(r)\)
+   </p>
+   \[ V(r) = \frac{1}{4 \pi \epsilon_{0}} \int \frac{1}{\eta}\rho(r')d\tau'\]
+   <p>Well we can find the value for \(\eta\) with out cosine law. Where \(\eta\) is the distance from the charge to the observer.</p>
+   \[\eta^2 = r^2+ r'^2 -2rr'\cos\theta\]
+   <p>Do some factoring</p>
+   \[\eta^2 = r^2(1 + \frac{r'^2}{r^2} -2\frac{r'}{r}\cos\theta)\]
+   <p>We can do some more factoring.</p>
+   \[\eta^2 = r^2(1 + (\frac{r'}{r})(\frac{r'}{r} -2\cos\theta))\]
+   <p>Let \(\epsilon =(\frac{r'}{r})(\frac{r'}{r} -2\cos\theta) \)</p>
+   \[\eta^2 = r^2(1 + \epsilon)\]
+   \[\eta = r\sqrt{1 + \epsilon}\]
+   \[\frac{1}{\eta}= \frac{1}{r\sqrt{1 + \epsilon}}\]
+   <p>Now that the geometry is out of the way. We can do an expansion on the \(\sqrt{1 + \epsilon}\) since its just a binomial. </p>
+   \[\frac{1}{\eta}= \frac{1}{r} (1-\frac{1}{2}\epsilon + \frac{3}{8}\epsilon^2 - \frac{5}{16}\epsilon^3+...)\]
+   <p>Okay so what if we just sub back in values for epsilon?</p>
+   \[\frac{1}{\eta}= \frac{1}{r} (1-\frac{1}{2}(\frac{r'}{r})(\frac{r'}{r} -2\cos\theta) + \frac{3}{8}(\frac{r'}{r})^2(\frac{r'}{r} -2\cos\theta)^2 - \frac{5}{16}(\frac{r'}{r})^3(\frac{r'}{r} -2\cos\theta)^3+...)\]
+   <p>Okay then we're gonna collect together like powers of \(\frac{r'}{r}\) and see what happens..</p>
+   \[= \frac{1}{r} (1+\frac{r'}{r}\cos{\theta}) +(\frac{r'}{r})^2 \frac{3\cos^3\theta -1}{2}) +(\frac{r'}{r})^3 \frac{5\cos^3\theta - 3\cos\theta}{2}))\]
+   <p>Notice that these are actually Legendre polynomials. So we can collapse it down to this...</p>
+   \[\frac{1}{\eta} = \frac{1}{r} \sum_{n=0}^\infty (\frac{r'}{r'})^2 P_n(\cos\theta)\]
+   <p>So if we were to plug this back into computing the potential. </p>
+   \[ V(r) = \frac{1}{4 \pi \epsilon_{0}} \int \frac{1}{r} \sum_{n=0}^\infty (\frac{r'}{r'})^2 P_n(\cos\theta)\rho(r')d\tau'\]
+   <p>We can move the summation outside ... </p>
+   \[ V(r) = \frac{1}{4 \pi \epsilon_{0}}  \sum_{n=0}^\infty\int \frac{1}{r} (\frac{r'}{r'})^2 P_n(\cos\theta)\rho(r')d\tau'\]
+   <p>This is the true mathematical depiction for the multipole expansion.</p>
+   <h2>Making Life Easier</h2>
+   <p>Finding the multipole expansion looks rather daunting from the equation we've produced. However we need to realize is that this sum
+       is the sum of a monopole, a dipole, a quadropole, octopole and on and on. But as we discussed previously, the last few terms fall of by \(r^n\) 
+       and thus contribute very little to the overall potential. Thus we can simply compute the first few terms instead. Potential is dominated by the monopole term 
+       followed by the dipole term etc... 
+   </p>
+   <p>Okay now lets say you have zero net charge and there is some dipole movement going on. So we can get the dipole term from the multipole expansion...</p>
+   \[V(r) = \frac{1}{4 \pi \epsilon_{0}} \frac{1}{r^2} \int r' \cos\theta \rho(r') d\tau'\]
+   <p>We can rewrite the cosine term with the dot product instead</p>
+   \[V(r) = \frac{1}{4 \pi \epsilon_{0}} \frac{1}{r^2} \hat{r} \cdot \int r'\rho(r') d\tau'\]
+   <p>And so now we have a <b>dipole moment.</b> The dipole moment of the actual distribution is given by </p>
+   \[\int r'\rho(r') d\tau'\]
+
+   <h2>Electric field of a Multipole</h2>
+   <p>This is really easy. We know that electric field is the negative gradient of the potential we can just compute the following</p>
+   \[\vec{E} = - \nabla V_{dip}(r,\theta)\]
+   <p>And so you can compute the electric field by computing the potential first. </p>
+</body>
+</html>
