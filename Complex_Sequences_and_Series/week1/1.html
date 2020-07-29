@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Arithmetic </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Complex Arithmetic 
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | July 28th 2020</h3>
+   <p>
+      Homework problemset done on the week of July 27th. These will be uploaded to crowdmark. 
+   </p>
+   <h3>
+    Problem 1.6
+   </h3>
+   <p>
+    Is it true that \(Re(zw) = Re(z) Re(w)\) for all complex numbers z
+    and w? If so, show that it is always true. If not, give an example of
+    complex numbers z and w such that \(Re(zw) \neq Re(z) Re(w)\).
+   </p>
+   <h4>
+       Solution - Proof by Contradiction.
+   </h4>
+ 
+   <p>Assume that \(Re(zw) = Re(z) Re(w)\) is true.</p>
+   <p>Let \(z = a+bi\), \(w = c+di\) and \(y = Re(zw) - Re(z) Re(w)\)</p>
+   <p>If \(Re(zw) = Re(z) Re(w)\), then \(y=0\)</p>
+   \[y = Re(zw) - Re(z) Re(w)\]
+   \[y= Re((a+bi)(c+di)) - Re( a+bi) Re(c+di)\]
+   \[y= Re((ac+adi-bd+cbi)) - Re( a+bi) Re(c+di)\]
+   \[y= Re((ac-bd)+(ad+cb)i) - Re( a+bi) Re(c+di)\]
+   \[y= (ac-bd) - (ac)\]
+   \[y= -bd\]
+   <p>Since z and w are complex numbers, \(b, d \neq 0 \) therefore, \(y \neq 0\).</p>
+   <p>Since \(y \neq 0\) contradicts the assumption that \(Re(zw) = Re(z) Re(w)\), \(\forall z,w \in \mathbb{C} \) therefore \(Re(zw) \neq Re(z) Re(w)\),  \(\forall z,w \in \mathbb{C} \)</p>
+
+   <h3>
+    Problem 1.7
+   </h3>
+   <p>
+    This problem provides an algebraic proof of the triangle inequality,
+    Proposition 1.7. Let z and w be complex numbers.
+   </p>
+   <p>
+    <b>(a) Show that \(|z+w|^2 =|z|^2 + z\bar{w} + w\bar{z} + |w|^2 \)</b>
+   </p>
+   <p>Let \(z = a+bi\), \(w = c+di\)</p>
+   <p>\(RS =|z|^2 + z\bar{w} + w\bar{z} + |w|^2 \)</p>
+   <p>\(RS =|a+bi|^2 + (a+bi)(c-di) + (c+di)(a-bi) + |c+di|^2 \)</p>
+   <p>\(RS =(a^2+b^2)+ (a+bi)(c-di) + (c+di)(a-bi) + (c^2+d^2) \)</p>
+   <p>\(RS =(a^2+b^2)+ (ac-adi+cbi+bd) + (ac+adi-cdi+bd) + (c^2+d^2) \)</p>
+   <p>\(RS =(a^2+b^2)+ (ac+bd) + (ac+bd) + (c^2+d^2) \)</p>
+   <p>\(RS =(a^2+b^2)+ 2(ac+bd) + (c^2+d^2) \)</p>
+   <p>On the left hand side. </p>
+   <p>\(LS=|z+w|^2\)</p>
+   <p>\(LS=|(a+bi) + (c+di)|^2\)</p>
+   <p>\(LS=|(a+c) + (b+d)i|^2\)</p>
+   <p>\(LS=(a+c)^2 + (b+d)^2\)</p>
+   <p>\(LS=a^2+2ac+c^2 + b^2+2bd+d^2\)</p>
+   <p>\(LS=a^2+c^2+2(ac+bd) + b^2+d^2\)</p>
+   \[LS=RS\]
+   \[\therefore True\]
+   <p>
+    <b>(b) Justify the following chain of equalities and inequalities:</b> \(z\bar{w} + w\bar{z}  = z\bar{w} + \bar{z\bar{w}} = 2Re(z\bar{w}) \leq 2 |z||w| \)
+   </p>
+   <p><b>First Equality</b></p>
+ 
+   <p>If \(z\bar{w} + w\bar{z}  = z\bar{w} + \bar{z\bar{w}}\) then \((z\bar{w} + w\bar{z})  - (z\bar{w} + \bar{z\bar{w}}) =0\) </p>
+   <p>Let \(z = a+bi\), \(w = c+di\) and \(y = (z\bar{w} + w\bar{z})  - (z\bar{w} + \bar{z\bar{w}}) \)</p>
+   
+   \(y = (z\bar{w} + w\bar{z})  - (z\bar{w} + \bar{z\bar{w}}) \)
+   \(y = ((a+bi)(c-di) + (c+di)(a-bi))  - ((a+bi)(c-di) + \bar{(a+bi)(c-di)}) \)
+   \(y = ((ac-adi+cbi+bd) + (ac+adi-cdi+bd))  - ((ac-adi+cbi+bd) + \bar{(ac-adi+cbi+bd)}) \)
+   \(y = ( 2(ac+bd))  - ((ac-adi+cbi+bd) + (ac+adi-cbi+bd)) \)
+   \(y = ( 2(ac+bd))  - (2(ac+bd)) \)
+   \[ y = 0 \]
+   <p>Since \(y=0\) it proves that \(z\bar{w} + w\bar{z}  = z\bar{w} + \bar{z\bar{w}}\)</p>
+   <p><b>Second Equality</b></p>
+   <p>If \(z\bar{w} + w\bar{z}  = 2Re(z\bar{w} )\) then \((z\bar{w} + w\bar{z})  - Re(z\bar{w}=0\) </p>
+   <p>Let \(z = a+bi\), \(w = c+di\) and \(y = (z\bar{w} + w\bar{z})  - (2Re(z\bar{w}) \)</p>
+   \(y = ((a+bi)(c-di) + (c+di)(a-bi))  - (2Re((a+bi)(c-di)) \)
+   \(y = ((ac-adi+cbi+bd) + (ac+adi-cdi+bd))  - (2Re((ac-adi+cbi+bd) ) \)
+   \(y = ((ac+bd) + (ac+bd))  - 2(ac+bd) \)
+   \[ y = 0 \]
+   <p>Since \(y=0\) it proves that \(z\bar{w} + w\bar{z}  = 2Re(z\bar{w})\)</p>
+   <p><b>Inequality</b></p>
+   \(2Re(z\bar{w}) \leq 2 |z||w|\)
+   <p>Case \(2Re(z\bar{w}) = 2 |z||w|\)</p>
+   <p>Let \(z = a+bi\), \(w = c+di\) and \(y = ( 2 |z||w|)  - (2Re(z\bar{w}) ) \)</p>
+   \(y = ( 2 |a+bi||c+di|)  - (2(ac+bd) ) \)
+   \(y = ( 2 \sqrt{a^2+b^2} \sqrt{c^2+d^2})  - (2(ac+bd) ) \)
+   \(y = ( 2 \sqrt{a^2c^2+b^2c^2+a^2d^2 +b^2d^2} )  - (2(ac+bd) ) \)
+   <p>Since \(\exists z=w, \Rightarrow\)  \(\exists a=c\) and  \(\exists b=d\) </p>
+   \(y = ( 2 \sqrt{a^4+b^2a^2+a^2b^2 +b^4} )  - (2(a^2+b^2) ) \)
+   \(y = ( 2 \sqrt{(a^2+b^2)^2} )  - (2(a^2+b^2) ) \)
+   <p></p>
+   \(y = ( 2 (a^2+b^2) )  - (2(a^2+b^2) ) \)
+   \[y = 0 \]
+   \[\therefore \exists 2Re(z\bar{w}) = 2 |z||w|\]
+   <p><b>Case \(2Re(z\bar{w}) < 2 |z||w|\), \(Re(z\bar{w}) > 0\) </b></p>
+   <p>If \(2Re(z\bar{w}) < 2 |z||w|\), then \( [(2 |z||w|)^2  - (2Re(z\bar{w}))^2] >0\) assuming that \(Re(z\bar{w}) > 0\)</p>
+   <p>Let \(z = a+bi\), \(w = c+di\) and \(y = (2 |z||w|)^2  - (2Re(z\bar{w}))^2 ) \)</p>
+   \(y = (2 |z||w|)^2  - (2Re(z\bar{w}))^2 \)
+   <p></p>
+   \(y = (4 (a^2c^2+b^2c^2+a^2d^2 +b^2d^2))   - (4(ac+bd)^2) ) \)
+   \(y = 4 (a^2c^2+b^2c^2+a^2d^2 +b^2d^2) - 4(a^2c^2+2acdb +b^2d^2)  \)
+   \(y = 4b^2c^2+a^2d^2 -8acdb  \)
+   <p></p>
+   \(y = 4(b^2c^2+a^2d^2 -2acdb)  \)
+   <p></p>
+   \(y = 4(bc-ad)^2  \)
+   <p>Since this is \(y\geq 0\) when \(Re(z\bar{w}) > 0\) the inequality is true for this case. </p>
+   <p><b>Case \(2Re(z\bar{w}) < 2 |z||w|\), \(Re(z\bar{w}) < 0\) </b></p>
+   <p>We just need to subtract by the negative of the magnitude. </p>
+   <p>If \(2Re(z\bar{w}) < 2 |z||w|\), then \( [(2 |z||w|)^2  + (2Re(z\bar{w}))^2] >0\) assuming that \(Re(z\bar{w}) < 0\)</p>
+   <p>Let \(z = a+bi\), \(w = c+di\) and \(y = (2 |z||w|)^2  + (2Re(z\bar{w}))^2 ) \)</p>
+   \(y = (4 (a^2c^2+b^2c^2+a^2d^2 +b^2d^2))   + (4(ac+bd)^2) ) \)
+   
+   <p>All the terms will be positive thus, \(y \geq 0\)</p>
+   
+   <p><b>Case  \(Re(z\bar{w}) = 0\) </b></p>
+   <p>\(Re(z\bar{w}) = 0 \Rightarrow\)  \(bd =- ac\)</p>
+   <p>We can burrow the results from previous cases. </p>
+   \(y = (4 (a^2c^2+b^2c^2+a^2d^2 +b^2d^2))   + (4(ac+bd)^2) ) \)
+   \(y = (4 (a^2c^2+b^2c^2+a^2d^2 +(-ac)^2))   ) \)
+   <p>Since all terms are positive, we can conclude that \(y \geq 0\) when \(Re(z\bar{w}) = 0\)</p>
+   <p>\(\therefore \) we can say that \(z\bar{w} + w\bar{z}  = z\bar{w} + \bar{z\bar{w}} = 2Re(z\bar{w}) \leq 2 |z||w| \) is true.</p>
+   <b>(c) Combine parts (a) and (b) to show that \(|z + w|^2 \leq
+     (|z|+|w|)^2\). Then
+    take the square root of both sides to obtain the triangle inequality.
+    </b>
+</p>
+<p>Let \(z = a+bi\), \(w = c+di\) and \(y =  (|z|+|w|)^2 - |z + w|^2 \)</p>
+<p>If \(y \geq 0\) then the inequality is true. </p>
+\(y =  (|z|+|w|)^2 - |z + w|^2\)
+<p></p>
+\(y =  (|z|^2+2|z||w|+|w|^2) - |z + w|^2\)
+<p></p>
+\(y =  ((a^2+b^2)+2|z||w|+(c^2+d^2)) - |(a+c) + (b+d)i|^2\)
+<p></p>
+\(y =  ((a^2+b^2)+2|z||w|+(c^2+d^2)) - ((a+c)^2 + (b+d)^2)\)
+<p></p>
+\(y =  ((a^2+c^2)+2|z||w|+(b^2+d^2)) - ((a+c)^2 + (b+d)^2)\)
+<p></p>
+\(y =  ((a^2+c^2)+2|z||w|+(b^2+d^2)) - ((a^2+2ac+c^2 + (b^2+2bd+d^2))\)
+<p></p>
+\(y =  (2|z||w|) - (2ac +2bd)\)
+<p></p>
+\(y =  (2|z||w|) - (2Re(zw))\)
+<p>We've proved this previous in part (b) that \(y\) will always be greater than or equal to 0. Therefore \(|z + w|^2 \leq
+    (|z|+|w|)^2\) is true. </p>
+</body>
+</html>
