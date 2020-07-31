@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Arithmetic </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Complex Arithmetic 
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | July 28th 2020</h3>
+   <p>
+      Homework problemset done on the week of July 27th. These will be uploaded to crowdmark. 
+   </p>
+   <h3>
+    Problem 1.6
+   </h3>
+   <p>
+    Is it true that \(Re(zw) = Re(z) Re(w)\) for all complex numbers z
+    and w? If so, show that it is always true. If not, give an example of
+    complex numbers z and w such that \(Re(zw) \neq Re(z) Re(w)\).
+   </p>
+   <h4>
+       Solution - Proof by Contradiction.
+   </h4>
+ 
+   <p>Assume that \(Re(zw) = Re(z) Re(w)\) is true.</p>
+   <p>Let \(z = a+bi\), \(w = c+di\) and \(y = Re(zw) - Re(z) Re(w)\)</p>
+   <p>If \(Re(zw) = Re(z) Re(w)\), then \(y=0\)</p>
+   \[y = Re(zw) - Re(z) Re(w)\]
+   \[y= Re((a+bi)(c+di)) - Re( a+bi) Re(c+di)\]
+   \[y= Re((ac+adi-bd+cbi)) - Re( a+bi) Re(c+di)\]
+   \[y= Re((ac-bd)+(ad+cb)i) - Re( a+bi) Re(c+di)\]
+   \[y= (ac-bd) - (ac)\]
+   \[y= -bd\]
+   <p>Since z and w are complex numbers, \(b, d \neq 0 \) therefore, \(y \neq 0\).</p>
+   <p>Since \(y \neq 0\) contradicts the assumption that \(Re(zw) = Re(z) Re(w)\), \(\forall z,w \in \mathbb{C} \) therefore \(Re(zw) \neq Re(z) Re(w)\),  \(\forall z,w \in \mathbb{C} \)</p>
+
+</body>
+</html>
