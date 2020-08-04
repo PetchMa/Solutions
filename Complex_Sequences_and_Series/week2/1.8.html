@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Arithmetic </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Complex Roots | Week 2
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 4th 2020</h3>
+   <p>
+      Homework problemset done on the week of Aug 4th 2020. These will be uploaded to crowdmark. 
+   </p>
+   <h3>
+    Problem 1.8
+   </h3>
+   <p>
+    Suppose that \(z \neq −1\) is a complex number of unit magnitude:
+    \(|z| = 1\). Show that \(w =\frac{ 1+z}{|1+z|}\)
+    
+    is a square root of z. 
+   </p>
+   <h4>
+       Solution 
+   </h4>
+   <p>If it is true that \(w = \sqrt{z}\) \( \Rightarrow |w^2| = |z|\).</p>
+   <p>We know that we can write \(|w^2| = w\cdot\bar{w}\) where \(w,\bar{w}\in \mathbb{C}\). </p>
+   <p>Since \(|z|=1\) and \(|w^2| = |z|\). Then If \(w\cdot\bar{w} = 1 \Rightarrow w = \sqrt{z}\) </p>
+   <p>We know that \(w =\frac{ 1+z}{|1+z|}\). Let \(z = a+bi\).  </p>
+   \[w= \frac{ 1+a+bi}{|1+a+bi|}\]
+   <p>We can plug it back in and get...</p>
+   \[\bar{w}= \frac{ (1+a)-bi}{|(1+a)-bi|}\]
+   <p>Sub back into original equation </p>
+   \[|w^2| = w\cdot\bar{w}\]
+   \[|w^2| = \frac{ (1+a)+bi}{|(1+a)+bi|}\cdot\frac{ (1+a)-bi}{|(1+a)-bi|}\]
+   \[|w^2| = \frac{ (1+a)^2+b^2}{|(1+a)^2+b^2|}\]
+   \[|w^2| = \frac{ a^2+2a+1+b^2}{|a^2+2a+1+b^2|}\]
+   <p>We know that \(|z|=1\), since \(z = a+bi\) then, \(a^2+b^2=1\), we can sub in the equation</p>
+   \[|w^2| = \frac{ 2+2a}{|2+2a|}\]
+   <p>Since there's no more components we can drop the magnitude bars</p>
+   \[|w^2| = \frac{ 2+2a}{2+2a}\]
+   \[|w^2| = 1\]
+   \[|w|^2 = 1\]
+   \[\therefore |w|^2 = |z|\]
+   <p>Since \(|w|^2=w \cdot \bar{w}\) gives \(|z|\) and \(|w| = |\bar{w}|\), then we shown that \(|w|\) is the magnitude for \(|\sqrt{z}|\). </p>
+<p>However, \(|w^2| = |z|\) \( \nRightarrow w = \sqrt{z}\)  :((. We <b><u> haven't</u></b> proved it yet. 
+</p>
+   
+
+<p>But we also know that since \(w\) is unique such that the complex conjugate gives rise to it's magnitude square. We can say that \(w\) or \(\bar{w}\) is equal to\(\sqrt{z}\)
+since no other value can give rise to magnitude square with the same behaviour. A perfect square will only ever have 2 unique roots. 
+</p>
+   
+ 
+</body>
+</html>
