@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Roots | Week 2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Complex Roots | Week 2
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 4th 2020</h3>
+   <p>
+      Homework problemset done on the week of Aug 4th 2020. These will be uploaded to crowdmark. 
+   </p>
+   <h3>
+    Problem 1.11
+   </h3>
+   <p>
+    Check that \(z = 1\) is a root of the following cubic polynomial
+    \[p(z) = z^3 − iz^2 − z + i\]
+
+   </p>
+   <h4>
+      Solution
+   </h4>
+   <p>Simple polynomial division. </p>
+   <div style="padding-left: 65px;" >\(z^2+(-i+1)z-i\)</div>
+  <div style="padding-left: 65px;" > &nbsp; ________________</div>
+   \((z-1)|z^3 − iz^2 − z + i\)
+   <div style="padding-left: 70px;" >\(z^3-z^2\)</div>
+   <div style="padding-left: 65px;" > &nbsp; ________________</div>
+   <div style="padding-left: 70px;" >\((-i+1)z^2-z\)</div>
+   <div style="padding-left: 70px;" >\((-i+1)z^2-(-i+1)z\)</div>
+   <div style="padding-left: 65px;" > &nbsp; ________________</div>
+   <div style="padding-left: 200px;" >\(-iz+i\)</div>
+   <div style="padding-left: 200px;" >\(-iz+i\)</div>
+   <div style="padding-left: 65px;" > &nbsp; ________________</div>
+   <div style="padding-left: 250px;" >\(0\)</div>
+   <p>Therefore \(z=1\) is a solution factor to this equation. </p>
+   <p>We then want to continue to factor this quadratic with the formula in standard form. </p>
+   \[z = \frac{-B \pm \sqrt{B^2-4AC}}{2A}\]
+   \[z = \frac{-(-i+1) \pm \sqrt{(-(-i+1))^2-4(1)(-i)}}{2(1)}\]
+   \[z = \frac{-(-i+1) \pm \sqrt{2i}}{2}\]
+   \[z = \frac{-(-i+1) \pm (1+i)}{2}\]
+   <p>Two solutions</p>
+   \[z =-1\]
+   \[z =i\]
+</body>
+</html>
