@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Roots | Week 2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Complex Roots | Week 2
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 4th 2020</h3>
+   <p>
+     Assignment done on the week of Aug 4th 2020. These will be uploaded to crowdmark. 
+   </p>
+ 
+   <h3>
+    Problem 2 (a)
+   </h3>
+   <p>Consider the equation \(z^4 = z_0\) where \(z_0\) is some xed complex number like \(1+2i\).
+    Assume u and v are two roots: \(u^4 = z_0\) and \(v^4 = z0\). Prove that if you have \(u\)
+    then you can build \(v\) by multiplying \(u\) by one of the roots of \(z^4 = 1\). That is,
+    prove \(v = uw\) where \(w^4 = 1\).
+   </p>
+   <h4>
+    Building New Roots
+    </h4>
+    <p>We know that \(e^{i\pi} = -1\) based off of Euler's identity. We know that any value raised to the even power will always be positive or 0. 
+        Thus if \(w = -1\), then \(w^4=1\) satisfying the inital condition. Thus one value that \(w\) can take is \(w = e^{i\pi}\) 
+    </p>
+    <p>Let one root of \(z_0=r[\cos(\theta ) + \sin(\theta)] = re^{i\theta}\).</p>
+    <p>Building a second root gives...</p>
+    \[v = uw\]
+    \[v = re^{i\theta}\cdot e^{i\pi}\]
+    \[v = re^{i\theta + i\pi}\]
+    \[v = re^{i(\theta +\pi)}\]
+    <p>This second root is the following in cartessian form.</p>
+    \[v = r[\cos(\theta +\pi) + \sin(\theta+\pi)]\]
+    \[v = r[-\cos(\theta) - \sin(\theta)]\]
+    <p>This is a distinct root from \(u\) since...</p>
+    \[u-v = r[\cos(\theta ) + \sin(\theta)] -r[-\cos(\theta) - \sin(\theta)] \]
+    \[u-v = 2r[\cos(\theta ) + \sin(\theta)]  \]
+    <p>\(u\neq v\) since \(u-v \neq 0 \), in the case \(\forall \theta \not\in  \frac{4 π n - π}{4}, n \in \mathbb{Z}\) and \(r \in \mathbb{R}\). 
+        a perfect fourth. 
+    </p>
+    
+    <h4>
+    Proof
+    </h4>
+    <P>Prove that \(v\) is also a root of \(z_0\)</P>
+    <p>We know that given the initial conditions of the question, \(v = uw\), as a method to build a new root. Given \(w^4=1\). We already shown previously that the new root
+        built from the initial root \(u\) by multiplying \(w\) gives \(v= re^{i(\theta +\pi)}\)
+    </p>
+    <p>If \(v^4 - u^4 =0\) then \(\Rightarrow \) \(v^4 = u^4 \) which \(\Rightarrow v\) is a root of \(z_0\)</p>
+    \[v^4 - u^4 = (re^{i(\theta +\pi)})^4 -(re^{i(\theta)})^4\]
+    \[ = r^4e^{4i(\theta +\pi)}-r^4e^{4i(\theta)}\]
+    \[ = r^4e^{i(4\theta +4\pi)}-r^4e^{i(4\theta)}\]
+    <p>We can expand this into cartessian coordinates from polar.</p>
+    \[ = r^4[\cos(4\theta +4\pi) + \sin(4\theta+4\pi)]-r^4[\cos(4\theta ) + \sin(4\theta)]\]
+    <p>Since we're adding \(4\pi\), we know that this will bring the angle back to its original position since its a multiple of a full rotation. </p>
+    \[ = r^4[\cos(4\theta ) + \sin(4\theta)]-r^4[\cos(4\theta ) + \sin(4\theta)]\]
+    \[ = 0\]
+    <p>Since \(v^4 - u^4 =0\), therefore \(v\) must also be a root to \(z_0\) under the assumption that \(u\) is already a root. </p>
+    <h3>
+        Problem 2 (b)
+       </h3>
+       <p>
+           We know based on the polar coordinates that the newly built root is simply a full \(\pi\) rotation of the original root. 
+       </p>
+    <div style="text-align: center;">
+        <img src="complex_conju.PNG" >
+    </div>
+</body>
+</html>
