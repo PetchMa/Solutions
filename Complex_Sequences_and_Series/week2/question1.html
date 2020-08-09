@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Roots | Week 2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Complex Roots | Week 2
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 4th 2020</h3>
+   <p>
+     Assignment done on the week of Aug 4th 2020. These will be uploaded to crowdmark. 
+   </p>
+   <h3>
+    Problem 1 (a)
+   </h3>
+   <p>Consider the polynomial \(p(z) = 3z^3-\pi z^2 +8\) where \(z_0 \in \mathbb{C}\) and that \(p(z_0)=0\) prove that \(\bar{z}\) is also a root. </p>
+   
+   <h4>
+       Solution 
+   </h4>
+   <p>We know that \(p(z_0)\) gives a value of \(0\) in the real part which \( \Rightarrow Re(p(z_0))=0\) , thus a root in the real domain.</p>
+   <p>If \(Re(p(z_0)) - Re(p(\bar{z})) = 0\) then \(p(\bar{z_0})=0\) in domain \(\mathbb{R}\)</p>
+   <p></p>
+   <p>Let \(z = a+bi\) and \(\bar{z} = a-bi\) </p>
+   \[p(z_0) - p(\bar{z}) = p(a+bi) - p(a-bi)\]
+   <p>We know that \(p(a-bi) =3(a-bi)^3-\pi (a-bi)^2 +8 \)</p>
+   \[p(a-bi) =3(a^3 - i 3 a^2 b - 3 a b^2 + i b^3)-\pi (a^2 - 2 i a b - b^2) +8\]
+   <p>We know that \(p(a+bi) =3(a+bi)^3-\pi (a+bi)^2 +8 \)</p>
+   \[p(a+bi) =3(a^3 + i 3 a^2 b - 3 a b^2 - i b^3)-\pi (a^2 + i 2 a b - b^2) +8\]
+   <p>Next we can simply subtract the two by each term. </p>
+   \[p(z_0) - p(\bar{z_0}) = 3(i 6 a^2 b - 2i b^3)-\pi ( i 4 a b ) \]
+   <p>Notice how there are no real terms in this expression.</p>
+   \[Re(p(z_0)) - Re(p(\bar{z})))=0\]
+   <p>Since the real part of \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z) \in \mathbb{R}\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
+       
+   </p>
+   <h3>
+    Problem 1 (b)
+   </h3>
+   <p>Consider the polynomial \(p(z) = \alpha_3z^3-\alpha_2 z^2 +\alpha_1z+\alpha_0\) where \(z_0 \in \mathbb{C}\) and that \(p(z_0)=0\) prove that \(\bar{z}\) is also a root.
+    \(\alpha_3, \alpha_2, \alpha_1, \alpha_0 \in \mathbb{R} \)
+   </p>
+   <h4>
+    Solution - Same method
+    </h4>
+    <p>We know that \(p(z_0)\) gives a value of \(0\) in the real part which \( \Rightarrow Re(p(z_0))=0\), thus a root in the real domain.</p>
+   <p>If \(Re(p(z_0)) - Re(p(\bar{z})) = 0\) then \(p(\bar{z_0})=0\) in the real part as well.</p>
+   <p></p>
+   <p>Let \(z = a+bi\) and \(\bar{z} = a-bi\) </p>
+   \[p(z_0) - p(\bar{z}) = p(a+bi) - p(a-bi)\]
+   <p>We know that \(p(a-bi) =\alpha_3(a-bi)^3-\alpha_2(a-bi)^2 +\alpha_1(a-bi) +\alpha_0 \)</p>
+   \[p(a-bi) =\alpha_3(a^3 - i 3 a^2 b - 3 a b^2 + i b^3)-\alpha_2 (a^2 - 2 i a b - b^2)+\alpha_1(a-bi) +\alpha_0\]
+   <p>We know that \(p(a+bi) =\alpha_3(a-bi)^3+\alpha_2(a-bi)^2 +\alpha_1(a-bi) +\alpha_0 \)</p>
+   \[p(a+bi) =\alpha_3(a^3 + i 3 a^2 b - 3 a b^2 - i b^3)-\alpha_2 (a^2 + i 2 a b - b^2)+ \alpha_1(a+bi) +\alpha_0\]
+   <p>Next we can simply subtract the two by each term. </p>
+   \[p(z_0) - p(\bar{z_0}) = \alpha_3(i 6 a^2 b - 2i b^3)+\alpha_2 ( i 4 a b ) +\alpha_1(2bi)\]
+   <p>Notice how there are no real terms in this expression.</p>
+   \[Re(p(z_0)) - Re(p(\bar{z})))=0\]
+   <p>Since the real part of \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z) \in \mathbb{R}\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
+       
+   </p>
+   <h3>
+    Problem 1 (b) Extended 
+    </h3>
+    <p>Consider the polynomial \(p(z) = \sum_{k=0}^n \alpha_k z^k\) where \(z_0 \in \mathbb{C}\) and that \(p(z_0)=0\) prove that \(\bar{z}\) is also a root.
+    </p>
+    <h4>
+        Solution - Same method
+    </h4>
+    <p>We know that \(p(z_0)\) gives a value of \(0\) in the real part which \( \Rightarrow Re(p(z_0))=0\), thus a root in the real domain.</p>
+    <p>If \(Re(p(z_0)) - Re(p(\bar{z})) = 0\) then \(p(\bar{z_0})=0\) in the real part as well.</p>
+    <p></p>
+    <p>Let \(z = a+bi\) and \(\bar{z} = a-bi\) </p>
+    \[Re(p(z_0)) - Re(p(\bar{z}))) = Re(p(a+bi)) - Re(p(a-bi))\]
+    <p>We know that...</p>
+    \[p(a+bi) = \sum_{k=0}^n \alpha_k (a+bi)^k\]
+    <p>We can expand based on the binomial theorem. </p>
+    \[p(a+bi) = \sum_{k=0}^n \alpha_k \sum_{t=0}^k {k \choose t} a^{k-t}(bi)^t\]
+    <p>We know that for the real part of this value, that \(t\) must be <b>even</b> or else the imaginary part is still left in. Thus if we take \(Re(p(a+bi))\)
+    the result will only contain the components where \(t\) is an even value. </p>
+    <p>Now we compute the complex conjugate. </p>
+    \[p(a-bi) = \sum_{k=0}^n \alpha_k (a-bi)^k\]
+    <p>We can expand based on the binomial theorem. </p>
+    \[p(a+bi) = \sum_{k=0}^n \alpha_k \sum_{t=0}^k {k \choose t} a^{k-t}(-bi)^t\]
+    <p>We know that for the real part of this value, that \(t\) must be <b>even as well</b> or else the imaginary part is still left in. Thus if we take \(Re(p(a-bi))\)
+        the result will be ... </p>
+        \[p(a+bi) = \sum_{k=0}^n \alpha_k \sum_{t=0}^k {k \choose t} a^{k-t}(bi)^t\]
+        <p>The negative to an even power is always positive! And thus we arrive at the same result. </p>
+        \[Re(p(z_0)) - Re(p(\bar{z})) = 0\]
+
+
+        <p>Since the real part of \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z) \in \mathbb{R}\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
+       
+        </p>
+
+
+
+
+
+
+   <h3>
+    Problem 1 (c)
+   </h3>
+   <p>Prove that the polynomial \(p(z) = \alpha_3z^3-\alpha_2 z^2 +\alpha_1z+\alpha_0\) and \(\alpha_3, \alpha_2, \alpha_1, \alpha_0 \in \mathbb{R} \) that
+       there must exist at least one real root for the polynomial. 
+   </p>
+   <h4>
+    Proof by Contradiction
+    </h4>
+    <p><b>Assume that there exists 3 complex roots to a 3rd degree polynomial.</b></p>
+    <p>We know that for every \(nth\) degree polynomial there has to be \(n\) roots ether Real, or Complex (can be unique or distinct roots) from the Fundamental Theorem of Algebra. This case 
+        \(n=3\) thus there has to be \(3\) roots. 
+    </p>
+    <p>In part (b) we have shown that for a root \(z_0\) that gives a value with a real part equal to \(0\) that the conjugate also satisfy the same condition (at least in the \(n=3\) case). 
+
+    </p>
+    <p>Assuming that one has found 3 complex solutions, then it would imply that the third solution's conjugate is also a root to the polynomial. 
+        Thus giving 4 solutions. But we know that for every \(nth\) degree
+        polynomial there is only \(n\) solutions either unique or distinct. This implies that the polynomial has to be, at least, an 4th degree polynomial which contradicts the initial conditions. 
+
+    </p>
+    <p>\(\therefore \) it is not possible to have 3 complex solutions. If there isn't 3 complex solutions then at least 1 solution has to be a Real solution. Since the fundamental theorem 
+        of algebra says there are always a total of 3 solutions for a 3rd degree polynomial. 
+    </p>
+    <h4>
+        Proof by Contradiction - Extended.
+        </h4>
+        <p><b>Assume that there exists n complex roots to a nth degree polynomial. Where n is <i>Odd</i></b></p>
+        <p>We know that for every \(nth\) degree polynomial there has to be \(n\) roots ether Real, or Complex (can be unique or distinct roots) from the Fundamental Theorem of Algebra. 
+        </p>
+        <p>In part (b) - Extended we have shown that for a root \(z_0\) that gives a value with a real part equal to \(0\) that the conjugate also satisfy the same condition. 
+    
+        </p>
+        <p>Assuming that one has found \(n\) complex solutions, then it would imply that the n solution's conjugate is also a root to the polynomial. 
+            Thus giving \(n+1\) solutions. But we know that for every \(nth\) degree
+            polynomial there is only \(n\) solutions either unique or distinct. This implies that the polynomial has to be, at least, an \(n+1\)th degree polynomial which contradicts the initial conditions. 
+    
+        </p>
+        <p>\(\therefore \) it is not possible to have \(n\) complex solutions. If there isn't \(n\) complex solutions then at least 1 solution has to be a Real solution. Since the fundamental theorem 
+            of algebra guarantees there are always a total of \(n\) solutions for a \(nth\) degree polynomial. 
+        </p>
+</body>
+</html>
