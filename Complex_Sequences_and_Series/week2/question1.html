@@ -29,8 +29,8 @@
    <h4>
        Solution 
    </h4>
-   <p>We know that \(p(z_0)\) gives a value of \(0\) in the real part which \( \Rightarrow Re(p(z_0))=0\) , thus a root in the real domain.</p>
-   <p>If \(Re(p(z_0)) - Re(p(\bar{z})) = 0\) then \(p(\bar{z_0})=0\) in domain \(\mathbb{R}\)</p>
+   <p>We know that \(p(z_0)\) gives a value of \(0\).</p>
+   <p>If \(p(z_0) - p(\bar{z}) = 0\) then \(p(\bar{z_0})=0\).</p>
    <p></p>
    <p>Let \(z = a+bi\) and \(\bar{z} = a-bi\) </p>
    \[p(z_0) - p(\bar{z}) = p(a+bi) - p(a-bi)\]
@@ -39,11 +39,19 @@
    <p>We know that \(p(a+bi) =3(a+bi)^3-\pi (a+bi)^2 +8 \)</p>
    \[p(a+bi) =3(a^3 + i 3 a^2 b - 3 a b^2 - i b^3)-\pi (a^2 + i 2 a b - b^2) +8\]
    <p>Next we can simply subtract the two by each term. </p>
-   \[p(z_0) - p(\bar{z_0}) = 3(i 6 a^2 b - 2i b^3)-\pi ( i 4 a b ) \]
-   <p>Notice how there are no real terms in this expression.</p>
-   \[Re(p(z_0)) - Re(p(\bar{z})))=0\]
-   <p>Since the real part of \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z) \in \mathbb{R}\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
-       
+   \[p(z_0) - p(\bar{z_0}) = 3(i 3 a^2 b - i b^3)-\pi ( i 2 a b ) - (3(-i 3 a^2 b + i b^3)+\pi ( i 2 a b ) )\]
+   <p>Notice how there are no real terms in this expression. However we're left with all the imaginary parts. 
+       But we can notice that the values for the imaginary part of \(p(\bar{z_0})\) is the negative of \(p(z_0)\) which is \(3(i 3 a^2 b - i b^3)-\pi ( i 2 a b )\).
+      
+   </p>
+   \[Im(p(\bar{z_0})) = - Im(p(z_0))\]
+<p> Since we know that \(p(z_0) =0\) the imaginary part must also equal to 0. </p>
+\[Im(p(z_0)) = 0\]
+   <p>Thus \(Im(p(\bar{z_0})) = 0\) is also true.</p>
+   <p>Therefore... </p>
+   \[p(z_0) - p(\bar{z_0}) = -Im(p(\bar{z_0})) - Im(p(\bar{z_0}))\]
+   \[p(z_0) - p(\bar{z_0}) = 0\]
+   <p>Since \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z_0)\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
    </p>
    <h3>
     Problem 1 (b)
@@ -64,11 +72,21 @@
    <p>We know that \(p(a+bi) =\alpha_3(a-bi)^3+\alpha_2(a-bi)^2 +\alpha_1(a-bi) +\alpha_0 \)</p>
    \[p(a+bi) =\alpha_3(a^3 + i 3 a^2 b - 3 a b^2 - i b^3)-\alpha_2 (a^2 + i 2 a b - b^2)+ \alpha_1(a+bi) +\alpha_0\]
    <p>Next we can simply subtract the two by each term. </p>
-   \[p(z_0) - p(\bar{z_0}) = \alpha_3(i 6 a^2 b - 2i b^3)+\alpha_2 ( i 4 a b ) +\alpha_1(2bi)\]
-   <p>Notice how there are no real terms in this expression.</p>
-   \[Re(p(z_0)) - Re(p(\bar{z})))=0\]
-   <p>Since the real part of \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z) \in \mathbb{R}\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
-       
+   \[p(z_0) - p(\bar{z_0}) = \alpha_3(i 3 a^2 b - i b^3)+\alpha_2 ( i 2 a b ) +\alpha_1(2bi) - (\alpha_3(-i 3 a^2 b + i b^3)-\alpha_2 ( i 2 a b ) )\]
+   <p>Notice how there are no real terms in this expression. However we're left with all the imaginary parts. 
+    But we can notice that the values for the imaginary part of \(p(\bar{z_0})\) is the negative of \(p(z_0)\) which is \(\alpha_3(i 3 a^2 b - i b^3)+\alpha_2 ( i 2 a b ) +\alpha_1(2bi)\).
+   
+</p>    
+</p>
+\[Im(p(\bar{z_0})) = - Im(p(z_0))\]
+<p> Since we know that \(p(z_0) =0\) the imaginary part must also equal to 0. </p>
+\[Im(p(z_0)) = 0\]
+<p>Thus \(Im(p(\bar{z_0})) = 0\) is also true.</p>
+<p>Therefore... </p>
+\[p(z_0) - p(\bar{z_0}) = -Im(p(\bar{z_0})) - Im(p(\bar{z_0}))\]
+\[p(z_0) - p(\bar{z_0}) = 0\]
+<p>Since \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z_0)\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
+</p>
    </p>
    <h3>
     Problem 1 (b) Extended 
@@ -95,15 +113,29 @@
     \[p(a+bi) = \sum_{k=0}^n \alpha_k \sum_{t=0}^k {k \choose t} a^{k-t}(-bi)^t\]
     <p>We know that for the real part of this value, that \(t\) must be <b>even as well</b> or else the imaginary part is still left in. Thus if we take \(Re(p(a-bi))\)
         the result will be ... </p>
-        \[Re(p(a+bi)) = \sum_{k=0}^n \alpha_k \sum_{t=0}^k {k \choose t} a^{k-t}(bi)^t\]
+        \[Re(p(a+bi)) = \sum_{k=0}^n \alpha_k \sum_{t=0}^{k/2} {k \choose t} a^{k-t}(bi)^{t*2}\]
         <p>The negative to an even power is always positive! And thus we arrive at the same result. </p>
         \[Re(p(z_0)) - Re(p(\bar{z})) = 0\]
 
+     <p>We can then check the imaginary component. </p>   
+     \[Im(p(a-bi)) = \sum_{k=0}^n \alpha_k \sum_{t=0}^{k/2} {k \choose t} a^{k-t}(-bi)^{t*2+1}\]
+     <p>Since its always an odd degree, we can extract out the negative sign. </p>
+     \[Im(p(a-bi)) = \sum_{k=0}^n \alpha_k (-\sum_{t=0}^{k/2} {k \choose t} a^{k-t}(bi)^{t*2+1})\]
+     \[Im(p(a-bi)) = -\sum_{k=0}^n \alpha_k \sum_{t=0}^{k/2} {k \choose t} a^{k-t}(bi)^{t*2+1}\]
+     <p>We know that the imaginary component is equal to zero for the case where \(p(a+bi)\). </p>
+     \[Im(p(a+bi)) = \sum_{k=0}^n \alpha_k (\sum_{t=0}^{k/2} {k \choose t} a^{k-t}(bi)^{t*2+1}) = 0\]
+    <p>Since the real part of \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z) \in \mathbb{R}\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
 
-        <p>Since the real part of \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z) \in \mathbb{R}\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
-       
-        </p>
-
+    </p>
+    \[Im(p(\bar{z_0})) = - Im(p(z_0))\]
+    <p> Since we know that \(p(z_0) =0\) the imaginary part must also equal to 0. </p>
+    \[Im(p(z_0)) = 0\]
+    <p>Thus \(Im(p(\bar{z_0})) = 0\) is also true.</p>
+    <p>Therefore... </p>
+    \[p(z_0) - p(\bar{z_0}) = -Im(p(\bar{z_0})) - Im(p(\bar{z_0}))\]
+    \[p(z_0) - p(\bar{z_0}) = 0\]
+    <p>Since \(p(z_0) - p(\bar{z_0})\) is always \(0\) for \(\forall a,b \in \mathbb{R}\). Therefore, for values \(p(z_0)\), \(\bar{z_0}\) will always be a root under the assumption that \(z_0\) is also a root. 
+    </p>
 
 
 
