@@ -101,7 +101,7 @@
    <p></p>
    <p>Let \(z = a+bi\) and \(\bar{z} = a-bi\) </p>
  
-    \[Re(p(z_0)) - Re(p(\bar{z}))) = Re(p(a+bi)) - Re(p(a-bi))\]
+   \[p(z_0) - p(\bar{z}) = p(a+bi) - p(a-bi)\]
     <p>We know that...</p>
     \[p(a+bi) = \sum_{k=0}^n \alpha_k (a+bi)^k\]
     <p>We can expand based on the binomial theorem. </p>
@@ -112,6 +112,7 @@
     \[p(a-bi) = \sum_{k=0}^n \alpha_k (a-bi)^k\]
     <p>We can expand based on the binomial theorem. </p>
     \[p(a+bi) = \sum_{k=0}^n \alpha_k \sum_{t=0}^k {k \choose t} a^{k-t}(-bi)^t\]
+    <p>We look at the real part first. </p>
     <p>We know that for the real part of this value, that \(t\) must be <b>even as well</b> or else the imaginary part is still left in. Thus if we take \(Re(p(a-bi))\)
         the result will be ... </p>
         \[Re(p(a+bi)) = \sum_{k=0}^n \alpha_k \sum_{t=0}^{k/2} {k \choose t} a^{k-t}(bi)^{t*2}\]
