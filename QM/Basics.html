@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Roots | Week 2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+           Introduction To Quantum Mechanics - Wave Function Statistics
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 18th 2020</h3>
+    <P>
+        The nature of Quantum Mechanics is very different from classical mechanics as its NOT deterministic. When Newton came about 
+        with Classical Mechanics, given a certain state with all of its initial conditions you can technically predict the future. 
+        The Quantum mechanical model of the universe is probabilistic. There is never certainty. There is only a likelyhood. 
+    </P>
+    <p>
+        The Quantum mechanical description of the world gives a probablity curve / distribution of the future state. This probability distribution is called
+        the <b>Wave Function.</b> Famously <b>Schrodinger Equation.</b>
+    </p>
+    \[i\hbar \frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}+ V\Psi\]
+    <h2>
+        Basic Statistics
+     </h2>
+     <p>Lets say there are 14 people in a room.</p>
+     <ul>
+         <li>One person 14y/o</li>
+         <li>One person 15y/o</li>
+         <li>Three person 16y/o</li>
+         <li>Two person 22y/o</li>
+         <li>Two person 24y/o</li>
+         <li>Two person 25y/o</li>
+     </ul>
+     <p>Let \(N(j)\) be the number of elements within the set \(j\). \(N(22) = 2\) in this case. Then the total number of people would be ...</p>
+     \[N = \sum_{j=0}^\infty N(j)\]
+     <p>The probability that someon is at \(j\) would be simply </p>
+     \[P(j) = \frac{N(j)}{N}\]
+     <p>We also know that the sum of all probabilities is equal to 1. </p>
+     \[\sum_{j=0}^{\infty}P(j) = 1\]
+     <p>The average age of \(j\) would simply be. We denote \(\langle j \rangle \) as the average value of \(j\)</p>
+     \[\langle j \rangle = \frac{\sum j N(j)}{N} = \sum_{j=0}^\infty j P(j) \]
+     <p>The average of the squares would then be \(\langle j^2 \rangle \) </p>
+     \[\langle j^2 \rangle = \frac{\sum j^2 N(j)}{N} = \sum_{j=0}^\infty j^2 P(j) \]
+     <p>Infact this works with any function. </p>
+     \[\langle f(j) \rangle = \frac{\sum f(j) N(j)}{N} = \sum_{j=0}^\infty f(j) P(j) \]
+     <p>How do we describe the spread of a given distribution? We can look at the standard deviation. <b> We look for the spread of each value from the average. </b></p>
+     \[j_\Delta = j - \langle j \rangle \]
+     <p>So whats the average spread? We plug into our original function. </p>
+     \[\langle j_\Delta \rangle  = \sum_{j=0}^\infty (j - \langle j \rangle )P(j) \]
+     \[\langle j_\Delta \rangle  = \sum_{j=0}^\infty jP(j) - \sum_{j=0}^\infty \langle j \rangle P(j)\]
+     \[\langle j_\Delta \rangle  = \langle j \rangle  - \sum_{j=0}^\infty \langle j \rangle P(j)\]
+     \[\langle j_\Delta \rangle  = \langle j \rangle  - \langle j \rangle \sum_{j=0}^\infty P(j)\]
+     \[\langle j_\Delta \rangle  = \langle j \rangle  - \langle j \rangle (1)\]
+     \[\langle j_\Delta \rangle  = 0\]
+     <p>LOL wtf we just get 0. Issue is because the deviation is both negative and positive and thus without taking the absolute value we dont get a deviation. Thus we want to <b>square</b> it.
+         This 
+         is called the <b>Variance. </b>
+     </p>
+     \[\sigma^2 = \langle j_\Delta ^2\rangle\]
+     \[\sigma^2 = \sum_{j=0}^\infty (j - \langle j \rangle )^2P(j) \]
+     \[\sigma^2 = \sum_{j=0}^\infty (j^2 - 2j\langle j \rangle + \langle j \rangle ^2)P(j) \]
+     \[\sigma^2 = \sum_{j=0}^\infty (j^2P(j)  - 2j\langle j \rangle P(j)  + \langle j \rangle ^2P(j) ) \]
+     \[\sigma^2 = \sum_{j=0}^\infty j^2P(j)  -\sum_{j=0}^\infty 2j\langle j \rangle P(j)  + \sum_{j=0}^\infty\langle j \rangle ^2P(j)  \]
+     <p>We can reverse the sums with the general function we've created. </p>
+     \[\sigma^2 = \langle j^2\rangle -2\langle j \rangle \sum_{j=0}^\infty jP(j)  + \langle j \rangle ^2 \sum_{j=0}^\infty P(j)  \]
+     \[\sigma^2 = \langle j^2\rangle -2\langle j \rangle \langle j \rangle   + \langle j \rangle ^2   \]
+     \[\sigma^2 = \langle j^2\rangle -2\langle j \rangle^2   + \langle j \rangle ^2   \]
+     \[\sigma^2 =  \langle j^2 \rangle  - \langle j \rangle^2    \]
+     <p>We can thennnn find the standard deviation. </p>
+     \[\sigma = \sqrt{ \langle j^2 \rangle  - \langle j \rangle^2   } \]
+     <h2>
+        Making This Continous.
+     </h2>
+     <p>What if we had an infinite amount of small samples that make up a total collection? We can multiply each small sample by its value and add up infinitely small bits. This gives us 
+         a countinous distribution.
+     </p>
+     <p>We can turn this </p>
+     \[\langle f(j) \rangle =\sum_{j=0}^\infty f(j) P(j) \]
+     <p>Into this integral. We can set \(\rho(x)\) as the probability of a small part of the distribution. Or the probability DENSITY. </p>
+     \[\langle f(x) \rangle =\int f(x) \rho(x) dx \]
+     <p>If we want the average value of \(x\)</p>
+     \[\langle x \rangle =\int x \rho(x) dx \]
+     <p>If we want the average sqaure value of \(x\)</p>
+     \[\langle x^2 \rangle =\int x^2 \rho(x) dx \]
+     <p>We can rewrite our deviation and our variance  </p>
+     
+     \[\sigma^2 =  \int x^2 \rho(x) dx - (\int x \rho(x) dx )^2    \]
+     \[\sigma= \sqrt{ \int x^2 \rho(x) dx - (\int x \rho(x) dx )^2 }   \]
+     <h2>
+       Shoving Statistical Approach Into Classical Mechanical Problem :)
+     </h2>
+     <p>If I dropped a rock from a height of \(h\) with a total time \(T\) to reach the ground, whats the average distance of the rock to the top of the hill?</p>
+     <p>In other words we want to compute \(\langle x \rangle\)</p>
+     <p>We know that the function \(x(t) = \frac{1}{2} g\cdot t^2\) => from basic classical mech</p>
+     <p>Our equation for \(\langle x(t) \rangle\) is </p>
+   
+     \[\langle x(t)  \rangle =\int x(t)  \rho(t) dt \]
+     <p>How do we compute the probability at each individually small point??? Well the probability of the time its there is the simply the 
+         <b>small portion of time divided by the total time there right?</b></p>
+         \[\rho(t) = \frac{dt}{T}\]
+         <p>We know the total time it takes for the rock to fall can be computed. </p>
+         \[T = \sqrt{\frac{2h}{g}}\]
+         <p>Okay the only issue is \(dt\). We know that \(dx = dt \cdot velocity\) from distance =  speed\(\times\) time. </p>
+         \[dx = dt \cdot velocity\]
+         \[velocity = a \cdot t\]
+         \[velocity = g\cdot t\]
+         \[dt = \frac{dx}{g\cdot t}\]
+         <p>Now we can replace the variables.</p>
+
+    \[\rho(x) = \frac{dx}{g\cdot t} \sqrt{\frac{g}{2h}}\]
+    \[\rho(x) =  \sqrt{\frac{g}{g^2 t^2 2h}} dx\]
+    \[\rho(x) =  \sqrt{\frac{1}{g t^2 2h}} dx\]
+    <p>We can replace \(g t^2 = 2x\) as \(\frac{1}{2}gt^2 = x\)</p>
+    \[\rho(x) =  \sqrt{\frac{1}{2h(2x)}} dx\]
+    \[\rho(x) =  \frac{1}{2}\sqrt{\frac{1}{h(x)}} dx\]
+        <p>We go back to the integral to calculate the average distance. </p>
+        \[\langle x  \rangle =\int_0^h \frac{1}{2} x \sqrt{\frac{1}{h(x)}} dx dx \]
+        \[\langle x  \rangle =\frac{1}{2} \int_0^h  \sqrt{\frac{x^2}{hx}} dx \]
+        \[\langle x  \rangle =\frac{1}{2} \int_0^h  \sqrt{\frac{x}{h}} dx \]
+        \[\langle x  \rangle = \frac{1}{2} \sqrt{\frac{1}{h}}\int_0^h \sqrt{x} dx \]
+        \[\langle x  \rangle = \frac{1}{2} \sqrt{\frac{1}{h}} [\frac{2}{3}x^{\frac{3}{2}}]\Big|_0^h \]
+        \[\langle x  \rangle = \frac{h}{3} \]
+    <p>Time to calculate the variance!</p>
+    \[\sigma^2 =  \int x^2 \frac{1}{2}\sqrt{\frac{1}{h(x)}} dx - (\frac{h}{3})^2    \]
+    \[\sigma^2 =  \int x \frac{1}{2}\sqrt{\frac{x^4}{h(x)}} dx - (\frac{h}{3})^2    \]
+    \[\sigma^2 =  \int x \frac{1}{2}\sqrt{\frac{x^3}{h}} dx - (\frac{h}{3})^2    \]
+    \[\sigma^2 =   \frac{1}{2} \sqrt{\frac{1}{h}} [\frac{2}{5}x^{\frac{5}{2}}]\Big|_0^h - (\frac{h}{3})^2    \]
+    \[\sigma^2 =   \frac{1}{5} \sqrt{\frac{h^5}{h}}  - (\frac{h}{3})^2    \]  
+    \[\sigma^2 =   \frac{4}{45} h^2  \]  
+    \[\sigma =   \frac{2}{\sqrt{45}} h  \]  
+    
+</body>
+</html>
