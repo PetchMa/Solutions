@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quantum Mechanics - Normalization and Momentum Operator</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Wave Function Normalization and Momentum Operator
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 18th 2020</h3>
+   <p>Previously we've introduced the statistical approach to working with physics problems. Now the issue we need to deal with is the actual wave function it self.
+<i>The wave function is a distribution of probability for a given "scenario from happening" at a specific time. </i> If this is true then by nature the wave function should 
+have a probability of 1 if you add up all parts of that distribution. The wave function must be normalized to 1.
+   </p>
+   \[\int _{-\infty}^{+\infty} |\Psi(x,t)|^2 dx = 1\]
+   <h2>
+    Normalization
+ </h2>
+   <p>
+       Issue is can this function always be normalized to just 1? It turns out we can from this proof.  
+
+   </p>
+   <p>Lets take the time derivative of this function. If the time derivative of the function is 0 then it can be normalized as it must go to \(\Psi\) must go to \(\pm \infty\) or else it can't be 
+       normalized. 
+   </p>
+   \[\frac{d}{dt}\int _{-\infty}^{+\infty} |\Psi(x,t)|^2 dx\]
+   <p>Move the derivative under the integral</p>
+   \[\int _{-\infty}^{+\infty} \frac{d}{dt}|\Psi(x,t)|^2 dx\]
+   <p>We know that the function \(\Psi\) is complex given the wave equation. Thus the magnitude squared is simply the multiplication of its complex conjugate. </p>
+   \[\frac{d}{dt}|\Psi(x,t)|^2 = \frac{d}{dt}(\Psi^*\Psi)\]
+   <p>Product rule. </p>
+   \[\frac{d}{dt}(\Psi^*\Psi) =\frac{d\Psi}{dt}\Psi^* + \frac{d\Psi^*}{dt}\Psi  \]
+   <p>The Schrodinger equation says... </p>
+   \[i\hbar \frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}+ V\Psi\]
+   \[ \frac{\partial \Psi}{\partial t} = -\frac{\hbar}{2m i}\frac{\partial^2 \Psi}{\partial x^2}+ \frac{1}{i\hbar}V\Psi\]
+   \[ \frac{\partial \Psi}{\partial t} = -\frac{i\hbar}{2m}\frac{\partial^2 \Psi}{\partial x^2}+ \frac{i}{\hbar}V\Psi\]
+   <p>The complex conjugate is just the flip the sign for all imaginary parts. Which happens to be everything. </p>
+   \[ \frac{\partial \Psi^*}{\partial t} = \frac{i\hbar}{2m}\frac{\partial^2 \Psi^*}{\partial x^2}- \frac{i}{\hbar}V\Psi^*\]
+   <p>We plug stuff in now. </p>
+   \[\frac{d}{dt}(\Psi^*\Psi) =\frac{d\Psi}{dt}\Psi^* + \frac{d\Psi^*}{dt}\Psi  \]
+   \[\frac{d}{dt}(\Psi^*\Psi) =(-\frac{i\hbar}{2m}\frac{\partial^2 \Psi}{\partial x^2}+ \frac{i}{\hbar}V\Psi)\Psi^* + (\frac{i\hbar}{2m}\frac{\partial^2 \Psi^*}{\partial x^2}- \frac{i}{\hbar}V\Psi^*)\Psi  \]
+<p>Notice that the second term \(\frac{i}{\hbar}V\Psi\) can be canceled out when you distribute the \(\Psi\)'s into the equation. </p>
+\[\frac{d}{dt}(\Psi^*\Psi) =-\Psi^*\frac{i\hbar}{2m}\frac{\partial^2 \Psi}{\partial x^2} + \Psi\frac{i\hbar}{2m}\frac{\partial^2 \Psi^*}{\partial x^2} \]
+<p>Now we can do this trick. </p>
+\[\frac{d}{dt}(\Psi^*\Psi) =\frac{\partial}{\partial x}(-\Psi^*\frac{i\hbar}{2m}\frac{\partial \Psi}{\partial x} + \Psi\frac{i\hbar}{2m}\frac{\partial \Psi^*}{\partial x}) \]
+<p>Now we can directly shove it back into the integral. </p>
+\[\int _{-\infty}^{+\infty} \frac{\partial}{\partial x}(-\Psi^*\frac{i\hbar}{2m}\frac{\partial \Psi}{\partial x} + \Psi\frac{i\hbar}{2m}\frac{\partial \Psi^*}{\partial x}) dx\]
+\[= -\Psi^*\frac{i\hbar}{2m}\frac{\partial \Psi}{\partial x} + \Psi\frac{i\hbar}{2m}\frac{\partial \Psi^*}{\partial x}\Big|_{-\infty}^{\infty} \]
+<p>The wave function MUST go to 0 as it tends to \(\infty\) or else it will never be normalizable. </p>
+\[= 0 \]
+<p>Therefore </p>
+\[\frac{d}{dt}\int _{-\infty}^{+\infty} |\Psi(x,t)|^2 dx = 0\]
+<p>Which suggests that the following can occur.  </p>
+\[\int _{-\infty}^{+\infty} |\Psi(x,t)|^2 dx = 1\]
+<h2>
+    Normalization - Problem 
+ </h2>
+ <p>Normalize the following wave function. Let \(A , \lambda, \omega, t \in \mathbb{R}\)</p>
+ \[\Psi(x,t) = Ae^{-\lambda |x|} e^{-i \omega t}\]
+ <p>Notice that its got an absolute value sign so to preform the integral you must split the intervals in half as such. </p>
+ \[\int _{-\infty}^{+\infty} (Ae^{-2\lambda |x|} e^{-i \omega t})^2 dx = \int _{-\infty}^{0} (Ae^{2\lambda x} e^{-i \omega t})^2 dx + \int _{-\infty}^{+\infty} (Ae^{-2\lambda x} e^{-i \omega t})^2 dx\]
+ \[ = \int _{-\infty}^{0} A^2e^{2\lambda x} e^{-2i \omega t} dx + \int _{0}^{+\infty} A^2e^{-\lambda x} e^{-2 i \omega t} dx\]
+ <p>Notice that this is an event function. </p>
+ \[\Psi(-x,t) = Ae^{-2 \lambda |-x|} e^{-i \omega t} =Ae^{2 \lambda |x|} e^{-i \omega t} =  \Psi(x,t) \]
+ <p>Thus if the integrals should be the same if they were to be an even function. </p>
+ \[ = 2* \int _{0}^{+\infty} A^2e^{-2\lambda x} e^{-2 i \omega t} dx\]
+ \[ = 2 e^{-2 i \omega t} A^2 \int _{0}^{+\infty} e^{-2\lambda x} dx\]
+ \[ = 2 e^{-2 i \omega t} A^2 \frac{1}{-2 \lambda}[ e^{-2\lambda x}] \Big|_{0}^{\infty} \]
+ <p>We know that </p>
+ \[\int _{-\infty}^{+\infty} |\Psi(x,t)|^2 dx = 1\]
+ <p>We can solve for \(A\)</p>
+ \[1 = 2 e^{-2 i \omega t} A^2 \frac{1}{-2 \lambda}[0-1] \]
+ \[1 = 2 e^{-2 i \omega t} A^2 \frac{1}{ 2\lambda} \]
+ \[ e^{2 i \omega t}\lambda =  A^2  \]
+ \[ A = \sqrt{ e^{2 i \omega t}\lambda } \]
+ \[ A = e^{ i \omega t}\sqrt{ \lambda } \]
+ <p>We take out the imaginary part. </p>
+ \[ A = \sqrt{ \lambda } \]
+ \[\Psi(x,t) = \sqrt{ \lambda }  e^{-\lambda |x|} e^{-i \omega t}\]
+
+ <h2>
+    Momentum Operator 
+ </h2>
+ <p>
+     Okay so we've got this boi which we mentioned before. 
+ </p>
+ \[\langle x \rangle = \int _{-\infty}^{+\infty} x |\Psi(x,t)|^2 dx \]
+ <p>This helps us calculate the average expected value of \(x\) all with the same <b>state.</b> This doesn't mean take a particle and measure it and return it back and measure it again. 
+That will cause a change in state.
+What we mean is that we have a collection of particles of same state and the average of those will be \(\langle x \rangle\). 
+</p>
+<P>What happens when you do this? </P>
+\[\frac{d \langle x \rangle }{d t} = ?\]
+<p>We can try and move the derivative inside. </p>
+\[\frac{d \langle x \rangle }{d t} = \frac{d  }{d t} \int _{-\infty}^{+\infty} x |\Psi(x,t)|^2 dx\]
+\[\frac{d \langle x \rangle }{d t} =  \int _{-\infty}^{+\infty} x \frac{d  }{d t}|\Psi(x,t)|^2 dx\]
+<p>We expand the sqaured to a complex conjugate. </p>
+\[\Psi^2 = \Psi^*\Psi\]
+\[\frac{d \langle x \rangle }{d t} =  \int _{-\infty}^{+\infty} x \frac{d  }{d t}[\Psi^*\Psi] dx\]
+\[\frac{d \langle x \rangle }{d t} = \int _{-\infty}^{+\infty} x \frac{d  }{d t}[-\Psi^*\frac{i\hbar}{2m}\frac{\partial \Psi}{\partial x} + \Psi\frac{i\hbar}{2m}\frac{\partial \Psi^*}{\partial x}] dx\]
+\[\frac{d \langle x \rangle }{d t} =  \frac{-i \hbar}{2m }\int _{-\infty}^{+\infty} x \frac{d  }{d t}[-\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x}] dx\]
+\[\frac{d \langle x \rangle }{d t} =  \frac{-i \hbar}{2m }\int _{-\infty}^{+\infty} x \frac{d  }{d t}[-\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x}] dx\]
+
+<p>We can do the whole integration by parts. In this form.</p>
+\[\int u dv = uv - \int v du \]
+Set the following, \(u = x\), \(du = dx\) and \(dv = \frac{d  }{d t}[-\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x}] \) and \(v =-\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x}\)
+\[\frac{-i \hbar}{2m }\int _{-\infty}^{+\infty} x \frac{d  }{d t}[-\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x}] dx= \frac{-i \hbar}{2m } [x(-\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x}) - \int -\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x}dx ]\]
+<p>We know that the the ^ will be evaluated at \(\pm \infty\) and we know that \(-\Psi^*\frac{\partial \Psi}{\partial x} + \Psi\frac{\partial \Psi^*}{\partial x} = 0\) in order for the function to be normalized!! 
+    Thus we've simplified it to the following.  We cancel some signs 
+</p>
+\[=  \frac{-i \hbar}{2m } \int +\Psi^*\frac{\partial \Psi}{\partial x} - \Psi\frac{\partial \Psi^*}{\partial x}dx \]
+<p>What we do then is we split the integral up. </p>
+\[=  \frac{-i \hbar}{2m } \int +\Psi^*\frac{\partial \Psi}{\partial x} dx - \int\Psi\frac{\partial \Psi^*}{\partial x}dx \]
+<p>Preform integration by parts on the second integral. </p>
+\[=  \frac{-i \hbar}{2m }[ \int +\Psi^*\frac{\partial \Psi}{\partial x} dx - [[\Psi^*\Psi]\Big|_{-\infty}^{\infty} - \int \Psi \frac{d \Psi^*}{dx}]]\]
+\[=  \frac{-i \hbar}{2m } [\int +\Psi^*\frac{\partial \Psi}{\partial x} dx + \int \Psi \frac{d \Psi^*}{dx}]]\]
+\[\frac{d \langle x \rangle }{d t}=  \frac{-i \hbar}{m } \int \Psi^*\frac{\partial \Psi}{\partial x} dx \]
+<p>What does this mean? This is the "velocity" of the expectation value of x. </p>
+\[ \langle v\rangle =  \frac{-i \hbar}{m } \int \Psi^*\frac{\partial \Psi}{\partial x} dx \]
+<p>The momentum is thus... \(p = mv\)</p>
+\[ \langle p \rangle = -i \hbar \int \Psi^*\frac{\partial \Psi}{\partial x} dx \]
+<p>We can move out the derivative... and show the derivative operation. </p>
+\[ \langle p \rangle = -i \hbar \int \Psi^*\frac{\partial }{\partial x} \Psi dx \]
+<p>We call \(\frac{\partial}{\partial x}\) the momentum operator. </p>
+
+</body>
+</html>
