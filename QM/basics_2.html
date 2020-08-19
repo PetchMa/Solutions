@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quantum Mechanics - Wave Function Uncertainty Principle</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Wave Function Uncertainty Principle
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 19th 2020</h3>
+   <p>Previously we've introduced the idea of the wave function as a probability wave and the idea of velocity of expected values. 
+   </p>
+   <p>Now imagine you're creating a physical wave on a rope by shaking it. [figure below] and you ask where exactly is the wave??? You probably can't answer that... its spread over
+       the entire length. Now if you asked whats the wavelength then you can easily calculate it! </p>
+   <div style="text-align: center;">
+    <img src="wave_1.PNG" >
+</div>
+<p>Now imagine you create a short pulse. If you asked where is the wave? You can exactly point to it! Now if we asked... what is the wavelength of a pusle. You probably can't answer that. </p>
+<div style="text-align: center;">
+    <img src="wave_2.PNG" >
+</div>
+<p>
+    The idea of the <b>Uncertainty Principle </b>is that there is an inescapable tradeoff in information. You can either know the position or the wavelength. We will give a more concrete idea of what this means.
+</p>
+<h2>
+    Sidenote: What is \(\hbar\) and The Ultraviolet Catastrophe? 
+</h2>
+<p>
+    I turns out energy isn't continous. This was discovered by Max Planck  as a solution to the <b>Ultraviolet Catastrophe </b>.
+</p>
+<p>
+    The Ultraviolet Catastrophe occured when we tried to study black bodies which emit radiation across the entire electromagnetic spectrum. Traditional approaches predicted that the temprature 
+    required to emit very small wavelengths of radiation would blow up to infinity! However from observation we can see that this is not the case from the figure below. It curves
+     back down when it reaches smaller and smaller wavelengths. 
+</p>
+<div style="text-align: center;">
+    <img src="ultraviolet-catastrophe-chart.png" >
+</div>
+<p>The traditional approach was described by the <b> Rayleigh-Jeans Law </b></p>
+\[u(\lambda) = {8 \pi k T \nu^2 \over c^3}\]
+<p>As you can see this explodes as it gets to smaller wavelengths. So Max Planck  solve the issue by saying <B>Energy comes in discrete packets.</B>
+     These packets is called Planck  constant. \(h\)
+and this was the new formula.</p>
+\[E= n h \nu, \qquad n = 1,~2,~3,~...\]
+<p>This new equation for energy gave the new equation which models the observation percisely </p>
+\[{B_\nu = {2 h \nu^3 \over c^2}
+{1 \over \exp\bigl({h \nu \over k T}\bigr)
+-1}}\]
+<p>\(\hbar\) is the energy packet \(\hbar = \frac{h}{2\pi}\)</p>
+<p>More can be found on this topic <a href="https://petchma.github.io/Solutions/NRAO/blackbody_rad.html">here</a></p>
+<h2>
+    De Broglie Formula
+</h2>
+<p>
+    The momentum of the particle is described by de Broglie formula which states.
+</p>
+\[p = \frac{h}{\lambda} = \frac{2\pi\hbar}{\lambda}\]
+<p>This is the limit at which we can operate. Because wavelength corresponds to a spread in momentum \(\lambda p = 2\pi\hbar\)</p>
+\[\sigma_x \sigma_p \geq \frac{\hbar}{2}\]
+</body>
+</html>
