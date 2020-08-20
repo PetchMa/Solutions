@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quantum Mechanics - Infinite Square Well</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Infinite Square Well Problem
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 20th 2020</h3>
+   <p>Here's the first taste in truely solving the Schrodinger Equation. Suppose we live in a world where the particle is in this potential...
+
+   </p>
+   \[ V(x) = \begin{cases} 
+      0, & 0\leq x \leq a \\
+    \infty, & otherwise  
+    \end{cases}
+    \]
+    <p>It represents this situation...</p>
+    <div style="text-align: center;">
+        <img src="well.PNG">
+    </div>
+    <p>The particle is trapped in this well and can never escape. Thus the probability of finding it outside is \(\psi(x) = 0\). Inside since the potential is \(V(x)=0\) we
+        get a new time independent Schrodinger equation. 
+    </p>
+    \[-\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x) }{\partial x^2}+ V\psi  = \psi E \]
+    \[-\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x) }{\partial x^2}  = \psi E \]
+    <p>We can rearrange for the derivative. </p>
+    \[\frac{\partial^2 \psi(x) }{\partial x^2}  = -\frac{2m}{\hbar^2}\psi E \]
+    <p>We know from solving second order homogenous differential equations that this mus take form in the shape of solutions for 2 roots. If you need a refresher check out this <a href="https://petchma.github.io/Solutions/multivar_calc/second_ord_homo.html"> tutorial on second order homogenous diff eq.</a></p>
+    <p>Let \(-k^2 = -\frac{2m}{\hbar^2} \)</p>
+    \[k = \frac{\sqrt{2mE}}{\hbar}\]
+    <p>We know that general roots to the differential equation is going to be complex because \(\phi\) is always positive because its a probability wave, we also know that \(E\) is always positive because 
+        its the energy and thus \(-\frac{2m}{\hbar^2}\psi E \le -0\). Thus we will always get a complex root as example \(m^2 =-n\) will give complex roots for \(m\)  </p>
+    \[r^2 = -k^2\psi\]
+    \[r= k\sqrt{\psi(x)} i\]
+    <p>General solution should look like this. </p>
+    \[r = \alpha \pm \beta i\]
+    \[\psi (x) = e^{\alpha x}[c_1\cos(\beta x)+ c_2 \sin(\beta x)]\]
+    <p>We know that \(\alpha =0\) we know that \(\beta = k\)</p>
+    \[\psi  = e^{(0) x}[c_1\cos(k x)+ c_2 \sin(k x)]\]
+    \[\psi  = c_1\cos(k x)+ c_2 \sin(k x)\]
+    <p>Remember the boundary conditions? We have to take that into account in our general solution. </p>
+    \[ V(x) = \begin{cases} 
+    0, & 0\leq x \leq a \\
+  \infty, & otherwise  
+  \end{cases}
+  \]
+  \[\psi(0)=\psi(a)  = 0\]
+  <p>Thus the only way to satisfy this condition we need \(c_1 =0\)</p>
+  \[\psi  = c_1\cos(0)+ c_2 \sin(0)\]
+  \[0 =c_1(1)\]
+  <p>Now we have the following... We must make when \(x =a\) also \(\psi(a) = 0\)</p>
+  \[\psi(x)  = c_2 \sin(k x)\]
+  \[\psi(a)  = c_2 \sin(k a) = 0 \]
+  <p>In order for that to happen \(ka = \pi\), thus \(k=\frac{\pi}{a}\)</p>
+  <p><b>Problem</b> is since \(\sin(kx)\) is sinusoidal it will have the same value of 0 every \(\pi\) rotations correct?</p>
+  <p>To satisfy the condition this is true.. \(ka = \pi, 2\pi, 3\pi, 4\pi ...\) the negatives are the same deal. So we must use the following, for every \(n\) where 
+      \(n\in \mathbb{Z}\), \(k_n = \frac{n\pi}{a}\)
+  </p>
+  <p>If we determined the value of \(k\) we can then determine the value of \(E\) as follows ... </p>
+  \[E_n = \frac{\hbar^2 k_n^2}{2m} = \frac{n^2\pi^2 \hbar^2}{2ma^2}\]
+  <p>THUS  gives us the quantum interpretation of Energy! See? The total Energy is in individual chunks and cannot be broken down smaller than these individual chunks. </p>
+  <p>In the end here is the new solution we've built.</p>
+  \[\psi_n = \sqrt{\frac{2}{a}} \sin(\frac{n\pi}{a}x)\]
+  <p>The entire solution looks like this. Which like we promised before is an infinite solution with multiple solutions in which this case can be satisfied.  </p>
+  \[\psi(x) = \sum_{n=1}^\infty c_n\sqrt{\frac{2}{a}} \sin(\frac{n\pi}{a}x)\]
+  <h2>
+    Orthonormal Functions and Hilbert Spaces
+  </h2>
+  <p>Okay we haven't solved it just yet. Notice that the coefficent \(c_n\) has yet to be solved. So how do we tackle that? Introducing orthogonal functions. </p>
+  <p>The dot product of any two vectors can be seen as this.</p>
+  \[A \cdot B = a_1b_1+a_2b_2+a_3b_3 + .... +a_nb_n\]
+  <p>What if they were functions?</p>
+  \[f(x)\cdot g(x) = ? \]
+  <p>Well you just add up the multiplication of each small individual part of each function... Thus you get yourself this integral!!</p>
+  \[f(x)\cdot g(x) = \int f(x) \cdot g(x) dx \]
+  <p>If these functions are infact normal to each other then the functions should equal to 0. Assuming of course that \(f(x) \neq g(x) \)</p>
+  \[f(x)\cdot g(x) = \int f(x) \cdot g(x) dx =0\]
+  <p>These functions can be interpreted as vectors. These infinite dimensional vectors live in whats called the hilbert space!</p>
+  <h2>
+    Using Orthonormal Functions To Solve \(c_n\)
+  </h2>
+  <p>Notice how it collapses to 0. Now the trick is that our original function is also orthogonal. How can we tell?</p>
+  \[\psi_n(x)\cdot \psi_m(x) = \int \psi_n(x) \cdot \psi_m(x) dx = \int \frac{2}{a} \sin(\frac{n\pi}{a}x) \sin(\frac{m\pi}{a}x) =0\]
+  <p>I won't show you exactly that it is orthogonal but you can complete the rest of the integral by using the difference of compound angle identity of cosines and simplify your way down. </p>
+  <p>Now lets use our trick. We multiply and take the integral both sides. We multiply the right hand side by another function thats orthogonal which will give the same answer. Lets call it \(f(x)\) for now. </p>
+  \[\int \sum_{n=1}^\infty c_n \frac{2}{a}\sin(\frac{n\pi}{a}x) \sin(\frac{m\pi}{a}x)   = \int \sin(\frac{m\pi}{a}x) f(x)dx\]
+  <p>Move the integral inside. </p>
+  \[ \sum_{n=1}^\infty c_n \frac{2}{a}\int \sin(\frac{n\pi}{a}x) \sin(\frac{m\pi}{a}x)   = \int \sin(\frac{m\pi}{a}x) f(x)dx\]
+  <p>This will equal to 0 everywhere except for when its the same. \(m=n\) in which case the integral will equal to 1. We can replace \(m=n\)</p>
+  \[c_n = \int \sin(\frac{n\pi}{a}x) f(x)dx\]
+  <p>The trick to determine the actual \(f(x)\) value we get the original stationary state of </p>
+  \[c_n = \sqrt{\frac{2}{a}} \int_0^a \sin(\frac{n\pi}{a}x) \Psi(x,0) dx\]
+  <p>Thus we've solve the Schrodinger Equation for this problem. </p>
+  \[\Psi(x,t) = \sum_{n=1}^\infty c_n\sqrt{\frac{2}{a}} \sin(\frac{n\pi}{a}x) e^{\frac{-in^2\pi^2\hbar}{2ma^2}t}\]
+  
+</body>
+</html>
