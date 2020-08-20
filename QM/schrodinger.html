@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quantum Mechanics - Solving Schrodinger Equation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+       Solving Time-Independent Schrodinger Equation
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 20th 2020</h3>
+    <p>We previously eluded to the Schrodinger equation without actually solving 
+        what this equation is given a particular problem. What is this wave? How do we get \(\Psi(x,t)\) to begin with?
+    </p>
+      \[i\hbar \frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}+ V\Psi\]
+
+    <p>We assume that the potential given \(V(x,t)\) is independent of time \(t\) so how do we get back our \(\Psi\)? We use seperation of variables technique 
+        to tackle this partial differential equation. We assume the following. 
+    </p>
+    \[\Psi(x,t) = \psi(x)\phi(t)\]
+    <p>Now if we took the partial derivative in respect to \(x\) and then the partial derivative in respect to \(t\). Notice that since we seperated the variables 
+        one is left constant the other is inside the derivative. 
+    </p>
+    \[\frac{\partial }{\partial t}\Psi(x,t) = \psi(x)\frac{\partial \phi(t)}{\partial t}\]
+    \[\frac{\partial }{\partial x}\Psi(x,t) = \phi(t)\frac{\partial \psi(x) }{\partial x}\]
+    <p>We can say the same about the second order derivative. </p>
+    \[\frac{\partial^2 }{\partial t^2}\Psi(x,t) = \psi(x)\frac{\partial^2 \phi(t)}{\partial t^2}\]
+    \[\frac{\partial^2 }{\partial x^2}\Psi(x,t) = \phi(t)\frac{\partial^2 \psi(x) }{\partial x^2}\]
+    <p>Now we replace the original equation. </p>
+    \[i\hbar \frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}+ V\Psi\]
+    \[i\hbar  \psi(x)\frac{\partial \phi(t)}{\partial t} = -\frac{\hbar^2}{2m}\phi(t)\frac{\partial^2 \psi(x) }{\partial x^2}+ V \psi(x)\phi(t)\]
+    <p>We can divide through by \( \psi(x)\phi(t)\)</p>
+    \[i\hbar  \frac{1}{\phi}\frac{\partial \phi(t)}{\partial t} = -\frac{\hbar^2}{2m}\frac{1}{\psi}\frac{\partial^2 \psi(x) }{\partial x^2}+ V \]
+    <p><b>KEY:</b> The left and the right side vary by different variables. The only possibility for this equation to be equal is if these values are CONSTANTS. </p>
+    <p>Lets set them equal to a constant then. </p>
+    \[i\hbar  \frac{1}{\phi}\frac{\partial \phi(t)}{\partial t} = E \]
+    <p>We can simplify these by multiplying by \(\phi\) getting rid of the fraction. </p>
+    \[i\hbar  \frac{\partial \phi(t)}{\partial t} = \phi E \]
+    <p>On the other side we have this equation. </p>
+    \[-\frac{\hbar^2}{2m}\frac{1}{\psi}\frac{\partial^2 \psi(x) }{\partial x^2}+ V  = E \]
+    <p>We can simplify these by multiplying by \(\psi\) getting rid of the fraction. </p>
+    \[-\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x) }{\partial x^2}+ V\psi  = \psi E \]
+    <p>We've seperated the variables and turned the partial differential equations to just ordinary differential equations. The first equation is easy to solve. </p>
+    \[i\hbar  \frac{d \phi(t)}{d t} = \phi E \]
+    \[i\hbar \frac{1}{ \phi E }  d\phi=dt \]
+    <p>Integrate both sides</p>
+    \[ \frac{i\hbar }{E}\int \frac{1}{ \phi  }  d\phi= \int dt \]
+    \[ \frac{i\hbar }{E} \ln \phi +C = t + C\]
+    \[ \ln \phi  = \frac{E }{i\hbar} (t + C)\]
+    \[ \phi(t)  = e^{\frac{E }{i\hbar} (t + C)}\]
+    \[\phi(t)= e^{-i \frac{Et}{\hbar}} \]
+    <P>You can learn more about solving these kind of equations  <a href="https://petchma.github.io/Solutions/multivar_calc/diff_eq1.html">here</a></P>
+    <p>Now this is what we get. </p>
+    \[\Psi(x,t) =\psi(x)e^{-i \frac{Et}{\hbar}}\]
+    <p>Question now is how do we solve for \(\psi\)? <b>\(\psi\) is called the time independent Schordinger equation. </b></p>
+    <h2>Stationary States and Hamiltonian </h2>
+    <h3>
+        Stationary States
+    </h3>
+    <p>Notice that when we take the square of the wave function \(|\Psi(x,t)|^2\) the time component vanishes as you take the product of its complex conjugate. </p>
+    \[|\Psi(x,t)|^2 = \Psi^*\Psi = \psi(x)e^{-i \frac{Et}{\hbar}} \psi(x)e^{i \frac{Et}{\hbar}} = |\psi(x)|^2 \]
+    <p>The time dependence cancels in fact every expectation value is constant in time. </p>
+    <h3>
+        Hamiltonian
+    </h3>
+    <p>The hamiltonian is the total energy in a given state. In classical mechanics its the kinetic energy plus the potential energy. We can write the Hamiltonian as ...</p>
+    \[H(x,v) = \frac{mv^2}{2}+V(x)\]
+    \[H(x,v) = \frac{m^2v^2}{2m}+V(x)\]
+    \[H(x,p) = \frac{p^2}{2m}+V(x)\]
+    <p>We know that the momentum operator is \(i\hbar\frac{\partial}{\partial x}\)</p>
+    \[H(x,p) = \frac{(i\hbar\frac{\partial}{\partial x})^2}{2m}+V(x)\]
+    \[H(x,p) = \frac{-\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)\]
+    <p>This is called the Hamiltonian Operator. Notice that his is almost EXACTLY the time independent Schrodinger equation. </p>
+    <p>Thus the time independent Schrodinger equation is the Hamiltonian operator on the time independent Schrodinger equation. </p>
+    \[\hat{H} \psi = E \psi\]
+    <h2>
+        Infinite Solutions
+    </h2>
+    <p>I turns out that the time independent Schrodinger equation has an infinite amount of solutions, that depend on the initial conditions of the problem. 
+        The general solution is linear combination of seperable solutions. This is because the constant \(E\) has no restrictions so all you need to do is find the right constants.
+    </p>
+    \[\Psi(x,t) = \sum_{n=1}^\infty c_n \psi_n(x,t)e^{-iE_n t / \hbar}\]
+    <p>To solve for these constants which solves the time independent Schrodinger equation, it would be problem specific. We'll explore these.</p>
+
+</body>
+</html>
