@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quantum Mechanics - Quantum Harmonic Oscillator Problem</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Quantum Harmonic Oscillator Problem
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 21th 2020</h3>
+   <p>
+    We know from classical mechanic based on Hooke's law was definied by the following.
+   </p>
+\[F= -kx = m \frac{d^2x}{dt^2}\]
+<p>The function for \(x(t)= A \sin(\omega t)+ B \cos(\omega t)\) and that \(\omega = \sqrt{\frac{k}{m}}\)</p>
+<p>We also know the energy stored in the spring is the following potential...</p>
+\[V(x) = \frac{1}{2}kx^2\]
+<p><b>Problem: </b>We can't use this potential as the proper potential. There is no such thing as a perfect harmonic oscillator and so we approximate it with a taylor series expansion about the minimum.</p>
+  \[V(x) = (V(x_0) + V'(x_0)(x-x_0) + \frac{1}{2}V''(x_0)(x-x_0)^2+...\]
+  <p>We also have \(V'(x_0) = 0\) since \(x_0\) is a minimum and the derivative must be 0. We also know that the minimum \(V(x_0)\) and we can just add on later as a constant. </p>
+  <p>Lets only take the lower order terms. </p>
+  \[V(x) \approx \frac{1}{2}V''(x_0)(x-x_0)^2\]
+  <p>The quantum problem for the potential can be rewritten in the following.</p>
+  \[\omega = \sqrt{\frac{k}{m}}\]
+  \[\omega^2 m = k\]
+  \[V(x) = \frac{1}{2}m\omega^2x^2\]
+  <p>We then rewrite Schrodinger equation. </p>
+  \[-\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x) }{\partial x^2}+ V\psi  = \psi E\]
+  \[-\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x) }{\partial x^2}+  \frac{1}{2}m\omega^2x^2\psi  = \psi E\]
+  <p>We can see that this function is the exact same as the following with momentum operator. </p>
+  \[\frac{1}{2m}[-\hbar^2\frac{\partial^2 \psi(x) }{\partial x^2}+  m^2\omega^2x^2\psi ] = \psi E\]
+  \[\frac{1}{2m}[\hat{p}^2\psi+  m^2\omega^2x^2\psi ] = \psi E\]
+  <p>We also have the following after factoring \(\psi\) </p>
+  \[\frac{1}{2m}[\hat{p}^2+  m^2\omega^2x^2] =  E\]
+  <p>This is the Hamiltonian operator. </p>
+  \[\frac{1}{2m}[\hat{p}^2+  (m\omega x)^2] =  \hat{H}\]
+  <p>We want to try and factor the \(\hat{H}\) as a way to solve for this. Typically this would happen </p>
+  \[a^2+b^2 = (a+ib)(a-ib)\]
+  <p>We can try to factor our original Hamiltonian. Problem is the Operator \(\hat{p}\) is not communtative. \(\hat{p}x \neq x\hat{p}\) but I think we can try. </p>
+  \[\hat{a}_\pm = \frac{1}{\sqrt{2\hbar m \omega}}(\mp i \hat{p}+m\omega x)\]
+  <p>Okay now does this recreate our original hamotonian? Lets multiply it out. </p>
+  \[\hat{a}_-\hat{a}_+  = (\frac{1}{\sqrt{2\hbar m \omega}})^2(- i \hat{p}+m\omega x)( i \hat{p}+m\omega x)\]
+  \[\hat{a}_-\hat{a}_+  = \frac{1}{2\hbar m \omega}(\hat{p}^2 + (m\omega x)^2 - i m\omega(x\hat{p} -\hat{p}x ) )\]
+  <p>Okay so that didn't work out quite right... We have an extra \( x\hat{p} -\hat{p}x\)</p>
+  <p>Lets define the operation called the commutator. </p>
+  \[[\hat{A}, \hat{B}] =  \hat{A}\hat{B} -\hat{B}\hat{A}\]
+  <p>We can use the notation in the following form. </p>
+  \[\hat{a}_-\hat{a}_+  = \frac{1}{2\hbar m \omega}(\hat{p}^2 + (m\omega x)^2) -\frac{i}{2\hbar}[x, \hat{p}]\]
+<p>Okay so what the heck is the actual value of the commutator? Lets add a test function and try this out. </p>
+\[[x, \hat{p}] f(x) = [x (-i\hbar)\frac{d}{dx}f(x) - (-\hbar)\frac{d}{dx}xf(x)]\]
+<p>There's product rule in there. </p>
+\[[x, \hat{p}] f(x) = -i\hbar(x \frac{df}{dx} - x\frac{df}{dx}-f)\]
+\[[x, \hat{p}] f(x) = -i\hbar f(x)\]
+<p>We can drop the test function. </p>
+\[[x, \hat{p}] = -i\hbar\]
+<p>We can finally rewrite our hamiltonian as the following. </p>
+\[\hat{a}_-\hat{a}_+  = \frac{1}{\hbar \omega}\hat{H} + \frac{1}{2}\]
+\[\hat{H}   = {\hbar \omega}(\hat{a}_-\hat{a}_+ - \frac{1}{2})\]
+<p>Notice that if we were to flip the multiplication of the factors... we get something different. They're off by a small factor. </p>
+\[\hat{a}_-\hat{a}_+  = \frac{1}{\hbar \omega}\hat{H} - \frac{1}{2}\]
+\[\hat{H}   = {\hbar \omega}(\hat{a}_-\hat{a}_+ + \frac{1}{2})\]
+<p>If we wrote the new Schrodinger Equation we get the following. </p>
+\[\hbar \omega (\hat{a}_\pm\hat{a}_\mp \pm \frac{1}{2})\psi = E\psi\]
+<p>The trick here is you can use this to build different energies. \(\hat{a}_-\) can bring Energy down, and  \(\hat{a}_+\) helps bring the energy up. </p>
+\[ \frac{1}{\sqrt{2\hbar m \omega}}(\hbar \frac{d}{dx}+ m\omega x)\psi_0 = 0\]
+<p>We rearrange and multiply it into the bracket. </p>
+\[\frac{d \psi_0}{dx} = -\frac{m\omega}{\hbar}x\psi_0\]
+<p>This makes it super easy to now solve for \(\psi_0\)</p>
+\[\int \frac{1}{\psi_0} d \psi_0= -\frac{m\omega}{\hbar}\int x dx \]
+\[\in(\psi_0)= -\frac{m\omega}{\hbar}x^2 \]
+\[\psi_0= e^{-\frac{m\omega}{\hbar}x^2} \]
+<p>We also gotta normalize this.</p>
+\[1 = \int \psi_0 ^2 dx = |A|^2 \int  e^{-\frac{m\omega}{\hbar}x^2} dx\]
+<p>We get the following ... </p>
+\[\psi_0= (\frac{m \omega}{\pi \hbar})^{\frac{1}{4}}e^{-\frac{m\omega}{\hbar}x^2} \]
+<p>We can build any function \(\psi_n\) by multiplying \(\hat{a}_+^n\) with \(\psi_0\). This is the building from the ground state. </p>
+\[\psi_n = A_n \hat{a}_+^n\psi_0\]
+</body>
+</html>
