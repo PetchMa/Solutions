@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 1</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 1
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 22th 2020</h3>
+    <p>There are field axioms that we are supposed to use to make this rigourous. Here is a snippet of such axioms we're allowed to use. </p>
+    <div style="text-align: center;">
+        <img src="axiom_table.PNG">
+    </div>
+   <h3>
+       Theorem 1 - Uniqueness 
+   </h3>
+   <p>Prove the following: </p>
+   \[1,1' \in F, \quad \forall x \in F, \quad x \cdot 1 = x \quad and \quad x \cdot 1'=x \Rightarrow 1=1'\]
+<p>Given this problem we attack with what we trying to find and replace with assumptions. We do the trivial shit and manipulate it until it works. </p>
+\[1 = 1 \cdot 1' \quad Assumption \]
+\[1 = 1' \cdot 1  \quad M2 \]
+\[1 = 1' \cdot 1 \]
+<P>The reason why this works is because we've shown </P>
+<h3>
+    Theorem 2 - Uniqueness of Inverse
+</h3>
+<p>Prove the following: </p>
+\[Let \quad x, x^{-1}
+, y \in F. x · x^{−1} = 1 \quad and \quad x · y = 1 \Rightarrow x^{−1} = y\]
+<p>We start with what we know first. </p>
+\[ x^{−1}  =   x^{−1} \cdot 1 \quad identity\]
+\[x^{−1}  =  x^{−1} \cdot  (x · y)  \quad assumption\]
+\[x^{−1}  =  (x^{−1} \cdot  x) · y  \quad association\]
+\[x^{−1}  =  1 · y  \quad inverse\]
+\[ \therefore x^{−1}  =   y  \]
+<h3>
+    Theorem 3 - Canceling
+</h3>
+<p>Prove the following: </p>
+\[∀a, b, c ∈ F, a + b = a + c ⇒ b = c\]
+<p>We start with the end. We use the that and plug in assumptions and show how the assumptions lead to the correct answer that \(b=c\)</p>
+\[b = b+0 , \quad A3\]
+\[b = b+[(a+c)+(-(a+c))] , \quad A4 \]
+\[b = b+(a+c)+(-(a+c)) , \quad A1 \]
+\[b = b+a+c+(-(a+c)) , \quad A1 \]
+\[b = (b+a)c+(-(a+c)) , \quad A1 \]
+\[b = (a+c)+c+(-(a+c)) , \quad assumption \]
+\[b = c+((a+c)-(a+c)) , \quad A1 \]
+\[b = c+(0) , \quad A4 \]
+\[\therefore b = c\]
+<p>We start with the end and we slowly manipulate our way to the correct formulation. </p>
+<h3>
+    Theorem 4 
+</h3>
+<p>Prove the following: </p>
+\[∀a, b ∈ F, a · b = 0 ⇒ a = 0 \quad or \quad b = 0\]
+<p>Notice that this has 4 total cases since its an or operation. Truth tables. But we know that \(a\cdot b\) must equal to 0, in this situation, we just need to prove the contrary is false. 
+    Where \(a,b \neq 0, \quad  a\cdot b = 0\)
+</p>
+<p><b>Proof by Contradiction.</b> </p>
+<p>Assume that \(a,b \neq 0, \quad  a\cdot b = 0\)</p>
+\[ 0 = 0 \cdot b^{-1}, \quad assumption\]
+\[ 0 = (a\cdot b) \cdot b^{-1}, \quad assumption\]
+\[ 0 = a\cdot (b \cdot b^{-1}), \quad M1\]
+\[ 0 = a\cdot (1), \quad M1\]
+\[ 0 = a, \quad M4\]
+\[ 0 = a\]
+<p>This contradicts \(a\neq 0\) and thus the assumption is false.</p>
+<p>Since given \(a, b \neq 0, \quad a \cdot b \neq 0\) we know that \(a\cdot b = 0\) must be true. Then the only option left is that \(a\) or \(b\) equal to \(0\) that can result in \(ab=0\)</p>
+<p>We know that this possible since... [follow same steps as the proof above] that at least one variable must be \(0\) in order for this situation to be true.  </p>
+-------------------------------------------------------------------------------
+<h2>
+    Practice 1
+</h2>
+<p>Prove the following: </p>
+\[∀x ∈ F,(−(−x)) = x\]
+<p>Let \(A =(-(-x)) \). Thus if \((x -A) = 0 \Rightarrow A = x\)</p>
+\[A =A + 0, \quad A3 \]
+\[A =(-(-x)) + (x -A), \quad Assumption \]
+\[A =(A-A) + x , \quad A1 \]
+\[A =(0) + x , \quad A4 \]
+\[A = x+(0) , \quad A1 \]
+\[A = x , \quad A3 \]
+\[(−(−x)) = x \]
+<h2>
+    Practice 2
+</h2>
+<p>Prove the following: </p>
+\[∀x \neq 0 ∈ F,(x^{−1})^{-1} = x\]
+<p>Let \(K = x^{-1}\) to make it cleaner to write. </p>
+\[∀x \neq 0 ∈ F, K^{-1} = x\]
+<p>We start from the definition insert the assumptions and work to the bottom. </p>
+\[ K^{-1} =  K^{-1} \cdot 1 \quad M3\]
+\[ K^{-1} =  K^{-1} \cdot (x \cdot x^{-1}) \quad M3\]
+\[ K^{-1} =  K^{-1}\cdot x^{-1}  \cdot x \quad M1\]
+\[ K^{-1} =  K^{-1}\cdot K \cdot x \quad Assumption\]
+\[ K^{-1} =  K\cdot K^{-1} \cdot x \quad M1\]
+\[ K^{-1} = (1) \cdot x \quad M4\]
+\[ K^{-1} = x \quad M3\]
+\[ (x^{−1})^{-1} = x \quad M3\]
+-------------------------------------------------------------------------------
+<h3>
+    Sets - Diagonals
+</h3>
+<p>Prove the following: </p>
+\[A ∩ B ⊆ A ⊆ A ∪ B\]
+<p><b>Trick: Use definitions. And split into two parts.</b></p>
+<p><b>First Part.\((A ∩ B) ⊆ A\) </b></p>
+<p>Let \(x = (A\cap B) \) cool?</p>
+<p>We know that by definition \(A \cap B \) means that \(x \in A\) and \(x \in B\) at the same time. True? </p>
+<p>Thus for \(x\) to fulfill \(x = A \cap B \Rightarrow x\in A\) which suggests means \(x \subseteq A\). </p>
+<p>Thus \((A ∩ B) ⊆ A\) </p>
+<p><b>Second Part. \(A ⊆ (A ∪ B)\)</b></p>
+<P>Same deal. </P>
+<p>Let \(x \in A \) cool?</p>
+<p>We know that by definition \(A \cup B \) means that \(x \in A\) <b>or</b> \(x \in B\). True? </p>
+<p>Thus by definition we must have this be true that \(x \subseteq A \cup B \) because thats how its literally fucking defined lol. Because we already definied \(x \in A\) and the union set contains all of it. 
+
+</p>
+\[\therefore (A ∩ B) ⊆ A ⊆ (A ∪ B) \quad true \]
+\[\]
+</body>
+</html>
