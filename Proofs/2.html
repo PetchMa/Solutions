@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 2
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 23th 2020</h3>
+   
+    
+   <h2>
+       Rational Numbers Proof
+   </h2>
+   <p>Prove the following that \(\sqrt{3}\) is not rational.</p>
+   <p><b>Proof By Contradiction. </b></p>
+   <p>If \(\sqrt{3}\) is rational then we can rewrite \(\sqrt{3}\) in fractional form in lowest form such that \(\sqrt{3} = \frac{p}{q}\) such that \(p\) and \(q\) are prime. Now
+       lets try rearranging the equation. 
+   </p>
+   \[\sqrt{3} = \frac{p}{q}\]
+   \[q\sqrt{3} = p\]
+   \[3q^2 = p^2\]
+   <p>From this equation it would appear that \(p^2\) is divisible by 3. And thus \(3|p^2\) But since we know that \(p\) is relatively prime to \(q\) we know that \(3|p\) as well.
+    </p>
+    <p>We might as well rewrite \(p = 3n\) we can rewrite the equation again.</p>
+    \[q\sqrt{3} = 3n\]
+    \[3q^2 = 9n^2\]
+    \[q^2 = 3n^2\]
+    <p>From this equation it would appear that \(q^2\) is divisible by 3. And thus \(3|q^2\) But since we know that \(q\) is relatively prime to \(p\) we know that \(3|q\) as well.
+    <i>Both \(p\) and \(q\) have the same factor. </i>
+    </p>
+    <p><B>Contradiction: </B> we assumed that \(p,q\) are relatively prime meaning they had no common factors. But clearly we've shown that its not possible to write 
+    the value of \(\sqrt{3}\) in lowest fractional form. Thus \(\sqrt{3}\) is not rational.</p>
+    <h2>
+        Infimum & Supremum Proof
+    </h2>   
+    \[S = \{\frac{ n−1}{n}| n ∈ \mathbb{N} \} ⊆ \mathbb{Q}.\]
+    <p><b>Infimum</b></p>
+    <p>We can test for the greatest lower bound by taking the limit of set  \(S\). We know the lower bound of natural numbers \(\mathbb{N}\) is 1. We also know that the derivative of the function defined by
+      \(f(n) =  \frac{ n−1}{n}\) is the following.  
+    </p>
+    \[f'(n) = \frac{d}{dn}\frac{ n−1}{n} = \frac{1}{n^2} \]
+    <p>Since the function \(f(n)\) that creates the set \(S\) is always increasing, on the open set \(n ∈ \mathbb{N}\), we know then that the least value of the set \(S\) is also the smallest
+        value of \(n \in \mathbb{N}\). Thus we test the extreme value here.  
+    </p>
+    \[\lim_{n \rightarrow 1} \frac{ n−1}{n} = 0\]
+    <p>There is a greatest lower bound because the set \(S\) contains a global minimum which is a \(\subseteq \mathbb{Q}\). </p>
+    <p><b>Supremum</b></p>
+    <p>We know that the set of all natural numbers has no greatest value. We know that the elements of set \(S\) is mapped by the function \(f(n) =  \frac{ n−1}{n}\) is always increase along the same interval.
+        This suggests that the set \(S\) can always take on a larger and larger element. This contradicts the definition of a Supremum and thus there is no least upper bound.   </p>
+        <p>We know that </p>
+        \[\lim_{n \rightarrow \infty} \frac{ n−1}{n} = 1\]
+        <p>But we also know that\( \frac{ n−1}{n} \neq 1\) as it can approach but never equal. Thus there can always be a number between  \(1\) and the maximal element in which it will supercede the maximal element of the set \(S\)</p>
+        
+    <p>There is no least upper bound because the set of all natural numbers has no maximum. This suggests that the set \(S\) can always have an infinitly larger 
+        maximal element since the function \(f(n) =  \frac{ n−1}{n}\) is always increase along the same interval. </p>
+    <h2>
+        Infimum & Supremum Problem 2
+    </h2>
+    \[Let \quad S = \{x ∈ \mathbb{Q} | x < \sqrt{2}\}\]
+    <h3>
+        a) Show that S is not bounded above in \(S\)
+    </h3>
+    <p>
+        We need to show that there cannot exist a maximal element. Which is that \(x_1 \in S\) and there always exists an \(x_2 \in S\) where \(x_2 > x_1\).
+    </p>
+    <p>We know that \(x_1 \in S\) that  \(x_1 > \sqrt{2}\) because the set \(S \in \mathbb{Q}\) and \(\sqrt{2}\) is not a rational number. 
+        But by the density of rational number says you can always "squeeze" in a rational number between two real numbers. More rigourously said as \(a,b\in \mathbb{R}\) there \(\exists c \in \mathbb{Q}\) where 
+        \(a< c < b \). Thus we know the following \(x_1<\sqrt{2}\) we also know \(\exists x_2 \in \mathbb{Q}\) such that \(x_1< x_2<\sqrt{2}\). Thus we've proved that there can always be a value greater than its maximal element.
+    </p>
+    <h3>
+        b) show that S is bounded above in \( \mathbb{Q} \)
+    </h3>
+    <p>We need to show that there exists a rational number thats greater than the maximal element in the set to show it is bounded in the above limit.</p>
+    <p>
+        <b>Contradiction: </b>We know that the set \(S\) is bounded by \(x < \sqrt{2}\) and we know that any rational number such as \(24 \in \mathbb{Q}\). Since the number \(24 > \sqrt{2}\) 
+        proves the existence of a number that's greater than the maximal element of set \(S\) which suggests that \(S\) is bounded by a greater set in \(\mathbb{Q}\) 
+    </p>
+    <h3>
+        c) show that S is bounded above in \( \mathbb{R} \)
+    </h3>
+    <p>We do the same thing, we need to show that there exists a real number thats greater than the maximal element in the set to show it is bounded in the above limit.</p>
+    <p>
+        <b>Contradiction: </b>We know that the set \(S\) is bounded by \(x < \sqrt{2}\) and we know that any rational number such as \(3.15 \in \mathbb{R}\). Since the number \(3.15 > \sqrt{2}\) 
+        proves the existence of a number that's greater than the maximal element of set \(S\) which suggests that \(S\) is bounded by a greater set in \(\mathbb{R}\) 
+    </p>
+    <h3>
+        d) show that S does not have a supremum in \( \mathbb{Q} \)
+    </h3>
+    <p>We use the same technique in part A</p>
+    <p>In order for there to be a supremum there must exist one value that is the least upper bound of the set \(S\). Let \(x \in \mathbb{S}\) be the maximal element in 
+        the set. We know by the definition that \(x < \sqrt{2}\). We know from density of rationals that for every real number (a,b\in \mathbb{R}\) there \(\exists c \in \mathbb{Q}\) where 
+        \(a< c < b \). This suggests that \(x< c < \sqrt{2}\). Since \(c \in \mathbb{Q}, c<\sqrt{2}, \quad c\in \mathbb{s}\). We previously set \(x\) as the maximal element but we've clearly shown there can always exists 
+        some \(c\) in which it fits within the set \(S\) thats also greater than the maximal element contradicting the existence of a supremum. 
+    </p>
+</body>
+</html>
