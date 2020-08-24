@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 3</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 3
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 24th 2020</h3>
+   
+    
+   <h2>
+      Arbitrary Intersection Proof
+   </h2>
+   <P>Prove the following. </P>
+   \[\bigcap_{k \in \mathbb{N}} (\frac{-1}{k}, \frac{1}{k})=\{0\}\]
+   <p>Make this easier we can draw a picture. </p>
+   <div style="text-align: center;">
+       <img src="intersect.PNG" style="height: 200px;">
+    </div>
+    <p><b>Direct Proof: </b></p>
+    
+ 
+   <p>Firstly we know that \(\forall k \in \mathbb{N}, \quad k>0\ \Rightarrow \{\frac{-1}{k} < 0 ,  \frac{1}{k} >0 \}\). Thus the element \({0}\) is always contained 
+in the interval defined by \(\forall k \in \mathbb{N}, (\frac{-1}{k}, \frac{1}{k})\). We don't need to worry about \(0\) now.</p>
+
+<p>Secondly, let \(x\) be some positive real number. We know from theorem of reciprocals we can always fit some number \(\frac{1}{n}\) in between the interval 
+    \(0 < \frac{1}{n} < x\). We can say the same about negatives \(0 > \frac{1}{n} > -x\). If we said that \(k\geq |n|\) then \(x	\notin (\frac{-1}{k}, \frac{1}{k})\)
+    since \(\frac{1}{k} < x\) and \(\frac{-1}{k} > -x\) which always excludes \(x\) from the set. 
+</p>
+<P>Thus its shown that you can always construct a \(k\) such that it will eventually exclude out every number between \((-1,1)\) except for \(0\). Thus the intersection is \(\{0\}\)</P>
+
+<h2>
+    Second Arbitrary Intersection Proof
+ </h2>
+ <P>Prove the following. </P>
+ \[\bigcap_{k \in \mathbb{N}} (0, \frac{1}{k})=\{\varnothing \}\]
+ <p><b>Direct Proof: [same method as before.]</b></p>
+ <p>
+     We let \(\bigcap_{k \in \mathbb{N}} (0, \frac{1}{k})= S\). Let \(x\) be some real number.
+</p>
+<p>We know that if \(x \leq 0, x	\notin S\) since the interval for the sets are defined to be greater than 0. Thus \(x > 0\). </p>
+<p>We also know for \(x\) we can have a number \(\frac{1}{n}\) such that \(0< \frac{1}{n} < x, x\neq 0\). We can always "squish" another value in between 
+the bounds. Lets define \(k\geq n\) on the interval \((0, \frac{1}{k})	\). Notice that \(x	\notin (0, \frac{1}{k})\) since \(\frac{1}{k} \leq \frac{1}{n} < x \Rightarrow \frac{1}{k} < x \). Thus \(x\) is out of the bounds. 
+</p>
+<p>Since we can always construct an interval  \((0, \frac{1}{k})\) such that it excludes \(x\) we can conclude that it will continue to exclude all the values found in the first set \((0,1)\).
+    Thus the intersection is the \(\{\varnothing \}\) </p>
+</body>
+</html>
