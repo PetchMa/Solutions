@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 4</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 4
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 24th 2020</h3>
+   
+    <h2>
+        Formal Logic 
+    </h2>
+    <p>Consider the following</p>
+    \[\exists M \in \mathbb{R}, \quad N \in \mathbb{N}: \forall x \in \mathbb{R}, x > N \Rightarrow f(x) \leq M\]
+    <h3>
+        Find a function that satisfy the following logic. 
+    </h3>
+    <p>We can translate this logic into English which says: <i>There exists, \(M\) (real) and \(N\) (natural) in which for all 
+        real x values that are less then \(N\) the function never surpasses the value \(M\). 
+    </i> What we're describing here is the following graphically.  </p>
+    <div style="text-align: center;">
+        <img src="intervals.PNG">
+    </div>
+    <p>Any function that fits under that interval constraint would satisfy the logic. Infact \(f(x) = -x\) would simply do. In this case we can pick \(f(x) = \frac{1}{x}\)</p>
+    <h3>
+        Prove that it satisfies the following logic. 
+    </h3>
+    <p>The logic says there <b>Exists </b> a case where this is true. Thus to prove its existence we just need to show a case where this function satisfies the logic.
+    Produce a \(M \) and \(N\).</p>
+    <p>Let \(M = 1\), \(N = 2\). \(f(x) = \frac{1}{x}\)</p>
+    <p>We know that for the case \(N =2, f(2) = \frac{1}{2}\) which satisfies \(f(N) \leq M\)</p>
+    <p>We can prove that the function  \(f(x) = \frac{1}{x}\) is always decreasing along the interval \(x > N\) with the following proof.</p>
+    <p>\(\forall k \in \mathbb{R}, k>0, (\frac{1}{x+k}-\frac{1}{x}) < 0 , \Rightarrow f(x)\) is decreasing. </p>
+    \[\frac{1}{x+k}-\frac{1}{x} = \frac{x - (x+k)}{x(x+k)} \]
+    \[\frac{1}{x+k}-\frac{1}{x} = \frac{-k}{x(x+k)} \]
+    <p>We know that \(x > N \) which \(x > 2\) is always positive. We know that \( k>0\) thus it is evident that \(\frac{1}{x+k}-\frac{1}{x} < 0\) which implies that the function is always decreasing. 
+    along this interval. </p>
+    <p>
+        Since the function is decreasing along this interval the maximal value it can take would be the smallest value \(x\) can take on. Which we know is \(< M\). Since there is no value that can surpass 
+        this maximal value (as the function is always decreasing) we can conclude that the condition \(f(x) \leq M\) is thus satisfied. 
+
+    </p>
+    <p>\(\therefore \) We've proven the existence of such values \(M \) and \(N\) that satisfy the conditions. Thus \(f(x)\) satisfies the logic. </p>
+    <h3>
+        What is the negation of the statement?
+    </h3>
+    <p>We move in as we negate each statement.</p>
+    \[\neg(\exists M \in \mathbb{R}, \quad N \in \mathbb{N}: \forall x \in \mathbb{R}, x > N \Rightarrow f(x) \leq M)\]
+    \[= \forall M \in \mathbb{R}, \quad N \in \mathbb{N} \neg( \forall x \in \mathbb{R}, x > N \Rightarrow f(x) \leq M)\]
+    \[= \forall M \in \mathbb{R}, \quad N \in \mathbb{N}: \exists x \in \mathbb{R}, (x > N) \wedge (f(x) > M)\]
+    <p>In English this means: <i>There exists a real number \(x\) such that its \(> \) any natural number \(N\) and \(f(x) > \) any real number \(M\)</i></p>
+    <h3>
+        What is a function that satisfy the negation statement?
+    </h3>
+    <p>We know that it needs to be bigger than any value \(M\) correct? How do we make sure the function is greater than \(M\)? We add a positive number to it. 
+        Thus our function could look like \(f(x) = |x| + M\). We know that \(N\in \mathbb{N}\) so \(x\) is always positive. \(f(x) = x + M\)
+    </p>
+    <h3>
+        Prove it.
+    </h3>
+    <p><b>Proof by contradiction.</b> </p>
+    <p>Assume that \(f(x) \leq M\) when \(x > N\). </p>
+    <p>If the above were true then, \(f(x) - M \leq 0 \) when \(x > N\)</p>
+    \[f(x) - M = (x+m) - M\]
+    \[f(x) - M = x\]
+    <p>For \(f(x) - M \leq 0 \Rightarrow x < 0 \). <B>Contradiction: </B> since we defined \(x > N\) where \(N \in \mathbb{N}\) 
+    by definition, \(N > 0 \Rightarrow x > 0\). Thus it is impossible for \(f(x) \leq M\) when \(x > N\).</p>
+    <h2>
+        Negation Practice.
+    </h2>
+    <p> Negate the following examples. </p>
+    <h4>
+        1- The cow says moo
+    </h4>
+    <p>Simple we just flip it: "The cow doesn't say moo"</p>
+    <h4>
+        2- Every cow wears a fancy bell
+    </h4>
+    <p>We need to contradict this by saying: "there exists a cow that doesn't wear a fancy bell"</p>
+    <h4>
+        3- There is a barn in which every cow is very rectangular
+    </h4>
+    <p>Simple:  "There is a barn in which theres a cow that isn't very rectangular"</p>
+    <h4>
+        4- For any cow, there is an older cow.
+    </h4>
+    <p>We negate the "for any statement" by saying "there exists a cow there is no older cow"</p>
+    <h4>
+        5- Every odd numbered cow is female.
+    </h4>
+    <p>We negat the "for any statement" by saying "there exists an odd numbered cow thats male"</p>
+<p>Remember that \(\neg(\forall \{condition\}) = \exists \neg\{condition\}\)</p>
+<h2>
+    Logic Operations
+</h2>
+<h3>Converse:</h3>
+<P>The converse of the statement \(A ⇒ B\) is the statement \(B ⇒ A\)</P>
+<h3>Contrapositive:</h3>
+<P>The contrapositive of the statement \(A ⇒ B\) is the statement \(\neg B ⇒ \neg A\). We flip and negative. </P>
+<h3>Implies argument: \(A \Rightarrow B\)</h3>
+<p>If our hypothesis is TRUE AND the conclusion is TRUE. We should get TRUE. </p>
+<p>If our hypothesis is TRUE AND the conclusion is FALSE. We should get False. </p>
+<p>If our hypothesis is FALSE AND the conclusion is TRUE. We can't say its actually false because our assumption was already false. 
+    Thus we say this is technically true because its not exactly wrong... </p>
+    <p>If our hypothesis is FALSE AND the conclusion is FALSE. We can't say its actually false because our assumption was already false. 
+        Thus we say this is technically true because its not exactly wrong... </p>
+</body>
+</html>
