@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 5</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 5
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 26th 2020</h3>
+   
+    
+   <h2>
+      Proofs By Induction
+   </h2>
+   <h3>
+    Problem 1
+ </h3>
+   <P>Prove the following. </P>
+   \[\sum_{k=1}^{n}\frac{1}{k(k+1)} = \frac{n}{n+1}\]
+   <p>Proof by induction goes the following: Prove the base case is true. Assume the general case is true, and then prove that the general case + 1 is true. 
+       Thus by induction you can prove the entire chain up untill the general case is true. 
+   </p>
+   <p>Let \(S(n) = \sum_{k=1}^{n}\frac{1}{k(k+1)}\) and let \(S'(n) = \frac{n}{n+1}\). Prove that \(S(n)=S'(n)\)</p>
+   <h4>
+      1- Base Case where \(n=1\)
+   </h4>
+   <p>We prove that \(S'(1) = S(1)\). If that were true, then \(S(n)-S'(n) = 0\)</p>
+   \[S(n)-S'(n) = [\sum_{k=1}^{n}\frac{1}{k(k+1)}] - \frac{n}{n+1} = \]
+   \[= \frac{1}{1(1+1)} - \frac{1}{1+1}\]
+   \[= 0\]
+   \[\therefore S(1) = S'(1)\]
+   <h4>
+    2- Assume General Case Is True.
+    </h4>
+    <p>We assume that the following case is true for \(n\)</p>
+    \[S(n) = \sum_{k=1}^{n}\frac{1}{k(k+1)} = \frac{n}{n+1} = S'(n)\]
+    <h4>
+        3- Prove That Every Sequential \(n+1\) is also true. 
+    </h4>
+    <p>If \(S(n+1) - S'(n+1) = 0\) then \(S(n+1) = S'(n+1)\)   </p>
+    \[S(n+1) - S'(n+1) = [\sum_{k=1}^{n+1}\frac{1}{k(k+1)}] - \frac{n+1}{n+2}\]
+    <p>We know that the series \(S(n+1) = S(n) +\frac{1}{(n+1)((n+1)+1)} \) correct?</p>
+    \[S(n+1) - S'(n+1) = [S(n) +\frac{1}{(n+1)((n+1)+1)} ] - \frac{n+1}{n+2}\]
+    <p>We've already assumed that \(S(n) = S'(n) = \frac{n}{n+1} \)</p>
+    \[S(n+1) - S'(n+1) = [\frac{n}{n+1} +\frac{1}{(n+1)(n+2)} ] - \frac{n+1}{n+2}\]
+    \[S(n+1) - S'(n+1) = [\frac{n(n+1)(n+2)}{(n+1)(n+1)(n+2)} +\frac{n+1}{(n+1)(n+1)(n+2)} ] - \frac{n+1}{n+2}\]
+    \[S(n+1) - S'(n+1) = [\frac{n(n+1)(n+2) + (n+1)}{(n+1)^2(n+2)} ] - \frac{n+1}{n+2}\]
+    \[S(n+1) - S'(n+1) = [\frac{n(n+2) + 1}{(n+1)(n+2)} ] - \frac{n+1}{n+2}\]
+    \[S(n+1) - S'(n+1) = [\frac{n^2+2n+ 1}{(n+1)(n+2)} ] - \frac{n+1}{n+2}\]
+    \[S(n+1) - S'(n+1) = [\frac{(n+1)^2}{(n+1)(n+2)} ] - \frac{n+1}{n+2}\]
+    \[S(n+1) - S'(n+1) = [\frac{(n+1)}{(n+2)} ] - \frac{n+1}{n+2}\]
+    \[S(n+1) - S'(n+1) = 0\]
+    \[\therefore S(n+1) = S'(n+1) \]
+    <p><b>Thus by induction we have proven that \(\sum_{k=1}^{n}\frac{1}{k(k+1)} = \frac{n}{n+1}\). </b></p>
+    <p>The reason why this works is because, although we've assumed the general case \(n\) works. We've proven that every successive term afterwards is true if the general case is true. 
+        But since we've proven that the base case works, we can replace the general case with the base case and say that since \(n=1\) works, we know then that the next case \(n=2\)
+        would also work. And since we've proven that \(n=2\) works we can say \(n=3\) also works .... and so on and so forth all the way up until \(n\). 
+    </p>
+    <h3>
+        Problem 2
+    </h3>
+    <P>Prove that the function \(n^2+3n+2\) where \(n \in \mathbb{N}\) is always even.</P>
+    <p><b>Proof by Induction.</b></p>
+    <P>Let \(p(n) = n^2+3n+2\)</P>
+    <h4>
+        1- Base Case where \(n=1\)
+     </h4>
+     <p>We can show the base case is even and thus true.</p>
+     \(p(1) = 1^2+3(1)+2 = 6\)
+     <h4>
+    2- Assume General Case Is True.
+    </h4>
+    <p>We assume that the following case is true for \(n\), that \(p(n)\) is even.</p>
+    \[p(n) = n^2+3n+2\]
+    <h4>
+        3- Prove That Every Sequential \(n+1\) is also true. 
+    </h4>
+    <p>We can subsitute.</p>
+    \[p(n+1) = (n+1)^2+3(n+1)+2\]
+    \[p(n+1) = n^2+2n+1+3n+3+2\]
+     \[p(n+1) = n^2+5n+6\]
+     \[p(n+1) = (n+2)(n+3)\]
+     <p>Since \(p(n) = n^2+3n+2 = (n+2)(n+1)\) is even. We know that either \((n+2)\) or \((n+1)\) must be even. </p>
+     <p>Case where \((n+2)\) is even, then \(p(n+1)\) must also be even since its a common factor. </p>
+     <p>Case where \((n+1)\) is even, then \(p(n+1)\) must also be even since the factor \((n+3) = (n+1)+2\) and if 
+        \((n+1)\) is even then so is \((n+1)+2 \Rightarrow (n+3)\) is also even. Thus \(p(n+1)\) is even.  </p>
+    <p><b>Thus by induction we have proven that \(p(n)\) is always even. </b></p>
+    <h3>
+        Problem 3
+    </h3>
+    <p>Prove the following: </p>
+    \[\sum_{k=1}^{n}k^2 = \frac{1}{6}n(n+1)(2n+1) \]
+    <p>Let \(S(n) = \sum_{k=1}^{n}k^2\) and let \(S'(n) = \frac{1}{6}n(n+1)(2n+1)\). Prove that \(S(n)=S'(n)\)</p>
+    <h4>
+        1- Base Case where \(n=1\)
+    </h4>
+    <p>If \(S(1)-S'(1) = 0\) then \(S(1) = S'(1) \)</p>
+    \[S(1)-S'(1)=[\sum_{k=1}^{n}k^2] - \frac{1}{6}n(n+1)(2n+1)  \]
+    \[= 1^2 -\frac{6}{6}\]
+    \[= 0 \]
+    \[\therefore S(1)=S'(1)\]
+    <p>The base case is true.</p>
+    <h4>
+    2- Assume General Case Is True.
+    </h4>
+    <p>We assume that the following case is true for \(n\)</p>
+    \[S(n) = \sum_{k=1}^{n}k^2 = \frac{1}{6}n(n+1)(2n+1) \]
+    <h4>
+        3- Prove That Every Sequential \(n+1\) is also true. 
+    </h4>
+    <p>If \(S(n+1)-S'(n+1) = 0\) then \(S(n+1) = S'(n+1) \). We can sub the values in. </p>
+    \[S(n+1)-S'(n+1)=[\sum_{k=1}^{n+1}k^2] - \frac{1}{6}(n+1)(n+2)(2n+3)  \]
+    <p>We know that the series \(S(n+1) = S(n) +(n+1)^2 \) correct?</p>
+    \[S(n+1)-S'(n+1)=S(n) +(n+1)^2 - \frac{1}{6}(n+1)(n+2)(2n+3)  \]
+    <p>We already assumed that \(S(n) = \frac{1}{6}n(n+1)(2n+1)\) </p>
+    \[S(n+1)-S'(n+1)=\frac{1}{6}n(n+1)(2n+1) +(n+1)^2 - \frac{1}{6}(n+1)(n+2)(2n+3)  \]
+    \[S(n+1)-S'(n+1)=\frac{1}{6}n(n+1)(2n+1) +(n+1)^2 - \frac{1}{6}( 2 n^3 +  9 n^2 + 13 n +6 )  \]
+    \[S(n+1)-S'(n+1)=\frac{1}{6}(2 n^3+ 3n^2 + n  ) +(n^2+2n+1) - \frac{1}{6}( 2 n^3 +  9 n^2 + 13 n +6 )  \]
+    \[S(n+1)-S'(n+1)=\frac{1}{6}(2 n^3+ 3n^2 + n  ) + \frac{1}{6}(6n^2+12n+6) - \frac{1}{6}( 2 n^3 +  9 n^2 + 13 n +6 )  \]
+    \[S(n+1)-S'(n+1)=\frac{1}{6}(2 n^3 +  9 n^2 + 13 n +6 )  - \frac{1}{6}( 2 n^3 +  9 n^2 + 13 n +6 )  \]
+    \[S(n+1)-S'(n+1)=0  \]
+    \[\therefore S(n)=S'(n)\]
+    <p><b>Thus by induction we have proven that \(\sum_{k=1}^{n}k^2 = \frac{1}{6}n(n+1)(2n+1)\). </b></p>
+</body>
+</html>
