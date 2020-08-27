@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 6</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 6
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 27th 2020</h3>
+   
+    
+   <h2>
+      Functions
+   </h2>
+   <h3>
+    Problem 1
+ </h3>
+ <p><b>Prove: that the composition of two decreasing functions is increasing.</b></p>
+ <p>Let \(f: X \rightarrow Y\) and \(x_1 \leq x_2 \Rightarrow f(x_1) \geq f(x_2)\). This means that for every \(y\) greater than \(x\) the function value \(f(y)\)is less
+     than \(f(x)\). Thus \(f(x)\) is decreasing. 
+ </p>
+ <p>Let \(g: Y \rightarrow Z\) and \(y_1 \leq y_2 \Rightarrow g(y_1) \geq g(y_2)\). 
+</p>
+<p>We define the composite function as \(g(f(x))\).
+</p>
+<p>
+    We know that by definition that \(x_1 \leq x_2 \Rightarrow f(x_1) \geq f(x_2)\). We know that then the relationship 
+    \(f(x_2) \leq f(x_1) \Rightarrow  g(f(x_2)) \geq g(f(x_1))\) by definition of a decreasing function. 
+</p>
+<p>Since we definied that \(x_1 \leq x_2 \) we know then that \( g(f(x_1)) \leq g(f(x_2)) \) which is the definition of an increasing function.</p>
+<h3>
+    Problem 2
+ </h3>
+ <p><b>Prove: the composition of a decreasing function with an increasing function is decreasing (regardless
+    of order)</b></p>
+    <p>Let \(f: X \rightarrow Y\) and \(x_1 \leq x_2 \Rightarrow f(x_1) \leq f(x_2)\). This means that for every \(y\) greater than \(x\) the function value \(f(y)\)is greater
+        than \(f(x)\). Thus \(f(x)\) is increasing. 
+    </p>
+    <p>Let \(g: Y \rightarrow Z\) and \(y_1 \leq y_2 \Rightarrow g(y_1) \geq g(y_2)\). Decreasing function. 
+   </p>
+   <p>We define the composite function as \(g(f(x))\).
+   </p>
+   <p>By definition, \(x_1 \leq x_2 \Rightarrow f(x_1) \leq f(x_2)\) and thus by the second definition \(f(x_1) \leq f(x_2) \Rightarrow g(f(x_1)) \geq g(f(x_2))\)
+       Thus we shown that \(x_1 \leq x_2  \Rightarrow g(f(x_1)) \geq g(f(x_2))\) which means its a decreasing function. 
+   </p>
+   <p>Similarly if we were to flip the order... </p>
+   <p>By definition, \(x_1 \leq x_2 \Rightarrow g(x_1) \geq g(x_2)\) and thus by the second definition \(g(x_2) \geq g(x_1) \Rightarrow f(g(x_2)) \leq f(g(x_1))\)
+    Thus we shown that \(x_1 \leq x_2  \Rightarrow g(f(x_1)) \geq g (f(x_2))\) which means its a decreasing function. 
+</p>
+<h3>
+    Problem 3
+ </h3>
+ <p><b>Prove: the composition of an increasing function with a strictly increasing function is increasing
+    (regardless of order)</b></p>
+
+    <p>Let \(f: X \rightarrow Y\) and \(x_1 \leq x_2 \Rightarrow f(x_1) \leq f(x_2)\)). This means that for every \(x_2\) greater than \(x_1\) the function value \(f(x_2)\)is greater
+        than \(f(x_1)\). Thus \(f\) is increasing. 
+    </p>
+    <p>Let \(g: Y \rightarrow Z\) and \(y_1 \leq y_2 \Rightarrow g(y_1) \leq g(y_2)\). 
+   </p>
+   <p>We define the composite function as \(g(f(x))\).
+   </p>
+   <p>
+       We know that by definition that \(x_1 \leq x_2 \Rightarrow f(x_1) \leq f(x_2)\). We know that then the relationship 
+       \(f(x_1) \leq f(x_2) \Rightarrow  g(f(x_1)) \leq g(f(x_2))\) by definition of a increasing function. 
+   </p>
+   <p>Since we definied that \(x_1 \leq x_2 \) we know then that \( g(f(x_1)) \leq g(f(x_2)) \) which is the definition of an increasing function.</p>
+   <h3>
+    Problem 4
+ </h3>
+ <p><b>Prove: Prove that if \(f\) is both increasing and decreasing then \(f\) is a constant function.</b></p>
+<p>Define \(f\) as decreasing first. </p>
+<p>Let \(f: X \rightarrow Y\) and \(x_1 \leq x_2 \Rightarrow f(x_1) \geq f(x_2)\). 
+</p>
+<p>Define \(f\) as increasing. </p>
+<p>Let \(f: X \rightarrow Y\) and \(x_1 \leq x_2 \Rightarrow f(x_1) \leq f(x_2)\). </p>
+<p>The only case where \(f(x_1) \geq f(x_2)\) and \(f(x_1) \leq f(x_2)\) to be both satisfied is when \(f(x_1) = f(x_2)\)</p>
+<p>Thus we define \(f\) as \(x_1 \leq x_2 \Rightarrow f(x_1) = f(x_2)\) which is the definition of a constant function. </p>
+<h3>
+    Problem 5
+ </h3>
+ <p><b>Prove that \(f : \mathbb{R} → \mathbb{R}, f(x) = -x\) is strictly decreasing</b></p>
+ <p>If \(x_1 < x_2 \Rightarrow f(x_1) > f(x_2)\) then \(f\) is strictly decreasing </p>
+ <p>Assuming that \(x_1 < x_2\) we know that \(f(x_1) = -x_1\) and \(f(x_2) = -x_2\). </p>
+ <p>We know then based on the assumption that  \(x_1 < x_2\) then \(-x_1 > -x_2 \Rightarrow f(x_1) > f(x_2) \)</p>
+ <p>Thus \(x_1 < x_2 \Rightarrow f(x_1) > f(x_2)\) which means its strictly decreasing. </p>
+ <h3>
+    Problem 6 
+ </h3>
+ <p>
+    For each of the following functions check to see if it is injective or surjective. If it is
+    both, compute the inverse (be sure to specify the domain and codomain of the inverse):
+ </p>
+ <p><b>Injective:</b></p>
+ <p>This is equivalent to saying that any horizontal line intersects the graph of f at most once.</p>
+ <p>Defined that \(f(x) =f(y) \Rightarrow x = y\)</p>
+ <p><b>Surjective:</b></p>
+ <p>This is equivalent to saying that any horizontal line intersects the graph of f at least once.</p>
+ <p>Defined that \(∀y ∈ Y, ∃x ∈ X : f(x) = Y\)</p>
+ <p><b>Bijective:</b></p>
+ <p>Bijective if and only if it is both injective and surjective.This is equivalent to saying that any horizontal line intersects the graph of f exactly once.</p>
+ <h4>
+     \(f : \mathbb{R} → \mathbb{R}, f(x) = 2x + 1\)
+ </h4>
+ <p>Injective: True</p>
+ <p>Defined that \(f(x) =f(y) \Rightarrow x = y\)</p>
+ \[f(x_1) = 2x_1+1, \quad f(x_2) = 2x_2+1, \quad f(x_1)=f(x_2) \Rightarrow 2x_1+1 = 2x_2+1 \Rightarrow x_1 = x_2\]
+ <p>Surjective: True </p>
+ <p>If \(y \in \mathbb{R} \quad f(\frac{y-1}{2}) = y\) This is true for any value of \(y\) and thus it meets the criteria that any horizontal line intersects the graph at least once. </p>
+ <p>Bijective: True</p>
+ <p>Inverse is \( f^{-1}(y) = \frac{y-1}{2}\) </p>
+<h4>
+    \(f : [0, 1] → [1, 5], f(x) = 2x + 1\)
+</h4>
+<p>Injective: True</p>
+\[f(x_1) = 2x_1+1, \quad f(x_2) = 2x_2+1, \quad f(x_1)=f(x_2) \Rightarrow 2x_1+1 = 2x_2+1 \Rightarrow x_1 = x_2\]
+ <p>Surjective: Fails</p>
+<P>The value \(y=5\) has no solution since not enough values of\(x\) are mapped. Thus any horizontal line DOES NOT intersects the graph of f at least once. </P>
+ <p>Bijective: Fails</p>
+ <p>It is not Surjective.</p>
+
+<h4>
+    \(f : \mathbb{R} → \mathbb{R}, f(x) = x^4\)
+</h4>
+<p>Injective: False</p>
+<p>Any horizontal line intersects the graph of \(f\) MORE than once. Thus failing</p>
+\[f(-x) = (-x)^4 = x^4 = f(x)\]
+ <p>Surjective: True.</p>
+ <p>If \(y \in \mathbb{R} \quad f(\sqrt[4]{y}) = y\) This is true for any value of \(y\) and thus it meets the criteria that any horizontal line intersects the graph at least once. </p>
+ <p>Bijective</p>
+ <p>Not injective.</p>
+<h4>
+    \(f : (−\infty, 0] → [0, \infty), f(x) = x^4\)
+</h4>
+<p>Injective: True</p>
+<p>For every value \(x\) there is at most 1 value in \(f(x)\)</p>
+\[f(x_1) = x_1^4, \quad f(x_2) = x_2^4, \quad f(x_1)=f(x_2) \Rightarrow x_1^4 = x_2^4 \Rightarrow x_1 = x_2\]
+ <p>Surjective: True</p>
+ <p>If \(y \in [0, \infty) \quad f(\sqrt[4]{y}) = y\) This is true for any value of \(y\) and thus it meets the criteria that any horizontal line intersects the graph at least once. </p>
+ <p>Bijective: True</p>
+ <p>True since its both injective and surjective.</p>
+ \[y \in[0, \infty) \quad f^{-1}(y) = -\sqrt[4]{y}\]
+</body>
+</html>
