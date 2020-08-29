@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 7</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 8
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 29th 2020</h3>
+   
+
+<h2>
+Periodic Functions And Trig Stuff
+</h2>
+<h3>
+    Problem 1
+    </h3>
+    <p><b>Prove:</b> that the function \(f(x)=x\) is not a periodic function.</p>
+    <p><b>Proof By Contradiction</b></p>
+    <p>We defined a periodic function to have a period of \(T\) that is \(\exists T, T\neq 0, T \in \mathbb{R}\) such that \(\forall x \in \mathbb{R}, \quad f(x+T) = f(x)\).
+        In other words, if we add a period to the input we should get the same number. 
+    </p>
+    <P><b>Assume:</b> that the function \(f(x)\) is periodic. </P>
+    <p>If \(f(x)\) is periodic then \(f(x+T) = f(x) \Rightarrow f(x+T) - f(x) = 0\)</p>
+    \[f(x+T) - f(x) =  (x+T) - x = T\]
+    <p>In order to satisfy the definition of a period, \(T= 0 \)</p>
+   <p>By definition of the periodic function \(T \neq 0\), thus contradicting the definition of a periodic function, suggesting that \(f\) is not periodic.</p>
+<h3>
+Problem 2
+</h3>
+<p>Give an example of functions \(f\) and \(g\) that are not peroidic but \(f+g\) is periodic.</p>
+<p>
+    <b>Trick: </b> we know that the constant function is technically periodic. As the period can be anything 
+    and it will always be the same. lol
+</p>
+<p>We know that these functions are not periodic.</p>
+\[f(x) = x\]
+\[g(x) = -x\]
+<p>The function \(h(x) = 0\) is always periodic lol, thus we just add these functions and we are done.</p>
+\[f(x) + g(x) = 0\]
+
+<h3>
+Problem 3
+</h3>
+<p>Compute the following:</p>
+<h4>
+    \(\cos(\arctan(x))\)
+</h4>
+<p>We can solve this using algebra. We know this is true: </p>
+\[\cos^2(x)+ \sin^2(x) = 1\]
+<p>The angles can be any angle correct?Lets sub in \(\arctan(x)\)</p>
+\[\cos^2(\arctan(x))+ \sin^2(\arctan(x)) = 1\]
+\[\frac{\cos^2(\arctan(x))}{\cos^2(\arctan(x))}+\frac{\sin^2(\arctan(x))}{\cos^2(\arctan(x))}  = \frac{1}{\cos^2(\arctan(x))}\]
+\[1+\tan^2(\arctan(x)) = \cos^{-2}(\arctan(x))\]
+\[1+(\tan(\arctan(x)))^2 = \cos^{-2}(\arctan(x))\]
+<p>taking the inverse of the original function gives back \(x\)</p>
+\[1+(x)^2 = \cos^{-2}(\arctan(x))\]
+<p>We re-arrange for \(\cos(\arctan(x))\)</p>
+\[\frac{1}{\sqrt{1+(x)^2} }= \cos(\arctan(x))\]
+<p>We can use any easier trick called thes triangle method. By rewriting the \(arctan(x)\) as the angle in a triangle. We know that \(\tan\) is opposite over adjacent. We can get the hypotenuse from pythagorean theorem.</p>
+<div style="text-align: center;">
+    <img src="triangle1.PNG">
+</div>
+<p>We know what the \(\arctan(x)\) is, we can just copy off the values for \(\cos(\arctan(x))\) which is adjacent over hypotenuse.</p>
+\[\cos(\arctan(x)) = \frac{1}{\sqrt{x^2+1}}\]
+
+<h4>
+    \(\cot(\arcsin(x))\)
+</h4>
+<p>We can solve this using algebra. We know this is true: </p>
+\[\cos^2(x)+ \sin^2(x) = 1\]
+<p>The angles can be any angle correct?Lets sub in \(\arctan(x)\)</p>
+\[\cos^2(\arcsin(x))+ \sin^2(\arcsin(x)) = 1\]
+\[\cos^2(\arcsin(x))+ x^2 = 1\]
+\[\cos(\arcsin(x))= \sqrt{1-x^2}\]
+<p>We know that \(\cot(\arcsin(x)) = \frac{\cos(\arcsin(x))}{\sin(\arcsin(x))} = \frac{\cos(\arcsin(x))}{x}\)</p>
+<p>We can sub in values. </p>
+\[\cot(\arcsin(x)) = \frac{\cos(\arcsin(x))}{x}\]
+\[\cot(\arcsin(x)) = \frac{\sqrt{1-x^2}}{x}\]
+<p>We can also use the easier triangle method. By rewriting the \(\arcsin(x)\) as the angle in a triangle. We know that \(\sin\) is opposite over hypotenuse. We can get the adjacent from pythagorean theorem.</p>
+<div style="text-align: center;">
+    <img src="triangle2.PNG">
+</div>
+<p>We know what the \(\arcsin(x)\) is, we can just copy off the values for \(\cot(\arcsin(x))\) which is adjacent over opposite.</p>
+\[\cot(\arcsin(x)) = \frac{\sqrt{1-x^2}}{x}\]
+</body>
+</html>
