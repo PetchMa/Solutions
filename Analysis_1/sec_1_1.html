@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spivak Calculus - Problem Set 1</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 1
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 30th 2020</h3>
+   
+
+<h2>
+Basic Properties of Numbers 
+</h2>
+<h3>
+Problem 1.i
+</h3>
+<p><b>Prove:</b> that if \(ax =a\) then \(x =1\) </p>
+<p>Field axioms</p>
+\[x=x \cdot 1, \quad identity\]
+\[x=x \cdot (a \cdot a^{-1}), \quad inverse\]
+\[x=x \cdot ((a) \cdot (ax)^{-1}), \quad assumption\]
+\[x=(ax) \cdot (ax)^{-1}, \quad distribution\]
+\[x=1, \quad inverse\]
+
+<h3>
+    Problem 1.v
+    </h3>
+    <p><b>Prove:</b> that \(x^n+y^n = (x-y) (x^{n-1} + n^{n-2}y+ ... + xy^{n-2}+y^{n-1})\) </p>
+    <p>We can rewrite it into summation notation. Let \(T= n-1\)</p>
+    \[(x-y) (x^{n-1} + n^{n-2}y+ ... + xy^{n-2}+y^{n-1}) = (x-y) \sum_{k=0}^{T}x^{T-k}\cdot y^{k}\]
+    \[ = \sum_{k=0}^{T}  (x-y)x^{T-k}\cdot y^{k} \]
+    \[ = \sum_{k=0}^{T}  x^{T-k+1}\cdot y^{k} -  x^{T-k}\cdot y^{k+1} \]
+    <p>Notice that for the \(k\)th term the second term in the binomial is \(-  x^{T-k}\cdot y^{k+1}\)
+        which is the additive inverse for the first term of the \(k+1\) term which is \(x^{T-(k+1)+1}\cdot y^{k+1} =x^{T-k}\cdot y^{k+1}\). 
+        Thus every term in the series cancels out except for the first and last term, as there is no \(n+1\) term to cancel with nor is there a term before the start of the sequence for the first term to cancel.
+        Thus we can collapse the summation notation into..
+    </p>
+    \[ =  x^{T+1} -   y^{T+1} \]
+    <p>Sub back out value for \(T\)</p>
+    \[\therefore  (x-y) (x^{n-1} + n^{n-2}y+ ... + xy^{n-2}+y^{n-1})=  x^{n} -   y^{n} \]
+    
+
+<h3>
+    Problem 3.ii
+    </h3>
+    <p><b>Prove:</b> that if \(\frac{a}{b}+\frac{c}{d} =\frac{ad+bc}{bd}\) </p>
+    \[\frac{ad+bc}{bd} = (bd)^{-1}(ad+bc)\]
+    \[\frac{ad+bc}{bd} = (ad)(bd)^{-1}+(bc)(bd)^{-1}\]
+    <p>We can't "distribute" in the inverse unless we prove it. So we are gonna multiply by 1 like this.</p>
+    \[\frac{ad+bc}{bd} = (ad)(bd)^{-1}\cdot 1+(bc)(bd)^{-1} \cdot 1\]
+    \[\frac{ad+bc}{bd} = (ad)(bd)^{-1}\cdot (b\cdot d \cdot b^{-1}\cdot d^{-1})+(bc)(bd)^{-1} \cdot (b\cdot d \cdot b^{-1}\cdot d^{-1})\]
+    \[\frac{ad+bc}{bd} = (ad)(bd)^{-1}\cdot (b d)(  b^{-1}\cdot d^{-1})+(bc)(bd)^{-1} \cdot (b d)(b^{-1}\cdot d^{-1})\]
+    \[\frac{ad+bc}{bd} = (ad)(  b^{-1}\cdot d^{-1})+(bc)(b^{-1}\cdot d^{-1})\]
+    \[\frac{ad+bc}{bd} = (a b^{-1})+(c\cdot d^{-1})\]
+    \[\frac{ad+bc}{bd} = \frac{a}{b}+\frac{c}{d}\]
+
+
+    <h3>
+        Problem 3.vi
+        </h3>
+        <p><b>Prove:</b> that if \(\frac{a}{b} = \frac{c}{d} \) if and only if \(ad= bc\) </p>
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot 1\]
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot (ad)\cdot (ad)^{-1}\]
+        <p>We can't assume the inverse distributes. We prove it lol </p>
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot (ad)\cdot (ad)^{-1}\]
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot (ad)\cdot (ad)^{-1}\cdot 1\]
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot (ad)\cdot (ad)^{-1} (a\cdot d \cdot a^{-1} \cdot d^{-1} )\]
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot (ad)\cdot (ad)^{-1} (ad)(a^{-1} \cdot d^{-1} )\]
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot (ad)\cdot (a^{-1} \cdot d^{-1} )\]
+        <p>We assumed that \(ad= bc\) , sub in values. </p>
+        \[\frac{a}{b} = a \cdot b^{-1} \cdot (bc)\cdot (a^{-1} \cdot d^{-1} )\]
+        \[\frac{a}{b} = (a \cdot a^{-1}) ( b^{-1} \cdot b)(c\cdot d^{-1} )\]
+        \[\frac{a}{b} = (1) (1)(c\cdot d^{-1} )\]
+        \[\frac{a}{b} = \frac{c}{d}\]
+
+        <h3>
+            Problem 7
+            </h3>
+            <p><b>Prove:</b> the inequality which states the following.  Assuming that \(0< a < b\)</p>
+            \[a < \sqrt{ab} < \frac{a+b}{2} < b\]
+            <p><B>Prove the first inequality.</B> \(a < \sqrt{ab}\) We can square everything because we know \(0< a < b\) thus everything is positive and thus the inequality would still be true.  </p>
+           \[a^2 < ab\]
+           <p>We know if the inequality is true, then \(ab-a^2 >0\)  would be always positive. </p>
+           \[ab-a^2 = a(b-a)\]
+           <p>By definition \(0< a < b\) thus \(b-a > 0\) Thus \( a(b-a) >0 \Rightarrow  a < \sqrt{ab}\) </p>
+           <p><B>Prove the second inequality. </B> \(\sqrt{ab} < \frac{a+b}{2} \)</p>
+           <p>Similarly we can square everything and the inequality would hold since everything is positive. Thus if \((\frac{a+b}{2})^2 - ab >0 \Rightarrow \sqrt{ab} < \frac{a+b}{2}\)</p>
+           \[(\frac{a+b}{2})^2 - ab = \frac{a^2+2ab+b^2}{4} - ab\]
+           \[(\frac{a+b}{2})^2 - ab = \frac{a^2+2ab+b^2 -4ab}{4} \]
+           \[(\frac{a+b}{2})^2 - ab = \frac{a^2-2ab+b^2 }{4} \]
+           \[(\frac{a+b}{2})^2 - ab = \frac{(a-b)^2 }{4} \]
+           <p>Notice the square, we've proven that \((\frac{a+b}{2})^2 - ab >0 \) thus we proven \( \sqrt{ab} < \frac{a+b}{2}\)</p>
+           <p><B>Prove the third inequality. </B> \(\frac{a+b}{2} < b\)</p>
+           <p>If \(b - \frac{a+b}{2} > 0\) then \(\frac{a+b}{2} < b\) </p>
+           \[b - \frac{a+b}{2} =\frac{2b -a-b}{2}\]
+           \[b - \frac{a+b}{2} =\frac{b -a}{2}\]
+           <p>By definition we know \(0< a < b\) thus \(b-a > 0 \Rightarrow b - \frac{a+b}{2} > 0 \) which proves \(\frac{a+b}{2} < b\) </p>
+           <p>We've proven \(a < \sqrt{ab} < \frac{a+b}{2} < b\) is true.</p>
+
+<h3>
+    Problem 15
+    </h3>
+    <p><b>Prove:</b> the inequality which states the following.  </p>
+    \[x^2 + xy + y^2 > 0,\]
+    <p>and </p>
+    \[x^4 +x^3y +x^2y^2 +xy^3 + y^4 > 0.\]
+    <h4>
+        First Proof
+    </h4>
+    <p>Lets do the first one.</p>
+    <b>Case 1</b>
+    <p>If all values were positive. Then the entire thing would be positive, thus proven. </p>
+    <b>Case 2</b>
+    <p>If all values were negative. Then the entire equation would be positive again, because squares are always positive and the product of 2 negative numbers is always positive. Thus always positive. </p>
+    <b>Case 3</b>
+    <p>If values contained a mix of positive and negative, we can rewrite the equation as ...</p>
+    \[x^2 - xy + y^2\]
+    <p>Where \(x,y\) is the magnitude of the values. </p>
+    <p>Lets assume the case where \(x>y\) then we know  that \(x^2>xy\) because, \(x^2-xy = x(x-y)\) and its always positive. This suggests that \(x^2 - xy + y^2\) is also positive since \(x^2>xy\)
+    </p>
+    <p>If it were the reverse case were  \(y> x\) then we know  that \(y^2>xy\) because, \(y^2-xy = y(y-x)\) is always positive from definition. 
+    This suggests that \(x^2 - xy + y^2\) is also positive since \(y^2>xy\)
+    </p>
+    <p>If \(x = y\) (the magnitude) we know that the equation would be\(x^2 - x^ + y^2 = y^2\) which we know is always positive since its a square. 
+    </p>
+  <p>Thus we've exhuasted all cases, therefore for any value of \(x,y\) we know that \(x^2 + xy + y^2 >0 \)</p>
+  <h4>
+    Second Proof
+    </h4>
+    <b>Lets exhuast all cases. We need to burrow our previous proof as a trick.</b>
+    <p><b>Case 1</b></p>
+    <p>If all values were positive. Then the entire thing would be positive, thus proven. </p>
+    <b>Case 2</b>
+    <p>If all values were negative. Then the entire equation would be positive again, because squares are always positive and the product of 2 negative numbers is always positive. Thus always positive. </p>
+    <b>Case 3</b>
+    <p>If values contained a mix of positive and negative, we can rewrite the equation as ...</p>
+    \[(x^4  +x^2y^2 + y^4) -xy^3 - x^3y \]
+    <p>Which can be written in a more suggestive way.</p>
+    \[(x^4  +x^2y^2 - x^3y) +(y^4 -xy^3) \]
+    <p><b>Where \(x,y\) is the magnitude of the values.</b> We know everything in the bracket is positive from initial observations. </p>
+    <p>Lets assume the case where \(y>x\) then we know  that \(y^4>xy^3\) because, \(y^4-xy^3 = y^3(y-x)\) and its always positive based on definition.
+        We also know that  \(x^4+x^2y^2 >x^3y\) since \(x^4+x^2y^2 - x^3y\) is always positive. This is because we can rewrite the equation as 
+        \(x^2(x^2+y^2 - xy)\) which we've proved above that \(x^2+y^2 - xy >0\) if \(x,y\) are magnitudes. Thus each term is positive. 
+    </p>
+    \[\therefore x^4 +x^3y +x^2y^2 +xy^3 + y^4 > 0.\]
+
+<h3>
+    Problem 19
+    </h3>
+    <p><b>Prove:</b> the Schwarz inequality which states the following.  </p>
+    \[x_1y_1 + x_2y_2 \leq \sqrt{x_1^2+x_2^2}   \sqrt{y_1^2+y_2^2}\]
+    <p>Assuming that \(x_1y_1 + x_2y_2\) is positive, we can square everything and the inequality would still be true. 
+
+    </p>
+
+    <p>The case where \(x_1y_1 + x_2y_2  < 0\) the condition would automatically be satisfied since the right hand side is ALWAYS positive. Thus always greater than.</p>
+    <p>Lets play with this inequality instead. </p>
+    \[(x_1y_1 + x_2y_2)^2 \leq (x_1^2+x_2^2)(y_1^2+y_2^2)\]
+    <p>If the inequality is true then \((x_1^2+x_2^2)(y_1^2+y_2^2) - (x_1y_1 + x_2y_2)^2 > 0 \) is always positive. We expand</p>
+    \[(x_1^2+x_2^2)(y_1^2+y_2^2) - (x_1y_1 + x_2y_2)^2 = (x_1^2y_1^2+y_2^2x_1^2+x_2^2y_1^2+x_2^2y_2^2) - (x_1^2y_1^2 +2x_1y_1 x_2y_2 + x_2^2y_2^2)\]
+    <p>Subtract like terms.</p>
+    \[ = (y_2^2x_1^2+x_2^2y_1^2) - (2x_1y_1 x_2y_2 )\]
+    <p>We can bring in the value into the bracket. </p>
+    \[ = y_2^2x_1^2-2x_1y_1 x_2y_2 +x_2^2y_1^2\]
+    <p>We can factor! This is a perfect square. </p>
+    \[ = (y_2x_1-x_2y_1)^2\]
+    <p>We know that perfect squares are always positive. Thus \((x_1^2+x_2^2)(y_1^2+y_2^2) - (x_1y_1 + x_2y_2)^2 > 0 \) is true! The only case in which they would equal, the zero case, is when
+        \(y_2 = y_1\) and \(x_2 = x_1\) when the square equals 0.  </p>
+    <h3>
+    Problem 21
+    </h3>
+    <p>If the following is true...</p>
+    \[|x-x_0| < min(\frac{\epsilon}{2(|y_0|+1)}, 1) \quad and \quad|y-y_0|< \frac{\epsilon}{2(|x_0|+1)}\]
+    <p><b>Prove:</b> the  inequality which states the following. </p>
+    \[|xy-x_0y_0| < \epsilon\]
+    <p><b>Hint:</b> \(|x-x_0| < min(\frac{\epsilon}{2(|y_0|+1)}, 1)\) means \(|x-x_0| < \frac{\epsilon}{2(|y_0|+1)}\) and \(|x-x_0| < 1\) at the same time. </p>
+</body>
+</html>
