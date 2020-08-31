@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proofs - Problem Set 9</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem Set 9
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Aug 29th 2020</h3>
+   
+
+<h2>
+Matrix and Vector Transformation
+</h2>
+<h3>
+    Problem 1
+    </h3>
+    <p><b>Prove:</b> that \(T(\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}) = \begin{bmatrix}
+    a+b \\
+    b-a \\
+    \end{bmatrix}\) is a linear transformation. </p>
+    <p><b>Direct Proof</b></p>
+    <p>
+        We know that the definition of a linear transformation as the following.
+    </p>
+    \[1. \quad T(c\vec{v} )=cT(\vec{v})\]
+    \[2. \quad T(\vec{u} +\vec{v} )=T(\vec{u})+T(\vec{v})\]
+
+    <p>We can show the first case easily. </p>
+    \[T(c\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}) = T(\begin{bmatrix}
+    ca \\
+    cb \\
+    \end{bmatrix})\]
+
+    \[T(c\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}) = \begin{bmatrix}
+    ca+cb \\
+    cb-ca \\
+    \end{bmatrix}\]
+
+    \[T(c\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}) = \begin{bmatrix}
+    c(a+b) \\
+    c(b-a) \\
+    \end{bmatrix}\]
+
+    \[T(c\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}) = c\begin{bmatrix}
+    a+b \\
+    b-a \\
+    \end{bmatrix}\]
+    \[T(c\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}) = cT(\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix})\]
+    <p>We can then prove the second condition. As well.</p>
+    \[T(\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}+\begin{bmatrix}
+    c \\
+    d \\
+    \end{bmatrix} ) = T(\begin{bmatrix}
+    a+c \\
+    b+d \\
+    \end{bmatrix})\]
+
+
+    \[T(\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}+\begin{bmatrix}
+    c \\
+    d \\
+    \end{bmatrix} ) = \begin{bmatrix}
+    (a+c)+(b+d) \\
+    (b+d)-(a+c) \\
+    \end{bmatrix}\]
+
+    \[T(\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}+\begin{bmatrix}
+    c \\
+    d \\
+    \end{bmatrix} ) = \begin{bmatrix}
+    (a+b)+(c+d) \\
+    (b-a)+ (d+c) \\
+    \end{bmatrix}\]
+
+    
+    \[T(\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}+\begin{bmatrix}
+    c \\
+    d \\
+    \end{bmatrix} ) = \begin{bmatrix}
+    a+b \\
+    b-a \\
+    \end{bmatrix} + \begin{bmatrix}
+    c+d \\
+    d+c\\
+    \end{bmatrix}\]
+    \[T(\begin{bmatrix}
+    a \\
+    b \\
+    \end{bmatrix}+\begin{bmatrix}
+    c \\
+    d \\
+    \end{bmatrix} ) = T(\begin{bmatrix}
+    a \\
+    b\\
+    \end{bmatrix}) + T(\begin{bmatrix}
+    c \\
+    d\\
+    \end{bmatrix})\]
+    <p>Therefore the transformation is linear. </p>
+
+    <h3>
+        Problem 2
+        </h3>
+        <p>Fix v be an element in a vector space \(V\) over a field \(\mathbb{F}\) and define:</p>
+        \[S  = \{w \in  V: \langle v,w \rangle = 0\}\]
+        <p><b>Prove:</b> the following... note that: \(\langle v, w \rangle\) is the dot product. </p>
+        <h4>
+            \(0 \in S\)
+        </h4>
+        <p>
+            This is easy to prove. We know that for any \(\langle v, 0\rangle = 0\) Thus \(0 \in S\)
+        </p>
+        <h4>
+            \(\forall \alpha \in F, \forall s \in S, \alpha · s \in S\)
+        </h4>
+        <p>
+            We test to see if \(a \cdot s \in S\) if we plug it in... \(\langle v, a \cdot s \rangle\), thus \( a \cdot \langle  v, s \rangle\)
+            Since \(s \in S\) we know that the dot product with \(v\) must have equalled to \(0\) based on the definition. So we get \( a \cdot 0 = 0 \) which proves that \(a \cdot s \in S\)
+        </p>
+        <h4>
+            \(∀s, t ∈ S, s + t ∈ S\)
+        </h4>
+        <p>
+            We can plug this bitch in to the original definition. \(\langle v, (s+t)\rangle\). Dot product is distributive, \(\langle v, s\rangle + \langle v, t\rangle  = 0 + 0 = 0 \)
+            Thus it belongs to the set. 
+        </p>
+</body>
+</html>
