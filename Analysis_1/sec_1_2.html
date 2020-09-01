@@ -118,7 +118,9 @@ Problem 1.ii
 \[\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1} = {n\choose 0}x^1y^{n}+{n\choose 1}x^{2}y^{n-1}+{n\choose 2}x^{3}y^{n-2}+...+{n\choose n-1}x^ny^1 \]
 <p>Notice how each term cancels out except for \({n\choose 0} xy^{n}\) and \({n\choose n} x^{n+1}\). Notice how those terms can be canceled as well! They appear in the equation above.Thus we get...
 </p>
-\[ =\sum_{k=1}^n {n\choose k}x^{k+1}y^{n-k}+xy^{n} - [(\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1} +  x^{n+1}] = 0\]
+\[ =\sum_{k=1}^n {n\choose k}x^{k+1}y^{n-k}+xy^{n} - [(\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1} +  x^{n+1}] = x^{n+1}+xy^{n} -  x^{n+1} -xy^{n} \]
+\[=0\]
+<p>Therefore by induction we've proven the binomial theorem is true. </p>
 <h3>
     Problem 3 e).i
 </h3>
