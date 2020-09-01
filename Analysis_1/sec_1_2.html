@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spivak Calculus - Chapter 2 Problems</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Chapter 2 Problems
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Sept 1st 2020</h3>
+   
+
+<h2>
+Numbers of Various Sorts 
+</h2>
+<h3>
+Problem 1.ii
+</h3>
+<p><b>Prove:</b> that \(1^3+2^3+4^3+...n^3 = (1+2+3+4+5+..+n)^2\) </p>
+\[\sum_{k=1}^{n}k^3 = (\sum_{k=0}^{n+1}k)^2\]
+<p><b>Prove by Induction.</b></p>
+<h4>
+    Base Case
+</h4>
+<p>We prove the base case. If \(\sum_{k=1}^{n}k^3 = (\sum_{k=0}^{n+1}k)^2\), then \( \sum_{k=1}^{n}k^3 -(\sum_{k=0}^{n+1}k)^2 = 0\) for \(n=1\)</p>
+\[\sum_{k=1}^{n}k^3 - (\sum_{k=0}^{n+1}k)^2 = 1^3-1^2\]
+\[= 0\]
+<p>The base case is true. </p>
+<p>Assume that \(S(n) = \sum_{k=1}^{n}k^3 = (\sum_{k=0}^{n}k)^2\) is true for \(n\).</p>
+<h4>
+    Induction Step
+</h4>
+<p>Prove the \(n+1\) case. Let \(S(n) =\sum_{k=1}^{n}k^3  \) and \(S'(n) = (\sum_{k=0}^{n+1}k)^2\). If \(S(n+1) = S'(n+1) \Rightarrow S(n+1)-S'(n+1) = 0\)</p>
+<p>We know that \(S(n+1) = S(n)+(n+1)^3\)</p>
+\[S(n+1)-S'(n+1) = S(n)+(n+1)^3 -S'(n+1) \]
+<p>We assumed that \(S(n) = (\sum_{k=0}^{n+1}k)^2\)</p>
+\[S(n+1)-S'(n+1) = (\sum_{k=0}^{n}k)^2+(n+1)^3 - (\sum_{k=0}^{n+1}k)^2 \]
+<p>Notice that the summation is basically a sum of natural numbers all squared. Since we proved that the sum of \(n\) natural numbers is \(\frac{n(n+1)}{2}\) we can sub for that. Same for the \(n+1\) case.</p>
+\[S(n+1)-S'(n+1) = (\frac{n(n+1)}{2})^2+(n+1)^3 - (\frac{(n+1)(n+2)}{2})^2 \]
+\[S(n+1)-S'(n+1) = (\frac{n^2+n}{2})^2+(n+1)^3 - (\frac{n^2+3n+2}{2})^2 \]
+\[S(n+1)-S'(n+1) = \frac{n^4+2n^3+n^2}{4}+(n+1)^3 - \frac{n^4+6n^3+13n^2+12n+4}{4} \]
+<p>Subtract the polynomials.</p>
+\[S(n+1)-S'(n+1) = \frac{-4n^3-12n^2-12n-4}{4}  +(n+1)^3\]
+\[S(n+1)-S'(n+1) = -n^3-3n^2-3n-1  +(n+1)^3\]
+<p>Factor.</p>
+\[S(n+1)-S'(n+1) = -(n+1)^3  +(n+1)^3\]
+\[S(n+1)-S'(n+1) = 0\]
+\[\therefore S(n+1) = S'(n+1) \]
+<p>Thus we've proven via induction that \(1^3+2^3+4^3+...n^3 = (1+2+3+4+5+..+n)^2\) is true.</p>
+<h3>
+    Problem 2.ii
+</h3>
+<p><b>Derive: </b> the formula for the following series. </p>
+\[\sum_{i=1}^n (2i-1)^2 = 1^2+3^2+5^2 + .. (2n-1)^2\]
+<p>We can expand the inner bracket</p>
+\[\sum_{i=1}^n (2i-1)^2 =\sum_{i=1}^n 4i^2-4i+1 \]
+<p>We can break up the summation. </p>
+\[\sum_{i=1}^n (2i-1)^2 =\sum_{i=1}^n 4i^2-\sum_{i=1}^n4i+\sum_{i=1}^n 1 \]
+<p>Move coefficents out of the summations</p>
+\[\sum_{i=1}^n (2i-1)^2 =4\sum_{i=1}^n i^2-4\sum_{i=1}^n i+\sum_{i=1}^n 1 \]
+<p>Notice that these are just the sum of squares, the sum of natural numbers and the last is just adding 1 \(n\) times which is \( = n\)</p>
+<p>We've previously proved the sum of squares and the sum of natural numbers so we just plug in.</p>
+\[\sum_{i=1}^n (2i-1)^2 =4(\frac{n(n+1)(2n+1)}{6})-4(\frac{n(n+1)}{2}) +n\]
+\[\sum_{i=1}^n (2i-1)^2 =2(\frac{2 n^3 + 3 n^2 + n}{3})-(2n^2+n)\]
+\[\sum_{i=1}^n (2i-1)^2 =\frac{4 n^3 + 6 n^2 + 2n-6n^2-3n}{3}\]
+\[\sum_{i=1}^n (2i-1)^2 =\frac{4 n^3 -n}{3}\]
+\[\sum_{i=1}^n (2i-1)^2 =\frac{n(2 n-1)(2n+1)}{3}\]
+<p>This is the formula.</p>
+<h3>
+    Problem 3 d)
+</h3>
+<p>
+    <b>Prove: </b>the binomial theorem which states the following: 
+</p>
+\[(x+y)^n = \sum_{k=0}^n {n\choose k}x^ky^{n-k}\]
+<p>
+<b>Proof by Induction.</b>
+</p>
+<h4>
+    Base case
+</h4>
+<p>We prove the base case. If \(\sum_{k=0}^n {n\choose k}x^ky^{n-k} = (x+y)^n, \quad n=1\), then \( \sum_{k=0}^n {n\choose k}x^ky^{n-k} - (x+y)^n = 0\) for \(n=1\)</p>
+\[\sum_{k=0}^n {n\choose k}x^ky^{n-k} - (x+y)^n ={1\choose 0}x + {1\choose 1} y  - (x+y) = 0\]
+
+<p>Therefore we proven the base case. </p>
+<p>Assume that \(\sum_{k=0}^n {n\choose k}x^ky^{n-k} = (x+y)^n\) is true for \(n\).</p>
+
+<h4>Induction Step</h4>
+<p>If the \(n+1\) step is true then, \((x+y)^{n+1} - \sum_{k=0}^{n+1} {n+1\choose k}x^ky^{n-k} = 0 \)</p>
+<p>We rewrite the statement. </p>
+\[(x+y)^{n+1} - \sum_{k=0}^{n+1} {n+1\choose k}x^ky^{n-k} =(x+y)^{n}(x+y) - \sum_{k=0}^{n+1} {n+1\choose k}x^ky^{n-k+1} \]
+<p>Sub in our assumption. </p>
+\[ =(\sum_{k=0}^n {n\choose k}x^ky^{n-k})(x+y) - \sum_{k=0}^{n+1} {n+1\choose k}x^ky^{n-k+1} \]
+<p>Distribute</p>
+\[ =(\sum_{k=0}^n {n\choose k}x^{k+1}y^{n-k})+(\sum_{k=0}^n {n\choose k}x^ky^{n-k+1}) - \sum_{k=0}^{n+1} {n+1\choose k}x^ky^{n-k+1} \]
+<p>We know the identity \({n+1\choose k} = {n\choose k-1}+ {n\choose k}\). We sub it in. </p>
+\[ =(\sum_{k=0}^n {n\choose k}x^{k+1}y^{n-k})+(\sum_{k=0}^n {n\choose k}x^ky^{n-k+1}) - (\sum_{k=0}^{n+1} {n\choose k-1}x^ky^{n-k+1}+ {n\choose k}x^ky^{n-k+1}) \]
+<p><B>NOTE</B>: there is something wrong with our sum... we can't take \(k< 0\)! Nor can we take the \({n\choose n+1}\)... so we are going to deal with those two cases manually add them in. </p>
+\[ =(\sum_{k=0}^n {n\choose k}x^{k+1}y^{n-k})+(\sum_{k=0}^n {n\choose k}x^ky^{n-k+1}) - [\sum_{k=1}^{n} {n+1\choose k}x^ky^{n-k+1} + {n+1\choose 0}x^0y^{n+1} +  {n+1\choose n+1}x^{n+1}]\]
+\[ =(\sum_{k=0}^n {n\choose k}x^{k+1}y^{n-k})+(\sum_{k=0}^n {n\choose k}x^ky^{n-k+1}) - [\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1}+ \sum_{k=1}^{n}{n\choose k}x^ky^{n-k+1}+  y^{n+1} +  x^{n+1}]\]
+<p>Lets manipulate the first part to have the same limits. </p>
+\[ =(\sum_{k=1}^n {n\choose k}x^{k+1}y^{n-k})+(\sum_{k=1}^n {n\choose k}x^ky^{n-k+1})+{n\choose 0}x^{0+1}y^{n-0}+{n\choose 0}x^0y^{n-0+1} - [(\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1}+ \sum_{k=1}^{n}{n\choose k}x^ky^{n-k+1}+ y^{n+1} +  x^{n+1}]\]
+\[ =(\sum_{k=1}^n {n\choose k}x^{k+1}y^{n-k})+(\sum_{k=1}^n {n\choose k}x^ky^{n-k+1})+xy^{n}+y^{n+1} - [(\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1}+ \sum_{k=1}^{n}{n\choose k}x^ky^{n-k+1}+ y^{n+1} +  x^{n+1}]\]
+<p>We can subtract from the expression. </p>
+\[ =\sum_{k=1}^n {n\choose k}x^{k+1}y^{n-k}+xy^{n} - [(\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1} +  x^{n+1}]\]
+<p>Okay what if we wrote out the first few terms of each summation? What do we get??</p>
+\[\sum_{k=1}^n {n\choose k}x^{k+1}y^{n-k} = {n\choose 1}x^{2}y^{n-1}+{n\choose 2}x^{3}y^{n-2}+....+{n\choose n-1}x^ny^1 + {n\choose n} x^{n+1}\]
+\[\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1} = {n\choose 0}x^1y^{n}+{n\choose 1}x^{2}y^{n-1}+{n\choose 2}x^{3}y^{n-2}+...+{n\choose n-1}x^ny^1 \]
+<p>Notice how each term cancels out except for \({n\choose 0} xy^{n}\) and \({n\choose n} x^{n+1}\). Notice how those terms can be canceled as well! They appear in the equation above.Thus we get...
+</p>
+\[ =\sum_{k=1}^n {n\choose k}x^{k+1}y^{n-k}+xy^{n} - [(\sum_{k=1}^{n} {n\choose k-1}x^ky^{n-k+1} +  x^{n+1}] = 0\]
+<h3>
+    Problem 3 e).i
+</h3>
+<p><b>Prove: </b>the following summation. </p>
+\[\sum_{k=0}^n {n\choose k}= 2^n\]
+<p>We will prove using binomial theorem</p>
+
+<p>We know that the binomial theorem is the following.</p>
+\[(x+y)^n = \sum_{k=0}^n {n\choose k}x^ky^{n-k}\]
+<p>Notice that we can rewrite the expression is equal to ... </p>
+\[\sum_{k=0}^n {n\choose k}= \sum_{k=0}^n {n\choose k} \cdot 1\cdot 1\]
+\[\sum_{k=0}^n {n\choose k}= \sum_{k=0}^n {n\choose k} \cdot 1^k\cdot 1^{n-k}\]
+<p>Its in the form of the binomial theorem and we can rewrite it as the following.. </p>
+\[\sum_{k=0}^n {n\choose k}= (1+1)^n\]
+\[\sum_{k=0}^n {n\choose k}= 2^n\]
+
+</body>
+</html>
