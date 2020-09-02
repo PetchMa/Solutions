@@ -136,6 +136,127 @@ Problem 1.ii
 <p>Its in the form of the binomial theorem and we can rewrite it as the following.. </p>
 \[\sum_{k=0}^n {n\choose k}= (1+1)^n\]
 \[\sum_{k=0}^n {n\choose k}= 2^n\]
+<h3>
+    Problem 6.i
+</h3>
+<p><b>Derive: </b>the general solution to the following sum of cubes  </p>
+\[1^3 + 2^3 + 3^3 +.... + n^3\]
+<p>We start off with this function. We know that the following is true. Distribute it out.</p>
+\[(k+1)^4 - k^4 = 4k^3+6k^2+4k+1\]
+<p>What if we added up every value of \(k \in [1,n]\)? What would we get?</p>
+\[\sum_{k=1}^n (k+1)^4-k^4 = (2^4-1^4)+(3^4-2^4)+(4^4-3^4).....+(n^4-(n-1))+((n+1)^4-n^4)\]
+<p>Notice that every term cancels except for \((n+1)^4-1^4\). Thus we collapsed the sumation. </p>
+\[\sum_{k=1}^n (k+1)^4-k^4 = (n+1)^4-1^4\]
+<P>But we also know that \((k+1)^4 - k^4 = 4k^3+6k^2+4k+1\) what if we plug that in? </P>
+\[\sum_{k=1}^n 4k^3+6k^2+4k+1 = (n+1)^4-1^4\]
+<p>Distribute the summation.</p>
+\[\sum_{k=1}^n 4k^3+\sum_{k=1}^n6k^2+ \sum_{k=1}^n4k+ \sum_{k=1}^n1 = (n+1)^4-1^4\]
+\[4\sum_{k=1}^n k^3+6\sum_{k=1}^nk^2+ 4\sum_{k=1}^nk+ \sum_{k=1}^n 1 = (n+1)^4-1^4\]
+<p>Notice that we know what the sum of squares and sum of natural numbers equals to. </p>
+\[4\sum_{k=1}^n k^3+6 \frac{n(n+1)(2n+1)}{6}+ 4\frac{n(n+1)}{2}+ n = (n+1)^4-1^4\]
+<p>We can rearrange. </p>
+\[4\sum_{k=1}^n k^3+n(n+1)(2n+1)+ 2n(n+1)+ n = (n+1)^4-1^4\]
+\[4\sum_{k=1}^n k^3 = (n+1)^4-1^4 - n -2n(n+1) - n(n+1)(2n+1) \]
+\[\sum_{k=1}^n k^3 = \frac{(n+1)^4-1^4 - n -2n(n+1) - n(n+1)(2n+1) }{4} \]
+<p>We simplify and we get...</p>
+\[\sum_{k=1}^n k^3  = \frac{1}{4} n^2 (n^2 + 2 n + 1) = (\frac{n(n+1)}{2})^2\]
+<p>Thats the general formula for the sum of cubes. </p>
 
+<h3>
+    Problem 7
+</h3>
+<p><b>Show that: </b>the general solution to the following sum of powers to the \(p\) can be written as  </p>
+\[\sum_{k=1}^n k^p=1^p + 2^p +.... + n^p =  \frac{n^{p+1}}{p+1}+An^p + Bn^{p-1}+ ... \]
+<h4>Proof by Induction.</h4>
+<p><b>Base case</b></p>
+<p>We can check the base case when \(p=1\), which we know from the general formula equals...</p>
+\[\sum_{k=1}^n k^1=1 + 2 +.... + n =  \frac{1}{2}n^2+\frac{1}{2}n\]
+<p>This evidently follows the form \(\frac{n^{p+1}}{p+1}+An^p + Bn^{p-1}+ ... =\frac{n^{1+1}}{1+1}+An^p + Bn^{p-1}+ ... = \frac{n^{2}}{2}+An + B\)</p>
+<p><b>Assume General case</b></p>
+<p>Assume that for \(p-1\) and all cases \(< p-1\) also follows the form.</p>
+\[\sum_{k=1}^n k^{p-1} =1^{p-1}  + 2^{p-1}  +.... + n^{p-1} =  \frac{n^{p}}{p}+An^{p-1} + Bn^{p-2}+ ... \]
+<p><b>Induction Step</b></p>
+<p>We prove the \(p\)th case. </p>
+<p>We use the same method as before in problem 6. We know this is true from the binomial theorem.</p>
+\[(k+1)^{p+1} - k^{p+1} = \sum_{i=1}^{p+1} {p+1\choose i}k^{p-i+1}\]
+<p>If we added up everything such that ... </p>
+\[\sum_{k=1}^n (k+1)^{p+1}-k^{p+1} = (2^{p+1}-1^{p+1})+(3^{p+1}-2^{p+1})+(4^{p+1}-3^{p+1}).....+(n^{p+1}-(n-1))+((n+1)^{p+1}-n^{p+1})\]
+<p>Notice that every term cancels except for \((n+1)^{p+1}-1^{p+1}\). Thus we collapsed the sumation. </p>
+\[\sum_{k=1}^n (k+1)^{p+1}-k^{p+1} = (n+1)^{p+1}-1\]
+<p>We can plug in our equation from before. </p>
+\[\sum_{k=1}^n (\sum_{i=1}^{p+1} {p+1\choose i}k^{p-i+1}) = (n+1)^{p+1}-1\]
+<p>We can swap the summation notation. </p>
+\[\sum_{i=1}^{p+1} (\sum_{k=1}^n {p+1\choose i}k^{p-i+1}) = (n+1)^{p+1}-1\]
+\[\sum_{i=1}^{p+1}( {p+1\choose i} \sum_{k=1}^n k^{p-i+1})) = (n+1)^{p+1}-1\]
+<p>Notice we've broken it down to sum of various powers. </p>
+<p>All we care about however is the sum for \(i=1\). Lets bring that out. </p>
+\[( {p+1\choose 1} \sum_{k=1}^n k^{p})) +\sum_{i=1}^{p+1}( {p+1\choose i} \sum_{k=1}^n k^{p-i+1})) = (n+1)^{p+1}-1\]
+
+<p>Since we only care about the sum of \(p\) powers. We rearrange for that sum.</p>
+\[ {p+1\choose 1} \sum_{k=1}^n k^{p} = (n+1)^{p+1}-1 - \sum_{i=1}^{p+1}( {p+1\choose i} \sum_{k=1}^n k^{p-i+1}))\]
+<p>Binomial theorem.</p>
+\[ (p+1)\sum_{k=1}^n k^{p} =(\sum_{k=0}^{p+1} {p+1\choose k}  n^{p+1-k})-1 - \sum_{i=1}^{p+1}( {p+1\choose i} \sum_{k=1}^n k^{p-i+1}))\]
+<p>Notice that the term \(\sum_{k=1}^n k^{p-i+1}\) we've already assumed to be capable of writting in the form \(\frac{n^{p}}{p}+An^{p-1} + Bn^{p-2}+ ...\)
+    We know that the sum of polynomials will always be a polynomial. Thus \( \sum_{i=1}^{p+1}( {p+1\choose i} \sum_{k=1}^n k^{p-i+1}))\) will also be polynomial.
+    This satisfies the requirement that the general solution is polynomial. 
+</p>
+<p> </p>
+<p>We know that \(\sum_{k=0}^{p+1} {p+1\choose k}  n^{p+1-k}\) will contain the term \(n^{p+1}\). Which is the first term. </p>
+<p>We can rearrange the leading coefficents into the following form. Which shows that the term \( \frac{n^{p+1}}{p+1}\) would thus be included.</p>
+\[ \sum_{k=1}^n k^{p} = \frac{(\sum_{k=0}^{p+1} {p+1\choose k}  n^{p+1-k})-1 - \sum_{i=1}^{p+1}( {p+1\choose i} \sum_{k=1}^n k^{p-i+1}))}{p+1}\]
+<p>Since the form only requires that it can be written with a leading term of \( \frac{n^{p+1}}{p+1}\) followed by arbitray terms in a polynomial. We've proven that 
+    for the \(p\)th term we will have the correct leading term followed by polynomials. Thus by induction we've proven that this argument is true.
+</p>
+<h3>
+    Problem 8
+</h3>
+<p><b>Prove that every natural number is either even or odd.</b></p>
+<p><b>Proof By Contradiction.</b></p>
+<p>Definition of even is ... </p>
+\[E = \{n\in\mathbb{Z}: 2n\}\]
+<p>
+    Definition of odd is...  
+</p>
+\[O = \{n\in\mathbb{Z}: 2n+1\}\]
+<p>Assume \(\exists a \in \mathbb{N}: a \notin E \cup O\)</p>
+
+<p>If \(a \notin E \cup O\) then \( a\notin \mathbb{Z}\)
+    This because we know from the following proof 
+</p>
+<div style="padding-left: 50px;">
+    ----------------------------------------------
+    <H4><b>Lemma 1 Proof by Induction</b></H4>
+    <p><b>Base case</b></p>
+    <P>Let \(k_{base} = \{1,2\}\)</P>
+    <p>It is evident that \(k_{base} \subset E \cup O\) since \(k_1 \in O\) and \(k_2 \in E\) thus \(k_{base} \subset E \cup O\)</p>
+    <p><b>General case</b></p>
+    <p>Let the following set equal </p>
+    \[k_n = \{-n,-n+1,...-1,0,1,...n-1,n\} \]
+    <P>Assume that \(k_n \subset E \cup O \)</P>
+    <p><b>Induction</b></p>
+    <p>Let the following set equal</p>
+    \[k_{n+1} = \{-n-1,-n,-n+1,...-1,0,1,...n-1,n, n+1\}\]
+    <p>We can rewrite the set as the following. </p>
+    \[k_{n+1} = k_n \cup \{-n-1, n+1 \}\]
+    <p>We know that \( k_n  \subset E \cup O\) we just need to check if \(\{-n-1, n+1 \} \subset E \cup O\)</p>
+    <p>Since we know that \(k_n  \subset E \cup O \Rightarrow n \in O \) or \(n \in E\)</p>
+    <p><b>Case where \(n \in O\)</b></p>
+    <p>That means that \(n\) can be written as \(2k+1, \quad k\in \mathbb{Z}\) which is a definition of odd numbers. 
+        That would mean that \(n+1 = 2n+2 = 2(n+1)\). This is would always be even. Thus under this case \(n+1 \in E\) 
+    </p>
+    <p>We can rewrite \(-n-1 = -(n+1)\) in which case,  \(-(n+1) = -(2k+2), \quad k\in \mathbb{Z}\) which is still an even number.</p>
+    <p><b>Case where \(n \in E\)</b></p>
+    <p>That means that \(n\) can be written as \(2k, \quad k\in \mathbb{Z}\) which is a definition of even numbers. 
+        That would mean that \(n+1 = 2n+1\). This is the definition of an odd number. Thus under this case \(n+1 \in O\) 
+    </p>
+    <p>We can rewrite \(-n-1 = -(n+1)\) in which case,  \(-(n+1) = -(2k+1), \quad k\in \mathbb{Z}\) which is still an odd number.</p>
+    <p>Therefore \(\{-n-1, n+1 \} \subset E \cup O\). </p>
+    <p>We can extend this argument to span all integers for \(n\) and thus by induction we can prove that \(\mathbb{Z} \subseteq E \cup O\) is true.</p>
+    ----------------------------------------------
+
+</div>
+<p><b>Back to the proof by contradiction</b></p>
+<p>Since we know that \(\mathbb{Z} \subseteq E \cup O\). If \(a \notin E \cup O \Rightarrow a \notin \mathbb{Z}\). Since \(\mathbb{N} \subset \mathbb{Z} \Rightarrow a \notin \mathbb{N}\)</p>
+<p>Thus this contradicts the assumption that \(a \in \mathbb{N}\) thus \(a \) must be even or odd to be a natural number. </p>
 </body>
 </html>
