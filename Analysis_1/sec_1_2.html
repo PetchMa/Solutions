@@ -247,7 +247,7 @@ Problem 1.ii
     <p>We can rewrite \(-n-1 = -(n+1)\) in which case,  \(-(n+1) = -(2k+2), \quad k\in \mathbb{Z}\) which is still an even number.</p>
     <p><b>Case where \(n \in E\)</b></p>
     <p>That means that \(n\) can be written as \(2k, \quad k\in \mathbb{Z}\) which is a definition of even numbers. 
-        That would mean that \(n+1 = 2n+1\). This is the definition of an odd number. Thus under this case \(n+1 \in O\) 
+        That would mean that \(n+1 = 2k+1\). This is the definition of an odd number. Thus under this case \(n+1 \in O\) 
     </p>
     <p>We can rewrite \(-n-1 = -(n+1)\) in which case,  \(-(n+1) = -(2k+1), \quad k\in \mathbb{Z}\) which is still an odd number.</p>
     <p>Therefore \(\{-n-1, n+1 \} \subset E \cup O\). </p>
@@ -257,6 +257,70 @@ Problem 1.ii
 </div>
 <p><b>Back to the proof by contradiction</b></p>
 <p>Since we know that \(\mathbb{Z} \subseteq E \cup O\). If \(a \notin E \cup O \Rightarrow a \notin \mathbb{Z}\). Since \(\mathbb{N} \subset \mathbb{Z} \Rightarrow a \notin \mathbb{N}\)</p>
-<p>Thus this contradicts the assumption that \(a \in \mathbb{N}\) thus \(a \) must be even or odd to be a natural number. </p>
+<p>Thus this contradicts the assumption that \(a \in \mathbb{N}\) thus \(a \) must be even or odd to be a natural number.</p>
+<h3>
+    Problem 17 a)
+</h3>
+<p><b>Prove that every composite number can be written as the product of prime numbers.</b></p>
+<h4><b>Proof By Induction.</b></h4>
+<p><b>Base Case</b></p>
+<p>We know the first composite number thats not \(1\) is \(4\)</p>
+<p>We can write \(4 = 2 \cdot 2\) which is a product of prime numbers, thus proven the base case. </p>
+<p><b>General Case</b></p>
+<p>Assume that for \(\forall n\in \mathbb{N}, n > 1 \) and any composite number \(< n\) can be written as the product of only prime numbers. </p>
+<p>\(n\) can be written as \(n = a_1a_2\) assuming that \(a_1a_2 \in \mathbb{N}\).</p>
+<p><b>Induction Case</b></p>
+<p>We can test if \(n+1\) can be written as a product of prime numbers. </p>
+<p>We can write  \(n+1\) as a product \(n+1 = b_1b_2\) We know that \(b_1, b_2 < n+1 \) by themselves. Assuming that \(b_1,b_2 \in \mathbb{N}, b_1,b_2 \in  [2, \infty)\)</p>
+<p>We also know that \(b_1, b_2 < n \). Here's the proof. </p>
+<div style="padding-left: 50px;">
+    ----------------------------------------------
+    <H4><b>Lemma 1 Direct Proof</b></H4>
+    <p>We can rewrite \(b_1 \) as \(\frac{n+1}{b_2}\) </p>
+    <p>If \(n - \frac{n+1}{b_2} > 0 \) then \(b_1, b_2 < n \)</p>
+    \[n - \frac{n+1}{b_2}  = \frac{b_2n - n-1}{b_2} \]
+    <p>We know that the greatest lower bound for \(b_2\) is \(b_2=2\). We need to test for 
+        the greatest lower bound in order to minimize the expression. 
+    </p>
+    \[n - \frac{n+1}{b_2}  = \frac{2n - n-1}{b_2} \]
+    \[n - \frac{n+1}{b_2}  = \frac{n-1}{b_2} \]
+ 
+    <p>We know every value is positive since \(n\) is composite and greater than 1. Thus its always true that  </p>
+    \[n - \frac{n+1}{b_2} > 0\]
+   <p>Thus \(b_1, b_2 < n \)</p>
+
+</div>
+<p>Since \(b_1, b_2 < n \) by the assumption in the first case, any composite number \(< n\) can be written as the product of only prime numbers.
+Thus \(b_1,b_2\) can be written as a product of only prime numbers,\( \Rightarrow n+1\) can also be written as a product of only prime numbers.   </p>
+<p>Thus by induction every composite number can be written as the product of prime numbers.</p>
+
+<h3>
+    Problem 17 c)
+</h3>
+<p><b>Prove that \(\sqrt[2]{n}\) is always irrational unless \(n = m^l\) for some \(m\in \mathbb{N}\).</b></p>
+<h4>Proof by Contradiction.</h4>
+<p>If \(\sqrt[l]{n}\) where to be rational then it can be written in lowest form \(\frac{p}{q}\) such that \(p,q\) are relatively prime. </p>
+\[\sqrt[2]{n} = \frac{p}{q}\]
+\[q\sqrt[2]{n} = p\]
+\[q^2n = p^2\]
+<p>This suggests that \(n\) is a factor of \(p^2\). Thus we know that either \(n\) is divisible by \(p\) or  \(p\) is divisible by \(n\).
+    This is because if \(n\) didn't satisfy any of those conditions, then it would mean there's at least 1 uncommon prime factor from both \(n\) and \(p\)
+    which would mean there is at least 1 uncommon prime factor from both \(n\) and \(p^2\) since \(p^2\) has all the prime factors of \(p\) and would thus also contain the uncommon factor. 
+But we know that   \(n\) is a factor of \(p^2\), thus   \(n\) is divisible by \(p\) or  \(p\) is divisible by \(n\).
+</p>
+
+    <p> 
+    Lets write \(p\) as a product of the factor \(n\)
+    and some number \(k\)\(p = nk\)</p>
+    \[q\sqrt{n} =  nk\]
+    \[q^2n =  n^2k^2\]
+    \[q^2=  nk^2\]
+    <p>This suggests that \(q^2\) has a factor \(n\) which suggests that \(n\) is divisible by \(q\) or  \(q\) is divisible by \(n\).</p>
+    <p>If \(n|p\) and  \(q|n\). Then  \(q|p\) which is a contradiction that they're relatively prime. If \(n|p\) and  \(n|q\). Then  they have a common factor\(\frac{1}{n}\). 
+        Contradiction that they're relatively prime. If \(p|n\) and  \(n|q\). Then \(p|q\) which is contradiction that they're relatively prime. 
+        If \(p|n\) and  \(q|n\). Then  they have a common factor\(n\). 
+        Contradiction that they're relatively prime. If \(p|n\) and  \(n|q\).</p>
+    <p>
+    Thus we've shown that \(\sqrt{n}\) cannot be written as a rational number, thus its irrational. </p>
 </body>
 </html>
