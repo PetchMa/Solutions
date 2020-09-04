@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spivak Calculus - Chapter 3 Problems</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Chapter 3 Problems
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Sept 4th 2020</h3>
+   
+
+    <h2>
+   Functions
+    </h2>
+    <h3>
+    Problem 2
+    </h3>
+    <p><b>Consider:</b>\(g(x) =x^2\) and the function </p>
+    \[ \begin{cases} 
+      0, & y \in \mathbb{Q}\\
+      1, &  y\in \mathbb{Q'}\\
+   
+   \end{cases}
+\]
+<h4>
+Part A 
+</h4>
+<p>
+    <b>Find all \(h(y) \leq y\)</b>
+</p>
+<p>We know that \(\forall y \in \mathbb{Q} [0,\infty)\) that \(y\geq 0\). The function \(h(y)\) sends y \(h(y) = 0\))
+    Thus \(h(y) \leq y\). We also know that  \(\forall y \in \mathbb{Q'} [1,\infty)\) that \(y\geq 1\). The function \(h(y)\) sends y \(h(y) = 1\))
+    Thus \(h(y) \leq y\)
+</p>
+<h4>
+Part B 
+</h4>
+<p>
+    <b>For which \(y\) does \(h(y) \leq g(y)\)</b>
+</p>
+<p>
+We know that \(\forall y \in \mathbb{Q} \) that \(g(y) \geq 0\) because its a square. We know that \(\forall y \in \mathbb{Q} , h(y)=0\).
+Thus  \(h(y) \leq g(y)\) In this case.
+</p>
+<p>
+    We know that \(\forall y \in \mathbb{Q'}(-\infty, -1] \cup [1, \infty) \) that \(g(y) \geq 1\) because its a square. We know that \(\forall y \in \mathbb{Q'} , h(y)=1\).
+    Thus  \(h(y) \leq g(y)\) In this case.
+    </p>
+
+<h4>
+Part C
+</h4>
+<p>
+    <b>What is \(g(h(z)) - h(z)\)?</b>
+    <p>Since \(h(z)\) can only take on either \(1\) or \(0\). \(g(x)\) would thus only take on either \(1\) or \(0\). 
+        Thus \(g(h(z)) - h(z) = 0\). No matter what number \(z\) takes on, the square of \(1,0\) is always the same.
+    </p>
+</p>
+<h4>
+Part D
+</h4>
+<p>
+    <b>For which \(w\) is \(g(w) \leq w\)?</b>
+    <p>
+        We know that the product of numbers greater than 1 will always be greater than the factors of the product. Thus if \(|w|>1\) then \(w^2> w\). Not represented in the inequality.
+    </p>
+    <p>We know that if each factor is \(\leq 1\) then the product is less than its factors. \(|w|\leq 1 \Rightarrow w^2 \leq w\). Thus when \(w\in \mathbb{R}[-1,1]\) the inequality holds true. </p>
+</p>
+<h4>
+Part E
+</h4>
+<p>
+<b>For which \(\epsilon\) is \(g(g(\epsilon)) = g(\epsilon)\)?</b>
+<p>
+    We know that the expression says \((x^2)^2 = x^2 \) which implies \(x^2 =1\). We know then that the only 2 values \(\epsilon\) can take on is \(\epsilon = \pm 1\)
+</p>
+<br/>
+
+<h3>
+    Problem 16 a)
+</h3>
+<p><b>Suppose  \(f\) satisfies \(f(x+y) = f(x)+f(y)\) for all \(x\) and \(y\). Prove that \(f(x_1+x_2+...x_n) = f(x_1)+f(x_2)+...\)</b></p>
+\[f(\sum_{k=1}^{n+1} x_k) =\sum_{k=1}^{n+1} f(x_k) \]
+<h4>Prove by Induction</h4>
+<p><b>Base case</b></p>
+<p>We are told that the base case is true. It is stated that \(f\) satisfies \(f(x+y) = f(x)+f(y)\) which implies \(f\) satisfies \(f(x_1+x_2) = f(x_1)+f(x_2)\)</p>
+
+<p><b>General case</b></p>
+<p>We assume that \(f\) satisfies \(f(x_1+x_2+...x_n) = f(x_1)+f(x_2)+...\)</p>
+\[f(\sum_{k=1}^{n+1} x_k) =\sum_{k=1}^{n+1} f(x_k) \]
+<p><b>Induction case</b></p>
+<p>We can test to see if the \(n+1\) case holds up. Let \(y = x_1+x_2+...x_{n}\)</p>
+\[f(x_1+x_2+...x_{n+1}) =f(y+x_{n+1})\]
+<p>We know from the base case that this is true. </p>
+\[f(x_1+x_2+...x_{n+1}) =f(y) + f(x_{n+1})\]
+<p>Sub back the value for \(y\)</p>
+\[f(x_1+x_2+...x_{n+1}) =f(x_1+x_2+...x_{n}) + f(x_{n+1})\]
+<p>We already assumed that \(f(x_1+x_2+...x_n) = f(x_1)+f(x_2)+...\)</p>
+\[f(x_1+x_2+...x_{n+1}) =  f(x_1)+f(x_2)+...+ f(x_{n+1})\]
+<p>By induction we've therefore proven that this is true. </p>
+</body>
+</html>
