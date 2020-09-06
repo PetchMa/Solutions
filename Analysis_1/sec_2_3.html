@@ -111,6 +111,66 @@ Part E
 <p>By induction we've therefore proven that this is true. </p>
 
 <h3>
+    Problem 19
+</h3>
+<p><b>Prove that there exists no function \(f,g\) such that...</b></p>
+\[f(x)+g(y) = xy\]
+<p>Or...</p>
+\[f(x)g(y) = x+y\]
+<h4>
+    First relationship
+</h4>
+<p>We first prove the first relation does not allow \(f,g\) to be a function.</p>
+<p>We know that the following is true.</p>
+\[f(x)+g(0)=0\quad and \quad f(0)+g(y)=0\]
+<p>Thus if we add them together, they must equal to zero.</p>
+\[[f(x)+g(0)] + [f(0)+g(y)]=0\]
+\[[f(x)+g(y)] +[f(0)+g(0)] =0\]
+\[[f(x)+g(y)] +0 =0\]
+\[f(x)+g(y)=0\]
+<p>This shows that </p>
+\[f(x)+g(y) = xy \quad and \quad f(x)+g(y)=0, \quad \forall x,y\in\mathbb{R}\]
+<p>This is the issue. If we hold the function\(g\) constant such that \(\g(\alpha)).  </p>
+\[f(x)+\g(\alpha)=x+\alpha\]
+<p>But we've also shown that \(f(x)+g(y)=0, \quad \forall x,y\in\mathbb{R}\)</p>
+\[f(x)+\g(\alpha)=0\]
+<p>Since \(x\) can take on any value, \(x+\alpha \neq 0\). Thus \(f\) is not a function. Since the function can equal any real number 
+    and 0 at the SAME time. </p>
+<p> If we hold the function\(f\) constant such that \(\f(\alpha)).  </p>
+\[f(\alpha)+g(x)=\alpha+x\]
+<p>But we've also shown that \(f(x)+g(y)=0, \quad \forall x,y\in\mathbb{R}\)</p>
+\[f(\alpha)+g(x)=0\]
+<p>Since \(x\) can take on any value, \(x+\alpha \neq 0\). Thus \(g\) is also not a function. Since the function can equal any real number 
+    and 0 at the SAME time. 
+</p>
+
+<h4>
+    Second relationship
+</h4>
+<p>We know that the following is true.</p>
+\[f(-x)g(x) =0\]
+\[f(-y)g(y) =0\]
+<p>What if we multiplied them together?</p>
+\[f(-y)g(y) f(-x)g(x)=0 \]
+\[f(-y) f(-x)g(y)g(x)=0 \]
+\[(-x-y)(x+y)=0 \]
+\[-(x+y)^2=0 \]
+\[-(f(x)g(y))^2=0 \]
+\[f(x)g(y)=0 \]
+<p>This is the problem. We've previously defined that \(f(x)g(y) = x+y\)</p>
+<p>If we hold one of these constant. </p>
+\[f(x)g(\alpha) = x+\alpha\]
+<p>We also know that its equal to 0 at the same time from our previous proof. \(f\) is not a function. Since the function can equal any real number 
+    and 0 at the SAME time. </p>
+    \[f(\alpha)g(x) = \alpha+x\]
+<p>We also know that its equal to 0 at the same time from our previous proof. \(g\) is not a function. Since the function can equal any real number 
+    and 0 at the SAME time. </p>
+    <p>Therefore we've proven that neither of these definitions allow \(f,g\) can be a function.</p>
+
+
+
+    
+<h3>
     Problem 26
 </h3>
 <p><b>Suppose  \(f(g(x))=l\) and that \(h(f(x)) = l\) prove that \(h=g\)</b></p>
