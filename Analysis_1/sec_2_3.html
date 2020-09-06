@@ -109,5 +109,31 @@ Part E
 <p>We already assumed that \(f(x_1+x_2+...x_n) = f(x_1)+f(x_2)+...\)</p>
 \[f(x_1+x_2+...x_{n+1}) =  f(x_1)+f(x_2)+...+ f(x_{n+1})\]
 <p>By induction we've therefore proven that this is true. </p>
+
+<h3>
+    Problem 26
+</h3>
+<p><b>Suppose  \(f(g(x))=l\) and that \(h(f(x)) = l\) prove that \(h=g\)</b></p>
+<p>We know the following is true.</p>
+\[h^{-1}fgg^{-1}f^{-1}h (x) = x\]
+<p>This is based on the associative property of composition.</p>
+<p>We can also rewrite \(f(g(x)) = h(f(x))\) which we can then write as 
+    \(h^{-1}(f(g(x))) = f(x) \). Thus we can replace
+</p>
+\[fg^{-1}f^{-1}h (x) = x\]
+<p>From this we can say that the inner composition is the inverse of the outer. </p>
+\[fg^{-1}= (f^{-1}h (x))^{-1}\]
+<p>We can say that the inverse is distributive because of this proof. </p>
+\[f^{-1}g^{-1}(gf(x))=x\]
+<p>We can also say that the following is true based on the grouping </p>
+\[(fg)^{-1}(gf(x))=x\]
+<p>Thus the following is true.</p>
+\[(fg)^{-1}(gf(x))=f^{-1}g^{-1}(gf(x))\]
+\[(fg)^{-1}f^{-1}g^{-1}\]
+<p>Thus if we go back and distribute it in. We get...</p>
+\[fg^{-1}= fh (x)^{-1}\]
+<p>Take the inverse of \(f\) on both sides. </p>
+\[g^{-1}= h (x)^{-1} \Rightarrow g=h \]
+<p>Proven.</p>
 </body>
 </html>
