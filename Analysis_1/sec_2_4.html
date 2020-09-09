@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spivak Calculus - Chapter 4 Problems</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Chapter 4 Problems
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Sept 9th 2020</h3>
+<h2>
+Graphs 
+</h2>
+
+<h3>
+    Problem 19
+    </h3>
+    <p><b>Describe the function \(g\) in terms of \(f\)</b></p>
+
+    <h4>
+        \(g(x) = f(x)+c\)
+    </h4>
+
+<h3>
+Problem 22
+</h3>
+<p><b>Show that the square of the distance from \((c, d)\) to \((x, mx)\) is</b></p>
+\[x^2(mx^2+1)+x(-2md-2c)+d^2+c^2\]
+<p>
+    We can use the distance formula.
+</p>
+\[d(x,y)^2 = (x_1-x)^2 + (y_1-y)^2\]
+<p>We replace the variables</p>
+\[d(x,mx)^2 = (c-x)^2 + (d-mx)^2\]
+\[d(x,mx)^2 = c^2-2cx + x^2 + d^2-2dmx+m^2x^2\]
+\[d(x,mx)^2 = c^2+(-2cx-2dmx) + x^2 + d^2+m^2x^2\]
+\[d(x,mx)^2 = x^2(m^2+1)+ x(-2c-2dm) + d^2+c^2\]
+<p><b>Find the minimum distance. </b></p>
+<p>Notice that this is in quadratic form and we can solve for the mimimum of the distance by locating the vertex.</p>
+\[y = \frac{-b^2}{4a}+c\]
+<p>Thus we plug the coefficents into the formula.</p>
+\[d(x,mx)^2 =\frac{-(-2c-2dm)^2}{4(m^2+1)}+d^2+c^2 \]
+\[d(x,mx)^2 =\frac{-(4m^2d^2 +8mdc+4c^2)}{4(m^2+1)}+d^2+c^2 \]
+\[d(x,mx)^2 =\frac{-m^2d^2 -2mdc-c^2) - d^2m^2+d^2+c^2m^2+c^2}{(m^2+1)}\]
+\[d(x,mx)^2 =\frac{ -2mdc +d^2+c^2m^2+c^2}{(m^2+1)}\]
+\[d(x,mx)^2 =\frac{(d-cm)^2}{(m^2+1)}\]
+<p>Since we want mimum distance we take the square root. But since we're square rooting a already perfect square we can add in absolute value bars and take out the square. </p>
+\[d(x,mx) =\frac{|d-cm|}{\sqrt{m^2+1}}\]
+
+
+</body>
+</html>
