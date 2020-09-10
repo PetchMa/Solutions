@@ -23,13 +23,86 @@ Graphs
 </h2>
 
 <h3>
-    Problem 19
+    Problem 14
     </h3>
     <p><b>Describe the function \(g\) in terms of \(f\)</b></p>
 
     <h4>
         \(g(x) = f(x)+c\)
     </h4>
+    <p>Vertical shift by \(c\) units up.</p>
+    
+    <h4>
+        \(g(x) = f(x+c)\)
+    </h4>
+    <p>Horizontal shift by \(c\) units to the left.</p>
+    <h4>
+        \(g(x) = cf(x)\)
+    </h4>
+    <p>Vertical stretch by a factor of \(c\) </p>
+    <h4>
+        \(g(x) = f(cx)\)
+    </h4>
+    <p>Horizontal compression by a factor of \(c\) </p>
+    <h4>
+        \(g(x) = f(\frac{1}{x})\)
+    </h4>
+    <p>Everything that happens far out happens near \(0\) and everything that happens near \(0\) happens far out now.</p>
+    <h4>
+        \(g(x) = f(|x|)\)
+    </h4>
+    <p>Turns any function into an even function. Also it creates a reflection along the y axis.</p>
+    <h4>
+        \(g(x) = |f(x)|\)
+    </h4>
+    <p>Reflection on the x axis for negative values of \(f(x)\)</p>
+    <h4>
+        \(g(x) = min(f(x), 0)\)
+    </h4>
+    <p>Retains all the negative values, and for any positive values its 0. </p>
+
+    <h3>
+        Problem 17
+        </h3>
+        <p><b>The operation \([x]\) rounds down any decimal number to an integer. Draw the graph for the following. </b></p>
+<h4>
+\(f(x) = [x]\)
+</h4>
+<p>We know that it should follow a similar direction as \(f(x)\) but between ever integer it rounds down and thus it should create a step like shape.</p>
+<div style="text-align: center;">
+<img src="floor.png">
+</div>
+<h4>
+    \(f(x) = x - [x]\)
+</h4>
+<p>We know that \(x = [x]\) when its an integer. But as \(x\) increases it eventually surpasses the floored value \([x]\) but it will then be equal again as \(x \rightarrow\) next integer.</p>
+<div style="text-align: center;">
+<img src="floor2.png">
+</div>
+<h4>
+    \(f(x) = \sqrt{x - [x]}\)
+</h4>
+<p>Notice this is exactly the same as the previous graph except it has the shaper of a square root function between the intervals instead of a straight line.</p>
+<div style="text-align: center;">
+<img src="floor3.png">
+</div>
+<h4>
+    \(f(x) =[x]+ \sqrt{x - [x]}\)
+</h4>
+<p>Notice this is exactly the same as the previous graph except it lies ontop of the steps shown in graph \([x]\)</p>
+<div style="text-align: center;">
+<img src="floor4.png">
+
+</div>
+<h4>
+    \(f(x) =[\frac{1}{x}]\)
+</h4>
+<p>Notice this is exactly the same graph as \(\frac{1}{x}\) except the countinous values are replaced with a constant for every integer it hits.</p>
+<div style="text-align: center;">
+<img src="floor5.png">
+
+</div>
+
 
 <h3>
 Problem 22
@@ -51,12 +124,27 @@ Problem 22
 <p>Thus we plug the coefficents into the formula.</p>
 \[d(x,mx)^2 =\frac{-(-2c-2dm)^2}{4(m^2+1)}+d^2+c^2 \]
 \[d(x,mx)^2 =\frac{-(4m^2d^2 +8mdc+4c^2)}{4(m^2+1)}+d^2+c^2 \]
-\[d(x,mx)^2 =\frac{-m^2d^2 -2mdc-c^2) - d^2m^2+d^2+c^2m^2+c^2}{(m^2+1)}\]
+\[d(x,mx)^2 =\frac{(-m^2d^2 -2mdc-c^2) - d^2m^2+d^2+c^2m^2+c^2}{(m^2+1)}\]
 \[d(x,mx)^2 =\frac{ -2mdc +d^2+c^2m^2+c^2}{(m^2+1)}\]
 \[d(x,mx)^2 =\frac{(d-cm)^2}{(m^2+1)}\]
 <p>Since we want mimum distance we take the square root. But since we're square rooting a already perfect square we can add in absolute value bars and take out the square. </p>
 \[d(x,mx) =\frac{|d-cm|}{\sqrt{m^2+1}}\]
-
-
+<p><b>What is the shortest distance if it was between \((c,d)\) and \((x, mx+b)\)??</b></p>
+<p>We use the exact same technique as we did before. </p>
+\[d(x,y)^2 = (x_1-x)^2 + (y_1-y)^2\]
+<p>We replace the variables</p>
+\[d(x,mx+b)^2 = (c-x)^2 + (d-(mx+b))^2\]
+\[d(x,mx+b)^2 = (c^2-2cx+x^2) + (d^2-dmx-db-dmx+m^2x^2+mxb-db+bmx+b^2)\]
+<p>We can simplify</p>
+\[d(x,mx+b)^2 = m^2x^2+2bmx-2dmx+b^2-2ba+c^2-2cx+d^2+x^2\]
+\[d(x,mx+b)^2 = x^2(m^2+1)+x(2bm-2dm-2c)+(b^2+c^2+d^2-2bd)\]
+<p>We know that this is in quadratic form \(ax^2+bx+c\) and that the formula for the vertex (ie critical point on the graph is the following.)</p>
+\[y = \frac{-b^2}{4a}+c\]
+<p>Thus we plug the coefficents into the formula.</p>
+\[d(x,mx+b)^2 =\frac{-(2bm-2dm-2c)^2}{4(m^2+1)}+(b^2+c^2+d^2-2bd) \]
+\[d(x,mx+b)^2 =\frac{4c^2m^2+8bcm−8cdm+4b^2−8bd+4d^2}{4(m^2+1)} \]
+\[d(x,mx+b)^2 =\frac{c^2m^2+2bcm−2cdm+b^2−2bd+d^2}{(m^2+1)} \]
+<p>The minimum distance is thus the following after factoring. </p>
+\[d(x,mx+b) =\sqrt{\frac{(cm-d)^2+2bcm+b^2−2bd}{(m^2+1)} }\]
 </body>
 </html>
