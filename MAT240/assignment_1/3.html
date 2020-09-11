@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT240 - Assignment 1</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem 3
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Sept 10th 2020</h3>
+
+<h4>
+    Let \(f:X→Y\) be a map. The map \(g:Y→X\) is called an inverse of \(f\) when it satisfies the properties
+    \[g \circ f = I_x \quad and \quad f \circ g = I_y \]
+    where \(I_z\) means the identity map from \(z\) to itself.
+</h4>
+<h3>
+    a) Prove that if an inverse of the map \(f\) exists, then it is unique.
+</h3>
+<p style="color: blue;"><b>Proof</b></p>
+<p>Let \(k\) be another inverse of \(f\) such that \(k \circ f  = I_x\)</p>
+\[g =  I_x \circ g \]
+\[g = (k \circ f) \circ g \]
+\[g = k \circ (f \circ g )\]
+\[g = k \circ  I_x\]
+\[g = k \]
+<P>Thus we've proven that the inverse of \(f\) is unique, since there does not exist \(k\) such that it doesn't equal \(g\) meaning the inverse is unique.</P>
+<h3>
+    b) Give an example of a non-invertible map \(f\).
+</h3>
+<p style="color: blue;"><b>Example</b></p>
+<p>Example: \(f: X\rightarrow Y, f(x) = x^2 \)</p>
+<!-- <p>This function is non invertable since the domain of the inverse cannot </p> -->
+<h3>
+    c) Prove that \(f\) is invertible (i.e. it has an inverse) if and only if it is a bijection.
+</h3>
+<p style="color: blue;"><b>Proof By Contradiction.</b></p>
+<p>Assume that \(f\) is not bijective and has an inverse.</p>
+<p>If \(f\) isn't bijective that would imply that either.... </p>
+<ol>
+    <li>
+        \(f\) is injective. For \(g\), not all \(y: y\in Y\) will be mapped to \(x:x\in X\) 
+    </li>
+    <br/>
+    <li>
+        \(f\) is surjective. For \(g\),  \(\exists y: y\in Y\) that can be mapped to multiple \(x:x\in X\)
+    </li>
+</ol>
+<p><b>If \(f\) is injective</b> that would imply that not all values of the inverse's domain can be mapped back to its codomain. 
+Meaning that  the condition of \(g \circ f = I_x \) will be contradicted. </p>
+<p><b>If \(f\) is surjective</b> that would imply that  \(\exists y: y\in Y\) that can be mapped to multiple \(x:x\in X\). Thus it will fail to map back the entire image of the original function back 
+    to original domain meaning that the condition of \(f \circ g = I_y \) will be contradicted.  
+</p>
+<p><b>If \(f\) is bijective</b> then, every image mapped by \(f\) can also be mapped back to its domain as its a one to one and onto mapping.
+</p>
+<p>By contradiction we've shown that \(f\) is invertible if and only if it is a bijection. </p>
+<h3>
+    d) Suppose \(f:X→Y\) and \(g:Y→X\) are such that \(g∘f=I_x\). Does it follow that \(f∘g=I_y\)? Why?
+</h3>
+<p style="color: blue;"><b>Solution</b></p>
+<p>
+    No. This is because the condition \(g∘f=I_x\) doesn't guarantee that every value given by \(g\) can be mapped in the function \(f\). It only guarantees that every value given by \(f\) can be mapped back to the indentity function.
+</p>
+
+<h3>
+    e) Let \(f,g\) be as in part d), with the additional assumption that \(f\) is surjective. Does it follow that \(f∘g=I_y\)? Why?
+</h3>
+<p style="color: blue;"><b>Solution</b></p>
+<p>
+    No we can't since if \(f\) is surjective it would mean that the image of the inverse cannot map back all values of \(f\)'s domain. Thus this contradicts that \(f∘g=I_y\).
+</p>
+<p></p>
+</body>
+</html>
