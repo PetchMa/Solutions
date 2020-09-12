@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT240 - Assignment 1</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem 6
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Sept 10th 2020</h3>
+
+<h4>
+    The power set of a set \(X\) is the set consisting of all subsets of \(X\). The power set of \(X\) is usually written \(P(X)\). If \(X\) is a set with \(n\) elements (i.e. with cardinality \(n\)), what is the cardinality of \(P(X)\)?
+</h4>
+<p style="color: blue;"><b>Solution</b></p>
+\[2^n\]
+<p>
+    We can state the cardinality of the power set to be the of combinations of the elements in set \(x\) choosing from \(1 \rightarrow n\). Example</p>
+    \[|P(\{1,2,3\})| = |\{\{1\}, \{2\}, \{3\}\}|+|\{\{1,2\}, \{1,3\}, \{2,3\}\}|+|\{ \{1,2,3\}\}| ={3 \choose 1}+ {3 \choose 2}+{3 \choose 3} =8\]
+    <p>Thus if we wanted to calculate 
+    the cardinality of the power set, we can write it as ...
+</p>
+\[|P(x)| = \sum_{k=0}^{n}{n \choose k} \]
+<p>We can use the binomial theorem to prove that ... </p>
+\[|P(x)| = \sum_{k=0}^{n}{n \choose k}  = \sum_{k=0}^{n}{n \choose k} (1)^{n-k}(1)^k = (1+1)^n = 2^n\]
+<p>Thus we have that the cardinality is \(2^n\)</p>
+<p></p>
+</body>
+</html>

@@ -28,7 +28,7 @@
     a) Prove that if an inverse of the map \(f\) exists, then it is unique.
 </h3>
 <p style="color: blue;"><b>Proof</b></p>
-<p>Let \(k\) be another inverse of \(f\) such that \(k \circ f  = I_x\)</p>
+<p>Let \(k\) be an inverse of \(f\) such that \(k \circ f  = I_x\)</p>
 \[g =  I_x \circ g \]
 \[g = (k \circ f) \circ g \]
 \[g = k \circ (f \circ g )\]
@@ -49,19 +49,24 @@
 <p>If \(f\) isn't bijective that would imply that either.... </p>
 <ol>
     <li>
-        \(f\) is injective. For \(g\), not all \(y: y\in Y\) will be mapped to \(x:x\in X\) 
+        \(f\) is injective. 
     </li>
     <br/>
     <li>
-        \(f\) is surjective. For \(g\),  \(\exists y: y\in Y\) that can be mapped to multiple \(x:x\in X\)
+        \(f\) is surjective.
     </li>
 </ol>
-<p><b>If \(f\) is injective</b> that would imply that not all values of the inverse's domain can be mapped back to its codomain. 
-Meaning that  the condition of \(g \circ f = I_x \) will be contradicted. </p>
-<p><b>If \(f\) is surjective</b> that would imply that  \(\exists y: y\in Y\) that can be mapped to multiple \(x:x\in X\). Thus it will fail to map back the entire image of the original function back 
-    to original domain meaning that the condition of \(f \circ g = I_y \) will be contradicted.  
+<p><b>If \(f\) is injective</b> it cannot guarantee that all values of the inverse's domain can be mapped to \(I_x\). 
+Meaning that  the condition of \(f \circ g(I_y) = I_y \) will be contradicted. </p>
+
+
+<p><b>If \(f\) is surjective</b> that would imply that there can exist \(x_1,x_2\in X: x_1\neq x_2\) and \(f(x_1)=f(x_2)\) 
+    that would imply that \(g\circ f (x_1)\) could equal \(x_1\) or \(x_2\) contradicting \(g \circ f = I_x \). 
 </p>
-<p><b>If \(f\) is bijective</b> then, every image mapped by \(f\) can also be mapped back to its domain as its a one to one and onto mapping.
+<p><b>If \(f\) is bijective</b> then by definition, \(\forall x_1,x_2 \in X: x_1\neq x_2, f(x_1)\neq f(x_2)\). 
+    This would mean that \(g \circ f = I_x\) since every \(y\in Y\) is mapped only once to an \(x \in X\). 
+    \(f \circ g = I_y\) would also be guaranteed since by definition of bijection every value \(y\in Y\) is mapped by an \(f\) from \(x \in X\)
+    thus \(f \circ g = I_y\).
 </p>
 <p>By contradiction we've shown that \(f\) is invertible if and only if it is a bijection. </p>
 <h3>
@@ -69,7 +74,8 @@ Meaning that  the condition of \(g \circ f = I_x \) will be contradicted. </p>
 </h3>
 <p style="color: blue;"><b>Solution</b></p>
 <p>
-    No. This is because the condition \(g∘f=I_x\) doesn't guarantee that every value given by \(g\) can be mapped in the function \(f\). It only guarantees that every value given by \(f\) can be mapped back to the indentity function.
+    No. This is because the condition \(g∘f=I_x\) doesn't guarantee that every value given by \(g\) can be mapped in the function \(f\).
+     There <u>can</u> still exist a value that \(g\) returns that does not get mapped back by \(f\).
 </p>
 
 <h3>
@@ -77,8 +83,12 @@ Meaning that  the condition of \(g \circ f = I_x \) will be contradicted. </p>
 </h3>
 <p style="color: blue;"><b>Solution</b></p>
 <p>
-    No we can't since if \(f\) is surjective it would mean that the image of the inverse cannot map back all values of \(f\)'s domain. Thus this contradicts that \(f∘g=I_y\).
+Yes we can.  Firstly, since \(f\) is surjective, it suggests that every element of \(Y\) has <u>at least one map from set \(X\)</u>.
+But since we know that \(g∘f=I_x\) it would mean every map <u>\(f\) has one map</u>, or else, the image from \(g\) would not equal \(I_x\) 
+if \(f\) were to have more than one mapping from the \(X\). 
+
 </p>
-<p></p>
+<p>^ More explantation, if \(x_1\neq x_2\) and \(f(x_1)=f(x_2)\) that would imply that \(g(f(x_1))\) could equal \(x_1\) or \(x_2\)
+    at the sametime which cannot happen. </p>
 </body>
 </html>
