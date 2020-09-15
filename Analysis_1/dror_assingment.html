@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spivak Calculus - Assignment 1 Problems</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Assignment 1
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Sept 15 2020</h3>
+   
+
+
+<h4>
+    1. Show that if \(a>0\) then \(ax^2+bx+c \geq 0\) given that \(b^2-4ac \leq 0\).
+</h4>
+<p>Let \(p(x) = ax^2+bx+c \)</p>
+<p>We can rewrite the function as the following... by completeling the square.</p>
+\[p(x) = a(x-\frac{b}{2a})^2+(c-\frac{b^2}{4a})\]
+<p>We know that the term \(a(x-\frac{b}{2a})^2 > 0\) since we know that \(a > 0\) and that the square of any number is positve.
+    Thus the entire term is positive.
+</p>
+<p>We also know the following is true from the question. \(b^2-4ac \leq 0\) which implies \(b^2 \leq 4ac\) which suggests \(\frac{b^2}{2a} \leq c\)</p>
+<p>This suggests that the term \((c-\frac{b^2}{4a}) \geq 0\). </p>
+<p>Since if we added only positve or 0 terms together, we will always get a positive or 0 sum. Then \(ax^2+bx+c \geq 0\). Thus its proven. QED </p>
+</body>
+</html>
