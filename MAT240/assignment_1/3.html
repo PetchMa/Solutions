@@ -55,17 +55,27 @@
     <li>
         \(f\) is surjective.
     </li>
+    <br>
+    <li>
+        \(f\) is neither.
+    </li>
 </ol>
 <p><b>If \(f\) is injective</b> it cannot guarantee that all values of the inverse's domain can be mapped to \(I_x\). 
 Meaning that  the condition of \(f \circ g(I_y) = I_y \) will be contradicted. </p>
 
 
-<p><b>If \(f\) is surjective</b> that would imply that there can exist \(x_1,x_2\in X: x_1\neq x_2\) and \(f(x_1)=f(x_2)\) 
-    that would imply that \(g\circ f (x_1)\) could equal \(x_1\) or \(x_2\) contradicting \(g \circ f = I_x \). 
+<p><b>If \(f\) is surjective</b> that would imply that there could \(\exists x_1,x_2\in X: x_1\neq x_2\) and \(f(x_1)=f(x_2)\) 
+    that would imply that \(g\circ f (x_1)\) could equal \(x_1\) or \(x_2\). That contradicts the definition of a mapping
+    where the element of a domain, cannot be mapped to two different images. 
 </p>
-<p><b>If \(f\) is bijective</b> then by definition, \(\forall x_1,x_2 \in X: x_1\neq x_2, f(x_1)\neq f(x_2)\). 
+<p><b>If \(f\) is neither</b> then its neither injective nor surjective. This implies there exist multiple elements
+    of the domain which maps to the same image, AND not all elements of the codomain is mapped by \(f\). The fact that not all elements of the 
+    codomain of \(f\) has a map already contradicts the condition of \(f \circ g(I_y) = I_y \). Thus \(f\) wouldn't be invertable.
+</p>
+<p><b>If \(f\) is bijective</b> then by definition, \(\forall x_1,x_2 \in X: x_1\neq x_2, f(x_1)\neq f(x_2)\) AND 
+    \(\forall y \in Y, \exists x \in X :f(x)=y\). 
     This would mean that \(g \circ f = I_x\) since every \(y\in Y\) is mapped only once to an \(x \in X\). 
-    \(f \circ g = I_y\) would also be guaranteed since by definition of bijection every value \(y\in Y\) is mapped by an \(f\) from \(x \in X\)
+    \(f \circ g = I_y\) would also be guaranteed since by definition of bijection every value \(y\in Y\) is mapped by \(f\) from \(x \in X\)
     thus \(f \circ g = I_y\).
 </p>
 <p>By contradiction we've shown that \(f\) is invertible if and only if it is a bijection. </p>
@@ -83,12 +93,11 @@ Meaning that  the condition of \(f \circ g(I_y) = I_y \) will be contradicted. <
 </h3>
 <p style="color: blue;"><b>Solution</b></p>
 <p>
-Yes we can.  Firstly, since \(f\) is surjective, it suggests that every element of \(Y\) has <u>at least one map from set \(X\)</u>.
-But since we know that \(g∘f=I_x\) it would mean every map <u>\(f\) has one map</u>, or else, the image from \(g\) would not equal \(I_x\) 
-if \(f\) were to have more than one mapping from the \(X\). 
+Yes we can.  Firstly, since \(f\) is surjective, by definition every element of \(Y\) has <u>at least one map from set \(X\)</u>.
+But since we know that \(g∘f=I_x\) it would mean every map <u>\(f\) has one map</u>, or else, there could \(\exists x_1,x_2\in X: x_1\neq x_2\) and \(f(x_1)=f(x_2)\) 
+that would imply that \(g\circ f (x_1)\) could equal \(x_1\) or \(x_2\). That contradicts the definition of a mapping.
 
 </p>
-<p>^ More explantation, if \(x_1\neq x_2\) and \(f(x_1)=f(x_2)\) that would imply that \(g(f(x_1))\) could equal \(x_1\) or \(x_2\)
-    at the sametime which cannot happen. </p>
+
 </body>
 </html>
