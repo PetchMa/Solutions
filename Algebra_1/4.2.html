@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artin Algebra Chapter 2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+            Problem 4.2
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | Dec 21st 2020</h3>
+    <h4>
+        An nth root of unity is a complex number \(z\) such that \(z^n\) = 1.
+    </h4>
+    <h4>
+    a) Prove that the nth roots of unity form a cyclic subgroup of \(C^x\) of order \(n\).
+    </h4>
+  
+<p style="color: blue;"><b>Proof</b></p>
+
+
+<p>
+    <b>
+        Recall that our original \(\lambda\) solutions in \(\lambda \in \mathbb{C}\) are the roots of unity. 
+    </b>
+</p>
+<p>
+    This forms a solution set which we can denote as \(G_n =\{\forall k=0,1,\cdots n-1,\lambda = e^{\frac{2k\pi i}{n}}\}\). This solution set
+    forms a group under multiplication. We can show that that is indeed the case, 
+</p>
+<p><b>Closure: 
+</b></p>
+<p>
+    We know that the expression \(\lambda = e^{\frac{2k\pi i}{n}} = \cos(\frac{2k\pi i}{n}) + \sin(\frac{2k\pi i}{n})i\). 
+    We know that whenever we multiply any solution in the set we are effectively rotating the by a given angle this is because 
+    \(e^{\frac{2k\pi i}{n}} \cdot e^{\frac{2k'\pi i}{n}} = e^{\frac{2k\pi i}{n} + \frac{2k'\pi i}{n}}  \). We know that we have 
+    \(n\) solutions in our set each are at a given angle \(\frac{2k\pi i}{n}\) where \(k\) is some natural number. Notice that this means 
+    our solution set is rotationally symmetric. 
+</p>
+<p>
+    Thus whenever we "add" multiples of the same \(\frac{2\pi i}{n}\) angle we will always get a value that is rotationally symmetric to our solution set.
+    This is because  \( e^{\frac{2k\pi i}{n}} = \cos(\frac{2k\pi i}{n}) + \sin(\frac{2k\pi i}{n})i\). This guarantees that 
+    whenever we multiply anything within our solution set we will get a value that is equivlanet in our set to the product. Thus guarantees closure. 
+</p>
+<p><b>Neutral element: 
+</b></p>
+<p>
+    The mutliplicative netural element is \(1\). We know that \(1\) will always be a solution to \(\lambda  = \sqrt[n]{1}\). This is trivial to show 
+    why 1 is the mutliplcative netural elements since. Furthermore this shows that this is a none empty set. 
+</p>
+<p><b>Associativity: 
+</b></p>
+<p>
+    We know that   \(e^{\frac{2k\pi i}{n}} \cdot e^{\frac{2k'\pi i}{n}} = e^{\frac{2k\pi i}{n}} \cdot e^{\frac{2k'\pi i}{n}}   \)
+    which we know is true from the regular definition of multiplication. 
+</p>
+<p><b>Inverse: 
+</b></p>
+<p>
+    We know that the mutliplcative inverse exists for some arbitrary element of our set lets call \(e^{\frac{2k\pi i}{n}}\) 
+    we construct the element \(e^{\frac{2\pi i}{n}} - \frac{2k\pi i}{n}  \) We know that this is in our set because 
+    \(e^{\frac{2k\pi i}{n} - \frac{2\pi i}{n}} = e^{\frac{2\pi i (k-1)}{n} }\) we know the case when \(k=0\) that it itself 
+    is the neutral element already. 
+</p>
+\[e^{\frac{2k\pi i}{n}} \cdot e^{\frac{2\pi i}{n} - \frac{2k\pi i}{n} } = e^{\frac{2\pi i}{n}}{n}  = e^{2\pi}= 1   \]
+<p>
+    Thus we've proven that this solution set \(G_n\) forms a group. This group is cyclic. 
+</p>
+<p><b>
+    This group \(G_{n+1}\) is isomorphic to the \(\mathbb{Z}/n\mathbb{Z}\). This implication is referenced here 
+    <a href="https://en.wikipedia.org/wiki/Cyclic_group">https://en.wikipedia.org/wiki/Cyclic_group</a>
+</b></p>
+<p>
+    Thus the solutions for \(\lambda\) for \(\mathbb{Z}/7\mathbb{Z}\) is isomorphic to \(G_6\) which have the solutions of 
+    which line on the circle shown in the diagram. 
+</p>
+<p>
+    What is MORE important is that this isomorphism is also is that we can write our solution 
+</p>
+\[G_n =\{1,g,g^2 \cdots g^{n-1}\} \]
+<p>
+    In this case we have 
+</p>
+\[G_6 =\{1,g,g^2 \cdots g^{6}\} \]
+<p>
+    Our field is 
+</p>
+\[[\mathbb{Z}]_7 = \{0,1,2,3,4,5,6\}\]
+<p>
+    Our solutions for lambda can simply be written as 
+</p>
+\[\lambda ^{n \text{ mod } 7} = 1\]
+</body>
+</html>
