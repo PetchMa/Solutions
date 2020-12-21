@@ -22,7 +22,7 @@
         An nth root of unity is a complex number \(z\) such that \(z^n\) = 1.
     </h4>
     <h4>
-    a) Prove that the nth roots of unity form a cyclic subgroup of \(C^x\) of order \(n\).
+    a) Prove that the nth roots of unity form a cyclic subgroup of \(\mathbb{C}^\times\) of order \(n\).
     </h4>
   
 <p style="color: blue;"><b>Proof</b></p>
@@ -73,31 +73,43 @@
 </p>
 \[e^{\frac{2k\pi i}{n}} \cdot e^{\frac{2\pi i}{n} - \frac{2k\pi i}{n} } = e^{\frac{2\pi i}{n}}{n}  = e^{2\pi}= 1   \]
 <p>
-    Thus we've proven that this solution set \(G_n\) forms a group. This group is cyclic. 
+    Thus we've proven that this solution set \(G_n\) forms a group. 
 </p>
-<p><b>
-    This group \(G_{n+1}\) is isomorphic to the \(\mathbb{Z}/n\mathbb{Z}\). This implication is referenced here 
-    <a href="https://en.wikipedia.org/wiki/Cyclic_group">https://en.wikipedia.org/wiki/Cyclic_group</a>
+<p><b>Cyclic: 
 </b></p>
 <p>
-    Thus the solutions for \(\lambda\) for \(\mathbb{Z}/7\mathbb{Z}\) is isomorphic to \(G_6\) which have the solutions of 
-    which line on the circle shown in the diagram. 
+    We can prove this is in fact cyclic, if we were to take an some arbitrary element of the group which we've defined as \(\lambda =  e^{\frac{2k\pi i}{n}}\)
 </p>
 <p>
-    What is MORE important is that this isomorphism is also is that we can write our solution 
+    We know that if we were to repeated multiply this value by it self as such 
+    \(e^{\frac{2k\pi i}{n}}\cdot e^{\frac{2k\pi i}{n}}\cdots e^{\frac{2k\pi i}{n}} = (e^{\frac{2k\pi i}{n}})^{n+1} \)
 </p>
-\[G_n =\{1,g,g^2 \cdots g^{n-1}\} \]
 <p>
-    In this case we have 
+    We'd get the following: \( (e^{\frac{2k\pi i}{n}})^{n+1} = (e^{\frac{2k\pi i}{n}})^n (e^{\frac{2k\pi i}{n}}) =e^{2k\pi i} (e^{\frac{2k\pi i}{n}})  \)
+    We've already shown that this is the multiplicative neutral element thus we get. \( (e^{\frac{2k\pi i}{n}})^{n+1} = e^{\frac{2k\pi i}{n}}\). Thus we've shown that 
+    with sufficent number of multiplications we arrive at the identity map. Thus we've shown its cyclic. 
 </p>
-\[G_6 =\{1,g,g^2 \cdots g^{6}\} \]
+<h4>
+    b) Determine the product of all the nth roots of unity.
+
+</h4>
+<p style="color: blue;"><b>Solution</b></p>
 <p>
-    Our field is 
+    All the roots of unity can be generated in the following set as such:
 </p>
-\[[\mathbb{Z}]_7 = \{0,1,2,3,4,5,6\}\]
+\[G_n =\{\forall k=0,1,\cdots n-1| \lambda = e^{\frac{2k\pi i}{n}}\}\]
 <p>
-    Our solutions for lambda can simply be written as 
+    Thus each element say the \(k\)th element of \(G_n\) is really just \(e^{\frac{2k\pi i}{n}}\). Lets index each of these elements as such: 
 </p>
-\[\lambda ^{n \text{ mod } 7} = 1\]
+\[g_k\in G_n: g_k = e^{\frac{2k\pi i}{n}}\]
+<p>
+    We can explicitly express the product \(P\) of each of these as the following: 
+</p>
+\[P = g_0\cdot g_1 \cdot g_2 \cdots g_{n-1}\]
+\[P = e^{0}\cdot e^{\frac{2\pi i}{n}} \cdot e^{\frac{4\pi i}{n}}  \cdots e^{\frac{2(n-1)\pi i}{n}} \]
+\[P = e^{\frac{2(\sum_{k=0}^{n-1}k)\pi i}{n}} \]
+\[P = e^{(n-1)\pi i} \]
+\[P = (e^{\pi i})^{(n-1)} \]
+\[P = (-1)^{(n-1)} \]
 </body>
 </html>
