@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Topology - Metric Spaces</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Metric Spaces 1
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | May 9th 2021</h3>
+<p>
+    The class is introduced by connecting the ideas in Analysis and generalizing them with these arbitrary sets in a very broad 
+    topic of point set topology. 
+</p>
+<p>
+    Lets say we're given som arbitrary space which is a collection of "stuff" and this is what we call a 
+    <b> set </b> which is 
+    described as: <b>\(X\)</b>. With this space <b>\(X\)</b> we wish to add addition structure, this structure is called a 
+    <b>Metric </b> which we define as <b>\(d(x,y)\)</b> where <b>\(x,y\in X\)</b>. You can think of this as some general idea of a <b>Distance</b>
+</p>
+<p>
+    <b>Metric Definition:</b>
+</p>
+<ol>
+    <li>
+        Function is definite: \(d(y,x) = 0 \) <b>if and only if</b> \(x=y\)
+    </li>
+    <li>
+        Function commutes: \(d(y,x) = d(y,x) \) 
+    </li>
+    <li>
+        Obeys triangle inequality commutes: \(d(y,x) \leq d(x,z)+ d(z,y) \) 
+    </li>
+</ol>
+<h3>
+    Example of Metrics
+</h3>
+<p>
+    Standard Euclidean Metric:
+</p>
+\[d(x,y) = \sqrt{\sum_{i=1}^n (x_n-y_n)^2}\]
+<p>
+    Discrete Metric
+</p>
+\[d(x,y) =\begin{cases} 
+0, & x=y \\
+1, & x\neq y
+\end{cases}\]
+<p>
+    We also have the space of continous functions between \((a,b)\) which is defined as:
+ </p>
+\[d(f,g) = \sqrt{\int_a^b (f(x)-g(x))^2 dx}\]
+
+<h3>
+    Note On Spaces 
+</h3>
+<p>
+    There are various other canonical spaces one of them being the hilbert space or \(\ell^p\) space. These are defined as the following:
+</p>
+<ol>
+    <li>
+        <p><b>
+            \(\ell^1\) space
+        </b>
+        These are the space of all sequences who's series is absolutely convergent. Defined with the following metric:
+    </p>
+    \[||x|| := \sum^\infty |x_n| \leq \infty\]
+    </li>
+    <li>
+        <p><b>
+            \(\ell^2\) space
+        </b>
+        the space of square-summable sequences, which is a Hilbert space
+    </p>
+    \[||y||_2 := \sqrt{\sum^\infty y_n^2} \leq \infty\]
+    </li>
+    <li>
+        <p><b>
+            \(\ell^p\) space
+        </b>
+        the space of square-summable sequences, which is a Hilbert space
+    </p>
+    \[||y||_p := \sqrt[p]{\sum^\infty y_n^p} \leq \infty\]
+    </li>
+    <li>
+        <p><b>
+            \(\ell^\infty\) space
+        </b>
+        the space of bounded sequences.
+    </p>
+    \[||z||_\infty := \text{sup}_{n\in \mathbb{Z}} |z_n| \leq \infty\]
+    </li>
+  
+</ol>
+
+<h3>
+    Continuity 
+</h3>
+<p>
+We can devise a means of defining a limit in these for functions between metric spaces using the definition of the metric. This follows exactly 
+from Analysis of \(\epsilon-\delta\) definitions except we use a metric:
+</p>
+\[\forall \epsilon > 0  \exists \delta >0 : d(x,y)< \delta  \Rightarrow d(f(x),y(x)) < \epsilon \quad \text{for }\mathbb{R}^n \]
+<h3>
+    Open Balls
+</h3>
+<p>
+    Imagine a point in some arbitrary space, since we defined the notion of a distance we can then "sweep" around some abstract 
+    shape of a sphere which can be called <b>\(B_a(r)\)</b> where \(a\in X\) and \(r\) is some radius. We get: 
+</p>
+\[B_a(r) := \{\forall x \in X | d(x,a) < r\}\]
+
+<h3>
+    Continuity - In Terms of Open Balls
+</h3>
+<p>
+   The idea is that the mapping of an entire ball to the image and then taking the preimage, if that preimage of that map of the ball is a subset 
+   of the original ball, then the map is continous. This is determined by the \(\delta\) and the \(\epsilon\) which is the radius.
+</p>
+\[\forall \epsilon >0 \exists \delta >0 : f(B_a(\delta) \subset B_{f(a)}(\epsilon)\]
+<p>
+    The preimage defintion is:
+</p>
+\[ a \in B_a(\delta) \subset f^{-1}(B_{f(a)}(\epsilon))\]
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+        Definition
+    </h4>
+    <p>
+        Open set \(A\subseteq M\) is <b>Open</b> in the metric space \(M\)
+        if it is a union of open balls. 
+    </p>
+    <p>
+    The set of all open sets in the metric space \((M,d)\) is called 
+    a <b>metric topology on \((M,d)\)</b> which we call \(T(M,d)\)
+    </p>
+
+</div>
+</div>
+<p>
+    &nbsp;
+</p>
+<p>
+    We can then formulate continuity in terms of open sets:
+</p>
+<p>
+    &nbsp;
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Theorem
+    </h4>
+    <p>
+        \(f: (M_1,d_1) \to  (M_2,d_2)\) is continous if and only if 
+        \(U \in T (M_1,d_1) \Rightarrow f^{-1}(U) \in T(M_1,d_1)\). 
+    </p>
+<p>
+    This is the same as the definition above since the topology is a power set of the 
+    metric space and so if says for ALL open sets this rule is obeyed. 
+</p>
+</div>
+</div>
+<h4>
+    Open Set 
+</h4>
+<p>
+    Open set is defined as a collection of each \(a \in X\) there exists an open ball 
+    thats contained within the space \(X\)
+</p>
+<h4>
+    Interior 
+</h4>
+<p>
+    We say that the <b>Interior</b> or \(a \in \text{int}(X)\) if there exists an open balls
+    \(\epsilon >0 \) such that \(B_a(\epsilon) \subset X\)
+</p>
+<h4>
+    Exterior 
+</h4>
+<p>
+    We say that the <b>Exterior</b> or \(a \in \text{ext}(X)\) is the maximal 
+    open subset of \(M\) contained in \(X^c \Leftrightarrow\) the union of 
+    a;ll open subsets of \(X^c\) which is the same \(\text{int}(X^c)\)
+</p>
+<h4>
+    Limit Point 
+</h4>
+<p>
+    We say that \(a\) is a <b>limit point </b> of \(X\) if the open ball around the point 
+    has some elements in \(X\) in other words for any open ball centered at 
+    \(a\) we have that \(B_a(r) - \{a\} \cap X \neq  \emptyset\)
+</p>
+<p>
+    The limit around it is called \(\text{lim}(X), X'\)
+</p>
+<h4>
+    Boundary Point 
+</h4>
+<p>
+    The <b>boundary point</b> is the edge of a bound. Imagine taking the edge point and constructing a 
+    open ball around it, for any open ball centered at that point there are elements in the set AND 
+    out of the set. Thus the definition of boundary denoted by  \(\partial X\) defined by
+</p>
+\[\forall \epsilon > 0 : \begin{cases} 
+B_a(\epsilon) \cap A \neq \emptyset \\
+B_a(\epsilon) \cap A^c \neq \emptyset \\
+\end{cases}\]
+<p>
+    We can piece together the entire space by:
+</p>
+\[M = \text{int}(X) \sqcup \partial(X)  \sqcup\text{cl}(X) \]
+<h4>
+    Closed Sets
+</h4>
+<p>
+    The definition of the closed set compliment of the open. If \(A\) open then \(A^c\) is closed. 
+</p>
+<h4>
+    Closure
+</h4>
+<p>
+    The <b>closure</b> of \(X\) denoted by \(\text{cl}(X) \) or 
+    \(\overline{X}\) is the set of all of limit points of \(X\)
+</p>
+<p>
+    Or it can be described as the union of boundary and the interior. \(\overline{A} = A \cup \partial A\)
+</p>
+<h4>
+    Isolated Point
+</h4>
+<p>
+    Imagine carving out a ball around a point \(a\) 
+    such that there exists a ball with \(r_0 >0\)
+    \(B_a(r_0) \cap X = \{a\}\), this implies that carving out the limit around the point 
+    is also possible which leaves just \(a\). 
+</p>
+
+
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Theorem
+    </h4>
+    <p>
+       A set \(X\) with respect to \(T(M,d)\) if and only if \(X = \overline{X}\)
+    </p>
+    <p>
+        This should make sense because 
+    </p>
+</div>
+</div>
+<h4>
+    Bounding Spaces
+</h4>
+<p>
+    We can define the "diameter" of a some subspace of \(\mathbb{R}^n\) 
+    where it is the maximum distance between any point in the subspace. 
+</p>
+\[\text{diam}(C)  = \text{sup}_{x,y\in C}d(x,y)\]
+<p>
+    We can also define the distance between subspaces as the smallest distance. 
+</p>
+\(d(A,B) = \text{inf}_{x\in A, y \in B}d(x,y)\)
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Theorem
+    </h4>
+   <p>
+       Let \(C\) be some arbitrary subset of the metric space then the function 
+       \(d_C\) is continous. 
+   </p>
+   <p>
+       \(d_C\) is defined:
+   </p>
+   \[d_C: M \to \mathbb{R}\quad d_C(x):= d(\{x\},C)\]
+</div>
+</div>
+<p>
+    Okay now my teacher decides to introduce compactness in the first lecture? 
+    Lol aight so we have this: 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Definition
+    </h4>
+  <p>
+      We define that \(C \subset \mathbb{R}\) is <b>compact</b>
+      if and only if for any arbitrary covering for \(C\) there 
+      is a fininte number of subcovers. 
+
+  </p>
+  <p>
+      Formally we write:
+  </p>
+  \[C \subset \bigcup_{k=1}^n B_{a_k}(r_k)\]
+</div>
+</div>
+<p>
+    Here are a number of equivalent definitions: 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Compactness 
+    </h4>
+    <p>
+        <b>Compactness</b>
+        if and only if for any arbitrary covering for \(C\) there 
+        is a fininte number of subcovers. 
+  
+    </p>
+    <p>
+        <b>Countably Compactness</b>
+       for every infinite subset of \(M\) there is a limit point. 
+  
+    </p>
+    <p>
+        <b>Sequentially Compactness</b>
+      for every sequence in \(M\) has a convergent subsequence
+  
+    </p>
+    <p>
+        <b>Complete and Totally Bounded</b>
+     every cauchy sequence converges and is totally bounded. Specifically 
+     \(\forall \epsilon >0 \exists \) a finite number of open balls of radius \(\epsilon\) 
+     that covers \(M\).
+    </p>
+</div>
+</div>
+<p>
+    Complete is a more general class of compactness. 
+</p>
+<h4>
+    Dense
+</h4>
+<p>
+    We can call something is <b>Dense</b> if \(\overline X = M\).
+    Intuitively this means that you can never 
+    find a two points such that there doesnt exist an open ball where they intersect 
+    each other. In other words there is always something in between. 
+</p>
+<h4>
+    Nowhere Dense
+</h4>
+<p>
+    We call this nowhere dense if for every open ball in \(M\)
+    consisting of points entirely from \(X^c\). Which is the same as \(\text{int}(X^c)\). 
+    
+</p>
+<p>
+    This makes intuitive sense because for any point in the set you can always find an exact region 
+    where something "ends" then clearly its not dense. If it were dense then you shouldn't be able to find this "boundary". 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Lebesgue Number 
+    </h4>
+  <p>
+      The Lebesgue number which is \(\delta > 0 \) as the
+       number for the covering \(\mathcal{U}\) if \(X \subseteq M\)
+       and that \(\text{diam}(X) < \delta \Rightarrow \exists \alpha = \alpha(X) \in A\) 
+       such that \(X \subseteq U_{\alpha}\)
+  </p>
+  <h4>
+    Lebesgue Number Theorem
+ </h4>
+ <p>
+    Given any open covering \(\mathcal{U}\) of a compact metric space
+    \(M\) ,there exists a Lebesgue number for \(\mathcal{U} \) .
+ </p>
+</div>
+</div>
+<p>
+    Now it gets wild lmao
+</p>
+<h4>
+    Category of Metric Spaces
+</h4>
+<p>
+    We know that any compact metric space is complete. There are non-compact metric spaces 
+    which are also complete. The calss of complete metric spaces is much more general and this crucial property is: 
+    Baire category theorem. 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Definition
+    </h4>
+  <p>
+      A subset \(X\) of the metric space is said to be the first category if it is a countable 
+      union of nowhere dense sets. Otherwise, \((M,d)\) is said to be secound category. 
+  </p>
+  <h4>
+    Baire Category Theorem
+ </h4>
+  <p>
+      All complete metric space is of the second category. 
+  </p>
+</div>
+</div>
+<p>
+    Here are some supposedly useful applications of this theorem: 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Theorem
+    </h4>
+  <p>
+Let \(M,d\) be a complete metric space. Suppose that \(\{U_n\}_{n\geq 1}\) is a countable 
+family of open dense subsets in \(M\). Then \(\cup_{n=1}^\infty U_n \neq \emptyset\)
+  </p>
+</div>
+</div>
+<p>
+    The last theorem for the week we have:
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Theorem: Uniform Boundedness Principle
+    </h4>
+  <p>
+Let this be a complete metric space. Suppose that \(\mathcal{F}\) is a family of continous 
+real-valued functions on the metric space such that: 
+  </p>
+  \[\forall a \in M \exists C_a \in \mathbb{R} : f \in  \mathcal{F} \Rightarrow |f(a)| \leq C_a\]
+  <p>
+      Then there exists a non-empty open set \(U \subseteq M\) and a constant \(C\) such that 
+      \(f\in\mathbb{F}, x\ in U \rightarrow |f(x)|\leq C\)
+  </p>
+</div>
+</div>
+</body>
+</html>
