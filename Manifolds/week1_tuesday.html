@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calc on Manifolds - Week 1 Tuesday</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+       Topology of \(\mathbb{R}^n\)
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | May 11th 2021  Week 1 Tuesday </h3>
+    <div style=" border-width: 5px; border:solid; border-radius: 20px;
+    border-color: #b80707; ">
+    <div style="padding-left: 3%;padding-right: 3%;">
+        <h4>
+          Metric
+        </h4>
+        <ol>
+            <li>
+                Function is definite: \(d(y,x) = 0 \) <b>if and only if</b> \(x=y\)
+            </li>
+            <li>
+                Function commutes: \(d(y,x) = d(y,x) \) 
+            </li>
+            <li>
+                Obeys triangle inequality commutes: \(d(y,x) \leq d(x,z)+ d(z,y) \) 
+            </li>
+        </ol>
+    </div>
+    </div>
+<p>
+    We don't want to introduce more structure then it is needed and so 
+    we do not want to simply use the inner product to define a norm. 
+    The inner product helps with angles and such, so we stop using inner products 
+    as metrics. 
+</p>
+<p>
+    Sometimes proofs are easier with one metric over another. 
+</p>
+<p>
+    Example we can use the \(\text{sup}\) metric. 
+</p>
+<p>
+    <b>Suggestion: </b>take what you see in analysis in one dimensional and then try 
+    and generalize it. Think of the link in the one dimensional case. 
+</p>
+<p>
+    Analysis cares about things being "close" and not the actual distance per say. 
+</p>
+<p>
+    <b>Ex) </b>you can restirct metrics to subsets. Once you do such, you get a <b>subspace</b>
+these are now NOT the same as <b>linear subspace</b>. 
+</p>
+<h4>
+    Def: \(\epsilon -\)Neighbourhoods
+</h4>
+<p>
+We denote such as: \(U(x_0;\epsilon) = \{x\in \mathbb{R}^n: d(x,x_0) < \epsilon\}\)
+</p>
+<p>
+    Given the Euclidean metric we get a ball, if we use the \(\text{sup}\) metric we have a cube. 
+</p>
+<p>
+    These intervals in analysis in 1 dimensional space are now described by these \(\epsilon -\)Neighbourhoods
+</p>
+<h4>
+    Def: Open Set
+</h4>
+<p>
+    A set \(U \subseteq \mathbb{R}^n\) is considered open if \(\forall x \in U, \exists \epsilon>0\)
+    such that \(U(x; \epsilon) \subset U\). \(U(x,\epsilon)\) is also open. 
+</p>
+<p>
+    We use these to measure the closeness.
+</p>
+<h4>
+    Def: Closed set
+</h4>
+<p>
+    \(A\) is closed if \(\mathbb{R}^n - A\) is open.
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+      Theorem
+    </h4>
+    <p>
+        Suppose that \(Y\subseteq \mathbb{R}^n\) a subspace. Then \(U\subseteq Y\)
+        is open in \(Y \Leftrightarrow U = U'\cap Y\) where \(U'\) is open. 
+    </p>
+    <p>
+        The idea here is we add "cushioning" for the set \(U\) to wiggle around. 
+    </p>
+</div>
+</div>
+<p>
+    We want to define the closed set in a better way:
+</p>
+<h4>
+    Def: Limit Point
+</h4>
+<p>
+    We say that \(x\in \mathbb{R}^n\) is a limit point of \(X\) if 
+    for all \(\epsilon > 0 \)  then every deleted neighbourhood 
+    \(U(x,\epsilon) - \{x\} \cap X \neq 0\). 
+</p>
+<h4>
+    Def: Closure
+</h4>
+<p>
+    The closure of \(X\) is the union of its limit points. Denoted by \(\overline X\)
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+      Theorem
+    </h4>
+    <p>
+        Closure are closed. More specifically \(X\) is closed 
+        if it is equal to its \(\overline X\). 
+    </p>
+    <p>
+        Closed sets are closed under limits. 
+    </p>
+</div>
+</div>
+<h4>
+    Limits and Continuity
+</h4>
+<p>
+    We can recall in the 1-D case that the limit 
+    \(\lim_{x\to x_0} f(x) = y\) if by the \(\delta - \epsilon\)
+    definition. 
+</p>
+<p>
+    We can generalize this, we replace these with a metric: 
+</p>
+\[\lim_{x\to x_0} f(x) = y \Leftrightarrow \forall \epsilon >0 
+\exists \delta > 0 : 0< d(x,x_0) < \delta \text{ then }d(f(x),y) < \epsilon\]
+<p>
+    This is one way to define the limit. We want to use the power of our sets and 
+    specifically the \(\epsilon-\) neighbourhood. 
+</body>
+\[\forall \epsilon >0 
+\exists \delta > 0 : \underbrace{0< d(x,x_0)< \delta}_{\text{deleted delta neigh}} 
+ \text{ then }  \underbrace{d(f(x),y) < \epsilon}_{epsilon neigh}\]
+ <h4>
+     Definition: Limit [without \(\epsilon-\delta\)]
+ </h4>
+ <p>
+     Suppose that \(X \subseteq \mathbb{R}^n ,  Y \subseteq \mathbb{R}^k \)
+     subspaces and \(f:X\to Y\) we say that \(\lim_{x\to x_0} f(x) = y\)
+     if and only if \(\forall V \subseteq Y\) is open in \(Y\)
+     containing \(y\) that \(\exists U \subseteq X\) open in \(X\) 
+     containing \(x_0\) such that \(f(U-\{x_0\}) \subseteq V\)
+ </p>
+ <p>
+     For any openset we can map it with \(f\) and it will fit inside of the open 
+     set. 
+ </p>
+ <p>
+     <b>Ex) </b>\(\forall x \in \mathbb{R}^n, |x|\leq ||x| \leq \sqrt{n}|x|\).
+ </p>
+<h4>
+    Continuity [without \(\epsilon-\delta\)]
+</h4>
+<p>
+    \(f: X \to Y\) is continous at \(x_0\in X \Leftrightarrow 
+    \forall V \subseteq Y\) open in \(Y\) containing \(f(x_0)\)
+    that there \(\exists U \subseteq X\) open in \(X\) containing 
+    \(x_0\) such that \(f(U) \subseteq V\). 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+      Theorem
+    </h4>
+    <ol>
+        <li>
+            Composition of functions tha are continous are also continous.
+        </li>
+        <li>
+            Sum and Differences are continous if it is continous.
+        </li>
+        <li>
+            Products and ratios are continous if it is continous. 
+        </li>
+        <li>
+            Constant function is continous
+        </li>
+        <li>
+            \(\Pi_i: \mathbb{R}^k \to  \mathbb{R}\) is a projection 
+            such that: \(\Pi_i(x_1 \cdots x_i \cdots) = x_i\). Prove
+            using the sup metric. 
+
+        </li>
+    </ol>
+
+</div>
+</div>
+<h4>
+    Notes 
+</h4>
+</html>
