@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Topology - Topological Spaces</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Topological Spaces ll
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | May 25th 2021</h3>
+<p>
+<b>Induced topology </b>is defined to be the set 
+\(\tau_Y:= \{U\cap Y|U\in \tau\}\) is called the induced topology on \(Y\). 
+
+</p>
+<p>
+    The topological space \((Y, \tau_Y)\) is called a subsapce of 
+    \((X,\tau)\ and the elements of \(\tau_Y\) are said to be relatively open 
+    subsets of \(Y\) or open in the subspace \(Y\). 
+</p>
+<p>
+    <b>Example: </b>consider \(Y = [0,2]\subset \mathbb{R}\)
+    and consider the usual euclidean topology \(\tau = \tau_{eucl}\) on 
+    \(\mathbb{R}\) that is \(\tau = T(\mathbb{R}, d_2)\).
+    Then \([0,1) = (-1,1)\cap [0,2]\in \tau_Y\) that is \([0,1)\) is 
+    relatively open subset of \(Y\), although it is not open in \(\mathbb{R}\)!
+</p>
+<p>
+    <b>
+        Convergence: 
+    </b>A sequence \(\{x_n\}\) of points in \((X,\tau)\) converges to a point 
+    \(a\in X\) if \[\forall U(a) \exists N = N(a) \in \mathbb{N}: 
+    n>N \rightarrow x_n U(a)\]
+    in this case, \(a\) is a limit of the sequence. 
+</p>
+<p>
+    A set \(B(a)\) of open neighborhoods of a is called a local basis 
+    at \(a\) if for any open neighborhood \(U(a)\) there exists 
+    an element \(B(a) \in B\) such that \(a\in B(a) \subseteq U(a).\)
+</p>
+<p>
+    There are three properties: 
+</p>
+<ol>
+    First countable, if it has a countable local basis at each point.
+</ol>
+<ol>
+    Second countable if there is a countable basis
+</ol>
+<ol>
+    Separable if ti contains a countable dense set. 
+</ol>
+
+<p>
+    <b>Theorem: </b>
+    A second countable space is always first countable and separable. 
+</p>
+<p>
+    <b>Theorem: </b>A separable metric space is always second countable. 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Definition: Connectedness
+    </h4>
+<p>
+A subspace Y of a topological space \((X,\tau)\) is said 
+to be connected if the only non-empty <b>clopen</b> sets in 
+\(\tau_Y\) are \(\emtpyset\) and \(Y\). Otherwise its said to be disconnected. 
+</p>
+</div>
+</div>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Definition: Path-Connected
+    </h4>
+<p>
+A subspace \(Y\) of a topological space \((X,\tau)\) is said to be 
+path connected if any two points \(y_0\) and \(y_1\) in \(Y\) can be connected by a path from 
+\(y_0\to y_1\) in \(Y\)
+</p>
+<p>
+    Path connected implies connected. 
+</p>
+</div>
+</div>
+</body>
+</html>

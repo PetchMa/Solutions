@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calc on Manifolds - Week 1 Tuesday</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+       Compactness and Connectedness of \(\mathbb{R}^n\)
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+<h3 style="text-align: left;">By Peter Ma | May 21th 2021  Week 2 Tuesday </h3>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+        Open Covers
+    </h4>
+    <p>
+        We say that \(U = \{A_\alpha\}\) is an open cover 
+        of \(X\subseteq \mathbb{R}^n\) if the \(A_\alpha\) 
+        are open and that the union of them all covers the subset. 
+    </p>
+    <p>
+        \(X\) is compact \(\Leftrightarrow \)every open cover
+        there is a finite number of sub covers to conver \(X\)
+    </p>
+    <p>
+        <b>Intuition: </b>there are two ways to think of \(\mathbb{R}^n\)
+        one in the linear algebra way with vectors. We can also think 
+        of as a metric space, we want to ignore the points but 
+        look at the open neighborhoods which is captured by metrics. 
+    </p>
+    <p>
+        The most fundemental parts of an metric spaces are these open sets, and thus 
+        it is natural to define things based on the finite collection of these fundemental 
+        building blocks of these metric spaces
+    </p>
+</div>
+</div>
+<p>
+   <b>Lemma: </b> We know that the subset \(X\subset \mathbb{R}^n\) is compact , \(f:X\rightarrow Y\) is continous 
+    then \(f\) is compact. 
+</p>
+<p>
+We know that the function is continous thus, for any open set \(A_\alpha\) we know that 
+\(F(x) \subseteq \bigcup_\alpha A_\alpha \Rightarrow X 
+\subseteq \bigcup f^{-1}(A_\alpha)\) open cover for \(X\). 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+        Heine Borel
+    </h4>
+    <p>
+        Define A subspace \(X\) is bounded if \(X \subseteq B(0;M)\)
+        for some \(M \in \mathbb{R}\). Where \(B\) denotes a ball. 
+    </p>
+    <p>
+        \(X\) is compact \(\Leftrightarrow \)\(X\) is closed and bounded. 
+    </p>
+    <p>
+        <b>Proof \(\Rightarrow\):
+        </b> Whenever we deal with these proofs, we come up with a clever open cover such that the results come for free. 
+    Start to prove boundedness. Pick opencover thats concentric 
+    "balls" and since there is a finite number of these the set is bounded 
+    \(A_\alpha = \{B(0,m)\}:m\in \mathbb{N}\). We know that these balls 
+    will cover all of \(\mathbb{R}^n\), however theres some finite number of these, 
+    we say that the subset is bounded. 
+    
+    </p>
+    <p>
+        To show closed, we prove the compliment is open.
+        We want to show that for any point there exists a ball around it in 
+        the compliment. We want to make these concentric balls smaller 
+        and smaller. 
+    </p>
+    <p>
+        We center the ball we make it smaller and smaller. We 
+        want to define the exterior of the balls to be the open sets. 
+        \(V_k =\{z\in \mathbb{R}^n: d(y,z) > \frac{1}{k}\}\). This gives us the 
+        exteiror of the point. So we have an open cover for \(X\). 
+    </p>
+    <p>
+        Compactness \(\Rightarrow X \subseteq \bigcup^l_{i=1} V_k = V_{max\{k_i\}}\)
+         since these shells are gets smaller and smaller, \(X\subseteq V_k\) where 
+         \(k=max\{k_i\}\) then \(d(x,y) > \frac{1}{k}\) such that 
+         \(\forall x \in X.\) Hence \(U(y, \frac{1}{k}) \cap X =\emptyset). 
+
+    </p>
+    <p>
+        <b>Extreme Value Theorem: </b> \(f: X \to \mathbb{R}\) 
+        continous and \(X\) compact \(\Rightarrow f\) attains its max and min. 
+
+    </p>
+    <p>
+
+  
+   <b>
+       \(\epsilon-\)neighbourhood Theorem:   </b> is how one can think of 
+       compact sets. We can think of it as big "points", if you zoom 
+       out enough they look at a point.  
+    </p>
+    <p>
+        Suppose that \(X\) is compact in \(\mathbb{R}^n\) we can define a quantity
+        called the \(\epsilon-\) neighbourhood of \(X\) as \(U(X;\epsilon) = \bigcup_{x\inX}U(x,\epsilon)\). 
+        We're basically making the \(\epsilon\) larger bound. 
+    </p>
+    <p>
+        
+    </p>
+</div>
+</div>
+
+</html>

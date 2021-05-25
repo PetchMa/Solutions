@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Topology - Topological Spaces</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Topological Spaces l
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <h3 style="text-align: left;">By Peter Ma | May 18th 2021</h3>
+<h4>
+    Remainder: Metric Spaces
+</h4>
+<p>
+If we say that \(X\) is a subset of the metric space 
+\((M,d)\)
+</p> then \((X,d_x)\) is also a <b>metric subspace </b>
+and the <b>Induced metric topology</b> is \(T(X,d_x\). 
+<p>
+    We say that two metrics \(d, D\) are the same on the space 
+    \(M\)
+</p>
+<li>
+    Strongly Equivalent: \[C_1d(x,y) \leq D(x,y) \leq C_2d(x,y), \forall x,y\in M\]
+</li>
+<li>
+    Topologically Equivalent: 
+    \[T(M,d) = T(M,D)\]
+</li>
+
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Definition: Topology
+    </h4>
+<p>
+    A subset \(\tau = \tau_x\) of \(\mathcal{P}(X)\)
+    is called a topology on \(X\) if it satisfies these conditions:
+</p>
+<ol>
+    <li>
+        \(\emptyset\) and \(X\) are in \(\tau\)
+    </li>
+    <li>
+        If \(U_1,U_2 \in \tau\) then \(U_1 \cap U_2 \in \tau\)
+    </li>
+    <li>
+        If \(U_\alpha \in \tau\) for all \(\alpha \in A\)
+        then \(\bigcup_{\alpha \in A}U_\alpha \in tau\)
+    </li>
+</ol>
+<p>
+    The elements of \(\tau \) are open sets on \(X\) and the pair 
+    \((X,\tau)\) is called the <b>topological space</b>. 
+    Typically we say ommit the \(\tau\). 
+</p>
+</div>
+</div>
+<p>
+    Some examples, we see that \(\{\emptyset,X\}\) and \(\mathcal{P}(x)\) 
+    are topologies on \(X\). The first one being the trivial topology called \(\tau_a\) 
+    and the second being the discrete topology called \(\tau_b\)
+</p>
+<p>
+    We also know that \(\mathcal{P}(x) = T(X,d_{discrete})\), now 
+    the question is for any topological space is what if 
+    \(\tau = T(X,d)\)? If such a \(d\) on \(X\) exists, then the topological space 
+    is called metrizable topological space. 
+</p>
+<H4>
+    Continous Maps
+</H4>
+<p>
+<b>Continous</b> if the preimage of any open set is an open set. Or if its closed then the 
+preimage is closed. 
+</p>
+<p>
+    Open if the image of an open is open. Closed if any image of closed set is also closed. 
+</p>
+<p>
+    <b>
+        Homeomorphism: 
+    </b>if it is a bijection, which is continous and open at the same time. Then \(f\) is also a closed map. 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Definition: Induced Topology
+    </h4>
+<p>
+    For a subset \(Y\) of a topological space \((X,\tau)\) we define the induced topology on \(Y\)
+    to be the subset \(\tau_Y\in \mathcal{P}(Y) \) such that: \[A\in \tau_Y \Leftrightarrow A = U\cap Y, U\in \tau\]
+</p>
+<p>
+    We want a new definition for open sets: we define it as:
+</p>
+<p>
+    For a subset \(Y\) of a topological space \(X\) define befine its <b>Open neighborhood</b>
+    to be an open set containing \(Y\)
+</p>
+<p>
+    <b>Interior: </b> the maximal open subset of \(X\) contained in \(Y\) \(\Leftrightarrow \)
+    the union of all opensubsets of \(Y\). 
+</p>
+<p>
+    <b>
+        Isolated points \(Y^{iso}\):
+    </b> the subset of \(Y\) such that for each of its points there exists an open neighborhood which contains no 
+    other points from \(Y\). 
+</p>
+<p>
+    <b>Limit points </b>\(Y^{lim} = Y'\): the subset of \(X\) such that 
+    for each of its points \(a\) any open neighborhood of \(a\)
+    contains at least one point of \(Y\) different from \(a\). 
+</p>
+<p>
+    <b>closure </b>\(cl(Y) = \overline{Y}\)
+    defined as \(Y\cup Y^{lim} = Y^{iso}\sqcup Y^{lim}\)
+</p>
+<p>
+    <b>Exterior</b> is the maximal openset of \(X\) contained in the 
+    compliment of \(Y\). Same as the union of all open sibsets of 
+    \(Y^C\) which is the maximal subset. 
+</p>
+<p>
+    <b>Boundary \(\partial (Y)\)</b> for each point of \(a\) 
+    such that the open neighborhood has both a point inside and a point outside. 
+</p>
+<p>
+    <b>Dense</b> we will define as \(\overline{Y}=X\). The closure of a subset 
+    os the entire space. Any open set of \(X\) it exists a point from \(Y\). 
+</p>
+<p>
+    <b>Nowhere Dense</b> if \(\text{int}(\overline{Y})= \emptyset\) that is \(X =X\ \emptyset\). 
+</p>
+<p><b>
+    \(\tau_1\) is coarser/weaker/smaller
+</b> than \(\tau_2\) if \(\tau_1\subseteq \tau_2\). Finer or stronger 
+if its the other subset direction.</p>
+
+</div>
+</div>
+<p>
+    After defining all of this we can also find the smallest topology 
+    or the coarsest topology. 
+</p>
+<p>
+    \(T\langle S \rangle\) equals the intersection of all topologies on 
+    \(X\) containing all elements from \(S\). 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Definition: Subbasis
+    </h4>
+<p>
+    A subset \(S\) in \(\mathcal{P}(X)\) is called a subbasis for 
+    \(\tau\) if \(\tau = T\langle S\ rangle\). In this case, we can say that 
+    \(\tau\) is generated by \(S\) thus \(S =S(\tau)\)
+</p>
+</div>
+</div>
+<p>
+    We can introcue a topology on the product set \(\prod X\).
+</p>
+<p>
+    First we can consider the set of all projection maps: \(\{\pi_\alpha: X\to X_\alpha\}_{\alpha\in A}\) 
+    and the set \(S=\{\pi^{-1}_\alpha(U_\alpha) | U_{\alpha}\in \tau_{\alpha},\alpha \in A\}\). 
+</p>
+<p>
+    The topology \(T\langle S \rangle \) is generated by \(S\) is called 
+    the product topology. \(\tau = \prod_{\alpha \in A}\tau_\alpha\)
+</p>
+<p>
+    We say that \(B\subseteq \tau\) is a basis for \(\tau\) if an open set of \(X\)
+    is a union of elements from \(B\) in this case we can write \(B = B(\tau)\) and that 
+    \(\tau = T(B)\).
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+    <h4>
+       Theorem
+    </h4>
+<p>
+There exists a topology \(\tau\) on \(X\) such that \(\tau = T(B) \) 
+and \(B = B(\tau)\) if and ONLY if \(X = \bigcup B\) for any \(B_1, B_2 \in B:\)
+</p>
+\[a \in B_1 \cap B_2 \Rightarrow \exists B(a) \in B:a\in B(a) \subseteq B_1 \cap B_2\]
+</div>
+</div>
+<h4>
+    Prove Primes are Infinite
+</h4>
+<p>
+    We can prove cool things now. For example the infinite primes!!!
+</p>
+<p>
+    Let \(X = \mathbb{Z}\) be the set of integers and let \(B\) be the set of all 
+    bi-infinit arithmetic progressions then \(B \in B(X)\). 
+</p>
+<p>
+Indeed then \(\mathbb{Z} = p\mathbb{Z}\cup \{1+\mathbb{Z}\}\cup \cdots \{(p-1)+p\mathbb{Z}\}\)
+and if \(a\in \{a_1+nd_1| n\in \mathbb{Z}\}\cap \{a_2 + nd_2|n\in \mathbb{Z}\}\), then 
+\[a\in \{a+nd_1d_2| n\in \mathbb{Z}\} \subseteq \{a_1+nd_1|n\in \mathbb{Z}\} \cap \{a_2+nd_2|n\mathbb{Z}\}\]
+</p>
+<p>
+   Let us consider the topology \(\tau\) on \(Z\) with the basis \(B\). Observe that for any 
+   \(p\in \mathbb{P}\) the set \(p\mathbb{Z}\) is both open and closed in \(\tau\). 
+   We know for sure because the compliment \((p\mathbb{Z})^C\) is a union of \(p-1\) arithmetic progressions,
+   corresponding to the non-zero remainders \(\text{mod }p\) and hence is open in \(\tau\).  
+</p>
+<p>
+    Now suppose there were only finitely many primes. It implies that the set \(\bigcup_{p\in \mathbb{P}}p\mathbb{Z})\)
+    would be closed. However the compliment of this set in \(X\) is a two element set \(1,-1\) which is not 
+    open! Indeed it can not contain any bi-infinite arithmetic progression since it is finite. 
+    Contradiction. 
+</p>
+</body>
+</html>
