@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calc on Manifolds - Week 3 Tuesday</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Differentiation
+        </h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+
+<P>
+    How can we generalized the idea of a derivative from \(\mathbb{R}^n \to 
+    \mathbb{R}^k\)? Recall the definition of differentiability 
+    in the 1-D case. We say \(f\) is diffable at \(a\in\mathbb{R}\) and we call 
+    the derivative \(f'(a)= \lim_{h\to 0} \frac{f(a+h)-f(a)}{h} = f'(a)\). 
+</P>
+<p>
+    We could think of it as rate of change. But this is not the best way to understand this. 
+</p>
+<p>
+    Consider: \(f:\mathbb{R}^2 \to \mathbb{R}, f(x,y) = x^2+y^2\). This gives us a 
+    bowl like shape. If we were asked the "rate of change" then what direction??? Which 
+    way is our rate of change. 
+</p>
+<p>
+    We define a directional derivative. 
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+<h4>
+    Definition: Derivative
+</h4>
+<p>
+    \(f:A \to \mathbb{R}^k, A \subseteq \mathbb{R}^n\) is a subspace such that 
+    \(\exists U \subseteq A\)open containing \(a\in A\).  Given \(u\in \mathbb{R}^n\) nonzero, 
+    the directiona derivative of \(f\) in the direction of \(u\) is \(f'(a,u)= \lim_{h\to 0} \frac{f(a+hu) - f(a)}{h}\)
+</p>
+<p>
+    \(f\) is differentiable if all the directional derivatives exists. However 
+    if it has a derivative in every dimension its not necessairly differentiable. Here is why. 
+</p>
+<p>
+    Define a function: \(f: \mathbb{R}^2 \to \mathbb{R}\) as 
+    \[f(x,y) = \begin{cases}
+    
+    \frac{x^2y}{x^4+y^2}, & (x,y)\neq 0,\\
+    0,  & (x,y) =0
+    \end{cases}\]
+    This function is differentiable but not continous... But we've previously known that 
+    a function must be continous if it is differentable. Problem. We can compute this "derivative"
+</p>
+\[f'(0) = \lim_{h\to 0} \frac{f(hu)-f(0)}{h} = \frac{\frac{(h^2u_1^2)(h^2u_2)}{h^4u_1^4+h^2u_2^2} - 0}{h}\]
+\[
+
+f'(x,y) = \begin{cases}
+    
+    \frac{u_1^2}{u_2^2}, & (u_2)\neq 0,\\
+    0,  & (u_2) =0
+    \end{cases}
+\]
+<p>
+    The original function is discontinous. Pick \(\epsilon = \frac{1}{3}\) then for 
+    each \(\delta >0\) then \(f(\delta, \delta^2) = \frac{1}{2}\). 
+    Since \(f(0)=0\) then \(d(f(0), f(\delta, \delta^2)) = \frac{1}{2} > \epsilon\). 
+    Thus it is not continous
+</p>
+<p>
+    The issue is that there is not proper relationship between each of these directional derivatives. 
+</p>
+<p>
+    <b>
+        Proper Definition:
+    </b>
+    Important. The rate of change is the SAME as the <b>linear approximation of a function.</b> The Derivative 
+    would be an affine subspace, a plane that doesn't go necessairly goes through the origin. The new definition would be: 
+</p>
+\[\lim_{t\to 0} \frac{f(a+t)-\overbrace{(f(a)+f'(a)t)}^{\text{linear approx}}}{t} = 0\]
+<p>
+    The differencnce of the linear approximation to the function, =0 means its well approximated and thus it because 
+    the derivative!
+</p>
+<p>
+    The second derivative would be the second order polynomial approximation of the function. 
+</p>
+<p>
+    Formally: \(f: A \to\mathbb{R}^k, A \subseteq \mathbb{R}^n\) where \(a\in A\) with \(U\subseteq A\) is 
+    open containing the point. We call the \(k\times n\) matrix \(Df(a)\) the derivative of \(f\) at \(a\)
+    if \[\lim_{h\to 0} \frac{f(a+h) - f(a)-Df(a)h}{d(h,0)}=0,\quad h\in\mathbb{R}^n\]
+    Once again the metric defines the distance. The derivative is now a <b>matrix</b>. 
+</p>
+</div>
+</div>
+<p>
+    Now you might be wondering what is this derivative matrix??? \(Df(a)\) has many nice properties, 
+    specifically these:
+</p>
+<ol>
+    <li>
+        Derivative is unique.
+    </li>
+    <li>
+        Derivative are related to rates of change. 
+    </li>
+    <li>
+        Theorem: \(f\) differentiable at \(a\) implies that \(f\) continous at \(a\)
+    </li>
+    <li>
+        Derivative is linear. 
+    </li>
+</ol>
+<p>
+    How do we find this matrix??? Notice something: \(f'(a,u) = Df(a)u\). If we picked a basis for \(\mathbb{R}^n\) 
+    for \(u\). If the function is differentiable we can figure out the matrix columb by columb.
+</p>
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+<div style="padding-left: 3%;padding-right: 3%;">
+<h4>
+    Definition: Partial Differentiation
+</h4>
+<p>
+    The \(j\)th partial derivative of a differentiable 
+    \(f\) at \(a\) is \(D_jf(a) = f'(a;e_j)\). We look at the standard basis. 
+</p>
+<p>
+    How do we find \(D_j f(a)\)? We define \(\phi_j:
+    \mathbb{R}\to \mathbb{R}\) as \(\phi_j(x) = f(a_1,a_2 \cdots a_{j-1},x,a_{j+1}\cdots a_n)\) where everything else is held 
+    constant.
+</p>
+<p>
+    This makes it the same the one dimensional case in computing the derivative. 
+</p>
+<p>
+    If \(f:A\to \mathbb{R}^k\) is of the form \(f(x) = (f_1(x)\cdots f_k(x)\) then 
+    \(Df(a))_{ij} = D_jf_i(x)\)
+</p>
+<p>
+    The columns are the partial derivatives. 
+</p>
+</div>
+</div>
+</html>
