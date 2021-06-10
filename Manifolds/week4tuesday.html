@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calc on Manfolds - Week 4 Tuesday</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+        Establishing Differentiation
+	</h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+    </div>
+    <p>
+    Recall that a function for \(f:\mathbb{R}^n \to \mathbb{R}\) we proved that \(f\) is continous at 
+    \(a\) if and only if each \(f_i\) is continous at \(a\) where \(f(x) = [f_1(x)\cdots f_k(x)]\)
+    </p>
+    <p>
+    The limits for each componenet the limit must approach to the value then it implies that the limit 
+    will be the same for the overall. 
+    </p>
+
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+	<div style="padding-left: 3%;padding-right: 3%;">
+		<h4>
+		Theorem 
+		</h4>
+		<p>
+		If \(A\subseteq \mathbb{R}^n\) a subspace and \(f:A \to \mathbb{R}^k\) then \(f\) is differentiable at 
+		at \(a \in A \Leftrightarrow f_i\) differentiable at \(a\). 
+		<p>
+		<b>
+			Proof:
+		</b>
+		 \(f\) is differentiable at \(a \Leftrightarrow \exists B\) a \(k\times n \) matrix with 
+		 \[\lim_{h\to 0} \frac{f(a+h) - f(a) -Bh}{|h|}=0\]
+		</p>
+		</p>
+		Given a \(k\times n\) matrix \(B\) define that \(F^B(hh) = \frac{f(a+h)-f(a) -Bh}{|h|}\)
+	<p>
+	Note that each of the \(F_i^B(h) = \frac{f_i(a+h)-f_i(h)-B_ih}{|h|}=0\)	
+	</p>
+<p>
+	
+	</p>
+</div>
+</div>
+<p>
+We will define some new notation to help us with this big theorem. Class of functions, we say that
+\(f:A\to\mathbb{R}^k\) is of class \(C^1\) on \(A\) if for each \(i\in \{1\cdots k\}\) and 
+\(j\in \{1\cdot n\}\) \(D_j f_i\) exists and is continous on \(A\). 
+</p>
+<p>
+\(f:A\subseteq \mathbb{R}^n \to \mathbb{R}^k\) then \(f_i: A \subseteq \mathbb{R^n}\to \mathbb{R}\) where
+that \(Df_i(a)\) is a \(1\times n\) matrix where it is a point. We can think of \(D_j f_i\) as a map from 
+\(A\to \mathbb{R}\). 
+	</p>
+<p>
+We cannot think of the entire thing as a function anymore, each individual compoenent gives rise to a function. 
+This is because the ENTIRE derivative gives out a MATRIX instead now. Example: 
+	</p>
+	\[f(x,y) = (x^2y,x-y,3xy)\]
+<p>
+For each of these we can compute the following:	
+	</p>
+	\[f_1(x,y) = x^2y\]
+	\[f_2(x,y) = x-y\]
+	\[f_3(x,y) = 3xy\]
+<p>
+	Thus we get the following:
+	</p>
+	\[Df(x,y) = \left[ \begin{matrix}
+	2xy & x^2\\
+	1 & 0-1 \\
+	3y &3x \\
+	\end{matrix}\right]
+	\]
+<p>
+\(Df\) maps to \(\mathbb{R}^2\) and maps to a matrix. 	
+	</p>
+<p>
+	If each of the individual functions 
+	are existent and continous then it is class \(C^1\). 
+	</p>
+<p>
+We say that something is of class \(C^r\) on \(A\) if \(D_jf_i: A\to \mathbb{R}\) then it is of 
+class \(C^{r-1}\). 
+	</p>
+	<p>
+	We say that things are \(C^\infty\) if it is infinitly differentiable. 
+</p>
+
+
+<div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+	<div style="padding-left: 3%;padding-right: 3%;">
+		<h4>
+		Theorem 
+		</h4>
+		<p>
+		Let \(A \subseteq \mathbb{R}^n\) be an open subspace and \(f:A\to \mathbb{R}^k\) be of
+		class \(C^1\). Then \(f\) is differentiable on \(A\), in other words \(Df(a)\) exists 
+		\(\forall a\in A\). 
+		<p>
+		<b>
+			Proof:
+		</b>
+		Let \(a\in A\) since \(A \) open, \(\exists \epsilon > 0 \) such that 
+		\(C (a,\epsilon)\subseteq A\). Let \(h=(h_1 \cdots h_n)\in \mathbb{R}^n\) with 
+		\(|h| < \epsilon \) for each \(j\in \{1\cdots n\}\) define 
+		</p>
+		<p>
+		We will now define a cube! We will travel along each of the basis directions and this will 
+		for a "cube" like strucutre. 
+		</p>
+		\[p_0 = a\quad p_j = a+\sum_{k+1}^j h_ke_k\]
+		<img src="box.jpg">
+		<p>
+		Since \(f\) is diffable \(\Leftrightarrow\) each \(f_i\) is diffable, we may
+		suppose without loss of generaliality that \(f \) maps into \(\mathbb{R}\). 
+		</p>
+		<p>
+		Note that each of these \(p_j\in C(a;|h|)\subseteq C(a,\epsilon)\). Also note that 
+		\[\overbrace{f(a+h) - f(a)}^{\text{related to the deriv}} = f(p_n)-f(p_0) = \sum_{j=1}^n
+		\overbrace{f(p_j)-f(p_{j-1})}^{\text{relates to the par deriv}}\]
+		
+		</p>
+		<p>
+		In a lot of proofs in \(257\) we want to define a one dimensional case.
+		</p>
+		<p>
+		If \(h_j\neq 0\) define \(\phi_j:[0,h_j]\to \mathbb{R}\) as \(\phi_j(t) = f(p_{j-1}t e_j\)
+		By assumption, \(D_jf\) is a continous map on \(A\). Hence \(\phi_j\) is differentibale. 
+		</p>
+		<p>
+		Since this is what we've done be fore we can invoke the Mean Value Theorem that we've used before 
+		such that \(\phi_j(h_j)-\phi_j(c_j)h_j\Rightarrow f(p_j)-f(p_{j-1}) = D_jf(p_{j-1}+C_je_j)h_j\)
+		</p>
+		<p>
+		If \(h_j=0\) then \(f(p_j)-f(p_{j-1})=0=D_jf(a)h_j\)
+		therefore \(\exists q_j\in \overline{C(a,|h|) }\) such that 
+		\(f(p_j)-f(p_{}j-1) = D_jf(q_j)h_j\)
+		</p>
+		<p>
+		Therefore \(f(a+h)-f(a) = \sum_{j=1}^n D_jf(q_i)h_j\). Let \(B= [D_1f(a), D_2f(a) \cdots D_nf(a)]
+		\). Thne we can write the following:
+		</p>
+		\[\lim_{h\to0}\frac{f(a+h) - f(a) -Bh}{|h|} = \lim_{h\to 0} \frac{\sum_{j=1}^n D_jf(q_i)h_j-\sum_{j=1}^nB_{ij}h_j}{|h|}\]
+		<p>
+		Since each of the \(q_i\) is in the rectangular prisim and it will approach \(q_j\to a\) when we collapse this cube it will reach the limit so \(B=Df(a)\). 
+		</p>
+	</div>
+</div>
+
+</html>
