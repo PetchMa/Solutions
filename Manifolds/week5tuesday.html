@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calc on Manfolds - Week 4 Tuesday</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+    <div style="text-align: center">
+        <h1>
+Chain Rule Differentiation
+	</h1>
+        <!-- <img style="align-content: center" src="dif.gif" width="300px" height="auto"> -->
+	<p>
+	We can recall the chain rule in the 1 dimension case. The derivative of the composition is:
+	\[\frac{d}{dx}(g \circ f) (x) = g'(f(x))f'(x)\]
+	<p>
+	I we can translate this into our derivative notation:
+	\[D(g \circ f)(x) = Dg(f(x)) Df(x)\]
+
+	</p>
+	<p>
+	<b>Guess: 
+	</b>In general if \(A \subset \mathbb{R}^n\) and that 
+	\(B \subset \mathbb{R}^p\) are subspaces and \(a \in A\) then 
+	\(D (g \circ f ) (a) = Dg(f(a))df(a)\) .
+	</p>
+	<p>
+	For \(x\) near \(a\) \(f(x) \approx f(a) + Df(a)(x-a)\) we linear approximate. 
+
+	</p>
+	<p>
+	For \(x\) near \(f(a), g(x) \approx g(f(a))+Dg(f(a))(x-f(a))\)
+	</p>
+	<p>
+	Thus if we sub in each of our approximations we get that: 
+	</p>
+	\[g(f(a)) \approx g(f(a)) + Dg(f(a))Df(a)(x-a)\]
+	<p>
+	This is why we suspect this is the case:
+	</p>
+    </div>
+   <div style=" border-width: 5px; border:solid; border-radius: 20px;
+border-color: #b80707; ">
+	<div style="padding-left: 3%;padding-right: 3%;">
+		<h4>
+		Chain Rule 
+		</h4>
+		<p>
+		Let \(A\subseteq \mathbb{R}^n\) and \(B \subseteq \mathbb{R}^P\) 
+		be subspaces and if \(f: A \to B\) and \(g : B\to \mathbb{R}^K\) be differentiable 
+		and \(a\in A\) then \(g\circ f\) is differentiable then:
+		</p>
+		\[D(g\circ f) (a) = Dg(f(a))Df(a)\]
+		<p>
+		<b>
+			Proof:
+		</b>
+		Since \(g\) are differentiable on the domain and at \(f(a)\). 
+		Since its differentiable there is an \(\epsilon\) neighbourhood such that 
+		\(U(f(a); \epsilon) \subseteq B\) by continuity of \(f\) then \(\exists \delta >0\)
+		such that \(f(U(a; \delta))\subseteq U(f(a);\epsilon)\). Define 
+		\(\phi: U(0; \delta)\to \mathbb{R}^p\) and \(\psi: U(0,\epsilon) \to \mathbb{R}^k\)
+		as :
+		\[\phi(h) = f(a+h)-f(a)-Df(a)h\]
+		\[\psi(h) = g(f(a)+h)-g(f(a))-Dg(f(a))h\]
+		</p>
+		<p>
+		Roughly speaking these are the numerators of the limit definition of the derivatvie
+		
+		</p>
+		<p>
+		To show that the composition is differentibale at \(a\) with the derivative 
+		as the claim above. We need to compute a limit and we need to show its 0. 
+		</p>
+		<p>
+		Lets compute it We want to show the limit:
+		</p>
+		<p>
+		\[\lim_{h\to 0}\frac{g(f(a+h))-g(f(a))- Dg(f(a))Df(a)h}{|h|} = 0\]
+		We have a slight problem: we want to relate the limit with the \(\phi, \psi\)
+		and we play with our limit.
+		</p>
+		<p>
+	
+		\[\lim_{h\to 0}\frac{g(f(a)+f(a+h)-f(a)) - g(f(a))-Dg(f(a))[
+			f(a+h)-f(a)-\phi(h)
+			]}{|h|} = 0\]
+notice that the quanityt \(\gamma \) we will replace
+			\\[\lim_{h\to 0}\frac{g(f(a)+\gamma) - g(f(a))-Dg(f(a))[
+			\gamma-\phi(h)
+			]}{|h|} = 0\]
+		We actually see what wanted to see: 
+
+		\[\lim_{h\to 0} \frac{g(f(a)+\gamma)-g(f(a))-Dg(f(a))\gamma +Dg(f(a))\phi(h)}{|h|}\]
+		However for \(h\in U(0;\delta)\) we have that the addition \(a+h\in U
+		(a;\delta) \) and so \(f(a+h)\in U(f(a), \epsilon)\) implies that \(\gamma \in U(0, \epsilon)\)
+	
+		\[\lim_{h\to 0}\frac{\psi(\gamma) + Dg(f(a))\phi(h)}{|h|}\]
+		it suffices to show that the norm approaches 0. 
+		
+		
+		\[\lim_{h\to 0} \frac{|\psi(\gamma)|}{|h|}  =0 \]
+		and that 
+		\[\lim_{h\to 0}\frac{Dg(f(a))\phi(h)}{|h|}=0\]
+		We show that the first one is 0. 
+		Give thant \(\forall \epsilon^~ >0, \exists \delta^~ >0\) such that if \(0< |h| < \delta^~ \)
+	     then  \(\frac{|\psi(h)|{|h|} < \epsilon^~ \) we invoke continuity of \(f\) then \(\exists a >0\) 
+	     such that if \(|(a+h)-a|< \alpha \) then \(f(a+h) - f(a)< \delta^~ \) in other words 
+	     \(\gamma < \delta^~\) thus if \(|h|<\alpha|\) thus \(|\frac{\delta(\gamma)}{\gamma}|< \epsilon^~\)
+	     However if we scroll back we see that it is related \(\phi\) thus:
+	     \[|\phi(\gamma)|< |\gamma | \epsilon^~\]
+	     which is a bunch of triangle inequalities:
+	     \[\leq |\phi(h)|\epsilon + |Df(a)h|\epsilon^~\]
+	     Which implies: \(\Rightarrow \frac{|\phi(\gamma)|}{|h|}\leq \epsilon^~ \frac{|\phi(h)|}{|h|}+ \frac{\epsilon^~ |Df(a)h|}{|h|}\)
+	     The second part goes to zero because of the SINGULAR VALUE decomposition. We apply the singular value decomp and bound it above and we get the following:
+	     \[\leq \frac{\epsilon^~ |\phi(h)|}{|h|}+ \epsilon^~ M\] 
+	     Everything goes to 0 because the first part we shown goes to 0, and the constant and \(\epsilon \) gets really small. 
+		</p>
+		<p>
+		Now we want to show the second limit is also 0. 
+		\[|Dg(f(a))\phi(h) \leq N
+		\frac{|\phi(h)|}{|h|}\]
+		\[\lim_{h\to 0}\frac{|Dg(f(a))\phi(h)|} {h} = 0 \]
+		</p>
+
+		<p>
+		This completes the proof. 
+		</p>
+	</div>
+</div>
+<p>
+Now we can see the different interesting results:
+</p>
+<p>
+<b>
+	Theorem:
+</b>
+
+If \(f:A \to B\) and the same for the other \(g: B \to \mathbb{R}^k\) are class \(C^r\) then the composition is of class 
+\(C^r\). 
+</p>
+<p>
+<b>
+Theorem: 
+</b>
+ Let \(A \subseteq \mathbb{R}^n\) be an open subspace and 
+ \(f:A\to \mathbb{R}k\) is differentiable if \(a, a+h \in A\) are such that the line segment connecting 
+ \(a\) and \(a+h\) is contained in \(A\) then \(\exists t_0 \in (0,1)\) such that \(f(a+h)-f(a) = Df(a+t_0h)h\)
+</p>
+</body>
+
+</html>
