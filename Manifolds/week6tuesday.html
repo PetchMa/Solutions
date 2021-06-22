@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calc on Manfolds - Week 6 Tuesday</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body style="padding-top: 2%; padding-left: 30%; padding-right: 30%; padding-bottom: 5%; min-width: 450px;">
+	<div style="text-align:center">
+	<h1>
+Inverse Function Theorem
+	</h1>
+	</div>
+	<p>
+	Observe that if \(a\subseteq \mathbb{R}^n\) is a subspaces and that 
+	\(f: A \to \mathbb{R}^n\) such that there exists \(U \subseteq A\) open with 
+	the restriction \(F|_U \) is injective, then \(f|_U: U \to f(U)\) is bijective. 
+	If \(g = {f|_U}^{-1}: f(U) = \to U\) is differentiable then \(D(g\circ f) = D\iota = I\)
+	Also, \(D(g\circ f) (a) = Dg(f(a))Df(a)\). 
+	</p>
+	<P>
+	Thus we have that \(Dg(f(a)) = (Df(a))^{-1}\). 
+	</P>
+	<p>
+	The compairison in the one dimension case. The derivative of the inverse is the 1 over the 
+	scalar. In this case we have the inverse matrix!
+	</p>
+	<p>
+	The inverse function theorem doesnt force us to use the set \(U\) and doesnt force the inverse is differentiable. 
+	</p>
+	<h4>
+		Inverse function theorem Definition:
+	</h4>
+	<p>
+	We have the same set up as the thing above. Won't repeat it. We assume the function is of class 
+	\(C^r\) we assume that we're given some point \(a\in A\) in such that \(Df(a)\) is invertible. 
+	</p>
+	<p>
+	This implies that there \(\exists U \subseteq A\) open containing \(a\) such that \(f|_U\) is injective, and \(f(U)\) is open, \(g=f^{-1}|_U:f(U) \to U\) is differentiable and of class \(C^r\). 
+	</p>
+	<p>
+	We just need to check that the matrix is in fact invertible. 
+	</p>
+
+	<h4>
+		Proof
+	</h4>
+	<p>	
+	<b>
+		Technical Lemma:
+	</b>
+	Let \(A \subset \mathbb{R}^n\) be an open subspace  \(f: A \to \mathbb{R}n\) of class 
+	\(C^1\) and an \(a\in A \) is such that \(Df(a)\) is invertible then \(\exists \alpha, \epsilon>0\) such that 
+	\(\forall x_0, x\in C(\alpha;\epsilon)\), \(|f(x_0)-f(x_1)| \geq \alpha |x_0-x_1|\) in particual, 
+	\(f|_{C(\alpha;\epsilon)}\). 
+	</p>
+	<p>
+	It turns out there doesn't exist differentiable function if the domain and codomain 
+	with a differentiable inverse. This mostly lies in there doesnt exists a continous inverse function with different dimensions. Thus we don't need to worry about that case! 
+	</p>
+	<p>
+	<b>
+		Steps to prove the inverse function theorem:
+	</b>
+
+	</p>
+	<ol>
+		<li>
+			Show existence of \(U\) such that the function restricted to it is injective and \(Df(x)\)
+			is invertible 
+			\(\forall x\in U\)
+		</li>
+		<li>
+			Show that \(f(u)\) is open 
+		</li>
+		<li>
+			Show that \(g = {f|_u}^{-1}: f(u)\to u\) is continous	
+		</li>
+		<li>
+			Show that it is differentiable
+		</li>
+		<li>
+			Show \(g\) is of class \(C^r\)
+		</li>
+
+
+	</ol>
+	<p>
+	The first lemma follows from the lemma that I've ommited the proof too. 
+	</p>
+	<p>
+	Let \(y_0\in f(u)\) and \(x_0=g(y_0)\in U\) since \(U\) is open then 
+	\(\exists \epsilon > 0 \) such that \(U(x_0;2\epsilon) \leq u\). Define 
+	\(B= \{ x\in U:d(x_0,x) = \epsilon\}\). Then \(B\) is closed and bounded and hence compact. 
+	Thus \(f(B)\) is compact and so \(\mathbb{R}^n \\ f(B)\) is open since \(x_0 \not \in B\)
+	and injectivity \(\Rightarrow y_0 = f(x_0) \in \mathbb{R}^n\\ f(B)\). 
+	</p>
+	<p>
+	Hence there exists a open set thats in the compliment. \(U(y_0: 2\delta) \subset \mathbb{R}^n \\ f(B)\)
+
+	</p>
+	<P>
+	To show \(g\) continous suffices tho show the inverse is open lmao
+	</P>
+	<p>
+	In step 4, Saied said go crazy with triangle inequality. 
+	</p>
+	<p>
+	Last step: note that \(Dg(f(a)) = (D(f(a)))^{-1}\) then \(Dg(b) = (Df(g(b)))^{-1}\) where 
+	\(b=f(a)\).
+	</p>
+
+</body>
+
+</html>
